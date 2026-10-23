@@ -1,0 +1,4 @@
+Extracted from Doom_Deluxe_Beta1.pk3.
+Daisy actor: Sergeant_Mark_IV. Sprites: Skulltag Team.
+Attribution from DECO/MONSTERS/Friends/Daisy.dec.
+Original mod scripts are not executed by this game.

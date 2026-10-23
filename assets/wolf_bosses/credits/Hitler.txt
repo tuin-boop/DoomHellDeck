@@ -1,0 +1,132 @@
+===========================================================================
+Advanced engine needed  : Skulltag, ZDaemon, any Doom engine that supports decorate.
+May not work with	: Doom95
+Purpose		        : The real purpose is to spread the fun of playing. I mean, what fun is there
+                          if you have an enemie with only a front rotation?? There you go.
+===========================================================================
+Title                   : Hitler
+Filename                : Hitler.wad
+Release date            : 03 May 2012
+Authors                 : ID Software, UnTrustable
+
+Email Address           : 3dshots@3dshots.nl
+
+Description:            : Hitler.wad is a compilation of Wolfenstein 3D to
+                          the Doom engine only to those who supports
+                          decorate
+Download location       : http://www.3dshots.nl/wads/Hitler.zip or
+                          http://www.3dshots.nl/wads/Hitler.rar
+===========================================================================
+* What is included *
+
+New levels              : no
+Sounds                  : yes
+New sounds              : no
+Music                   : no
+Graphics                : Yes
+New Graphics            : Yes, absolutely YES ! :D
+Dehacked/BEX Patch      : no
+Decorate                : Yes
+Demos                   : NA
+Other                   : NA
+Other files required    : NA
+===========================================================================
+* Play Information *
+
+Summon or summonfriend:
+
+hitler_01 : Hitler skill 1 original to Wolfenstein 3D (no suit damage and no blood control)
+hitler_02 : Hitler skill 2 original to Wolfenstein 3D (no suit damage and no blood control)
+hitler_03 : Hitler skill 3 original to Wolfenstein 3D (no suit damage and no blood control)
+hitler_04 : Hitler skill 4 original to Wolfenstein 3D (no suit damage and no blood control)
+
+hitler_11 : Hitler Skill 1 advanced version of the original Wolf3D with suit damage impact and blood control
+hitler_12 : Hitler Skill 2 advanced version of the original Wolf3D with suit damage impact and blood control
+hitler_13 : Hitler Skill 3 advanced version of the original Wolf3D with suit damage impact and blood control
+hitler_14 : Hitler Skill 4 advanced version of the original Wolf3D with suit damage impact and blood control
+
+hitler_21 : Hitler Skill 1 advanced version of the original Wolf3D with suit damage impact and blood control AND with pain state and alternate death
+hitler_22 : Hitler Skill 2 advanced version of the original Wolf3D with suit damage impact and blood control AND with pain state and alternate death
+hitler_23 : Hitler Skill 3 advanced version of the original Wolf3D with suit damage impact and blood control AND with pain state and alternate death
+hitler_24 : Hitler Skill 4 advanced version of the original Wolf3D with suit damage impact and blood control AND with pain state and alternate death
+
+More to come....
+
+The first number after 'Hitler' means what level of advancing. 0 means original to Wolfenstein
+                                                               1 means abit more advanced than 0
+                                                               2 means more advanced than 1 etc...
+
+
+The second number after 'Hitler' means what skill number (1-4) 1 means Skill 1
+                                                               2 means Skill 2
+                                                               3 means Skill 3
+                                                               4 means Skill 4
+
+You have here 3 versions of hitler, have fun with this.
+
+Best recommendated and fun Hitler to see and fight is Hitler_14.
+
+In the future there will be more graphical art available of Hitler.
+
+===========================================================================
+* Construction *
+
+Base                    : Wolfenstein 3D Hitler, but Wolfenstein 3D has no rotations.
+Build Time              : I have no idea. I've started somewhere in 2007, left off and
+                          continued at 13 april 2012....probably 25 days, every day a
+                          hour or 4 tops.... (100 hours tops ??)
+Editor(s) used          : Paint Shop Pro 6, XWE 1.16, SlumpEd 0.7, Slade3.0.2
+Known Bugs              : none. Not really a bug, but hitler might not finish speaking active
+                          sound "Die, hella schweinhund !" when he is under rapid fire attack
+                          compared to the minichaingun of Skulltag.
+May Not Run With...     : other than Doom- or Doom2 related game engines.
+
+
+
+* Copyright / Permissions *
+
+Authors may use the sprites as a base for modification or reuse.
+
+You MAY distribute this file, provided you include this text file, with
+no modifications.  You may distribute this file in any electronic
+format (BBS, Diskette, CD, Flashdrive, etc) as long as you include this file 
+intact.  I have received permission from the original authors of any
+modified or included content in this file to allow further distribution.
+
+
+* Where to get the file that this text file describes *
+
+The Usual: http://www.3dshots.nl/wads/Hitler.zip, or http://www.3dshots.nl/wads/Hitler.rar
+Web sites: Unknown
+FTP sites: Unknown
+
+=====Other Creds=====
+
+Credits: Id Software (Existing front Sprites), Skulltag (Engine), Zdoom (Forums), Zdoom wiki, Fathax Wadhost,
+(zdoom forum people) Gez, InsanityBringer, and kinsie for helping me with sorting graphical issues out,
+                     Gez again for helping me figuring out the transparancy problem with PNG sprites.
+whoever else I forgot that should get credit. :)
+===========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

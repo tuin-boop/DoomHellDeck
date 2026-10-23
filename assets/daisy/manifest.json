@@ -1,0 +1,33 @@
+{
+  "DAISY": {
+    "idle": [
+      "res://assets/daisy/DASYA1.png",
+      "res://assets/daisy/DASYB1.png",
+      "res://assets/daisy/DASYC1.png",
+      "res://assets/daisy/DASYD1.png"
+    ],
+    "attack": [
+      "res://assets/daisy/DASYE1.png",
+      "res://assets/daisy/DASYE1.png",
+      "res://assets/daisy/DASYF1.png",
+      "res://assets/daisy/DASYF1.png"
+    ],
+    "side": [
+      "res://assets/daisy/DASYA3A7.png",
+      "res://assets/daisy/DASYB3B7.png",
+      "res://assets/daisy/DASYC3C7.png",
+      "res://assets/daisy/DASYD3D7.png"
+    ],
+    "side_attack": [
+      "res://assets/daisy/DASYE3E7.png",
+      "res://assets/daisy/DASYE3E7.png",
+      "res://assets/daisy/DASYF3F7.png",
+      "res://assets/daisy/DASYF3F7.png"
+    ],
+    "sounds": {
+      "attack": [
+        "res://assets/daisy/bite.wav"
+      ]
+    }
+  }
+}

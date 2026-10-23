@@ -1,0 +1,3446 @@
+{
+  "MMM_HelmetMan": {
+    "idle": [
+      "res://assets/monsters/HelmetMan/idle-0.png",
+      "res://assets/monsters/HelmetMan/idle-1.png",
+      "res://assets/monsters/HelmetMan/idle-2.png",
+      "res://assets/monsters/HelmetMan/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/HelmetMan/attack-0.png",
+      "res://assets/monsters/HelmetMan/attack-1.png"
+    ],
+    "side": [
+      "res://assets/monsters/HelmetMan/side-0.png",
+      "res://assets/monsters/HelmetMan/side-1.png",
+      "res://assets/monsters/HelmetMan/side-2.png",
+      "res://assets/monsters/HelmetMan/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/HelmetMan/side_attack-0.png",
+      "res://assets/monsters/HelmetMan/side_attack-1.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/HelmetMan/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/HelmetMan/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/7bd19d2fe45e.ogg",
+        "res://assets/monsters/sounds/955e30dfda1d.ogg",
+        "res://assets/monsters/sounds/ba5a98a1f598.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_AkimboZombie": {
+    "idle": [
+      "res://assets/monsters/AkimboZombie/idle-0.png",
+      "res://assets/monsters/AkimboZombie/idle-1.png",
+      "res://assets/monsters/AkimboZombie/idle-2.png",
+      "res://assets/monsters/AkimboZombie/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/AkimboZombie/attack-0.png",
+      "res://assets/monsters/AkimboZombie/attack-1.png",
+      "res://assets/monsters/AkimboZombie/attack-2.png",
+      "res://assets/monsters/AkimboZombie/attack-3.png",
+      "res://assets/monsters/AkimboZombie/attack-4.png",
+      "res://assets/monsters/AkimboZombie/attack-5.png",
+      "res://assets/monsters/AkimboZombie/attack-6.png",
+      "res://assets/monsters/AkimboZombie/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/AkimboZombie/side-0.png",
+      "res://assets/monsters/AkimboZombie/side-1.png",
+      "res://assets/monsters/AkimboZombie/side-2.png",
+      "res://assets/monsters/AkimboZombie/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/AkimboZombie/side_attack-0.png",
+      "res://assets/monsters/AkimboZombie/side_attack-1.png",
+      "res://assets/monsters/AkimboZombie/side_attack-2.png",
+      "res://assets/monsters/AkimboZombie/side_attack-3.png",
+      "res://assets/monsters/AkimboZombie/side_attack-4.png",
+      "res://assets/monsters/AkimboZombie/side_attack-5.png",
+      "res://assets/monsters/AkimboZombie/side_attack-6.png",
+      "res://assets/monsters/AkimboZombie/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/AkimboZombie/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/AkimboZombie/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/7d5644fb44d4.wav",
+        "res://assets/monsters/sounds/5a50ffeca994.wav",
+        "res://assets/monsters/sounds/431f35fb58ee.wav"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_D3PistolMan": {
+    "idle": [
+      "res://assets/monsters/D3PistolMan/idle-0.png",
+      "res://assets/monsters/D3PistolMan/idle-1.png",
+      "res://assets/monsters/D3PistolMan/idle-2.png",
+      "res://assets/monsters/D3PistolMan/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/D3PistolMan/attack-0.png",
+      "res://assets/monsters/D3PistolMan/attack-1.png",
+      "res://assets/monsters/D3PistolMan/attack-2.png",
+      "res://assets/monsters/D3PistolMan/attack-3.png",
+      "res://assets/monsters/D3PistolMan/attack-4.png",
+      "res://assets/monsters/D3PistolMan/attack-5.png",
+      "res://assets/monsters/D3PistolMan/attack-6.png",
+      "res://assets/monsters/D3PistolMan/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/D3PistolMan/side-0.png",
+      "res://assets/monsters/D3PistolMan/side-1.png",
+      "res://assets/monsters/D3PistolMan/side-2.png",
+      "res://assets/monsters/D3PistolMan/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/D3PistolMan/side_attack-0.png",
+      "res://assets/monsters/D3PistolMan/side_attack-1.png",
+      "res://assets/monsters/D3PistolMan/side_attack-2.png",
+      "res://assets/monsters/D3PistolMan/side_attack-3.png",
+      "res://assets/monsters/D3PistolMan/side_attack-4.png",
+      "res://assets/monsters/D3PistolMan/side_attack-5.png",
+      "res://assets/monsters/D3PistolMan/side_attack-6.png",
+      "res://assets/monsters/D3PistolMan/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/D3PistolMan/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/D3PistolMan/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/1144d7057069.ogg",
+        "res://assets/monsters/sounds/400e30e0ed55.ogg",
+        "res://assets/monsters/sounds/1e08c698984c.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/7d5644fb44d4.wav",
+        "res://assets/monsters/sounds/5a50ffeca994.wav",
+        "res://assets/monsters/sounds/431f35fb58ee.wav"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/f83a750bdd49.wav",
+        "res://assets/monsters/sounds/6a9cf2d11cdc.wav"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/630c8e3a4400.ogg",
+        "res://assets/monsters/sounds/fb11e7da3abd.ogg",
+        "res://assets/monsters/sounds/a34b3248996a.ogg"
+      ]
+    }
+  },
+  "MMM_ScientistFreeze": {
+    "idle": [
+      "res://assets/monsters/ScientistFreeze/idle-0.png",
+      "res://assets/monsters/ScientistFreeze/idle-1.png",
+      "res://assets/monsters/ScientistFreeze/idle-2.png",
+      "res://assets/monsters/ScientistFreeze/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/ScientistFreeze/attack-0.png",
+      "res://assets/monsters/ScientistFreeze/attack-1.png",
+      "res://assets/monsters/ScientistFreeze/attack-2.png",
+      "res://assets/monsters/ScientistFreeze/attack-3.png",
+      "res://assets/monsters/ScientistFreeze/attack-4.png",
+      "res://assets/monsters/ScientistFreeze/attack-5.png",
+      "res://assets/monsters/ScientistFreeze/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/ScientistFreeze/side-0.png",
+      "res://assets/monsters/ScientistFreeze/side-1.png",
+      "res://assets/monsters/ScientistFreeze/side-2.png",
+      "res://assets/monsters/ScientistFreeze/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/ScientistFreeze/side_attack-0.png",
+      "res://assets/monsters/ScientistFreeze/side_attack-1.png",
+      "res://assets/monsters/ScientistFreeze/side_attack-2.png",
+      "res://assets/monsters/ScientistFreeze/side_attack-3.png",
+      "res://assets/monsters/ScientistFreeze/side_attack-4.png",
+      "res://assets/monsters/ScientistFreeze/side_attack-5.png",
+      "res://assets/monsters/ScientistFreeze/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/ScientistFreeze/projectile-flight-0.png",
+        "res://assets/monsters/ScientistFreeze/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/ScientistFreeze/projectile-flight_side-0.png",
+        "res://assets/monsters/ScientistFreeze/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/ScientistFreeze/projectile-impact-0.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact-1.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact-2.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact-3.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/ScientistFreeze/projectile-impact_side-0.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact_side-1.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact_side-2.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact_side-3.png",
+        "res://assets/monsters/ScientistFreeze/projectile-impact_side-4.png"
+      ],
+      "actor": "BasicFrostBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_TechGunman": {
+    "idle": [
+      "res://assets/monsters/TechGunman/idle-0.png",
+      "res://assets/monsters/TechGunman/idle-1.png",
+      "res://assets/monsters/TechGunman/idle-2.png",
+      "res://assets/monsters/TechGunman/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/TechGunman/attack-0.png",
+      "res://assets/monsters/TechGunman/attack-1.png",
+      "res://assets/monsters/TechGunman/attack-2.png",
+      "res://assets/monsters/TechGunman/attack-3.png",
+      "res://assets/monsters/TechGunman/attack-4.png",
+      "res://assets/monsters/TechGunman/attack-5.png",
+      "res://assets/monsters/TechGunman/attack-6.png",
+      "res://assets/monsters/TechGunman/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/TechGunman/side-0.png",
+      "res://assets/monsters/TechGunman/side-1.png",
+      "res://assets/monsters/TechGunman/side-2.png",
+      "res://assets/monsters/TechGunman/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/TechGunman/side_attack-0.png",
+      "res://assets/monsters/TechGunman/side_attack-1.png",
+      "res://assets/monsters/TechGunman/side_attack-2.png",
+      "res://assets/monsters/TechGunman/side_attack-3.png",
+      "res://assets/monsters/TechGunman/side_attack-4.png",
+      "res://assets/monsters/TechGunman/side_attack-5.png",
+      "res://assets/monsters/TechGunman/side_attack-6.png",
+      "res://assets/monsters/TechGunman/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/TechGunman/projectile-flight-0.png",
+        "res://assets/monsters/TechGunman/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/TechGunman/projectile-flight_side-0.png",
+        "res://assets/monsters/TechGunman/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/TechGunman/projectile-impact-0.png",
+        "res://assets/monsters/TechGunman/projectile-impact-1.png",
+        "res://assets/monsters/TechGunman/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/TechGunman/projectile-impact_side-0.png",
+        "res://assets/monsters/TechGunman/projectile-impact_side-1.png",
+        "res://assets/monsters/TechGunman/projectile-impact_side-2.png"
+      ],
+      "actor": "PlasmaDart"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/9b05422f9e0e.ogg",
+        "res://assets/monsters/sounds/51926d17ef09.ogg",
+        "res://assets/monsters/sounds/26301b5fc833.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/3d0bf745f755.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/34632314bd3a.ogg",
+        "res://assets/monsters/sounds/ff9abb0ab1c5.ogg",
+        "res://assets/monsters/sounds/1a5fb14c3082.ogg"
+      ]
+    }
+  },
+  "MMM_ScourgeWarrior": {
+    "idle": [
+      "res://assets/monsters/ScourgeWarrior/idle-0.png",
+      "res://assets/monsters/ScourgeWarrior/idle-1.png",
+      "res://assets/monsters/ScourgeWarrior/idle-2.png",
+      "res://assets/monsters/ScourgeWarrior/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/ScourgeWarrior/attack-0.png",
+      "res://assets/monsters/ScourgeWarrior/attack-1.png",
+      "res://assets/monsters/ScourgeWarrior/attack-2.png",
+      "res://assets/monsters/ScourgeWarrior/attack-3.png",
+      "res://assets/monsters/ScourgeWarrior/attack-4.png",
+      "res://assets/monsters/ScourgeWarrior/attack-5.png",
+      "res://assets/monsters/ScourgeWarrior/attack-6.png",
+      "res://assets/monsters/ScourgeWarrior/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/ScourgeWarrior/side-0.png",
+      "res://assets/monsters/ScourgeWarrior/side-1.png",
+      "res://assets/monsters/ScourgeWarrior/side-2.png",
+      "res://assets/monsters/ScourgeWarrior/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/ScourgeWarrior/side_attack-0.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-1.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-2.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-3.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-4.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-5.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-6.png",
+      "res://assets/monsters/ScourgeWarrior/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/ScourgeWarrior/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/ScourgeWarrior/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-0.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-1.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-2.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-3.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-4.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-5.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-6.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-0.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-1.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-2.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-3.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-4.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-5.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-6.png",
+        "res://assets/monsters/ScourgeWarrior/projectile-impact_side-7.png"
+      ],
+      "actor": "ScourgeLasTracer"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/5768f48de62c.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Minigunner": {
+    "idle": [
+      "res://assets/monsters/Minigunner/idle-0.png",
+      "res://assets/monsters/Minigunner/idle-1.png",
+      "res://assets/monsters/Minigunner/idle-2.png",
+      "res://assets/monsters/Minigunner/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Minigunner/attack-0.png",
+      "res://assets/monsters/Minigunner/attack-1.png",
+      "res://assets/monsters/Minigunner/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Minigunner/side-0.png",
+      "res://assets/monsters/Minigunner/side-1.png",
+      "res://assets/monsters/Minigunner/side-2.png",
+      "res://assets/monsters/Minigunner/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Minigunner/side_attack-0.png",
+      "res://assets/monsters/Minigunner/side_attack-1.png",
+      "res://assets/monsters/Minigunner/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Minigunner/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Minigunner/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas2"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/4c2bc01ed6d4.ogg",
+        "res://assets/monsters/sounds/c4b141f743e2.ogg",
+        "res://assets/monsters/sounds/8c506b39dab2.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/7bd19d2fe45e.ogg",
+        "res://assets/monsters/sounds/955e30dfda1d.ogg",
+        "res://assets/monsters/sounds/ba5a98a1f598.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/8c34ee39310b.ogg",
+        "res://assets/monsters/sounds/120ea82e134f.ogg",
+        "res://assets/monsters/sounds/c94ff9c7a5bc.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c79565c43b32.ogg",
+        "res://assets/monsters/sounds/c1ed21e4c3cb.ogg",
+        "res://assets/monsters/sounds/6e943579182a.ogg"
+      ]
+    }
+  },
+  "MMM_TentacleCommando": {
+    "idle": [
+      "res://assets/monsters/TentacleCommando/idle-0.png",
+      "res://assets/monsters/TentacleCommando/idle-1.png",
+      "res://assets/monsters/TentacleCommando/idle-2.png",
+      "res://assets/monsters/TentacleCommando/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/TentacleCommando/attack-0.png",
+      "res://assets/monsters/TentacleCommando/attack-1.png",
+      "res://assets/monsters/TentacleCommando/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/TentacleCommando/side-0.png",
+      "res://assets/monsters/TentacleCommando/side-1.png",
+      "res://assets/monsters/TentacleCommando/side-2.png",
+      "res://assets/monsters/TentacleCommando/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/TentacleCommando/side_attack-0.png",
+      "res://assets/monsters/TentacleCommando/side_attack-1.png",
+      "res://assets/monsters/TentacleCommando/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/4c2bc01ed6d4.ogg",
+        "res://assets/monsters/sounds/c4b141f743e2.ogg",
+        "res://assets/monsters/sounds/8c506b39dab2.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/8c34ee39310b.ogg",
+        "res://assets/monsters/sounds/120ea82e134f.ogg",
+        "res://assets/monsters/sounds/c94ff9c7a5bc.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c79565c43b32.ogg",
+        "res://assets/monsters/sounds/c1ed21e4c3cb.ogg",
+        "res://assets/monsters/sounds/6e943579182a.ogg"
+      ]
+    }
+  },
+  "MMM_AkimboCommando": {
+    "idle": [
+      "res://assets/monsters/AkimboCommando/idle-0.png",
+      "res://assets/monsters/AkimboCommando/idle-1.png",
+      "res://assets/monsters/AkimboCommando/idle-2.png",
+      "res://assets/monsters/AkimboCommando/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/AkimboCommando/attack-0.png",
+      "res://assets/monsters/AkimboCommando/attack-1.png",
+      "res://assets/monsters/AkimboCommando/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/AkimboCommando/side-0.png",
+      "res://assets/monsters/AkimboCommando/side-1.png",
+      "res://assets/monsters/AkimboCommando/side-2.png",
+      "res://assets/monsters/AkimboCommando/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/AkimboCommando/side_attack-0.png",
+      "res://assets/monsters/AkimboCommando/side_attack-1.png",
+      "res://assets/monsters/AkimboCommando/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/AkimboCommando/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/AkimboCommando/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/4c2bc01ed6d4.ogg",
+        "res://assets/monsters/sounds/c4b141f743e2.ogg",
+        "res://assets/monsters/sounds/8c506b39dab2.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/731679e1d411.ogg",
+        "res://assets/monsters/sounds/86b84ebab2a4.ogg",
+        "res://assets/monsters/sounds/cc55d1d442fa.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/8c34ee39310b.ogg",
+        "res://assets/monsters/sounds/120ea82e134f.ogg",
+        "res://assets/monsters/sounds/c94ff9c7a5bc.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c79565c43b32.ogg",
+        "res://assets/monsters/sounds/c1ed21e4c3cb.ogg",
+        "res://assets/monsters/sounds/6e943579182a.ogg"
+      ]
+    }
+  },
+  "MMM_DevastatorCom": {
+    "idle": [
+      "res://assets/monsters/DevastatorCom/idle-0.png",
+      "res://assets/monsters/DevastatorCom/idle-1.png",
+      "res://assets/monsters/DevastatorCom/idle-2.png",
+      "res://assets/monsters/DevastatorCom/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/DevastatorCom/attack-0.png",
+      "res://assets/monsters/DevastatorCom/attack-1.png",
+      "res://assets/monsters/DevastatorCom/attack-2.png",
+      "res://assets/monsters/DevastatorCom/attack-3.png",
+      "res://assets/monsters/DevastatorCom/attack-4.png",
+      "res://assets/monsters/DevastatorCom/attack-5.png",
+      "res://assets/monsters/DevastatorCom/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/DevastatorCom/side-0.png",
+      "res://assets/monsters/DevastatorCom/side-1.png",
+      "res://assets/monsters/DevastatorCom/side-2.png",
+      "res://assets/monsters/DevastatorCom/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/DevastatorCom/side_attack-0.png",
+      "res://assets/monsters/DevastatorCom/side_attack-1.png",
+      "res://assets/monsters/DevastatorCom/side_attack-2.png",
+      "res://assets/monsters/DevastatorCom/side_attack-3.png",
+      "res://assets/monsters/DevastatorCom/side_attack-4.png",
+      "res://assets/monsters/DevastatorCom/side_attack-5.png",
+      "res://assets/monsters/DevastatorCom/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/DevastatorCom/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/DevastatorCom/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/DevastatorCom/projectile-impact-0.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact-1.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact-2.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact-3.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact-4.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/DevastatorCom/projectile-impact_side-0.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact_side-1.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact_side-2.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact_side-3.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact_side-4.png",
+        "res://assets/monsters/DevastatorCom/projectile-impact_side-5.png"
+      ],
+      "actor": "DevastatorBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/4c2bc01ed6d4.ogg",
+        "res://assets/monsters/sounds/c4b141f743e2.ogg",
+        "res://assets/monsters/sounds/8c506b39dab2.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/8c34ee39310b.ogg",
+        "res://assets/monsters/sounds/120ea82e134f.ogg",
+        "res://assets/monsters/sounds/c94ff9c7a5bc.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c79565c43b32.ogg",
+        "res://assets/monsters/sounds/c1ed21e4c3cb.ogg",
+        "res://assets/monsters/sounds/6e943579182a.ogg"
+      ]
+    }
+  },
+  "MMM_TankImp": {
+    "idle": [
+      "res://assets/monsters/TankImp/idle-0.png",
+      "res://assets/monsters/TankImp/idle-1.png",
+      "res://assets/monsters/TankImp/idle-2.png",
+      "res://assets/monsters/TankImp/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/TankImp/attack-0.png",
+      "res://assets/monsters/TankImp/attack-1.png",
+      "res://assets/monsters/TankImp/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/TankImp/side-0.png",
+      "res://assets/monsters/TankImp/side-1.png",
+      "res://assets/monsters/TankImp/side-2.png",
+      "res://assets/monsters/TankImp/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/TankImp/side_attack-0.png",
+      "res://assets/monsters/TankImp/side_attack-1.png",
+      "res://assets/monsters/TankImp/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/TankImp/projectile-flight-0.png",
+        "res://assets/monsters/TankImp/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/TankImp/projectile-flight_side-0.png",
+        "res://assets/monsters/TankImp/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/TankImp/projectile-impact-0.png",
+        "res://assets/monsters/TankImp/projectile-impact-1.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/TankImp/projectile-impact_side-0.png",
+        "res://assets/monsters/TankImp/projectile-impact_side-1.png"
+      ],
+      "actor": "BasicFireBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_DwellerImp": {
+    "idle": [
+      "res://assets/monsters/DwellerImp/idle-0.png",
+      "res://assets/monsters/DwellerImp/idle-1.png",
+      "res://assets/monsters/DwellerImp/idle-2.png",
+      "res://assets/monsters/DwellerImp/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/DwellerImp/attack-0.png",
+      "res://assets/monsters/DwellerImp/attack-1.png",
+      "res://assets/monsters/DwellerImp/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/DwellerImp/side-0.png",
+      "res://assets/monsters/DwellerImp/side-1.png",
+      "res://assets/monsters/DwellerImp/side-2.png",
+      "res://assets/monsters/DwellerImp/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/DwellerImp/side_attack-0.png",
+      "res://assets/monsters/DwellerImp/side_attack-1.png",
+      "res://assets/monsters/DwellerImp/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/DwellerImp/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/DwellerImp/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/DwellerImp/projectile-impact-0.png",
+        "res://assets/monsters/DwellerImp/projectile-impact-1.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/DwellerImp/projectile-impact_side-0.png",
+        "res://assets/monsters/DwellerImp/projectile-impact_side-1.png"
+      ],
+      "actor": "DIFloorFireBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/5160ca53367b.ogg",
+        "res://assets/monsters/sounds/32eaf8a04be3.ogg",
+        "res://assets/monsters/sounds/d910da2f9243.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/4f27fce8a813.ogg",
+        "res://assets/monsters/sounds/f9418c241024.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/326ad9306936.ogg"
+      ]
+    }
+  },
+  "MMM_DarkImp": {
+    "idle": [
+      "res://assets/monsters/DarkImp/idle-0.png",
+      "res://assets/monsters/DarkImp/idle-1.png",
+      "res://assets/monsters/DarkImp/idle-2.png",
+      "res://assets/monsters/DarkImp/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/DarkImp/attack-0.png",
+      "res://assets/monsters/DarkImp/attack-1.png",
+      "res://assets/monsters/DarkImp/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/DarkImp/side-0.png",
+      "res://assets/monsters/DarkImp/side-1.png",
+      "res://assets/monsters/DarkImp/side-2.png",
+      "res://assets/monsters/DarkImp/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/DarkImp/side_attack-0.png",
+      "res://assets/monsters/DarkImp/side_attack-1.png",
+      "res://assets/monsters/DarkImp/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/DarkImp/projectile-flight-0.png",
+        "res://assets/monsters/DarkImp/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/DarkImp/projectile-flight_side-0.png",
+        "res://assets/monsters/DarkImp/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/DarkImp/projectile-impact-0.png",
+        "res://assets/monsters/DarkImp/projectile-impact-1.png",
+        "res://assets/monsters/DarkImp/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/DarkImp/projectile-impact_side-0.png",
+        "res://assets/monsters/DarkImp/projectile-impact_side-1.png",
+        "res://assets/monsters/DarkImp/projectile-impact_side-2.png"
+      ],
+      "actor": "BasicDarkBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_PyroImp": {
+    "idle": [
+      "res://assets/monsters/PyroImp/idle-0.png",
+      "res://assets/monsters/PyroImp/idle-1.png",
+      "res://assets/monsters/PyroImp/idle-2.png",
+      "res://assets/monsters/PyroImp/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/PyroImp/attack-0.png",
+      "res://assets/monsters/PyroImp/attack-1.png",
+      "res://assets/monsters/PyroImp/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/PyroImp/side-0.png",
+      "res://assets/monsters/PyroImp/side-1.png",
+      "res://assets/monsters/PyroImp/side-2.png",
+      "res://assets/monsters/PyroImp/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/PyroImp/side_attack-0.png",
+      "res://assets/monsters/PyroImp/side_attack-1.png",
+      "res://assets/monsters/PyroImp/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/PyroImp/projectile-flight-0.png",
+        "res://assets/monsters/PyroImp/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/PyroImp/projectile-flight_side-0.png",
+        "res://assets/monsters/PyroImp/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/PyroImp/projectile-impact-0.png",
+        "res://assets/monsters/PyroImp/projectile-impact-1.png",
+        "res://assets/monsters/PyroImp/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/PyroImp/projectile-impact_side-0.png",
+        "res://assets/monsters/PyroImp/projectile-impact_side-1.png",
+        "res://assets/monsters/PyroImp/projectile-impact_side-2.png"
+      ],
+      "actor": "LavaBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/dd36bb233268.ogg",
+        "res://assets/monsters/sounds/9a9852f572e5.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/93b5ef999405.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/ba9dc1b9822d.ogg",
+        "res://assets/monsters/sounds/3675915612c4.ogg"
+      ]
+    }
+  },
+  "MMM_FeralImp": {
+    "idle": [
+      "res://assets/monsters/FeralImp/idle-0.png",
+      "res://assets/monsters/FeralImp/idle-1.png",
+      "res://assets/monsters/FeralImp/idle-2.png",
+      "res://assets/monsters/FeralImp/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/FeralImp/attack-0.png",
+      "res://assets/monsters/FeralImp/attack-1.png",
+      "res://assets/monsters/FeralImp/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/FeralImp/side-0.png",
+      "res://assets/monsters/FeralImp/side-1.png",
+      "res://assets/monsters/FeralImp/side-2.png",
+      "res://assets/monsters/FeralImp/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/FeralImp/side_attack-0.png",
+      "res://assets/monsters/FeralImp/side_attack-1.png",
+      "res://assets/monsters/FeralImp/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_FrozenImp": {
+    "idle": [
+      "res://assets/monsters/FrozenImp/idle-0.png",
+      "res://assets/monsters/FrozenImp/idle-1.png",
+      "res://assets/monsters/FrozenImp/idle-2.png",
+      "res://assets/monsters/FrozenImp/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/FrozenImp/attack-0.png",
+      "res://assets/monsters/FrozenImp/attack-1.png",
+      "res://assets/monsters/FrozenImp/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/FrozenImp/side-0.png",
+      "res://assets/monsters/FrozenImp/side-1.png",
+      "res://assets/monsters/FrozenImp/side-2.png",
+      "res://assets/monsters/FrozenImp/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/FrozenImp/side_attack-0.png",
+      "res://assets/monsters/FrozenImp/side_attack-1.png",
+      "res://assets/monsters/FrozenImp/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/FrozenImp/projectile-flight-0.png",
+        "res://assets/monsters/FrozenImp/projectile-flight-1.png",
+        "res://assets/monsters/FrozenImp/projectile-flight-2.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/FrozenImp/projectile-flight_side-0.png",
+        "res://assets/monsters/FrozenImp/projectile-flight_side-1.png",
+        "res://assets/monsters/FrozenImp/projectile-flight_side-2.png"
+      ],
+      "impact": [
+        "res://assets/monsters/FrozenImp/projectile-impact-0.png",
+        "res://assets/monsters/FrozenImp/projectile-impact-1.png",
+        "res://assets/monsters/FrozenImp/projectile-impact-2.png",
+        "res://assets/monsters/FrozenImp/projectile-impact-3.png",
+        "res://assets/monsters/FrozenImp/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/FrozenImp/projectile-impact_side-0.png",
+        "res://assets/monsters/FrozenImp/projectile-impact_side-1.png",
+        "res://assets/monsters/FrozenImp/projectile-impact_side-2.png",
+        "res://assets/monsters/FrozenImp/projectile-impact_side-3.png",
+        "res://assets/monsters/FrozenImp/projectile-impact_side-4.png"
+      ],
+      "actor": "LesserFrostDart"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/9c35bdafc5fc.wav"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/e97aedce1a8c.wav"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/585dbae2b41f.wav"
+      ]
+    }
+  },
+  "MMM_SoulHarvester": {
+    "idle": [
+      "res://assets/monsters/SoulHarvester/idle-0.png",
+      "res://assets/monsters/SoulHarvester/idle-1.png",
+      "res://assets/monsters/SoulHarvester/idle-2.png",
+      "res://assets/monsters/SoulHarvester/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/SoulHarvester/attack-0.png",
+      "res://assets/monsters/SoulHarvester/attack-1.png",
+      "res://assets/monsters/SoulHarvester/attack-2.png",
+      "res://assets/monsters/SoulHarvester/attack-3.png",
+      "res://assets/monsters/SoulHarvester/attack-4.png",
+      "res://assets/monsters/SoulHarvester/attack-5.png",
+      "res://assets/monsters/SoulHarvester/attack-6.png",
+      "res://assets/monsters/SoulHarvester/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/SoulHarvester/side-0.png",
+      "res://assets/monsters/SoulHarvester/side-1.png",
+      "res://assets/monsters/SoulHarvester/side-2.png",
+      "res://assets/monsters/SoulHarvester/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/SoulHarvester/side_attack-0.png",
+      "res://assets/monsters/SoulHarvester/side_attack-1.png",
+      "res://assets/monsters/SoulHarvester/side_attack-2.png",
+      "res://assets/monsters/SoulHarvester/side_attack-3.png",
+      "res://assets/monsters/SoulHarvester/side_attack-4.png",
+      "res://assets/monsters/SoulHarvester/side_attack-5.png",
+      "res://assets/monsters/SoulHarvester/side_attack-6.png",
+      "res://assets/monsters/SoulHarvester/side_attack-7.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/1572aa324f9b.wav",
+        "res://assets/monsters/sounds/d716020c6770.wav"
+      ],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/9a1135e18f2d.wav",
+        "res://assets/monsters/sounds/29b5ca087b88.wav"
+      ]
+    }
+  },
+  "MMM_Metalfoot": {
+    "idle": [
+      "res://assets/monsters/Metalfoot/idle-0.png",
+      "res://assets/monsters/Metalfoot/idle-1.png",
+      "res://assets/monsters/Metalfoot/idle-2.png",
+      "res://assets/monsters/Metalfoot/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Metalfoot/attack-0.png",
+      "res://assets/monsters/Metalfoot/attack-1.png",
+      "res://assets/monsters/Metalfoot/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Metalfoot/side-0.png",
+      "res://assets/monsters/Metalfoot/side-1.png",
+      "res://assets/monsters/Metalfoot/side-2.png",
+      "res://assets/monsters/Metalfoot/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Metalfoot/side_attack-0.png",
+      "res://assets/monsters/Metalfoot/side_attack-1.png",
+      "res://assets/monsters/Metalfoot/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/be59e46cae17.wav"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/cbf371c7c4ef.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/70088c11b318.wav"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/a21b8cdc26ec.wav"
+      ]
+    }
+  },
+  "MMM_BloodFiend": {
+    "idle": [
+      "res://assets/monsters/BloodFiend/idle-0.png",
+      "res://assets/monsters/BloodFiend/idle-1.png",
+      "res://assets/monsters/BloodFiend/idle-2.png",
+      "res://assets/monsters/BloodFiend/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/BloodFiend/attack-0.png"
+    ],
+    "side": [
+      "res://assets/monsters/BloodFiend/side-0.png",
+      "res://assets/monsters/BloodFiend/side-1.png",
+      "res://assets/monsters/BloodFiend/side-2.png",
+      "res://assets/monsters/BloodFiend/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/BloodFiend/side_attack-0.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/709b0f372ee6.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/acb06612aed9.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/1681dfffe3fc.ogg"
+      ]
+    }
+  },
+  "MMM_VoidPinky": {
+    "idle": [
+      "res://assets/monsters/VoidPinky/idle-0.png",
+      "res://assets/monsters/VoidPinky/idle-1.png",
+      "res://assets/monsters/VoidPinky/idle-2.png",
+      "res://assets/monsters/VoidPinky/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/VoidPinky/attack-0.png",
+      "res://assets/monsters/VoidPinky/attack-1.png",
+      "res://assets/monsters/VoidPinky/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/VoidPinky/side-0.png",
+      "res://assets/monsters/VoidPinky/side-1.png",
+      "res://assets/monsters/VoidPinky/side-2.png",
+      "res://assets/monsters/VoidPinky/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/VoidPinky/side_attack-0.png",
+      "res://assets/monsters/VoidPinky/side_attack-1.png",
+      "res://assets/monsters/VoidPinky/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/db030524d715.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/cbf371c7c4ef.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/acb06612aed9.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/98b94676817b.ogg"
+      ]
+    }
+  },
+  "MMM_GuardianCube": {
+    "idle": [
+      "res://assets/monsters/GuardianCube/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/GuardianCube/attack-0.png",
+      "res://assets/monsters/GuardianCube/attack-1.png",
+      "res://assets/monsters/GuardianCube/attack-2.png",
+      "res://assets/monsters/GuardianCube/attack-3.png",
+      "res://assets/monsters/GuardianCube/attack-4.png",
+      "res://assets/monsters/GuardianCube/attack-5.png",
+      "res://assets/monsters/GuardianCube/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/GuardianCube/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/GuardianCube/side_attack-0.png",
+      "res://assets/monsters/GuardianCube/side_attack-1.png",
+      "res://assets/monsters/GuardianCube/side_attack-2.png",
+      "res://assets/monsters/GuardianCube/side_attack-3.png",
+      "res://assets/monsters/GuardianCube/side_attack-4.png",
+      "res://assets/monsters/GuardianCube/side_attack-5.png",
+      "res://assets/monsters/GuardianCube/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/GuardianCube/projectile-flight-0.png",
+        "res://assets/monsters/GuardianCube/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/GuardianCube/projectile-flight_side-0.png",
+        "res://assets/monsters/GuardianCube/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/GuardianCube/projectile-impact-0.png",
+        "res://assets/monsters/GuardianCube/projectile-impact-1.png",
+        "res://assets/monsters/GuardianCube/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/GuardianCube/projectile-impact_side-0.png",
+        "res://assets/monsters/GuardianCube/projectile-impact_side-1.png",
+        "res://assets/monsters/GuardianCube/projectile-impact_side-2.png"
+      ],
+      "actor": "ImpFireball"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/6c3770e32003.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/6aa54684ac70.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/a6970845b27a.ogg"
+      ]
+    }
+  },
+  "MMM_DarkCaco": {
+    "idle": [
+      "res://assets/monsters/DarkCaco/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/DarkCaco/attack-0.png",
+      "res://assets/monsters/DarkCaco/attack-1.png"
+    ],
+    "side": [
+      "res://assets/monsters/DarkCaco/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/DarkCaco/side_attack-0.png",
+      "res://assets/monsters/DarkCaco/side_attack-1.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/DarkCaco/projectile-flight-0.png",
+        "res://assets/monsters/DarkCaco/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/DarkCaco/projectile-flight_side-0.png",
+        "res://assets/monsters/DarkCaco/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/DarkCaco/projectile-impact-0.png",
+        "res://assets/monsters/DarkCaco/projectile-impact-1.png",
+        "res://assets/monsters/DarkCaco/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/DarkCaco/projectile-impact_side-0.png",
+        "res://assets/monsters/DarkCaco/projectile-impact_side-1.png",
+        "res://assets/monsters/DarkCaco/projectile-impact_side-2.png"
+      ],
+      "actor": "BasicDarkBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/58543568ff90.ogg"
+      ],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/c9cd8b2b8c0b.ogg"
+      ]
+    }
+  },
+  "MMM_MagmaCac": {
+    "idle": [
+      "res://assets/monsters/MagmaCac/idle-0.png",
+      "res://assets/monsters/MagmaCac/idle-1.png",
+      "res://assets/monsters/MagmaCac/idle-2.png"
+    ],
+    "attack": [
+      "res://assets/monsters/MagmaCac/attack-0.png",
+      "res://assets/monsters/MagmaCac/attack-1.png",
+      "res://assets/monsters/MagmaCac/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/MagmaCac/side-0.png",
+      "res://assets/monsters/MagmaCac/side-1.png",
+      "res://assets/monsters/MagmaCac/side-2.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/MagmaCac/side_attack-0.png",
+      "res://assets/monsters/MagmaCac/side_attack-1.png",
+      "res://assets/monsters/MagmaCac/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/MagmaCac/projectile-flight-0.png",
+        "res://assets/monsters/MagmaCac/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/MagmaCac/projectile-flight_side-0.png",
+        "res://assets/monsters/MagmaCac/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/MagmaCac/projectile-impact-0.png",
+        "res://assets/monsters/MagmaCac/projectile-impact-1.png",
+        "res://assets/monsters/MagmaCac/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/MagmaCac/projectile-impact_side-0.png",
+        "res://assets/monsters/MagmaCac/projectile-impact_side-1.png",
+        "res://assets/monsters/MagmaCac/projectile-impact_side-2.png"
+      ],
+      "actor": "InfernalBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/dd40c8b06dca.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/cbf371c7c4ef.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/e8fd88fcecf8.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/28c4eb4fd763.ogg"
+      ]
+    }
+  },
+  "MMM_Abaddon": {
+    "idle": [
+      "res://assets/monsters/Abaddon/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Abaddon/attack-0.png",
+      "res://assets/monsters/Abaddon/attack-1.png",
+      "res://assets/monsters/Abaddon/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Abaddon/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Abaddon/side_attack-0.png",
+      "res://assets/monsters/Abaddon/side_attack-1.png",
+      "res://assets/monsters/Abaddon/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Abaddon/projectile-flight-0.png",
+        "res://assets/monsters/Abaddon/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Abaddon/projectile-flight_side-0.png",
+        "res://assets/monsters/Abaddon/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Abaddon/projectile-impact-0.png",
+        "res://assets/monsters/Abaddon/projectile-impact-1.png",
+        "res://assets/monsters/Abaddon/projectile-impact-2.png",
+        "res://assets/monsters/Abaddon/projectile-impact-3.png",
+        "res://assets/monsters/Abaddon/projectile-impact-4.png",
+        "res://assets/monsters/Abaddon/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Abaddon/projectile-impact_side-0.png",
+        "res://assets/monsters/Abaddon/projectile-impact_side-1.png",
+        "res://assets/monsters/Abaddon/projectile-impact_side-2.png",
+        "res://assets/monsters/Abaddon/projectile-impact_side-3.png",
+        "res://assets/monsters/Abaddon/projectile-impact_side-4.png",
+        "res://assets/monsters/Abaddon/projectile-impact_side-5.png"
+      ],
+      "actor": "RedSkullBomb"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/6175a427a25d.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/cbf371c7c4ef.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/087ddadefc70.ogg",
+        "res://assets/monsters/sounds/fc1d30573668.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/a7aaae298f7e.ogg"
+      ]
+    }
+  },
+  "MMM_Agathodemon": {
+    "idle": [
+      "res://assets/monsters/Agathodemon/idle-0.png",
+      "res://assets/monsters/Agathodemon/idle-1.png",
+      "res://assets/monsters/Agathodemon/idle-2.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Agathodemon/attack-0.png",
+      "res://assets/monsters/Agathodemon/attack-1.png",
+      "res://assets/monsters/Agathodemon/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Agathodemon/side-0.png",
+      "res://assets/monsters/Agathodemon/side-1.png",
+      "res://assets/monsters/Agathodemon/side-2.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Agathodemon/side_attack-0.png",
+      "res://assets/monsters/Agathodemon/side_attack-1.png",
+      "res://assets/monsters/Agathodemon/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/58543568ff90.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/4fcde2cef333.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c9cd8b2b8c0b.ogg"
+      ]
+    }
+  },
+  "MMM_HierophantDemon": {
+    "idle": [
+      "res://assets/monsters/HierophantDemon/idle-0.png",
+      "res://assets/monsters/HierophantDemon/idle-1.png",
+      "res://assets/monsters/HierophantDemon/idle-2.png",
+      "res://assets/monsters/HierophantDemon/idle-3.png",
+      "res://assets/monsters/HierophantDemon/idle-4.png",
+      "res://assets/monsters/HierophantDemon/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/HierophantDemon/attack-0.png"
+    ],
+    "side": [
+      "res://assets/monsters/HierophantDemon/side-0.png",
+      "res://assets/monsters/HierophantDemon/side-1.png",
+      "res://assets/monsters/HierophantDemon/side-2.png",
+      "res://assets/monsters/HierophantDemon/side-3.png",
+      "res://assets/monsters/HierophantDemon/side-4.png",
+      "res://assets/monsters/HierophantDemon/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/HierophantDemon/side_attack-0.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/HierophantDemon/projectile-flight-0.png",
+        "res://assets/monsters/HierophantDemon/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/HierophantDemon/projectile-flight_side-0.png",
+        "res://assets/monsters/HierophantDemon/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/HierophantDemon/projectile-impact-0.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact-1.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact-2.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact-3.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/HierophantDemon/projectile-impact_side-0.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact_side-1.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact_side-2.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact_side-3.png",
+        "res://assets/monsters/HierophantDemon/projectile-impact_side-4.png"
+      ],
+      "actor": "XenoBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/c05cae90d800.ogg"
+      ],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/74a6b429f527.ogg"
+      ]
+    }
+  },
+  "MMM_GhostRevenant": {
+    "idle": [
+      "res://assets/monsters/GhostRevenant/idle-0.png",
+      "res://assets/monsters/GhostRevenant/idle-1.png",
+      "res://assets/monsters/GhostRevenant/idle-2.png",
+      "res://assets/monsters/GhostRevenant/idle-3.png",
+      "res://assets/monsters/GhostRevenant/idle-4.png",
+      "res://assets/monsters/GhostRevenant/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/GhostRevenant/attack-0.png",
+      "res://assets/monsters/GhostRevenant/attack-1.png",
+      "res://assets/monsters/GhostRevenant/attack-2.png",
+      "res://assets/monsters/GhostRevenant/attack-3.png",
+      "res://assets/monsters/GhostRevenant/attack-4.png",
+      "res://assets/monsters/GhostRevenant/attack-5.png",
+      "res://assets/monsters/GhostRevenant/attack-6.png",
+      "res://assets/monsters/GhostRevenant/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/GhostRevenant/side-0.png",
+      "res://assets/monsters/GhostRevenant/side-1.png",
+      "res://assets/monsters/GhostRevenant/side-2.png",
+      "res://assets/monsters/GhostRevenant/side-3.png",
+      "res://assets/monsters/GhostRevenant/side-4.png",
+      "res://assets/monsters/GhostRevenant/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/GhostRevenant/side_attack-0.png",
+      "res://assets/monsters/GhostRevenant/side_attack-1.png",
+      "res://assets/monsters/GhostRevenant/side_attack-2.png",
+      "res://assets/monsters/GhostRevenant/side_attack-3.png",
+      "res://assets/monsters/GhostRevenant/side_attack-4.png",
+      "res://assets/monsters/GhostRevenant/side_attack-5.png",
+      "res://assets/monsters/GhostRevenant/side_attack-6.png",
+      "res://assets/monsters/GhostRevenant/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/GhostRevenant/projectile-flight-0.png",
+        "res://assets/monsters/GhostRevenant/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/GhostRevenant/projectile-flight_side-0.png",
+        "res://assets/monsters/GhostRevenant/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/GhostRevenant/projectile-impact-0.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact-1.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact-2.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact-3.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/GhostRevenant/projectile-impact_side-0.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact_side-1.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact_side-2.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact_side-3.png",
+        "res://assets/monsters/GhostRevenant/projectile-impact_side-4.png"
+      ],
+      "actor": "GRXenoBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/1d5f52310f73.wav"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Draugr": {
+    "idle": [
+      "res://assets/monsters/Draugr/idle-0.png",
+      "res://assets/monsters/Draugr/idle-1.png",
+      "res://assets/monsters/Draugr/idle-2.png",
+      "res://assets/monsters/Draugr/idle-3.png",
+      "res://assets/monsters/Draugr/idle-4.png",
+      "res://assets/monsters/Draugr/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Draugr/attack-0.png",
+      "res://assets/monsters/Draugr/attack-1.png",
+      "res://assets/monsters/Draugr/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Draugr/side-0.png",
+      "res://assets/monsters/Draugr/side-1.png",
+      "res://assets/monsters/Draugr/side-2.png",
+      "res://assets/monsters/Draugr/side-3.png",
+      "res://assets/monsters/Draugr/side-4.png",
+      "res://assets/monsters/Draugr/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Draugr/side_attack-0.png",
+      "res://assets/monsters/Draugr/side_attack-1.png",
+      "res://assets/monsters/Draugr/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/3621c1751ef1.ogg"
+      ]
+    }
+  },
+  "MMM_RevGhoul": {
+    "idle": [
+      "res://assets/monsters/RevGhoul/idle-0.png",
+      "res://assets/monsters/RevGhoul/idle-1.png",
+      "res://assets/monsters/RevGhoul/idle-2.png",
+      "res://assets/monsters/RevGhoul/idle-3.png",
+      "res://assets/monsters/RevGhoul/idle-4.png",
+      "res://assets/monsters/RevGhoul/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/RevGhoul/attack-0.png",
+      "res://assets/monsters/RevGhoul/attack-1.png"
+    ],
+    "side": [
+      "res://assets/monsters/RevGhoul/side-0.png",
+      "res://assets/monsters/RevGhoul/side-1.png",
+      "res://assets/monsters/RevGhoul/side-2.png",
+      "res://assets/monsters/RevGhoul/side-3.png",
+      "res://assets/monsters/RevGhoul/side-4.png",
+      "res://assets/monsters/RevGhoul/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/RevGhoul/side_attack-0.png",
+      "res://assets/monsters/RevGhoul/side_attack-1.png"
+    ],
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/1d5f52310f73.wav"
+      ],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/3621c1751ef1.ogg"
+      ]
+    }
+  },
+  "MMM_Incarnate": {
+    "idle": [
+      "res://assets/monsters/Incarnate/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Incarnate/attack-0.png",
+      "res://assets/monsters/Incarnate/attack-1.png"
+    ],
+    "side": [
+      "res://assets/monsters/Incarnate/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Incarnate/side_attack-0.png",
+      "res://assets/monsters/Incarnate/side_attack-1.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Incarnate/projectile-flight-0.png",
+        "res://assets/monsters/Incarnate/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Incarnate/projectile-flight_side-0.png",
+        "res://assets/monsters/Incarnate/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Incarnate/projectile-impact-0.png",
+        "res://assets/monsters/Incarnate/projectile-impact-1.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Incarnate/projectile-impact_side-0.png",
+        "res://assets/monsters/Incarnate/projectile-impact_side-1.png"
+      ],
+      "actor": "RedBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/1d5f52310f73.wav"
+      ],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/3621c1751ef1.ogg"
+      ]
+    }
+  },
+  "MMM_HellSquire": {
+    "idle": [
+      "res://assets/monsters/HellSquire/idle-0.png",
+      "res://assets/monsters/HellSquire/idle-1.png",
+      "res://assets/monsters/HellSquire/idle-2.png",
+      "res://assets/monsters/HellSquire/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/HellSquire/attack-0.png"
+    ],
+    "side": [
+      "res://assets/monsters/HellSquire/side-0.png",
+      "res://assets/monsters/HellSquire/side-1.png",
+      "res://assets/monsters/HellSquire/side-2.png",
+      "res://assets/monsters/HellSquire/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/HellSquire/side_attack-0.png"
+    ],
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_CyberKnight": {
+    "idle": [
+      "res://assets/monsters/CyberKnight/idle-0.png",
+      "res://assets/monsters/CyberKnight/idle-1.png",
+      "res://assets/monsters/CyberKnight/idle-2.png",
+      "res://assets/monsters/CyberKnight/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/CyberKnight/attack-0.png",
+      "res://assets/monsters/CyberKnight/attack-1.png",
+      "res://assets/monsters/CyberKnight/attack-2.png",
+      "res://assets/monsters/CyberKnight/attack-3.png",
+      "res://assets/monsters/CyberKnight/attack-4.png",
+      "res://assets/monsters/CyberKnight/attack-5.png",
+      "res://assets/monsters/CyberKnight/attack-6.png",
+      "res://assets/monsters/CyberKnight/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/CyberKnight/side-0.png",
+      "res://assets/monsters/CyberKnight/side-1.png",
+      "res://assets/monsters/CyberKnight/side-2.png",
+      "res://assets/monsters/CyberKnight/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/CyberKnight/side_attack-0.png",
+      "res://assets/monsters/CyberKnight/side_attack-1.png",
+      "res://assets/monsters/CyberKnight/side_attack-2.png",
+      "res://assets/monsters/CyberKnight/side_attack-3.png",
+      "res://assets/monsters/CyberKnight/side_attack-4.png",
+      "res://assets/monsters/CyberKnight/side_attack-5.png",
+      "res://assets/monsters/CyberKnight/side_attack-6.png",
+      "res://assets/monsters/CyberKnight/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/CyberKnight/projectile-flight-0.png",
+        "res://assets/monsters/CyberKnight/projectile-flight-1.png",
+        "res://assets/monsters/CyberKnight/projectile-flight-2.png",
+        "res://assets/monsters/CyberKnight/projectile-flight-3.png",
+        "res://assets/monsters/CyberKnight/projectile-flight-4.png",
+        "res://assets/monsters/CyberKnight/projectile-flight-5.png",
+        "res://assets/monsters/CyberKnight/projectile-flight-6.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/CyberKnight/projectile-flight_side-0.png",
+        "res://assets/monsters/CyberKnight/projectile-flight_side-1.png",
+        "res://assets/monsters/CyberKnight/projectile-flight_side-2.png",
+        "res://assets/monsters/CyberKnight/projectile-flight_side-3.png",
+        "res://assets/monsters/CyberKnight/projectile-flight_side-4.png",
+        "res://assets/monsters/CyberKnight/projectile-flight_side-5.png",
+        "res://assets/monsters/CyberKnight/projectile-flight_side-6.png"
+      ],
+      "impact": [
+        "res://assets/monsters/CyberKnight/projectile-impact-0.png",
+        "res://assets/monsters/CyberKnight/projectile-impact-1.png",
+        "res://assets/monsters/CyberKnight/projectile-impact-2.png",
+        "res://assets/monsters/CyberKnight/projectile-impact-3.png",
+        "res://assets/monsters/CyberKnight/projectile-impact-4.png",
+        "res://assets/monsters/CyberKnight/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/CyberKnight/projectile-impact_side-0.png",
+        "res://assets/monsters/CyberKnight/projectile-impact_side-1.png",
+        "res://assets/monsters/CyberKnight/projectile-impact_side-2.png",
+        "res://assets/monsters/CyberKnight/projectile-impact_side-3.png",
+        "res://assets/monsters/CyberKnight/projectile-impact_side-4.png",
+        "res://assets/monsters/CyberKnight/projectile-impact_side-5.png"
+      ],
+      "actor": "KarasawaLaser"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/0576ffe0d569.ogg"
+      ]
+    }
+  },
+  "MMM_HellsFury": {
+    "idle": [
+      "res://assets/monsters/HellsFury/idle-0.png",
+      "res://assets/monsters/HellsFury/idle-1.png",
+      "res://assets/monsters/HellsFury/idle-2.png",
+      "res://assets/monsters/HellsFury/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/HellsFury/attack-0.png",
+      "res://assets/monsters/HellsFury/attack-1.png",
+      "res://assets/monsters/HellsFury/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/HellsFury/side-0.png",
+      "res://assets/monsters/HellsFury/side-1.png",
+      "res://assets/monsters/HellsFury/side-2.png",
+      "res://assets/monsters/HellsFury/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/HellsFury/side_attack-0.png",
+      "res://assets/monsters/HellsFury/side_attack-1.png",
+      "res://assets/monsters/HellsFury/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/HellsFury/projectile-flight-0.png",
+        "res://assets/monsters/HellsFury/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/HellsFury/projectile-flight_side-0.png",
+        "res://assets/monsters/HellsFury/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/HellsFury/projectile-impact-0.png",
+        "res://assets/monsters/HellsFury/projectile-impact-1.png",
+        "res://assets/monsters/HellsFury/projectile-impact-2.png",
+        "res://assets/monsters/HellsFury/projectile-impact-3.png",
+        "res://assets/monsters/HellsFury/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/HellsFury/projectile-impact_side-0.png",
+        "res://assets/monsters/HellsFury/projectile-impact_side-1.png",
+        "res://assets/monsters/HellsFury/projectile-impact_side-2.png",
+        "res://assets/monsters/HellsFury/projectile-impact_side-3.png",
+        "res://assets/monsters/HellsFury/projectile-impact_side-4.png"
+      ],
+      "actor": "RedAcidBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_CybruiserKnight": {
+    "idle": [
+      "res://assets/monsters/CybruiserKnight/idle-0.png",
+      "res://assets/monsters/CybruiserKnight/idle-1.png",
+      "res://assets/monsters/CybruiserKnight/idle-2.png",
+      "res://assets/monsters/CybruiserKnight/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/CybruiserKnight/attack-0.png",
+      "res://assets/monsters/CybruiserKnight/attack-1.png"
+    ],
+    "side": [
+      "res://assets/monsters/CybruiserKnight/side-0.png",
+      "res://assets/monsters/CybruiserKnight/side-1.png",
+      "res://assets/monsters/CybruiserKnight/side-2.png",
+      "res://assets/monsters/CybruiserKnight/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/CybruiserKnight/side_attack-0.png",
+      "res://assets/monsters/CybruiserKnight/side_attack-1.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/e373fed30c25.ogg"
+      ],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/0576ffe0d569.ogg"
+      ]
+    }
+  },
+  "MMM_Hellrazer": {
+    "idle": [
+      "res://assets/monsters/Hellrazer/idle-0.png",
+      "res://assets/monsters/Hellrazer/idle-1.png",
+      "res://assets/monsters/Hellrazer/idle-2.png",
+      "res://assets/monsters/Hellrazer/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Hellrazer/attack-0.png",
+      "res://assets/monsters/Hellrazer/attack-1.png",
+      "res://assets/monsters/Hellrazer/attack-2.png",
+      "res://assets/monsters/Hellrazer/attack-3.png",
+      "res://assets/monsters/Hellrazer/attack-4.png",
+      "res://assets/monsters/Hellrazer/attack-5.png",
+      "res://assets/monsters/Hellrazer/attack-6.png",
+      "res://assets/monsters/Hellrazer/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/Hellrazer/side-0.png",
+      "res://assets/monsters/Hellrazer/side-1.png",
+      "res://assets/monsters/Hellrazer/side-2.png",
+      "res://assets/monsters/Hellrazer/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Hellrazer/side_attack-0.png",
+      "res://assets/monsters/Hellrazer/side_attack-1.png",
+      "res://assets/monsters/Hellrazer/side_attack-2.png",
+      "res://assets/monsters/Hellrazer/side_attack-3.png",
+      "res://assets/monsters/Hellrazer/side_attack-4.png",
+      "res://assets/monsters/Hellrazer/side_attack-5.png",
+      "res://assets/monsters/Hellrazer/side_attack-6.png",
+      "res://assets/monsters/Hellrazer/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Hellrazer/projectile-flight-0.png",
+        "res://assets/monsters/Hellrazer/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Hellrazer/projectile-flight_side-0.png",
+        "res://assets/monsters/Hellrazer/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Hellrazer/projectile-impact-0.png",
+        "res://assets/monsters/Hellrazer/projectile-impact-1.png",
+        "res://assets/monsters/Hellrazer/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Hellrazer/projectile-impact_side-0.png",
+        "res://assets/monsters/Hellrazer/projectile-impact_side-1.png",
+        "res://assets/monsters/Hellrazer/projectile-impact_side-2.png"
+      ],
+      "actor": "LavaBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/584cd94bcca7.ogg",
+        "res://assets/monsters/sounds/f05c64d4a573.ogg",
+        "res://assets/monsters/sounds/d519012e03e9.ogg"
+      ],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/0576ffe0d569.ogg"
+      ]
+    }
+  },
+  "MMM_BruiserDemon": {
+    "idle": [
+      "res://assets/monsters/BruiserDemon/idle-0.png",
+      "res://assets/monsters/BruiserDemon/idle-1.png",
+      "res://assets/monsters/BruiserDemon/idle-2.png",
+      "res://assets/monsters/BruiserDemon/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/BruiserDemon/attack-0.png",
+      "res://assets/monsters/BruiserDemon/attack-1.png",
+      "res://assets/monsters/BruiserDemon/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/BruiserDemon/side-0.png",
+      "res://assets/monsters/BruiserDemon/side-1.png",
+      "res://assets/monsters/BruiserDemon/side-2.png",
+      "res://assets/monsters/BruiserDemon/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/BruiserDemon/side_attack-0.png",
+      "res://assets/monsters/BruiserDemon/side_attack-1.png",
+      "res://assets/monsters/BruiserDemon/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/e5d3631a4a9b.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/16e612c9cbc2.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/eaca9d5883a7.ogg"
+      ]
+    }
+  },
+  "MMM_Cybrufilt": {
+    "idle": [
+      "res://assets/monsters/Cybrufilt/idle-0.png",
+      "res://assets/monsters/Cybrufilt/idle-1.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Cybrufilt/attack-0.png",
+      "res://assets/monsters/Cybrufilt/attack-1.png",
+      "res://assets/monsters/Cybrufilt/attack-2.png",
+      "res://assets/monsters/Cybrufilt/attack-3.png",
+      "res://assets/monsters/Cybrufilt/attack-4.png"
+    ],
+    "side": [
+      "res://assets/monsters/Cybrufilt/side-0.png",
+      "res://assets/monsters/Cybrufilt/side-1.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Cybrufilt/side_attack-0.png",
+      "res://assets/monsters/Cybrufilt/side_attack-1.png",
+      "res://assets/monsters/Cybrufilt/side_attack-2.png",
+      "res://assets/monsters/Cybrufilt/side_attack-3.png",
+      "res://assets/monsters/Cybrufilt/side_attack-4.png"
+    ],
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Belphegorr": {
+    "idle": [
+      "res://assets/monsters/Belphegorr/idle-0.png",
+      "res://assets/monsters/Belphegorr/idle-1.png",
+      "res://assets/monsters/Belphegorr/idle-2.png",
+      "res://assets/monsters/Belphegorr/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Belphegorr/attack-0.png",
+      "res://assets/monsters/Belphegorr/attack-1.png",
+      "res://assets/monsters/Belphegorr/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Belphegorr/side-0.png",
+      "res://assets/monsters/Belphegorr/side-1.png",
+      "res://assets/monsters/Belphegorr/side-2.png",
+      "res://assets/monsters/Belphegorr/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Belphegorr/side_attack-0.png",
+      "res://assets/monsters/Belphegorr/side_attack-1.png",
+      "res://assets/monsters/Belphegorr/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Belphegorr/projectile-flight-0.png",
+        "res://assets/monsters/Belphegorr/projectile-flight-1.png",
+        "res://assets/monsters/Belphegorr/projectile-flight-2.png",
+        "res://assets/monsters/Belphegorr/projectile-flight-3.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Belphegorr/projectile-flight_side-0.png",
+        "res://assets/monsters/Belphegorr/projectile-flight_side-1.png",
+        "res://assets/monsters/Belphegorr/projectile-flight_side-2.png",
+        "res://assets/monsters/Belphegorr/projectile-flight_side-3.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Belphegorr/projectile-impact-0.png",
+        "res://assets/monsters/Belphegorr/projectile-impact-1.png",
+        "res://assets/monsters/Belphegorr/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Belphegorr/projectile-impact_side-0.png",
+        "res://assets/monsters/Belphegorr/projectile-impact_side-1.png",
+        "res://assets/monsters/Belphegorr/projectile-impact_side-2.png"
+      ],
+      "actor": "BelpheBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/261f2b6496b1.ogg",
+        "res://assets/monsters/sounds/ed01edd45f56.ogg",
+        "res://assets/monsters/sounds/c79704df22e8.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_LesserCardinal": {
+    "idle": [
+      "res://assets/monsters/LesserCardinal/idle-0.png",
+      "res://assets/monsters/LesserCardinal/idle-1.png"
+    ],
+    "attack": [
+      "res://assets/monsters/LesserCardinal/attack-0.png",
+      "res://assets/monsters/LesserCardinal/attack-1.png",
+      "res://assets/monsters/LesserCardinal/attack-2.png",
+      "res://assets/monsters/LesserCardinal/attack-3.png",
+      "res://assets/monsters/LesserCardinal/attack-4.png",
+      "res://assets/monsters/LesserCardinal/attack-5.png",
+      "res://assets/monsters/LesserCardinal/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/LesserCardinal/side-0.png",
+      "res://assets/monsters/LesserCardinal/side-1.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/LesserCardinal/side_attack-0.png",
+      "res://assets/monsters/LesserCardinal/side_attack-1.png",
+      "res://assets/monsters/LesserCardinal/side_attack-2.png",
+      "res://assets/monsters/LesserCardinal/side_attack-3.png",
+      "res://assets/monsters/LesserCardinal/side_attack-4.png",
+      "res://assets/monsters/LesserCardinal/side_attack-5.png",
+      "res://assets/monsters/LesserCardinal/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/LesserCardinal/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/LesserCardinal/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/LesserCardinal/projectile-impact-0.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-1.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-2.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-3.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-4.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-5.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-6.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-0.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-1.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-2.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-3.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-4.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-5.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-6.png",
+        "res://assets/monsters/LesserCardinal/projectile-impact_side-7.png"
+      ],
+      "actor": "PoiRocket"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Past_ALord": {
+    "idle": [
+      "res://assets/monsters/Past_ALord/idle-0.png",
+      "res://assets/monsters/Past_ALord/idle-1.png",
+      "res://assets/monsters/Past_ALord/idle-2.png",
+      "res://assets/monsters/Past_ALord/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Past_ALord/attack-0.png",
+      "res://assets/monsters/Past_ALord/attack-1.png"
+    ],
+    "side": [
+      "res://assets/monsters/Past_ALord/side-0.png",
+      "res://assets/monsters/Past_ALord/side-1.png",
+      "res://assets/monsters/Past_ALord/side-2.png",
+      "res://assets/monsters/Past_ALord/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Past_ALord/side_attack-0.png",
+      "res://assets/monsters/Past_ALord/side_attack-1.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Past_ALord/projectile-flight-0.png",
+        "res://assets/monsters/Past_ALord/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Past_ALord/projectile-flight_side-0.png",
+        "res://assets/monsters/Past_ALord/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Past_ALord/projectile-impact-0.png",
+        "res://assets/monsters/Past_ALord/projectile-impact-1.png",
+        "res://assets/monsters/Past_ALord/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Past_ALord/projectile-impact_side-0.png",
+        "res://assets/monsters/Past_ALord/projectile-impact_side-1.png",
+        "res://assets/monsters/Past_ALord/projectile-impact_side-2.png"
+      ],
+      "actor": "HecteBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/7df2d823dfdc.wav"
+      ],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/dc51efc63b89.wav"
+      ]
+    }
+  },
+  "MMM_Cryocubus": {
+    "idle": [
+      "res://assets/monsters/Cryocubus/idle-0.png",
+      "res://assets/monsters/Cryocubus/idle-1.png",
+      "res://assets/monsters/Cryocubus/idle-2.png",
+      "res://assets/monsters/Cryocubus/idle-3.png",
+      "res://assets/monsters/Cryocubus/idle-4.png",
+      "res://assets/monsters/Cryocubus/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Cryocubus/attack-0.png",
+      "res://assets/monsters/Cryocubus/attack-1.png",
+      "res://assets/monsters/Cryocubus/attack-2.png",
+      "res://assets/monsters/Cryocubus/attack-3.png",
+      "res://assets/monsters/Cryocubus/attack-4.png",
+      "res://assets/monsters/Cryocubus/attack-5.png",
+      "res://assets/monsters/Cryocubus/attack-6.png",
+      "res://assets/monsters/Cryocubus/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/Cryocubus/side-0.png",
+      "res://assets/monsters/Cryocubus/side-1.png",
+      "res://assets/monsters/Cryocubus/side-2.png",
+      "res://assets/monsters/Cryocubus/side-3.png",
+      "res://assets/monsters/Cryocubus/side-4.png",
+      "res://assets/monsters/Cryocubus/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Cryocubus/side_attack-0.png",
+      "res://assets/monsters/Cryocubus/side_attack-1.png",
+      "res://assets/monsters/Cryocubus/side_attack-2.png",
+      "res://assets/monsters/Cryocubus/side_attack-3.png",
+      "res://assets/monsters/Cryocubus/side_attack-4.png",
+      "res://assets/monsters/Cryocubus/side_attack-5.png",
+      "res://assets/monsters/Cryocubus/side_attack-6.png",
+      "res://assets/monsters/Cryocubus/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Cryocubus/projectile-flight-0.png",
+        "res://assets/monsters/Cryocubus/projectile-flight-1.png",
+        "res://assets/monsters/Cryocubus/projectile-flight-2.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Cryocubus/projectile-flight_side-0.png",
+        "res://assets/monsters/Cryocubus/projectile-flight_side-1.png",
+        "res://assets/monsters/Cryocubus/projectile-flight_side-2.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Cryocubus/projectile-impact-0.png",
+        "res://assets/monsters/Cryocubus/projectile-impact-1.png",
+        "res://assets/monsters/Cryocubus/projectile-impact-2.png",
+        "res://assets/monsters/Cryocubus/projectile-impact-3.png",
+        "res://assets/monsters/Cryocubus/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Cryocubus/projectile-impact_side-0.png",
+        "res://assets/monsters/Cryocubus/projectile-impact_side-1.png",
+        "res://assets/monsters/Cryocubus/projectile-impact_side-2.png",
+        "res://assets/monsters/Cryocubus/projectile-impact_side-3.png",
+        "res://assets/monsters/Cryocubus/projectile-impact_side-4.png"
+      ],
+      "actor": "LesserFrostBomb"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_CyberMancubus": {
+    "idle": [
+      "res://assets/monsters/CyberMancubus/idle-0.png",
+      "res://assets/monsters/CyberMancubus/idle-1.png",
+      "res://assets/monsters/CyberMancubus/idle-2.png",
+      "res://assets/monsters/CyberMancubus/idle-3.png",
+      "res://assets/monsters/CyberMancubus/idle-4.png",
+      "res://assets/monsters/CyberMancubus/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/CyberMancubus/attack-0.png",
+      "res://assets/monsters/CyberMancubus/attack-1.png",
+      "res://assets/monsters/CyberMancubus/attack-2.png",
+      "res://assets/monsters/CyberMancubus/attack-3.png",
+      "res://assets/monsters/CyberMancubus/attack-4.png",
+      "res://assets/monsters/CyberMancubus/attack-5.png",
+      "res://assets/monsters/CyberMancubus/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/CyberMancubus/side-0.png",
+      "res://assets/monsters/CyberMancubus/side-1.png",
+      "res://assets/monsters/CyberMancubus/side-2.png",
+      "res://assets/monsters/CyberMancubus/side-3.png",
+      "res://assets/monsters/CyberMancubus/side-4.png",
+      "res://assets/monsters/CyberMancubus/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/CyberMancubus/side_attack-0.png",
+      "res://assets/monsters/CyberMancubus/side_attack-1.png",
+      "res://assets/monsters/CyberMancubus/side_attack-2.png",
+      "res://assets/monsters/CyberMancubus/side_attack-3.png",
+      "res://assets/monsters/CyberMancubus/side_attack-4.png",
+      "res://assets/monsters/CyberMancubus/side_attack-5.png",
+      "res://assets/monsters/CyberMancubus/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/CyberMancubus/projectile-flight-0.png",
+        "res://assets/monsters/CyberMancubus/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/CyberMancubus/projectile-flight_side-0.png",
+        "res://assets/monsters/CyberMancubus/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/CyberMancubus/projectile-impact-0.png",
+        "res://assets/monsters/CyberMancubus/projectile-impact-1.png",
+        "res://assets/monsters/CyberMancubus/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/CyberMancubus/projectile-impact_side-0.png",
+        "res://assets/monsters/CyberMancubus/projectile-impact_side-1.png",
+        "res://assets/monsters/CyberMancubus/projectile-impact_side-2.png"
+      ],
+      "actor": "HecteBallSmol"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_JetCubus": {
+    "idle": [
+      "res://assets/monsters/JetCubus/idle-0.png",
+      "res://assets/monsters/JetCubus/idle-1.png"
+    ],
+    "attack": [
+      "res://assets/monsters/JetCubus/attack-0.png",
+      "res://assets/monsters/JetCubus/attack-1.png",
+      "res://assets/monsters/JetCubus/attack-2.png",
+      "res://assets/monsters/JetCubus/attack-3.png",
+      "res://assets/monsters/JetCubus/attack-4.png",
+      "res://assets/monsters/JetCubus/attack-5.png",
+      "res://assets/monsters/JetCubus/attack-6.png",
+      "res://assets/monsters/JetCubus/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/JetCubus/side-0.png",
+      "res://assets/monsters/JetCubus/side-1.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/JetCubus/side_attack-0.png",
+      "res://assets/monsters/JetCubus/side_attack-1.png",
+      "res://assets/monsters/JetCubus/side_attack-2.png",
+      "res://assets/monsters/JetCubus/side_attack-3.png",
+      "res://assets/monsters/JetCubus/side_attack-4.png",
+      "res://assets/monsters/JetCubus/side_attack-5.png",
+      "res://assets/monsters/JetCubus/side_attack-6.png",
+      "res://assets/monsters/JetCubus/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/JetCubus/projectile-flight-0.png",
+        "res://assets/monsters/JetCubus/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/JetCubus/projectile-flight_side-0.png",
+        "res://assets/monsters/JetCubus/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/JetCubus/projectile-impact-0.png",
+        "res://assets/monsters/JetCubus/projectile-impact-1.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/JetCubus/projectile-impact_side-0.png",
+        "res://assets/monsters/JetCubus/projectile-impact_side-1.png"
+      ],
+      "actor": "BigFireball"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/f306502174e2.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Augmentotron": {
+    "idle": [
+      "res://assets/monsters/Augmentotron/idle-0.png",
+      "res://assets/monsters/Augmentotron/idle-1.png",
+      "res://assets/monsters/Augmentotron/idle-2.png",
+      "res://assets/monsters/Augmentotron/idle-3.png",
+      "res://assets/monsters/Augmentotron/idle-4.png",
+      "res://assets/monsters/Augmentotron/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Augmentotron/attack-0.png",
+      "res://assets/monsters/Augmentotron/attack-1.png",
+      "res://assets/monsters/Augmentotron/attack-2.png",
+      "res://assets/monsters/Augmentotron/attack-3.png",
+      "res://assets/monsters/Augmentotron/attack-4.png"
+    ],
+    "side": [
+      "res://assets/monsters/Augmentotron/side-0.png",
+      "res://assets/monsters/Augmentotron/side-1.png",
+      "res://assets/monsters/Augmentotron/side-2.png",
+      "res://assets/monsters/Augmentotron/side-3.png",
+      "res://assets/monsters/Augmentotron/side-4.png",
+      "res://assets/monsters/Augmentotron/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Augmentotron/side_attack-0.png",
+      "res://assets/monsters/Augmentotron/side_attack-1.png",
+      "res://assets/monsters/Augmentotron/side_attack-2.png",
+      "res://assets/monsters/Augmentotron/side_attack-3.png",
+      "res://assets/monsters/Augmentotron/side_attack-4.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Augmentotron/projectile-flight-0.png",
+        "res://assets/monsters/Augmentotron/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Augmentotron/projectile-flight_side-0.png",
+        "res://assets/monsters/Augmentotron/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Augmentotron/projectile-impact-0.png",
+        "res://assets/monsters/Augmentotron/projectile-impact-1.png",
+        "res://assets/monsters/Augmentotron/projectile-impact-2.png",
+        "res://assets/monsters/Augmentotron/projectile-impact-3.png",
+        "res://assets/monsters/Augmentotron/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Augmentotron/projectile-impact_side-0.png",
+        "res://assets/monsters/Augmentotron/projectile-impact_side-1.png",
+        "res://assets/monsters/Augmentotron/projectile-impact_side-2.png",
+        "res://assets/monsters/Augmentotron/projectile-impact_side-3.png",
+        "res://assets/monsters/Augmentotron/projectile-impact_side-4.png"
+      ],
+      "actor": "Xenoball"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Demolitron": {
+    "idle": [
+      "res://assets/monsters/Demolitron/idle-0.png",
+      "res://assets/monsters/Demolitron/idle-1.png",
+      "res://assets/monsters/Demolitron/idle-2.png",
+      "res://assets/monsters/Demolitron/idle-3.png",
+      "res://assets/monsters/Demolitron/idle-4.png",
+      "res://assets/monsters/Demolitron/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Demolitron/attack-0.png",
+      "res://assets/monsters/Demolitron/attack-1.png",
+      "res://assets/monsters/Demolitron/attack-2.png",
+      "res://assets/monsters/Demolitron/attack-3.png",
+      "res://assets/monsters/Demolitron/attack-4.png",
+      "res://assets/monsters/Demolitron/attack-5.png",
+      "res://assets/monsters/Demolitron/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/Demolitron/side-0.png",
+      "res://assets/monsters/Demolitron/side-1.png",
+      "res://assets/monsters/Demolitron/side-2.png",
+      "res://assets/monsters/Demolitron/side-3.png",
+      "res://assets/monsters/Demolitron/side-4.png",
+      "res://assets/monsters/Demolitron/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Demolitron/side_attack-0.png",
+      "res://assets/monsters/Demolitron/side_attack-1.png",
+      "res://assets/monsters/Demolitron/side_attack-2.png",
+      "res://assets/monsters/Demolitron/side_attack-3.png",
+      "res://assets/monsters/Demolitron/side_attack-4.png",
+      "res://assets/monsters/Demolitron/side_attack-5.png",
+      "res://assets/monsters/Demolitron/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Demolitron/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Demolitron/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/731679e1d411.ogg",
+        "res://assets/monsters/sounds/86b84ebab2a4.ogg",
+        "res://assets/monsters/sounds/cc55d1d442fa.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_ArachnoJet": {
+    "idle": [
+      "res://assets/monsters/ArachnoJet/idle-0.png",
+      "res://assets/monsters/ArachnoJet/idle-1.png"
+    ],
+    "attack": [
+      "res://assets/monsters/ArachnoJet/attack-0.png"
+    ],
+    "side": [
+      "res://assets/monsters/ArachnoJet/side-0.png",
+      "res://assets/monsters/ArachnoJet/side-1.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/ArachnoJet/side_attack-0.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/ArachnoJet/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/ArachnoJet/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/ArachnoJet/projectile-impact-0.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-1.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-2.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-3.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-4.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-5.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-6.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-0.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-1.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-2.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-3.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-4.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-5.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-6.png",
+        "res://assets/monsters/ArachnoJet/projectile-impact_side-7.png"
+      ],
+      "actor": "BasicPlasmaBall"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Helltron": {
+    "idle": [
+      "res://assets/monsters/Helltron/idle-0.png",
+      "res://assets/monsters/Helltron/idle-1.png",
+      "res://assets/monsters/Helltron/idle-2.png",
+      "res://assets/monsters/Helltron/idle-3.png",
+      "res://assets/monsters/Helltron/idle-4.png",
+      "res://assets/monsters/Helltron/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Helltron/attack-0.png",
+      "res://assets/monsters/Helltron/attack-1.png",
+      "res://assets/monsters/Helltron/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/Helltron/side-0.png",
+      "res://assets/monsters/Helltron/side-1.png",
+      "res://assets/monsters/Helltron/side-2.png",
+      "res://assets/monsters/Helltron/side-3.png",
+      "res://assets/monsters/Helltron/side-4.png",
+      "res://assets/monsters/Helltron/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Helltron/side_attack-0.png",
+      "res://assets/monsters/Helltron/side_attack-1.png",
+      "res://assets/monsters/Helltron/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Helltron/projectile-flight-0.png",
+        "res://assets/monsters/Helltron/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Helltron/projectile-flight_side-0.png",
+        "res://assets/monsters/Helltron/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Helltron/projectile-impact-0.png",
+        "res://assets/monsters/Helltron/projectile-impact-1.png",
+        "res://assets/monsters/Helltron/projectile-impact-2.png",
+        "res://assets/monsters/Helltron/projectile-impact-3.png",
+        "res://assets/monsters/Helltron/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Helltron/projectile-impact_side-0.png",
+        "res://assets/monsters/Helltron/projectile-impact_side-1.png",
+        "res://assets/monsters/Helltron/projectile-impact_side-2.png",
+        "res://assets/monsters/Helltron/projectile-impact_side-3.png",
+        "res://assets/monsters/Helltron/projectile-impact_side-4.png"
+      ],
+      "actor": "HellPlasmaBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/03c12c443584.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/15c674366f8b.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/2e5ed091b0ce.ogg"
+      ]
+    }
+  },
+  "MMM_Aracnorb": {
+    "idle": [
+      "res://assets/monsters/Aracnorb/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Aracnorb/attack-0.png",
+      "res://assets/monsters/Aracnorb/attack-1.png",
+      "res://assets/monsters/Aracnorb/attack-2.png",
+      "res://assets/monsters/Aracnorb/attack-3.png"
+    ],
+    "side": [
+      "res://assets/monsters/Aracnorb/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Aracnorb/side_attack-0.png",
+      "res://assets/monsters/Aracnorb/side_attack-1.png",
+      "res://assets/monsters/Aracnorb/side_attack-2.png",
+      "res://assets/monsters/Aracnorb/side_attack-3.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Aracnorb/projectile-flight-0.png",
+        "res://assets/monsters/Aracnorb/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Aracnorb/projectile-flight_side-0.png",
+        "res://assets/monsters/Aracnorb/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Aracnorb/projectile-impact-0.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-1.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-2.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-3.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-4.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-5.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-6.png",
+        "res://assets/monsters/Aracnorb/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Aracnorb/projectile-impact_side-0.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-1.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-2.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-3.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-4.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-5.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-6.png",
+        "res://assets/monsters/Aracnorb/projectile-impact_side-7.png"
+      ],
+      "actor": "ANorbPlasmaBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/7738db8d8e01.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/cbf371c7c4ef.ogg"
+      ],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/10c78fde198d.ogg"
+      ]
+    }
+  },
+  "MMM_AracTankPlasma": {
+    "idle": [
+      "res://assets/monsters/AracTankPlasma/idle-0.png",
+      "res://assets/monsters/AracTankPlasma/idle-1.png",
+      "res://assets/monsters/AracTankPlasma/idle-2.png"
+    ],
+    "attack": [
+      "res://assets/monsters/AracTankPlasma/attack-0.png",
+      "res://assets/monsters/AracTankPlasma/attack-1.png",
+      "res://assets/monsters/AracTankPlasma/attack-2.png",
+      "res://assets/monsters/AracTankPlasma/attack-3.png",
+      "res://assets/monsters/AracTankPlasma/attack-4.png"
+    ],
+    "side": [
+      "res://assets/monsters/AracTankPlasma/side-0.png",
+      "res://assets/monsters/AracTankPlasma/side-1.png",
+      "res://assets/monsters/AracTankPlasma/side-2.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/AracTankPlasma/side_attack-0.png",
+      "res://assets/monsters/AracTankPlasma/side_attack-1.png",
+      "res://assets/monsters/AracTankPlasma/side_attack-2.png",
+      "res://assets/monsters/AracTankPlasma/side_attack-3.png",
+      "res://assets/monsters/AracTankPlasma/side_attack-4.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/AracTankPlasma/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/AracTankPlasma/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/AracTankPlasma/projectile-impact-0.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-1.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-2.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-3.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-4.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-5.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-6.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-0.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-1.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-2.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-3.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-4.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-5.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-6.png",
+        "res://assets/monsters/AracTankPlasma/projectile-impact_side-7.png"
+      ],
+      "actor": "GHPlasmaBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/d22329f45bff.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/fc9834ec0daf.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/f4bbe09f11a8.ogg"
+      ]
+    }
+  },
+  "MMM_CyberBaron": {
+    "idle": [
+      "res://assets/monsters/CyberBaron/idle-0.png",
+      "res://assets/monsters/CyberBaron/idle-1.png",
+      "res://assets/monsters/CyberBaron/idle-2.png",
+      "res://assets/monsters/CyberBaron/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/CyberBaron/attack-0.png",
+      "res://assets/monsters/CyberBaron/attack-1.png",
+      "res://assets/monsters/CyberBaron/attack-2.png",
+      "res://assets/monsters/CyberBaron/attack-3.png",
+      "res://assets/monsters/CyberBaron/attack-4.png",
+      "res://assets/monsters/CyberBaron/attack-5.png"
+    ],
+    "side": [
+      "res://assets/monsters/CyberBaron/side-0.png",
+      "res://assets/monsters/CyberBaron/side-1.png",
+      "res://assets/monsters/CyberBaron/side-2.png",
+      "res://assets/monsters/CyberBaron/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/CyberBaron/side_attack-0.png",
+      "res://assets/monsters/CyberBaron/side_attack-1.png",
+      "res://assets/monsters/CyberBaron/side_attack-2.png",
+      "res://assets/monsters/CyberBaron/side_attack-3.png",
+      "res://assets/monsters/CyberBaron/side_attack-4.png",
+      "res://assets/monsters/CyberBaron/side_attack-5.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/CyberBaron/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/CyberBaron/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/CyberBaron/projectile-impact-0.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-1.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-2.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-3.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-4.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-5.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-6.png",
+        "res://assets/monsters/CyberBaron/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/CyberBaron/projectile-impact_side-0.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-1.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-2.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-3.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-4.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-5.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-6.png",
+        "res://assets/monsters/CyberBaron/projectile-impact_side-7.png"
+      ],
+      "actor": "BruiserRocket"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [],
+      "pain": [],
+      "death": [
+        "res://assets/monsters/sounds/0576ffe0d569.ogg"
+      ]
+    }
+  },
+  "MMM_Cybrawler": {
+    "idle": [
+      "res://assets/monsters/Cybrawler/idle-0.png",
+      "res://assets/monsters/Cybrawler/idle-1.png",
+      "res://assets/monsters/Cybrawler/idle-2.png",
+      "res://assets/monsters/Cybrawler/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Cybrawler/attack-0.png",
+      "res://assets/monsters/Cybrawler/attack-1.png",
+      "res://assets/monsters/Cybrawler/attack-2.png",
+      "res://assets/monsters/Cybrawler/attack-3.png",
+      "res://assets/monsters/Cybrawler/attack-4.png",
+      "res://assets/monsters/Cybrawler/attack-5.png",
+      "res://assets/monsters/Cybrawler/attack-6.png",
+      "res://assets/monsters/Cybrawler/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/Cybrawler/side-0.png",
+      "res://assets/monsters/Cybrawler/side-1.png",
+      "res://assets/monsters/Cybrawler/side-2.png",
+      "res://assets/monsters/Cybrawler/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Cybrawler/side_attack-0.png",
+      "res://assets/monsters/Cybrawler/side_attack-1.png",
+      "res://assets/monsters/Cybrawler/side_attack-2.png",
+      "res://assets/monsters/Cybrawler/side_attack-3.png",
+      "res://assets/monsters/Cybrawler/side_attack-4.png",
+      "res://assets/monsters/Cybrawler/side_attack-5.png",
+      "res://assets/monsters/Cybrawler/side_attack-6.png",
+      "res://assets/monsters/Cybrawler/side_attack-7.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/8bc72b3fff21.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/c0651ca8cbc8.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/092ce3153643.wav"
+      ]
+    }
+  },
+  "MMM_HellstormArchon": {
+    "idle": [
+      "res://assets/monsters/HellstormArchon/idle-0.png",
+      "res://assets/monsters/HellstormArchon/idle-1.png",
+      "res://assets/monsters/HellstormArchon/idle-2.png",
+      "res://assets/monsters/HellstormArchon/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/HellstormArchon/attack-0.png",
+      "res://assets/monsters/HellstormArchon/attack-1.png",
+      "res://assets/monsters/HellstormArchon/attack-2.png",
+      "res://assets/monsters/HellstormArchon/attack-3.png",
+      "res://assets/monsters/HellstormArchon/attack-4.png",
+      "res://assets/monsters/HellstormArchon/attack-5.png"
+    ],
+    "side": [
+      "res://assets/monsters/HellstormArchon/side-0.png",
+      "res://assets/monsters/HellstormArchon/side-1.png",
+      "res://assets/monsters/HellstormArchon/side-2.png",
+      "res://assets/monsters/HellstormArchon/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/HellstormArchon/side_attack-0.png",
+      "res://assets/monsters/HellstormArchon/side_attack-1.png",
+      "res://assets/monsters/HellstormArchon/side_attack-2.png",
+      "res://assets/monsters/HellstormArchon/side_attack-3.png",
+      "res://assets/monsters/HellstormArchon/side_attack-4.png",
+      "res://assets/monsters/HellstormArchon/side_attack-5.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/HellstormArchon/projectile-flight-0.png",
+        "res://assets/monsters/HellstormArchon/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/HellstormArchon/projectile-flight_side-0.png",
+        "res://assets/monsters/HellstormArchon/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/HellstormArchon/projectile-impact-0.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact-1.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact-2.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact-3.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact-4.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/HellstormArchon/projectile-impact_side-0.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact_side-1.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact_side-2.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact_side-3.png",
+        "res://assets/monsters/HellstormArchon/projectile-impact_side-4.png"
+      ],
+      "actor": "BasicAcidBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/e5d3631a4a9b.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/16e612c9cbc2.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/3498279eacb2.wav"
+      ]
+    }
+  },
+  "MMM_HellAfrit": {
+    "idle": [
+      "res://assets/monsters/HellAfrit/idle-0.png",
+      "res://assets/monsters/HellAfrit/idle-1.png",
+      "res://assets/monsters/HellAfrit/idle-2.png",
+      "res://assets/monsters/HellAfrit/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/HellAfrit/attack-0.png",
+      "res://assets/monsters/HellAfrit/attack-1.png",
+      "res://assets/monsters/HellAfrit/attack-2.png",
+      "res://assets/monsters/HellAfrit/attack-3.png",
+      "res://assets/monsters/HellAfrit/attack-4.png",
+      "res://assets/monsters/HellAfrit/attack-5.png"
+    ],
+    "side": [
+      "res://assets/monsters/HellAfrit/side-0.png",
+      "res://assets/monsters/HellAfrit/side-1.png",
+      "res://assets/monsters/HellAfrit/side-2.png",
+      "res://assets/monsters/HellAfrit/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/HellAfrit/side_attack-0.png",
+      "res://assets/monsters/HellAfrit/side_attack-1.png",
+      "res://assets/monsters/HellAfrit/side_attack-2.png",
+      "res://assets/monsters/HellAfrit/side_attack-3.png",
+      "res://assets/monsters/HellAfrit/side_attack-4.png",
+      "res://assets/monsters/HellAfrit/side_attack-5.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/HellAfrit/projectile-flight-0.png",
+        "res://assets/monsters/HellAfrit/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/HellAfrit/projectile-flight_side-0.png",
+        "res://assets/monsters/HellAfrit/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/HellAfrit/projectile-impact-0.png",
+        "res://assets/monsters/HellAfrit/projectile-impact-1.png",
+        "res://assets/monsters/HellAfrit/projectile-impact-2.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/HellAfrit/projectile-impact_side-0.png",
+        "res://assets/monsters/HellAfrit/projectile-impact_side-1.png",
+        "res://assets/monsters/HellAfrit/projectile-impact_side-2.png"
+      ],
+      "actor": "LavaBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/e5d3631a4a9b.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/16e612c9cbc2.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/eaca9d5883a7.ogg"
+      ]
+    }
+  },
+  "MMM_TormentorMind": {
+    "idle": [
+      "res://assets/monsters/TormentorMind/idle-0.png",
+      "res://assets/monsters/TormentorMind/idle-1.png",
+      "res://assets/monsters/TormentorMind/idle-2.png",
+      "res://assets/monsters/TormentorMind/idle-3.png",
+      "res://assets/monsters/TormentorMind/idle-4.png",
+      "res://assets/monsters/TormentorMind/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/TormentorMind/attack-0.png",
+      "res://assets/monsters/TormentorMind/attack-1.png",
+      "res://assets/monsters/TormentorMind/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/TormentorMind/side-0.png",
+      "res://assets/monsters/TormentorMind/side-1.png",
+      "res://assets/monsters/TormentorMind/side-2.png",
+      "res://assets/monsters/TormentorMind/side-3.png",
+      "res://assets/monsters/TormentorMind/side-4.png",
+      "res://assets/monsters/TormentorMind/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/TormentorMind/side_attack-0.png",
+      "res://assets/monsters/TormentorMind/side_attack-1.png",
+      "res://assets/monsters/TormentorMind/side_attack-2.png"
+    ],
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/bcaf5edb4f87.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_SupremeMind": {
+    "idle": [
+      "res://assets/monsters/SupremeMind/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/SupremeMind/attack-0.png",
+      "res://assets/monsters/SupremeMind/attack-1.png",
+      "res://assets/monsters/SupremeMind/attack-2.png",
+      "res://assets/monsters/SupremeMind/attack-3.png",
+      "res://assets/monsters/SupremeMind/attack-4.png",
+      "res://assets/monsters/SupremeMind/attack-5.png",
+      "res://assets/monsters/SupremeMind/attack-6.png",
+      "res://assets/monsters/SupremeMind/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/SupremeMind/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/SupremeMind/side_attack-0.png",
+      "res://assets/monsters/SupremeMind/side_attack-1.png",
+      "res://assets/monsters/SupremeMind/side_attack-2.png",
+      "res://assets/monsters/SupremeMind/side_attack-3.png",
+      "res://assets/monsters/SupremeMind/side_attack-4.png",
+      "res://assets/monsters/SupremeMind/side_attack-5.png",
+      "res://assets/monsters/SupremeMind/side_attack-6.png",
+      "res://assets/monsters/SupremeMind/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/SupremeMind/projectile-flight-0.png",
+        "res://assets/monsters/SupremeMind/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/SupremeMind/projectile-flight_side-0.png",
+        "res://assets/monsters/SupremeMind/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/SupremeMind/projectile-impact-0.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-1.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-2.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-3.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-4.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-5.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-6.png",
+        "res://assets/monsters/SupremeMind/projectile-impact-7.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/SupremeMind/projectile-impact_side-0.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-1.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-2.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-3.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-4.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-5.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-6.png",
+        "res://assets/monsters/SupremeMind/projectile-impact_side-7.png"
+      ],
+      "actor": "ANorbPlasmaBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/1652408174b9.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/633561a4a30c.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/04d2372e3a90.ogg"
+      ]
+    }
+  },
+  "MMM_CyberMastermind": {
+    "idle": [
+      "res://assets/monsters/CyberMastermind/idle-0.png",
+      "res://assets/monsters/CyberMastermind/idle-1.png",
+      "res://assets/monsters/CyberMastermind/idle-2.png",
+      "res://assets/monsters/CyberMastermind/idle-3.png",
+      "res://assets/monsters/CyberMastermind/idle-4.png",
+      "res://assets/monsters/CyberMastermind/idle-5.png"
+    ],
+    "attack": [
+      "res://assets/monsters/CyberMastermind/attack-0.png",
+      "res://assets/monsters/CyberMastermind/attack-1.png",
+      "res://assets/monsters/CyberMastermind/attack-2.png",
+      "res://assets/monsters/CyberMastermind/attack-3.png",
+      "res://assets/monsters/CyberMastermind/attack-4.png",
+      "res://assets/monsters/CyberMastermind/attack-5.png",
+      "res://assets/monsters/CyberMastermind/attack-6.png"
+    ],
+    "side": [
+      "res://assets/monsters/CyberMastermind/side-0.png",
+      "res://assets/monsters/CyberMastermind/side-1.png",
+      "res://assets/monsters/CyberMastermind/side-2.png",
+      "res://assets/monsters/CyberMastermind/side-3.png",
+      "res://assets/monsters/CyberMastermind/side-4.png",
+      "res://assets/monsters/CyberMastermind/side-5.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/CyberMastermind/side_attack-0.png",
+      "res://assets/monsters/CyberMastermind/side_attack-1.png",
+      "res://assets/monsters/CyberMastermind/side_attack-2.png",
+      "res://assets/monsters/CyberMastermind/side_attack-3.png",
+      "res://assets/monsters/CyberMastermind/side_attack-4.png",
+      "res://assets/monsters/CyberMastermind/side_attack-5.png",
+      "res://assets/monsters/CyberMastermind/side_attack-6.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/CyberMastermind/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/CyberMastermind/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/CyberMastermind/projectile-impact-0.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact-1.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact-2.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact-3.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact-4.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/CyberMastermind/projectile-impact_side-0.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact_side-1.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact_side-2.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact_side-3.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact_side-4.png",
+        "res://assets/monsters/CyberMastermind/projectile-impact_side-5.png"
+      ],
+      "actor": "HERocket"
+    },
+    "sounds": {
+      "summon": [],
+      "attack": [
+        "res://assets/monsters/sounds/731679e1d411.ogg",
+        "res://assets/monsters/sounds/86b84ebab2a4.ogg",
+        "res://assets/monsters/sounds/cc55d1d442fa.ogg"
+      ],
+      "pain": [],
+      "death": []
+    }
+  },
+  "MMM_Arachnophyte": {
+    "idle": [
+      "res://assets/monsters/Arachnophyte/idle-0.png",
+      "res://assets/monsters/Arachnophyte/idle-1.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Arachnophyte/attack-0.png",
+      "res://assets/monsters/Arachnophyte/attack-1.png",
+      "res://assets/monsters/Arachnophyte/attack-2.png",
+      "res://assets/monsters/Arachnophyte/attack-3.png"
+    ],
+    "side": [
+      "res://assets/monsters/Arachnophyte/side-0.png",
+      "res://assets/monsters/Arachnophyte/side-1.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Arachnophyte/side_attack-0.png",
+      "res://assets/monsters/Arachnophyte/side_attack-1.png",
+      "res://assets/monsters/Arachnophyte/side_attack-2.png",
+      "res://assets/monsters/Arachnophyte/side_attack-3.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Arachnophyte/projectile-flight-0.png",
+        "res://assets/monsters/Arachnophyte/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Arachnophyte/projectile-flight_side-0.png",
+        "res://assets/monsters/Arachnophyte/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Arachnophyte/projectile-impact-0.png",
+        "res://assets/monsters/Arachnophyte/projectile-impact-1.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Arachnophyte/projectile-impact_side-0.png",
+        "res://assets/monsters/Arachnophyte/projectile-impact_side-1.png"
+      ],
+      "actor": "PhyteTracer"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/fe60fdde5368.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/f66892b6b93f.ogg",
+        "res://assets/monsters/sounds/73961f020fbb.ogg",
+        "res://assets/monsters/sounds/35cb2f70daf3.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/f66892b6b93f.ogg",
+        "res://assets/monsters/sounds/73961f020fbb.ogg",
+        "res://assets/monsters/sounds/35cb2f70daf3.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/164d5c0e4816.ogg"
+      ]
+    }
+  },
+  "MMM_AracnorbQueen": {
+    "idle": [
+      "res://assets/monsters/AracnorbQueen/idle-0.png"
+    ],
+    "attack": [
+      "res://assets/monsters/AracnorbQueen/attack-0.png",
+      "res://assets/monsters/AracnorbQueen/attack-1.png",
+      "res://assets/monsters/AracnorbQueen/attack-2.png",
+      "res://assets/monsters/AracnorbQueen/attack-3.png"
+    ],
+    "side": [
+      "res://assets/monsters/AracnorbQueen/side-0.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/AracnorbQueen/side_attack-0.png",
+      "res://assets/monsters/AracnorbQueen/side_attack-1.png",
+      "res://assets/monsters/AracnorbQueen/side_attack-2.png",
+      "res://assets/monsters/AracnorbQueen/side_attack-3.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/fb82a3d67dfd.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/cbf371c7c4ef.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/548be84834af.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/5029c2e22d3b.ogg"
+      ]
+    }
+  },
+  "MMM_DarkCybie": {
+    "idle": [
+      "res://assets/monsters/DarkCybie/idle-0.png",
+      "res://assets/monsters/DarkCybie/idle-1.png",
+      "res://assets/monsters/DarkCybie/idle-2.png",
+      "res://assets/monsters/DarkCybie/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/DarkCybie/attack-0.png"
+    ],
+    "side": [
+      "res://assets/monsters/DarkCybie/side-0.png",
+      "res://assets/monsters/DarkCybie/side-1.png",
+      "res://assets/monsters/DarkCybie/side-2.png",
+      "res://assets/monsters/DarkCybie/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/DarkCybie/side_attack-0.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/417767560f64.ogg",
+        "res://assets/monsters/sounds/e0f9337175e0.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/ce0052117f2b.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/83a3476065e7.ogg"
+      ]
+    }
+  },
+  "MMM_Annihilator": {
+    "idle": [
+      "res://assets/monsters/Annihilator/idle-0.png",
+      "res://assets/monsters/Annihilator/idle-1.png",
+      "res://assets/monsters/Annihilator/idle-2.png",
+      "res://assets/monsters/Annihilator/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/Annihilator/attack-0.png",
+      "res://assets/monsters/Annihilator/attack-1.png",
+      "res://assets/monsters/Annihilator/attack-2.png",
+      "res://assets/monsters/Annihilator/attack-3.png",
+      "res://assets/monsters/Annihilator/attack-4.png",
+      "res://assets/monsters/Annihilator/attack-5.png",
+      "res://assets/monsters/Annihilator/attack-6.png",
+      "res://assets/monsters/Annihilator/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/Annihilator/side-0.png",
+      "res://assets/monsters/Annihilator/side-1.png",
+      "res://assets/monsters/Annihilator/side-2.png",
+      "res://assets/monsters/Annihilator/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/Annihilator/side_attack-0.png",
+      "res://assets/monsters/Annihilator/side_attack-1.png",
+      "res://assets/monsters/Annihilator/side_attack-2.png",
+      "res://assets/monsters/Annihilator/side_attack-3.png",
+      "res://assets/monsters/Annihilator/side_attack-4.png",
+      "res://assets/monsters/Annihilator/side_attack-5.png",
+      "res://assets/monsters/Annihilator/side_attack-6.png",
+      "res://assets/monsters/Annihilator/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/Annihilator/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/Annihilator/projectile-flight_side-0.png"
+      ],
+      "impact": [
+        "res://assets/monsters/Annihilator/projectile-impact-0.png",
+        "res://assets/monsters/Annihilator/projectile-impact-1.png",
+        "res://assets/monsters/Annihilator/projectile-impact-2.png",
+        "res://assets/monsters/Annihilator/projectile-impact-3.png",
+        "res://assets/monsters/Annihilator/projectile-impact-4.png",
+        "res://assets/monsters/Annihilator/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/Annihilator/projectile-impact_side-0.png",
+        "res://assets/monsters/Annihilator/projectile-impact_side-1.png",
+        "res://assets/monsters/Annihilator/projectile-impact_side-2.png",
+        "res://assets/monsters/Annihilator/projectile-impact_side-3.png",
+        "res://assets/monsters/Annihilator/projectile-impact_side-4.png",
+        "res://assets/monsters/Annihilator/projectile-impact_side-5.png"
+      ],
+      "actor": "HERocket"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/34e47e7d6a17.wav",
+        "res://assets/monsters/sounds/2d0a4eae5662.wav",
+        "res://assets/monsters/sounds/5c743ab9b384.wav"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/6b72e93acd91.wav",
+        "res://assets/monsters/sounds/1a49759a9c01.wav",
+        "res://assets/monsters/sounds/e4d9ce1f9525.wav"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c0710698f609.wav"
+      ]
+    }
+  },
+  "MMM_CardinalDemon": {
+    "idle": [
+      "res://assets/monsters/CardinalDemon/idle-0.png",
+      "res://assets/monsters/CardinalDemon/idle-1.png"
+    ],
+    "attack": [
+      "res://assets/monsters/CardinalDemon/attack-0.png",
+      "res://assets/monsters/CardinalDemon/attack-1.png",
+      "res://assets/monsters/CardinalDemon/attack-2.png",
+      "res://assets/monsters/CardinalDemon/attack-3.png",
+      "res://assets/monsters/CardinalDemon/attack-4.png",
+      "res://assets/monsters/CardinalDemon/attack-5.png",
+      "res://assets/monsters/CardinalDemon/attack-6.png",
+      "res://assets/monsters/CardinalDemon/attack-7.png"
+    ],
+    "side": [
+      "res://assets/monsters/CardinalDemon/side-0.png",
+      "res://assets/monsters/CardinalDemon/side-1.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/CardinalDemon/side_attack-0.png",
+      "res://assets/monsters/CardinalDemon/side_attack-1.png",
+      "res://assets/monsters/CardinalDemon/side_attack-2.png",
+      "res://assets/monsters/CardinalDemon/side_attack-3.png",
+      "res://assets/monsters/CardinalDemon/side_attack-4.png",
+      "res://assets/monsters/CardinalDemon/side_attack-5.png",
+      "res://assets/monsters/CardinalDemon/side_attack-6.png",
+      "res://assets/monsters/CardinalDemon/side_attack-7.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/CardinalDemon/projectile-flight-0.png",
+        "res://assets/monsters/CardinalDemon/projectile-flight-1.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/CardinalDemon/projectile-flight_side-0.png",
+        "res://assets/monsters/CardinalDemon/projectile-flight_side-1.png"
+      ],
+      "impact": [
+        "res://assets/monsters/CardinalDemon/projectile-impact-0.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact-1.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact-2.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact-3.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact-4.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/CardinalDemon/projectile-impact_side-0.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact_side-1.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact_side-2.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact_side-3.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact_side-4.png",
+        "res://assets/monsters/CardinalDemon/projectile-impact_side-5.png"
+      ],
+      "actor": "PoisonHERocket"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/3a31fa1fef2b.ogg"
+      ],
+      "attack": [],
+      "pain": [
+        "res://assets/monsters/sounds/57f7cd717a50.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/35273f5fd273.ogg"
+      ]
+    }
+  },
+  "MMM_QuadSergeant": {
+    "idle": [
+      "res://assets/monsters/QuadSergeant/idle-0.png",
+      "res://assets/monsters/QuadSergeant/idle-1.png",
+      "res://assets/monsters/QuadSergeant/idle-2.png",
+      "res://assets/monsters/QuadSergeant/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/QuadSergeant/attack-0.png",
+      "res://assets/monsters/QuadSergeant/attack-1.png",
+      "res://assets/monsters/QuadSergeant/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/QuadSergeant/side-0.png",
+      "res://assets/monsters/QuadSergeant/side-1.png",
+      "res://assets/monsters/QuadSergeant/side-2.png",
+      "res://assets/monsters/QuadSergeant/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/QuadSergeant/side_attack-0.png",
+      "res://assets/monsters/QuadSergeant/side_attack-1.png",
+      "res://assets/monsters/QuadSergeant/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/QuadSergeant/projectile-flight-0.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/QuadSergeant/projectile-flight_side-0.png"
+      ],
+      "impact": [],
+      "impact_side": [],
+      "actor": "NMETracerBas"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/9b05422f9e0e.ogg",
+        "res://assets/monsters/sounds/51926d17ef09.ogg",
+        "res://assets/monsters/sounds/26301b5fc833.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/7f436e730115.ogg",
+        "res://assets/monsters/sounds/b3cc6aff5348.ogg",
+        "res://assets/monsters/sounds/742f5246df29.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/3d0bf745f755.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/34632314bd3a.ogg",
+        "res://assets/monsters/sounds/ff9abb0ab1c5.ogg",
+        "res://assets/monsters/sounds/1a5fb14c3082.ogg"
+      ]
+    }
+  },
+  "MMM_BFGCommando": {
+    "idle": [
+      "res://assets/monsters/BFGCommando/idle-0.png",
+      "res://assets/monsters/BFGCommando/idle-1.png",
+      "res://assets/monsters/BFGCommando/idle-2.png",
+      "res://assets/monsters/BFGCommando/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/monsters/BFGCommando/attack-0.png",
+      "res://assets/monsters/BFGCommando/attack-1.png",
+      "res://assets/monsters/BFGCommando/attack-2.png"
+    ],
+    "side": [
+      "res://assets/monsters/BFGCommando/side-0.png",
+      "res://assets/monsters/BFGCommando/side-1.png",
+      "res://assets/monsters/BFGCommando/side-2.png",
+      "res://assets/monsters/BFGCommando/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/monsters/BFGCommando/side_attack-0.png",
+      "res://assets/monsters/BFGCommando/side_attack-1.png",
+      "res://assets/monsters/BFGCommando/side_attack-2.png"
+    ],
+    "projectile_effect": {
+      "flight": [
+        "res://assets/monsters/BFGCommando/projectile-flight-0.png",
+        "res://assets/monsters/BFGCommando/projectile-flight-1.png",
+        "res://assets/monsters/BFGCommando/projectile-flight-2.png",
+        "res://assets/monsters/BFGCommando/projectile-flight-3.png"
+      ],
+      "flight_side": [
+        "res://assets/monsters/BFGCommando/projectile-flight_side-0.png",
+        "res://assets/monsters/BFGCommando/projectile-flight_side-1.png",
+        "res://assets/monsters/BFGCommando/projectile-flight_side-2.png",
+        "res://assets/monsters/BFGCommando/projectile-flight_side-3.png"
+      ],
+      "impact": [
+        "res://assets/monsters/BFGCommando/projectile-impact-0.png",
+        "res://assets/monsters/BFGCommando/projectile-impact-1.png",
+        "res://assets/monsters/BFGCommando/projectile-impact-2.png",
+        "res://assets/monsters/BFGCommando/projectile-impact-3.png",
+        "res://assets/monsters/BFGCommando/projectile-impact-4.png",
+        "res://assets/monsters/BFGCommando/projectile-impact-5.png"
+      ],
+      "impact_side": [
+        "res://assets/monsters/BFGCommando/projectile-impact_side-0.png",
+        "res://assets/monsters/BFGCommando/projectile-impact_side-1.png",
+        "res://assets/monsters/BFGCommando/projectile-impact_side-2.png",
+        "res://assets/monsters/BFGCommando/projectile-impact_side-3.png",
+        "res://assets/monsters/BFGCommando/projectile-impact_side-4.png",
+        "res://assets/monsters/BFGCommando/projectile-impact_side-5.png"
+      ],
+      "actor": "BFGCBFGBall"
+    },
+    "sounds": {
+      "summon": [
+        "res://assets/monsters/sounds/4c2bc01ed6d4.ogg",
+        "res://assets/monsters/sounds/c4b141f743e2.ogg",
+        "res://assets/monsters/sounds/8c506b39dab2.ogg"
+      ],
+      "attack": [
+        "res://assets/monsters/sounds/d4a71c273038.ogg"
+      ],
+      "pain": [
+        "res://assets/monsters/sounds/8c34ee39310b.ogg",
+        "res://assets/monsters/sounds/120ea82e134f.ogg",
+        "res://assets/monsters/sounds/c94ff9c7a5bc.ogg"
+      ],
+      "death": [
+        "res://assets/monsters/sounds/c79565c43b32.ogg",
+        "res://assets/monsters/sounds/c1ed21e4c3cb.ogg",
+        "res://assets/monsters/sounds/6e943579182a.ogg"
+      ]
+    }
+  }
+}

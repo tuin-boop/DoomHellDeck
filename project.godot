@@ -1,0 +1,17 @@
+config_version=5
+
+[application]
+config/name="DOOM: Hell Deck"
+run/main_scene="res://main.tscn"
+
+[display]
+window/size/viewport_width=1440
+window/size/viewport_height=940
+window/size/window_width_override=1296
+window/size/window_height_override=846
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.025, 0.028, 0.035, 1)

@@ -1,0 +1,650 @@
+[
+  {
+    "id": "DOOM_D_E1M1",
+    "album": "DOOM",
+    "title": "E1M1",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M1.ogg",
+    "source": "DOOM/D_E1M1",
+    "seconds": 98.0
+  },
+  {
+    "id": "DOOM_D_E1M2",
+    "album": "DOOM",
+    "title": "E1M2",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M2.ogg",
+    "source": "DOOM/D_E1M2",
+    "seconds": 157.36428125
+  },
+  {
+    "id": "DOOM_D_E1M3",
+    "album": "DOOM",
+    "title": "E1M3",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M3.ogg",
+    "source": "DOOM/D_E1M3",
+    "seconds": 274.0
+  },
+  {
+    "id": "DOOM_D_E1M4",
+    "album": "DOOM",
+    "title": "E1M4",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M4.ogg",
+    "source": "DOOM/D_E1M4",
+    "seconds": 172.66428125
+  },
+  {
+    "id": "DOOM_D_E1M5",
+    "album": "DOOM",
+    "title": "E1M5",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M5.ogg",
+    "source": "DOOM/D_E1M5",
+    "seconds": 166.0
+  },
+  {
+    "id": "DOOM_D_E1M6",
+    "album": "DOOM",
+    "title": "E1M6",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M6.ogg",
+    "source": "DOOM/D_E1M6",
+    "seconds": 86.0
+  },
+  {
+    "id": "DOOM_D_E1M7",
+    "album": "DOOM",
+    "title": "E1M7",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M7.ogg",
+    "source": "DOOM/D_E1M7",
+    "seconds": 152.85715625
+  },
+  {
+    "id": "DOOM_D_E1M8",
+    "album": "DOOM",
+    "title": "E1M8",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M8.ogg",
+    "source": "DOOM/D_E1M8",
+    "seconds": 154.0
+  },
+  {
+    "id": "DOOM_D_E1M9",
+    "album": "DOOM",
+    "title": "E1M9",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E1M9.ogg",
+    "source": "DOOM/D_E1M9",
+    "seconds": 139.36428125
+  },
+  {
+    "id": "DOOM_D_INTER",
+    "album": "DOOM",
+    "title": "INTER",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_INTER.ogg",
+    "source": "DOOM/D_INTER",
+    "seconds": 203.36428125
+  },
+  {
+    "id": "DOOM_D_INTRO",
+    "album": "DOOM",
+    "title": "INTRO",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_INTRO.ogg",
+    "source": "DOOM/D_INTRO",
+    "seconds": 8.85715625
+  },
+  {
+    "id": "DOOM_D_VICTOR",
+    "album": "DOOM",
+    "title": "VICTOR",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_VICTOR.ogg",
+    "source": "DOOM/D_VICTOR",
+    "seconds": 194.0
+  },
+  {
+    "id": "DOOM_D_INTROA",
+    "album": "DOOM",
+    "title": "INTROA",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_INTROA.ogg",
+    "source": "DOOM/D_INTROA",
+    "seconds": 8.85715625
+  },
+  {
+    "id": "DOOM_D_E2M1",
+    "album": "DOOM",
+    "title": "E2M1",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M1.ogg",
+    "source": "DOOM/D_E2M1",
+    "seconds": 154.46428125
+  },
+  {
+    "id": "DOOM_D_E2M2",
+    "album": "DOOM",
+    "title": "E2M2",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M2.ogg",
+    "source": "DOOM/D_E2M2",
+    "seconds": 154.0
+  },
+  {
+    "id": "DOOM_D_E2M3",
+    "album": "DOOM",
+    "title": "E2M3",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M3.ogg",
+    "source": "DOOM/D_E2M3",
+    "seconds": 201.8
+  },
+  {
+    "id": "DOOM_D_E2M4",
+    "album": "DOOM",
+    "title": "E2M4",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M4.ogg",
+    "source": "DOOM/D_E2M4",
+    "seconds": 254.0
+  },
+  {
+    "id": "DOOM_D_E2M6",
+    "album": "DOOM",
+    "title": "E2M6",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M6.ogg",
+    "source": "DOOM/D_E2M6",
+    "seconds": 179.2285625
+  },
+  {
+    "id": "DOOM_D_E2M7",
+    "album": "DOOM",
+    "title": "E2M7",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M7.ogg",
+    "source": "DOOM/D_E2M7",
+    "seconds": 107.6
+  },
+  {
+    "id": "DOOM_D_E2M8",
+    "album": "DOOM",
+    "title": "E2M8",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M8.ogg",
+    "source": "DOOM/D_E2M8",
+    "seconds": 178.0
+  },
+  {
+    "id": "DOOM_D_E2M9",
+    "album": "DOOM",
+    "title": "E2M9",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E2M9.ogg",
+    "source": "DOOM/D_E2M9",
+    "seconds": 98.0
+  },
+  {
+    "id": "DOOM_D_E3M2",
+    "album": "DOOM",
+    "title": "E3M2",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M2.ogg",
+    "source": "DOOM/D_E3M2",
+    "seconds": 119.3285625
+  },
+  {
+    "id": "DOOM_D_E3M3",
+    "album": "DOOM",
+    "title": "E3M3",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M3.ogg",
+    "source": "DOOM/D_E3M3",
+    "seconds": 124.1785625
+  },
+  {
+    "id": "DOOM_D_E3M5",
+    "album": "DOOM",
+    "title": "E3M5",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M5.ogg",
+    "source": "DOOM/D_E3M5",
+    "seconds": 152.85715625
+  },
+  {
+    "id": "DOOM_D_E3M6",
+    "album": "DOOM",
+    "title": "E3M6",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M6.ogg",
+    "source": "DOOM/D_E3M6",
+    "seconds": 86.0
+  },
+  {
+    "id": "DOOM_D_E3M7",
+    "album": "DOOM",
+    "title": "E3M7",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M7.ogg",
+    "source": "DOOM/D_E3M7",
+    "seconds": 107.6
+  },
+  {
+    "id": "DOOM_D_E3M8",
+    "album": "DOOM",
+    "title": "E3M8",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M8.ogg",
+    "source": "DOOM/D_E3M8",
+    "seconds": 98.0
+  },
+  {
+    "id": "DOOM_D_E3M9",
+    "album": "DOOM",
+    "title": "E3M9",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_E3M9.ogg",
+    "source": "DOOM/D_E3M9",
+    "seconds": 139.36428125
+  },
+  {
+    "id": "DOOM_D_BUNNY",
+    "album": "DOOM",
+    "title": "BUNNY",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_D_BUNNY.ogg",
+    "source": "DOOM/D_BUNNY",
+    "seconds": 64.0
+  },
+  {
+    "id": "DOOM_II_D_RUNNIN",
+    "album": "DOOM II",
+    "title": "RUNNIN",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_RUNNIN.ogg",
+    "source": "DOOM II/D_RUNNIN",
+    "seconds": 232.39284375
+  },
+  {
+    "id": "DOOM_II_D_STALKS",
+    "album": "DOOM II",
+    "title": "STALKS",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_STALKS.ogg",
+    "source": "DOOM II/D_STALKS",
+    "seconds": 294.6785625
+  },
+  {
+    "id": "DOOM_II_D_COUNTD",
+    "album": "DOOM II",
+    "title": "COUNTD",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_COUNTD.ogg",
+    "source": "DOOM II/D_COUNTD",
+    "seconds": 232.39284375
+  },
+  {
+    "id": "DOOM_II_D_BETWEE",
+    "album": "DOOM II",
+    "title": "BETWEE",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_BETWEE.ogg",
+    "source": "DOOM II/D_BETWEE",
+    "seconds": 157.0714375
+  },
+  {
+    "id": "DOOM_II_D_DOOM",
+    "album": "DOOM II",
+    "title": "DOOM",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_DOOM.ogg",
+    "source": "DOOM II/D_DOOM",
+    "seconds": 261.2
+  },
+  {
+    "id": "DOOM_II_D_THE_DA",
+    "album": "DOOM II",
+    "title": "THE DA",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_THE_DA.ogg",
+    "source": "DOOM II/D_THE_DA",
+    "seconds": 420.90715625
+  },
+  {
+    "id": "DOOM_II_D_SHAWN",
+    "album": "DOOM II",
+    "title": "SHAWN",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_SHAWN.ogg",
+    "source": "DOOM II/D_SHAWN",
+    "seconds": 259.7714375
+  },
+  {
+    "id": "DOOM_II_D_DDTBLU",
+    "album": "DOOM II",
+    "title": "DDTBLU",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_DDTBLU.ogg",
+    "source": "DOOM II/D_DDTBLU",
+    "seconds": 302.6285625
+  },
+  {
+    "id": "DOOM_II_D_IN_CIT",
+    "album": "DOOM II",
+    "title": "IN CIT",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_IN_CIT.ogg",
+    "source": "DOOM II/D_IN_CIT",
+    "seconds": 282.0
+  },
+  {
+    "id": "DOOM_II_D_DEAD",
+    "album": "DOOM II",
+    "title": "DEAD",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_DEAD.ogg",
+    "source": "DOOM II/D_DEAD",
+    "seconds": 266.0
+  },
+  {
+    "id": "DOOM_II_D_DDTBL2",
+    "album": "DOOM II",
+    "title": "DDTBL2",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_DDTBL2.ogg",
+    "source": "DOOM II/D_DDTBL2",
+    "seconds": 305.15715625
+  },
+  {
+    "id": "DOOM_II_D_ROMERO",
+    "album": "DOOM II",
+    "title": "ROMERO",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_ROMERO.ogg",
+    "source": "DOOM II/D_ROMERO",
+    "seconds": 309.2
+  },
+  {
+    "id": "DOOM_II_D_MESSAG",
+    "album": "DOOM II",
+    "title": "MESSAG",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_MESSAG.ogg",
+    "source": "DOOM II/D_MESSAG",
+    "seconds": 282.0
+  },
+  {
+    "id": "DOOM_II_D_AMPIE",
+    "album": "DOOM II",
+    "title": "AMPIE",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_AMPIE.ogg",
+    "source": "DOOM II/D_AMPIE",
+    "seconds": 100.90715625
+  },
+  {
+    "id": "DOOM_II_D_ADRIAN",
+    "album": "DOOM II",
+    "title": "ADRIAN",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_ADRIAN.ogg",
+    "source": "DOOM II/D_ADRIAN",
+    "seconds": 117.19284375
+  },
+  {
+    "id": "DOOM_II_D_TENSE",
+    "album": "DOOM II",
+    "title": "TENSE",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_TENSE.ogg",
+    "source": "DOOM II/D_TENSE",
+    "seconds": 284.85715625
+  },
+  {
+    "id": "DOOM_II_D_OPENIN",
+    "album": "DOOM II",
+    "title": "OPENIN",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_OPENIN.ogg",
+    "source": "DOOM II/D_OPENIN",
+    "seconds": 282.0
+  },
+  {
+    "id": "DOOM_II_D_EVIL",
+    "album": "DOOM II",
+    "title": "EVIL",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_EVIL.ogg",
+    "source": "DOOM II/D_EVIL",
+    "seconds": 73.10715625
+  },
+  {
+    "id": "DOOM_II_D_ULTIMA",
+    "album": "DOOM II",
+    "title": "ULTIMA",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_ULTIMA.ogg",
+    "source": "DOOM II/D_ULTIMA",
+    "seconds": 80.04284375
+  },
+  {
+    "id": "DOOM_II_D_READ_M",
+    "album": "DOOM II",
+    "title": "READ M",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_READ_M.ogg",
+    "source": "DOOM II/D_READ_M",
+    "seconds": 290.0
+  },
+  {
+    "id": "DOOM_II_D_DM2TTL",
+    "album": "DOOM II",
+    "title": "DM2TTL",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_DM2TTL.ogg",
+    "source": "DOOM II/D_DM2TTL",
+    "seconds": 18.0
+  },
+  {
+    "id": "DOOM_II_D_DM2INT",
+    "album": "DOOM II",
+    "title": "DM2INT",
+    "composer": "Original WAD soundtrack",
+    "file": "res://assets/radio/audio/DOOM_II_D_DM2INT.ogg",
+    "source": "DOOM II/D_DM2INT",
+    "seconds": 174.44284375
+  },
+  {
+    "id": 748,
+    "title": "Swanky's Swing",
+    "album": "Donkey Kong Country 2",
+    "composer": "David Wise",
+    "file": "res://assets/radio/audio/SONG748.ogg",
+    "source": "music/SONG748.spc",
+    "menu_only": false
+  },
+  {
+    "id": 749,
+    "title": "Bayou Boogie",
+    "album": "Donkey Kong Country 2",
+    "composer": "David Wise",
+    "file": "res://assets/radio/audio/SONG749.ogg",
+    "source": "music/SONG749.spc",
+    "menu_only": false
+  },
+  {
+    "id": 750,
+    "title": "School House Harmony",
+    "album": "Donkey Kong Country 2",
+    "composer": "David Wise",
+    "file": "res://assets/radio/audio/SONG750.ogg",
+    "source": "music/SONG750.spc",
+    "menu_only": false
+  },
+  {
+    "id": 751,
+    "title": "Forest Interlude",
+    "album": "Donkey Kong Country 2",
+    "composer": "David Wise",
+    "file": "res://assets/radio/audio/SONG751.ogg",
+    "source": "music/SONG751.spc",
+    "menu_only": false
+  },
+  {
+    "id": 766,
+    "title": "In a Snow-Bound Land",
+    "album": "Donkey Kong Country 2",
+    "composer": "David Wise",
+    "file": "res://assets/radio/audio/SONG766.ogg",
+    "source": "music/SONG766.spc",
+    "menu_only": false
+  },
+  {
+    "id": 768,
+    "title": "Primal Rave",
+    "album": "Donkey Kong Country 2",
+    "composer": "David Wise",
+    "file": "res://assets/radio/audio/SONG768.ogg",
+    "source": "music/SONG768.spc",
+    "menu_only": false
+  },
+  {
+    "id": 772,
+    "title": "Dixie Beat",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG772.ogg",
+    "source": "music/SONG772.spc",
+    "menu_only": false
+  },
+  {
+    "id": 773,
+    "title": "Crazy Calypso",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG773.ogg",
+    "source": "music/SONG773.spc",
+    "menu_only": false
+  },
+  {
+    "id": 775,
+    "title": "Stilt Village",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG775.ogg",
+    "source": "music/SONG775.spc",
+    "menu_only": false
+  },
+  {
+    "id": 776,
+    "title": "Mill Fever",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG776.ogg",
+    "source": "music/SONG776.spc",
+    "menu_only": false
+  },
+  {
+    "id": 777,
+    "title": "Jangle Bells",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG777.ogg",
+    "source": "music/SONG777.spc",
+    "menu_only": false
+  },
+  {
+    "id": 778,
+    "title": "Frosty Frolics",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG778.ogg",
+    "source": "music/SONG778.spc",
+    "menu_only": false
+  },
+  {
+    "id": 780,
+    "title": "Treetop Tumble",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG780.ogg",
+    "source": "music/SONG780.spc",
+    "menu_only": false
+  },
+  {
+    "id": 781,
+    "title": "Hot Pursuit",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG781.ogg",
+    "source": "music/SONG781.spc",
+    "menu_only": false
+  },
+  {
+    "id": 784,
+    "title": "Cascade Capers",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG784.ogg",
+    "source": "music/SONG784.spc",
+    "menu_only": false
+  },
+  {
+    "id": 785,
+    "title": "Nuts and Bolts",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG785.ogg",
+    "source": "music/SONG785.spc",
+    "menu_only": false
+  },
+  {
+    "id": 797,
+    "title": "Bonus Time!",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG797.ogg",
+    "source": "music/SONG797.spc",
+    "menu_only": false
+  },
+  {
+    "id": 799,
+    "title": "Wrinkly's Save Cave",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG799.ogg",
+    "source": "music/SONG799.spc",
+    "menu_only": true
+  },
+  {
+    "id": 801,
+    "title": "Brothers Bear",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG801.ogg",
+    "source": "music/SONG801.spc",
+    "menu_only": false
+  },
+  {
+    "id": 802,
+    "title": "Brothers Bear Blues",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG802.ogg",
+    "source": "music/SONG802.spc",
+    "menu_only": false
+  },
+  {
+    "id": 803,
+    "title": "Swanky's Sideshow",
+    "album": "Donkey Kong Country 3",
+    "composer": "Eveline Fischer, David Wise",
+    "file": "res://assets/radio/audio/SONG803.ogg",
+    "source": "music/SONG803.spc",
+    "menu_only": false
+  }
+]

@@ -1,0 +1,13 @@
+.godot/
+*.wad
+*.WAD
+captures/
+
+.tools/
+builds/
+
+__pycache__/
+*.pyc
+reports/*.log
+reports/*.translation
+reports/balance-*.json

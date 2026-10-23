@@ -1,0 +1,172 @@
+{
+  "MMM_MechaHitler": {
+    "idle": [
+      "res://assets/wolf_bosses/MechaHitler/idle-0.png",
+      "res://assets/wolf_bosses/MechaHitler/idle-1.png",
+      "res://assets/wolf_bosses/MechaHitler/idle-2.png",
+      "res://assets/wolf_bosses/MechaHitler/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/wolf_bosses/MechaHitler/attack-0.png",
+      "res://assets/wolf_bosses/MechaHitler/attack-1.png",
+      "res://assets/wolf_bosses/MechaHitler/attack-2.png",
+      "res://assets/wolf_bosses/MechaHitler/attack-3.png",
+      "res://assets/wolf_bosses/MechaHitler/attack-4.png",
+      "res://assets/wolf_bosses/MechaHitler/attack-5.png"
+    ],
+    "side": [
+      "res://assets/wolf_bosses/MechaHitler/side-0.png",
+      "res://assets/wolf_bosses/MechaHitler/side-1.png",
+      "res://assets/wolf_bosses/MechaHitler/side-2.png",
+      "res://assets/wolf_bosses/MechaHitler/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/wolf_bosses/MechaHitler/side_attack-0.png",
+      "res://assets/wolf_bosses/MechaHitler/side_attack-1.png",
+      "res://assets/wolf_bosses/MechaHitler/side_attack-2.png",
+      "res://assets/wolf_bosses/MechaHitler/side_attack-3.png",
+      "res://assets/wolf_bosses/MechaHitler/side_attack-4.png",
+      "res://assets/wolf_bosses/MechaHitler/side_attack-5.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/wolf_bosses/MechaHitler/summon.wav"
+      ],
+      "attack": [
+        "res://assets/wolf_bosses/MechaHitler/attack.wav"
+      ],
+      "death": [
+        "res://assets/wolf_bosses/MechaHitler/death.wav"
+      ]
+    }
+  },
+  "MMM_UnarmoredHitler": {
+    "idle": [
+      "res://assets/wolf_bosses/UnarmoredHitler/idle-0.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/idle-1.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/idle-2.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/wolf_bosses/UnarmoredHitler/attack-0.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/attack-1.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/attack-2.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/attack-3.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/attack-4.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/attack-5.png"
+    ],
+    "side": [
+      "res://assets/wolf_bosses/UnarmoredHitler/side-0.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side-1.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side-2.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/wolf_bosses/UnarmoredHitler/side_attack-0.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side_attack-1.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side_attack-2.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side_attack-3.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side_attack-4.png",
+      "res://assets/wolf_bosses/UnarmoredHitler/side_attack-5.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/wolf_bosses/UnarmoredHitler/summon.wav"
+      ],
+      "attack": [
+        "res://assets/wolf_bosses/UnarmoredHitler/attack.wav"
+      ],
+      "death": [
+        "res://assets/wolf_bosses/UnarmoredHitler/death.wav"
+      ]
+    }
+  },
+  "MMM_Schabbs": {
+    "idle": [
+      "res://assets/wolf_bosses/Schabbs/idle-0.png",
+      "res://assets/wolf_bosses/Schabbs/idle-1.png",
+      "res://assets/wolf_bosses/Schabbs/idle-2.png",
+      "res://assets/wolf_bosses/Schabbs/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/wolf_bosses/Schabbs/attack-0.png",
+      "res://assets/wolf_bosses/Schabbs/attack-1.png"
+    ],
+    "side": [
+      "res://assets/wolf_bosses/Schabbs/side-0.png",
+      "res://assets/wolf_bosses/Schabbs/side-1.png",
+      "res://assets/wolf_bosses/Schabbs/side-2.png",
+      "res://assets/wolf_bosses/Schabbs/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/wolf_bosses/Schabbs/side_attack-0.png",
+      "res://assets/wolf_bosses/Schabbs/side_attack-1.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/wolf_bosses/Schabbs/summon.wav"
+      ],
+      "attack": [
+        "res://assets/wolf_bosses/Schabbs/attack.wav"
+      ],
+      "death": [
+        "res://assets/wolf_bosses/Schabbs/death.wav"
+      ]
+    },
+    "projectile_effect": {
+      "flight": [
+        "res://assets/wolf_bosses/Schabbs/needle-0.png",
+        "res://assets/wolf_bosses/Schabbs/needle-1.png",
+        "res://assets/wolf_bosses/Schabbs/needle-2.png",
+        "res://assets/wolf_bosses/Schabbs/needle-3.png"
+      ],
+      "flight_side": [
+        "res://assets/wolf_bosses/Schabbs/needle-side-0.png",
+        "res://assets/wolf_bosses/Schabbs/needle-side-1.png",
+        "res://assets/wolf_bosses/Schabbs/needle-side-2.png",
+        "res://assets/wolf_bosses/Schabbs/needle-side-3.png"
+      ],
+      "impact": [],
+      "impact_side": []
+    }
+  },
+  "MMM_Hans": {
+    "idle": [
+      "res://assets/wolf_bosses/Hans/idle-0.png",
+      "res://assets/wolf_bosses/Hans/idle-1.png",
+      "res://assets/wolf_bosses/Hans/idle-2.png",
+      "res://assets/wolf_bosses/Hans/idle-3.png"
+    ],
+    "attack": [
+      "res://assets/wolf_bosses/Hans/attack-0.png",
+      "res://assets/wolf_bosses/Hans/attack-1.png",
+      "res://assets/wolf_bosses/Hans/attack-2.png",
+      "res://assets/wolf_bosses/Hans/attack-3.png",
+      "res://assets/wolf_bosses/Hans/attack-4.png"
+    ],
+    "side": [
+      "res://assets/wolf_bosses/Hans/side-0.png",
+      "res://assets/wolf_bosses/Hans/side-1.png",
+      "res://assets/wolf_bosses/Hans/side-2.png",
+      "res://assets/wolf_bosses/Hans/side-3.png"
+    ],
+    "side_attack": [
+      "res://assets/wolf_bosses/Hans/side_attack-0.png",
+      "res://assets/wolf_bosses/Hans/side_attack-1.png",
+      "res://assets/wolf_bosses/Hans/side_attack-2.png",
+      "res://assets/wolf_bosses/Hans/side_attack-3.png",
+      "res://assets/wolf_bosses/Hans/side_attack-4.png"
+    ],
+    "sounds": {
+      "summon": [
+        "res://assets/wolf_bosses/Hans/summon.wav"
+      ],
+      "attack": [
+        "res://assets/wolf_bosses/Hans/attack.wav"
+      ],
+      "death": [
+        "res://assets/wolf_bosses/Hans/death.wav"
+      ]
+    }
+  }
+}

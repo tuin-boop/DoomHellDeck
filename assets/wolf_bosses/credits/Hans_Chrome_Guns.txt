@@ -1,0 +1,64 @@
+==============================================================================
+Credits:
+==============================================================================
+
+Sprites
+=======
+
+o All frontside sprites are from Wolfenstein3D. Credits goes to Id Software.
+o Most rotated sprites of Hans Grosse, credit goes to UnTrustable and
+  Itsnaturetodie (David G.).
+
+Sounds
+======
+
+Sounds are from Wolfenstein3D. Credit goes to Id Software.
+
+Decorate
+========
+
+Decorate code made by UnTrustable. (04 july 2014)
+
+==============================================================================
+==============================================================================
+
+Usage ingame:
+=============
+
+Summon Hans
+Summonfriend Hans
+
+Usage for future:
+=================
+
+Hans Grosse file is free material, as long the credit is given accordingly.
+You do so, I will never sue you :P
+In fact, my hopes are that many other sprite artists can use these sprites
+as base to make more fettgesicht-alike art-ware.
+Same goes for my Schabbs, Otto, (mech)Hitler, Gretel Grosse, Fettgesicht,
+and Trans Grosse. (And probably future attempts for Barnicle, Uber mutant,
+Death Knight, and Angel of Death. But they are not yet been made.)
+
+==============================================================================
+==============================================================================
+
+Contact:
+========
+
+Email: 3dshots@3dshots.nl (Take note, that i am not always replying immediately.)
+
+YouTube: https://www.youtube.com/user/TheUnTrustable0
+
+==============================================================================
+==============================================================================
+
+One last note:
+
+Rotated sprites of Hans Grosse are still under developments.
+But in general, these sprites are the 'final version'.
+
+Thanks for using Hans Grosse sprites.
+I hope it gives you enjoyment/satisfaction as much as it gave me, by
+creating his rotations.
+
+==============================================================================

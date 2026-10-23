@@ -1,0 +1,275 @@
+[
+  {
+    "id": "joker_imp",
+    "name": "JOKER IMP",
+    "effect": "+5 points on every scoring play.",
+    "art": "joker_imp.png",
+    "art_available": true
+  },
+  {
+    "id": "vampire_imp",
+    "name": "VAMPIRE IMP",
+    "effect": "After scoring, drain one played monster species' enhancement for your side this round. Gain +3 on future plays per drain, for this match.",
+    "art": "vampire_imp.png",
+    "art_available": true
+  },
+  {
+    "id": "cowboy_doomguy",
+    "name": "COWBOY DOOMGUY",
+    "effect": "+4 per Bullet monster you play.",
+    "art": "cowboy_doomguy.png",
+    "art_available": true
+  },
+  {
+    "id": "lucky_imp",
+    "name": "LUCKY IMP",
+    "effect": "25% chance of +20 on each scoring play.",
+    "art": "lucky_imp.png",
+    "art_available": true
+  },
+  {
+    "id": "greedy_pinky",
+    "name": "GREEDY JOKER",
+    "effect": "+6 extra per Gilded monster you play.",
+    "art": "greedy_pinky.png",
+    "art_available": true
+  },
+  {
+    "id": "professor_revenant",
+    "name": "PROFESSOR REVENANT",
+    "effect": "Every third March you play upgrades your March bonus by +5 for this match.",
+    "art": "professor_revenant.png",
+    "art_available": true
+  },
+  {
+    "id": "magician_arch_vile",
+    "name": "MAGICIAN ARCH-VILE",
+    "effect": "+15 when you play John Romero in a valid combination.",
+    "art": "magician_arch_vile.png",
+    "art_available": true
+  },
+  {
+    "id": "pirate_cacodemon",
+    "name": "PIRATE CACODEMON",
+    "effect": "+12 when extending a centre started by your opponent.",
+    "art": "pirate_cacodemon.png",
+    "art_available": true
+  },
+  {
+    "id": "sleepy_mancubus",
+    "name": "SLEEPY MANCUBUS",
+    "effect": "Each draw/pass stores +4, up to +16. Your next scoring play collects it.",
+    "art": "sleepy_mancubus.png",
+    "art_available": true
+  },
+  {
+    "id": "king_cyberdemon",
+    "name": "KING CYBERDEMON",
+    "effect": "+10 if a Cyberdemon remains in your hand after playing. Once per play.",
+    "art": "king_cyberdemon.png",
+    "art_available": false
+  },
+  {
+    "id": "disco_revenant",
+    "name": "DISCO REVENANT",
+    "effect": "Repeat the leftmost played card's enhancement: Gilded +4, or Charged +8 on extension.",
+    "art": "disco_revenant.png",
+    "art_available": true
+  },
+  {
+    "id": "chef_mancubus",
+    "name": "CHEF MANCUBUS",
+    "effect": "Each Fire monster played adds +1 to future Fire-play bonuses, up to +20, for this match.",
+    "art": "chef_mancubus.png",
+    "art_available": true
+  },
+  {
+    "id": "mime_spectre",
+    "name": "MIME DOOMGUY",
+    "effect": "Copy the previous slot's fixed scoring bonus. Cannot copy Mime, chance, stored growth, multipliers or extra actions. Swap your slots by clicking them.",
+    "art": "mime_spectre.png",
+    "art_available": true
+  },
+  {
+    "id": "boxer_pinky",
+    "name": "BOXER PINKY",
+    "effect": "+12 when you add exactly two cards in a valid play.",
+    "art": "boxer_pinky.png",
+    "art_available": true
+  },
+  {
+    "id": "general_baron",
+    "name": "GENERAL BARON",
+    "effect": "+15 when you play or extend a named team.",
+    "art": "general_baron.png",
+    "art_available": true
+  },
+  {
+    "id": "astronaut_lost_soul",
+    "name": "ASTRONAUT LOST SOUL",
+    "effect": "+20 when you play or extend Apocalypse.",
+    "art": "astronaut_lost_soul.png",
+    "art_available": true
+  },
+  {
+    "id": "electric_arachnotron",
+    "name": "ELECTRIC ARACHNOTRON",
+    "effect": "+5 per Charged monster played, including when starting a combination.",
+    "art": "electric_arachnotron.png",
+    "art_available": true
+  },
+  {
+    "id": "berserker_doomguy",
+    "name": "BERSERKER DOOMGUY",
+    "effect": "Multiply your tenth-turn scoring play by 1.5, rounding down. Draw/pass gets no bonus.",
+    "art": "berserker_doomguy.png",
+    "art_available": true
+  },
+  {
+    "id": "clown_pain_elemental",
+    "name": "CLOWN PAIN ELEMENTAL",
+    "effect": "Your first draw/pass each round draws two monsters instead of one, if available.",
+    "art": "clown_pain_elemental.png",
+    "art_available": true
+  },
+  {
+    "id": "rockstar_imp",
+    "name": "ROCKSTAR IMP",
+    "effect": "+10 when your combo family differs from your previous scoring play this round. No bonus on your first play.",
+    "art": "rockstar_imp.png",
+    "art_available": true
+  },
+  {
+    "id": "uac_coffee",
+    "name": "UAC COFFEE",
+    "effect": "Your first scoring play each round gains +10.",
+    "art": "uac_coffee.png",
+    "art_available": true
+  },
+  {
+    "id": "blue_keycard",
+    "name": "BLUE KEYCARD",
+    "effect": "+10 when you extend the centre combo by playing exactly one card.",
+    "art": "blue_keycard.png",
+    "art_available": true
+  },
+  {
+    "id": "explosive_barrel",
+    "name": "EXPLOSIVE BARREL",
+    "effect": "Every third scoring play while held adds +25. Progress lasts this match.",
+    "art": "explosive_barrel.png",
+    "art_available": true
+  },
+  {
+    "id": "demon_contract",
+    "name": "DEMON CONTRACT",
+    "effect": "Pay 20 points each round while held, including the round acquired. Gain +6 per scoring play.",
+    "art": "demon_contract.png",
+    "art_available": true
+  },
+  {
+    "id": "glitch_disk",
+    "name": "GLITCH DISK",
+    "effect": "Your first new matching-monster pair each round gains +20: the base-score difference to three of a kind. Does not add a card.",
+    "art": "glitch_disk.png",
+    "art_available": true
+  },
+  {
+    "id": "ammo_box",
+    "name": "AMMO BOX",
+    "effect": "+2 points for each card you add to a valid combo.",
+    "art": "DOOM2.WAD:AMMOA0",
+    "art_available": true
+  },
+  {
+    "id": "gluttonous_joker",
+    "name": "GLUTTONOUS JOKER",
+    "effect": "Playing 4 or more cards grows this Joker by +3 for future scoring plays, up to +24 for the match.",
+    "art": "gluttonous_joker.png",
+    "art_available": true
+  },
+  {
+    "id": "valentine_joker",
+    "name": "VALENTINE JOKER",
+    "effect": "+6 for each matching monster pair among the cards you play. Three identical monsters count as one pair, four as two. Romero does not form a pair.",
+    "art": "valentine_joker.png",
+    "art_available": true
+  },
+  {
+    "id": "clown_doomguy",
+    "name": "CLOWN DOOMGUY",
+    "effect": "+12 when you play exactly three cards with three different damage types.",
+    "art": "clown_doomguy.png",
+    "art_available": true
+  },
+  {
+    "id": "business_zombieman",
+    "name": "BUSINESS ZOMBIEMAN",
+    "effect": "+2 per card left in your hand after playing, capped at +10 per scoring play.",
+    "art": "business_zombieman.png",
+    "art_available": true
+  },
+  {
+    "id": "banjo_zombieman",
+    "name": "BANJO ZOMBIEMAN",
+    "effect": "+10 when you play or extend a March.",
+    "art": "banjo_zombieman.png",
+    "art_available": true
+  },
+  {
+    "id": "party_mastermind",
+    "name": "PARTY MASTERMIND",
+    "effect": "+12 when you play four or more cards in one valid play.",
+    "art": "party_mastermind.png",
+    "art_available": true
+  },
+  {
+    "id": "propeller_ss_soldier",
+    "name": "PROPELLER SS SOLDIER",
+    "effect": "+8 when your combo family matches the most recent scoring play by either player this round. No bonus before the round's first scoring play.",
+    "art": "propeller_ss_soldier.png",
+    "art_available": true
+  },
+  {
+    "id": "john_carmack",
+    "name": "JOHN CARMACK",
+    "effect": "Optimization: +10 when a scoring play leaves your hand empty.",
+    "art": "john_carmack.png",
+    "art_available": true
+  },
+  {
+    "id": "commander_keen",
+    "name": "COMMANDER KEEN",
+    "effect": "Comeback: +4 on a scoring play if your round score is lower than your opponent's before playing.",
+    "art": "commander_keen.png",
+    "art_available": true
+  },
+  {
+    "id": "bloody_smiley",
+    "name": "BLOODY SMILEY",
+    "effect": "Keep smiling: +6 on a scoring play if you lead the round before playing.",
+    "art": "bloody_smiley.png",
+    "art_available": true
+  },
+  {
+    "id": "the_two_johns",
+    "name": "THE TWO JOHNS",
+    "effect": "Romero & Carmack: +10 when you play exactly two different monsters in a valid play. The Romero wild card does not count as a monster.",
+    "art": "the_two_johns.png",
+    "art_available": true
+  },
+  {
+    "id": "doom_guy_book",
+    "name": "DOOM GUY: THE BOOK",
+    "effect": "New chapter: +6 the first time you score each combo family while holding this Joker each round.",
+    "art": "doom_guy_book.png",
+    "art_available": true
+  },
+  {
+    "id": "daikatana_romero",
+    "name": "DAIKATANA ROMERO",
+    "effect": "Swordplay: +4 for each Melee monster you play. The Romero wild card does not count.",
+    "art": "daikatana_romero.png",
+    "art_available": true
+  }
+]

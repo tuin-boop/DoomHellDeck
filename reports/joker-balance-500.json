@@ -1,0 +1,8734 @@
+{
+  "builds": [
+    {
+      "build": "Steady points",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 14200,
+      "jokers": [
+        0,
+        20,
+        25
+      ],
+      "points": 58330,
+      "rounds_won": 216,
+      "scoring_plays": 1074,
+      "wins": 53
+    },
+    {
+      "build": "Enhancements",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 6665,
+      "jokers": [
+        1,
+        4,
+        10
+      ],
+      "points": 48272,
+      "rounds_won": 132,
+      "scoring_plays": 1068,
+      "wins": 23
+    },
+    {
+      "build": "Bullet business",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 9648,
+      "jokers": [
+        2,
+        12,
+        29
+      ],
+      "points": 53717,
+      "rounds_won": 172,
+      "scoring_plays": 1067,
+      "wins": 35
+    },
+    {
+      "build": "Draw and luck",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 11544,
+      "jokers": [
+        3,
+        8,
+        18
+      ],
+      "points": 59490,
+      "rounds_won": 195,
+      "scoring_plays": 1155,
+      "wins": 42
+    },
+    {
+      "build": "Combo variety",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 7890,
+      "jokers": [
+        5,
+        19,
+        28
+      ],
+      "points": 52648,
+      "rounds_won": 160,
+      "scoring_plays": 1112,
+      "wins": 36
+    },
+    {
+      "build": "Wild apocalypse",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 6160,
+      "jokers": [
+        6,
+        15,
+        24
+      ],
+      "points": 48589,
+      "rounds_won": 137,
+      "scoring_plays": 1086,
+      "wins": 21
+    },
+    {
+      "build": "Extensions",
+      "draws": 0,
+      "games": 68,
+      "joker_points": 14223,
+      "jokers": [
+        7,
+        21,
+        22
+      ],
+      "points": 60058,
+      "rounds_won": 202,
+      "scoring_plays": 1101,
+      "wins": 44
+    },
+    {
+      "build": "Boss finish",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 4451,
+      "jokers": [
+        9,
+        14,
+        17
+      ],
+      "points": 46865,
+      "rounds_won": 120,
+      "scoring_plays": 1075,
+      "wins": 20
+    },
+    {
+      "build": "Fire growth",
+      "draws": 0,
+      "games": 68,
+      "joker_points": 7263,
+      "jokers": [
+        11,
+        16,
+        26
+      ],
+      "points": 52171,
+      "rounds_won": 149,
+      "scoring_plays": 1121,
+      "wins": 28
+    },
+    {
+      "build": "Pairs contract",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 13398,
+      "jokers": [
+        13,
+        23,
+        27
+      ],
+      "points": 53822,
+      "rounds_won": 131,
+      "scoring_plays": 1086,
+      "wins": 21
+    },
+    {
+      "build": "Banjo marches",
+      "draws": 0,
+      "games": 68,
+      "joker_points": 10050,
+      "jokers": [
+        5,
+        30,
+        19
+      ],
+      "points": 56518,
+      "rounds_won": 185,
+      "scoring_plays": 1092,
+      "wins": 35
+    },
+    {
+      "build": "Party feast",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 13201,
+      "jokers": [
+        26,
+        31,
+        25
+      ],
+      "points": 57618,
+      "rounds_won": 183,
+      "scoring_plays": 1052,
+      "wins": 44
+    },
+    {
+      "build": "Propeller pairs",
+      "draws": 0,
+      "games": 68,
+      "joker_points": 8928,
+      "jokers": [
+        32,
+        13,
+        27
+      ],
+      "points": 52026,
+      "rounds_won": 155,
+      "scoring_plays": 1118,
+      "wins": 29
+    },
+    {
+      "build": "Carmack optimization",
+      "draws": 0,
+      "games": 66,
+      "joker_points": 8600,
+      "jokers": [
+        33,
+        21,
+        0
+      ],
+      "points": 52596,
+      "rounds_won": 161,
+      "scoring_plays": 1088,
+      "wins": 31
+    },
+    {
+      "build": "Keen comeback",
+      "draws": 0,
+      "games": 68,
+      "joker_points": 18852,
+      "jokers": [
+        34,
+        23,
+        22
+      ],
+      "points": 64568,
+      "rounds_won": 185,
+      "scoring_plays": 1106,
+      "wins": 38
+    }
+  ],
+  "matches": 500,
+  "matches_detail": [
+    {
+      "builds": [
+        1,
+        14
+      ],
+      "pair": 0,
+      "points": [
+        578,
+        987
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        1
+      ],
+      "pair": 0,
+      "points": [
+        773,
+        833
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        13
+      ],
+      "pair": 1,
+      "points": [
+        862,
+        791
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        2
+      ],
+      "pair": 1,
+      "points": [
+        732,
+        870
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        12
+      ],
+      "pair": 2,
+      "points": [
+        1155,
+        725
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        3
+      ],
+      "pair": 2,
+      "points": [
+        705,
+        803
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        11
+      ],
+      "pair": 3,
+      "points": [
+        838,
+        772
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        4
+      ],
+      "pair": 3,
+      "points": [
+        834,
+        827
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        10
+      ],
+      "pair": 4,
+      "points": [
+        715,
+        637
+      ],
+      "rounds": [
+        3,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        5
+      ],
+      "pair": 4,
+      "points": [
+        751,
+        833
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        9
+      ],
+      "pair": 5,
+      "points": [
+        926,
+        811
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        6
+      ],
+      "pair": 5,
+      "points": [
+        878,
+        759
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        8
+      ],
+      "pair": 6,
+      "points": [
+        799,
+        951
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        7
+      ],
+      "pair": 6,
+      "points": [
+        817,
+        765
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        14
+      ],
+      "pair": 7,
+      "points": [
+        809,
+        826
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        0
+      ],
+      "pair": 7,
+      "points": [
+        818,
+        793
+      ],
+      "rounds": [
+        1,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        12
+      ],
+      "pair": 8,
+      "points": [
+        769,
+        793
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        1
+      ],
+      "pair": 8,
+      "points": [
+        835,
+        778
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        11
+      ],
+      "pair": 9,
+      "points": [
+        765,
+        899
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        2
+      ],
+      "pair": 9,
+      "points": [
+        867,
+        890
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        10
+      ],
+      "pair": 10,
+      "points": [
+        832,
+        900
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        3
+      ],
+      "pair": 10,
+      "points": [
+        738,
+        921
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        9
+      ],
+      "pair": 11,
+      "points": [
+        774,
+        786
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        4
+      ],
+      "pair": 11,
+      "points": [
+        743,
+        746
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        8
+      ],
+      "pair": 12,
+      "points": [
+        743,
+        795
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        5
+      ],
+      "pair": 12,
+      "points": [
+        845,
+        719
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        7
+      ],
+      "pair": 13,
+      "points": [
+        1049,
+        551
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        6
+      ],
+      "pair": 13,
+      "points": [
+        809,
+        740
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        13
+      ],
+      "pair": 14,
+      "points": [
+        648,
+        892
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        0
+      ],
+      "pair": 14,
+      "points": [
+        476,
+        981
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        12
+      ],
+      "pair": 15,
+      "points": [
+        822,
+        671
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        14
+      ],
+      "pair": 15,
+      "points": [
+        616,
+        741
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        10
+      ],
+      "pair": 16,
+      "points": [
+        768,
+        722
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        1
+      ],
+      "pair": 16,
+      "points": [
+        933,
+        598
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        9
+      ],
+      "pair": 17,
+      "points": [
+        784,
+        723
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        2
+      ],
+      "pair": 17,
+      "points": [
+        668,
+        823
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        8
+      ],
+      "pair": 18,
+      "points": [
+        899,
+        863
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        3
+      ],
+      "pair": 18,
+      "points": [
+        801,
+        910
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        7
+      ],
+      "pair": 19,
+      "points": [
+        850,
+        669
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        4
+      ],
+      "pair": 19,
+      "points": [
+        925,
+        610
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        6
+      ],
+      "pair": 20,
+      "points": [
+        823,
+        829
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        5
+      ],
+      "pair": 20,
+      "points": [
+        776,
+        708
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        12
+      ],
+      "pair": 21,
+      "points": [
+        869,
+        814
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        0
+      ],
+      "pair": 21,
+      "points": [
+        629,
+        980
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        11
+      ],
+      "pair": 22,
+      "points": [
+        1055,
+        948
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        13
+      ],
+      "pair": 22,
+      "points": [
+        1019,
+        839
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        10
+      ],
+      "pair": 23,
+      "points": [
+        937,
+        899
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        14
+      ],
+      "pair": 23,
+      "points": [
+        821,
+        1016
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        8
+      ],
+      "pair": 24,
+      "points": [
+        638,
+        947
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        1
+      ],
+      "pair": 24,
+      "points": [
+        763,
+        795
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        7
+      ],
+      "pair": 25,
+      "points": [
+        791,
+        826
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        2
+      ],
+      "pair": 25,
+      "points": [
+        575,
+        995
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        6
+      ],
+      "pair": 26,
+      "points": [
+        849,
+        857
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        3
+      ],
+      "pair": 26,
+      "points": [
+        867,
+        815
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        5
+      ],
+      "pair": 27,
+      "points": [
+        790,
+        840
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        4
+      ],
+      "pair": 27,
+      "points": [
+        677,
+        812
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        11
+      ],
+      "pair": 28,
+      "points": [
+        924,
+        734
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        0
+      ],
+      "pair": 28,
+      "points": [
+        864,
+        801
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        10
+      ],
+      "pair": 29,
+      "points": [
+        872,
+        681
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        12
+      ],
+      "pair": 29,
+      "points": [
+        972,
+        574
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        9
+      ],
+      "pair": 30,
+      "points": [
+        765,
+        803
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        13
+      ],
+      "pair": 30,
+      "points": [
+        889,
+        670
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        8
+      ],
+      "pair": 31,
+      "points": [
+        1036,
+        614
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        14
+      ],
+      "pair": 31,
+      "points": [
+        926,
+        805
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        6
+      ],
+      "pair": 32,
+      "points": [
+        762,
+        769
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        1
+      ],
+      "pair": 32,
+      "points": [
+        935,
+        590
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        5
+      ],
+      "pair": 33,
+      "points": [
+        755,
+        704
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        2
+      ],
+      "pair": 33,
+      "points": [
+        746,
+        848
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        4
+      ],
+      "pair": 34,
+      "points": [
+        827,
+        910
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        3
+      ],
+      "pair": 34,
+      "points": [
+        692,
+        997
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        10
+      ],
+      "pair": 35,
+      "points": [
+        958,
+        758
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        0
+      ],
+      "pair": 35,
+      "points": [
+        803,
+        866
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        9
+      ],
+      "pair": 36,
+      "points": [
+        802,
+        837
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        11
+      ],
+      "pair": 36,
+      "points": [
+        819,
+        764
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        8
+      ],
+      "pair": 37,
+      "points": [
+        747,
+        915
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        12
+      ],
+      "pair": 37,
+      "points": [
+        730,
+        954
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        7
+      ],
+      "pair": 38,
+      "points": [
+        881,
+        629
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        13
+      ],
+      "pair": 38,
+      "points": [
+        714,
+        789
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        6
+      ],
+      "pair": 39,
+      "points": [
+        763,
+        1097
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        14
+      ],
+      "pair": 39,
+      "points": [
+        633,
+        1101
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        4
+      ],
+      "pair": 40,
+      "points": [
+        735,
+        819
+      ],
+      "rounds": [
+        2,
+        2
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        1
+      ],
+      "pair": 40,
+      "points": [
+        843,
+        756
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        3
+      ],
+      "pair": 41,
+      "points": [
+        590,
+        1017
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        2
+      ],
+      "pair": 41,
+      "points": [
+        959,
+        746
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        9
+      ],
+      "pair": 42,
+      "points": [
+        689,
+        820
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        0
+      ],
+      "pair": 42,
+      "points": [
+        639,
+        928
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        8
+      ],
+      "pair": 43,
+      "points": [
+        970,
+        870
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        10
+      ],
+      "pair": 43,
+      "points": [
+        795,
+        1125
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        7
+      ],
+      "pair": 44,
+      "points": [
+        747,
+        802
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        11
+      ],
+      "pair": 44,
+      "points": [
+        714,
+        962
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        6
+      ],
+      "pair": 45,
+      "points": [
+        696,
+        927
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        12
+      ],
+      "pair": 45,
+      "points": [
+        980,
+        842
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        5
+      ],
+      "pair": 46,
+      "points": [
+        702,
+        860
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        13
+      ],
+      "pair": 46,
+      "points": [
+        627,
+        965
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        4
+      ],
+      "pair": 47,
+      "points": [
+        999,
+        738
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        14
+      ],
+      "pair": 47,
+      "points": [
+        784,
+        847
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        2
+      ],
+      "pair": 48,
+      "points": [
+        784,
+        697
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        1
+      ],
+      "pair": 48,
+      "points": [
+        771,
+        699
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        8
+      ],
+      "pair": 49,
+      "points": [
+        843,
+        870
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        0
+      ],
+      "pair": 49,
+      "points": [
+        640,
+        945
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        7
+      ],
+      "pair": 50,
+      "points": [
+        856,
+        760
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        9
+      ],
+      "pair": 50,
+      "points": [
+        702,
+        983
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        6
+      ],
+      "pair": 51,
+      "points": [
+        918,
+        726
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        10
+      ],
+      "pair": 51,
+      "points": [
+        1009,
+        770
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        5
+      ],
+      "pair": 52,
+      "points": [
+        770,
+        678
+      ],
+      "rounds": [
+        2,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        11
+      ],
+      "pair": 52,
+      "points": [
+        595,
+        762
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        4
+      ],
+      "pair": 53,
+      "points": [
+        882,
+        603
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        12
+      ],
+      "pair": 53,
+      "points": [
+        654,
+        852
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        3
+      ],
+      "pair": 54,
+      "points": [
+        716,
+        869
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        13
+      ],
+      "pair": 54,
+      "points": [
+        722,
+        706
+      ],
+      "rounds": [
+        2,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        2
+      ],
+      "pair": 55,
+      "points": [
+        895,
+        939
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        14
+      ],
+      "pair": 55,
+      "points": [
+        734,
+        1058
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        7
+      ],
+      "pair": 56,
+      "points": [
+        804,
+        773
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        0
+      ],
+      "pair": 56,
+      "points": [
+        659,
+        912
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        6
+      ],
+      "pair": 57,
+      "points": [
+        663,
+        703
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        8
+      ],
+      "pair": 57,
+      "points": [
+        752,
+        721
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        5
+      ],
+      "pair": 58,
+      "points": [
+        641,
+        975
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        9
+      ],
+      "pair": 58,
+      "points": [
+        510,
+        1009
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        4
+      ],
+      "pair": 59,
+      "points": [
+        750,
+        780
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        10
+      ],
+      "pair": 59,
+      "points": [
+        726,
+        782
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        3
+      ],
+      "pair": 60,
+      "points": [
+        606,
+        984
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        11
+      ],
+      "pair": 60,
+      "points": [
+        957,
+        766
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        2
+      ],
+      "pair": 61,
+      "points": [
+        881,
+        799
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        12
+      ],
+      "pair": 61,
+      "points": [
+        964,
+        701
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        1
+      ],
+      "pair": 62,
+      "points": [
+        808,
+        833
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        13
+      ],
+      "pair": 62,
+      "points": [
+        853,
+        829
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        6
+      ],
+      "pair": 63,
+      "points": [
+        1036,
+        854
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        0
+      ],
+      "pair": 63,
+      "points": [
+        947,
+        962
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        5
+      ],
+      "pair": 64,
+      "points": [
+        561,
+        827
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        7
+      ],
+      "pair": 64,
+      "points": [
+        576,
+        796
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        4
+      ],
+      "pair": 65,
+      "points": [
+        810,
+        843
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        8
+      ],
+      "pair": 65,
+      "points": [
+        654,
+        782
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        3
+      ],
+      "pair": 66,
+      "points": [
+        787,
+        864
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        9
+      ],
+      "pair": 66,
+      "points": [
+        802,
+        808
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        2
+      ],
+      "pair": 67,
+      "points": [
+        867,
+        861
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        10
+      ],
+      "pair": 67,
+      "points": [
+        727,
+        933
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        1
+      ],
+      "pair": 68,
+      "points": [
+        791,
+        746
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        11
+      ],
+      "pair": 68,
+      "points": [
+        675,
+        882
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        14
+      ],
+      "pair": 69,
+      "points": [
+        685,
+        1043
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        13
+      ],
+      "pair": 69,
+      "points": [
+        869,
+        859
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        5
+      ],
+      "pair": 70,
+      "points": [
+        795,
+        800
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        0
+      ],
+      "pair": 70,
+      "points": [
+        607,
+        1000
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        4
+      ],
+      "pair": 71,
+      "points": [
+        1076,
+        754
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        6
+      ],
+      "pair": 71,
+      "points": [
+        918,
+        810
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        3
+      ],
+      "pair": 72,
+      "points": [
+        981,
+        838
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        7
+      ],
+      "pair": 72,
+      "points": [
+        933,
+        924
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        2
+      ],
+      "pair": 73,
+      "points": [
+        811,
+        806
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        8
+      ],
+      "pair": 73,
+      "points": [
+        814,
+        628
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        1
+      ],
+      "pair": 74,
+      "points": [
+        965,
+        520
+      ],
+      "rounds": [
+        4,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        9
+      ],
+      "pair": 74,
+      "points": [
+        771,
+        878
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        14
+      ],
+      "pair": 75,
+      "points": [
+        722,
+        1127
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        11
+      ],
+      "pair": 75,
+      "points": [
+        876,
+        936
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        13
+      ],
+      "pair": 76,
+      "points": [
+        813,
+        670
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        12
+      ],
+      "pair": 76,
+      "points": [
+        904,
+        703
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        4
+      ],
+      "pair": 77,
+      "points": [
+        990,
+        704
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        0
+      ],
+      "pair": 77,
+      "points": [
+        877,
+        823
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        3
+      ],
+      "pair": 78,
+      "points": [
+        896,
+        901
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        5
+      ],
+      "pair": 78,
+      "points": [
+        903,
+        708
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        2
+      ],
+      "pair": 79,
+      "points": [
+        924,
+        762
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        6
+      ],
+      "pair": 79,
+      "points": [
+        887,
+        891
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        1
+      ],
+      "pair": 80,
+      "points": [
+        764,
+        762
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        7
+      ],
+      "pair": 80,
+      "points": [
+        785,
+        695
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        14
+      ],
+      "pair": 81,
+      "points": [
+        792,
+        1066
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        9
+      ],
+      "pair": 81,
+      "points": [
+        961,
+        942
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        13
+      ],
+      "pair": 82,
+      "points": [
+        839,
+        653
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        10
+      ],
+      "pair": 82,
+      "points": [
+        764,
+        728
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        12
+      ],
+      "pair": 83,
+      "points": [
+        738,
+        836
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        11
+      ],
+      "pair": 83,
+      "points": [
+        747,
+        888
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        3
+      ],
+      "pair": 84,
+      "points": [
+        698,
+        1046
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        0
+      ],
+      "pair": 84,
+      "points": [
+        743,
+        982
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        2
+      ],
+      "pair": 85,
+      "points": [
+        685,
+        823
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        4
+      ],
+      "pair": 85,
+      "points": [
+        709,
+        768
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        1
+      ],
+      "pair": 86,
+      "points": [
+        773,
+        822
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        5
+      ],
+      "pair": 86,
+      "points": [
+        702,
+        749
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        14
+      ],
+      "pair": 87,
+      "points": [
+        951,
+        872
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        7
+      ],
+      "pair": 87,
+      "points": [
+        1193,
+        625
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        13
+      ],
+      "pair": 88,
+      "points": [
+        644,
+        850
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        8
+      ],
+      "pair": 88,
+      "points": [
+        687,
+        895
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        12
+      ],
+      "pair": 89,
+      "points": [
+        742,
+        677
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        9
+      ],
+      "pair": 89,
+      "points": [
+        670,
+        737
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        11
+      ],
+      "pair": 90,
+      "points": [
+        952,
+        948
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        10
+      ],
+      "pair": 90,
+      "points": [
+        996,
+        896
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        2
+      ],
+      "pair": 91,
+      "points": [
+        931,
+        855
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        0
+      ],
+      "pair": 91,
+      "points": [
+        883,
+        791
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        1
+      ],
+      "pair": 92,
+      "points": [
+        934,
+        708
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        3
+      ],
+      "pair": 92,
+      "points": [
+        672,
+        985
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        14
+      ],
+      "pair": 93,
+      "points": [
+        752,
+        1010
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        5
+      ],
+      "pair": 93,
+      "points": [
+        915,
+        843
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        13
+      ],
+      "pair": 94,
+      "points": [
+        1037,
+        675
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        6
+      ],
+      "pair": 94,
+      "points": [
+        858,
+        787
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        12
+      ],
+      "pair": 95,
+      "points": [
+        658,
+        746
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        7
+      ],
+      "pair": 95,
+      "points": [
+        689,
+        741
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        11
+      ],
+      "pair": 96,
+      "points": [
+        597,
+        1127
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        8
+      ],
+      "pair": 96,
+      "points": [
+        700,
+        989
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        10
+      ],
+      "pair": 97,
+      "points": [
+        767,
+        943
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        9
+      ],
+      "pair": 97,
+      "points": [
+        864,
+        756
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        1
+      ],
+      "pair": 98,
+      "points": [
+        824,
+        498
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        0
+      ],
+      "pair": 98,
+      "points": [
+        532,
+        796
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        14
+      ],
+      "pair": 99,
+      "points": [
+        963,
+        1000
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        3
+      ],
+      "pair": 99,
+      "points": [
+        1075,
+        997
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        13
+      ],
+      "pair": 100,
+      "points": [
+        931,
+        865
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        4
+      ],
+      "pair": 100,
+      "points": [
+        866,
+        797
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        12
+      ],
+      "pair": 101,
+      "points": [
+        738,
+        744
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        5
+      ],
+      "pair": 101,
+      "points": [
+        758,
+        710
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        11
+      ],
+      "pair": 102,
+      "points": [
+        795,
+        900
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        6
+      ],
+      "pair": 102,
+      "points": [
+        822,
+        743
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        10
+      ],
+      "pair": 103,
+      "points": [
+        673,
+        963
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        7
+      ],
+      "pair": 103,
+      "points": [
+        934,
+        666
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        9
+      ],
+      "pair": 104,
+      "points": [
+        861,
+        864
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        8
+      ],
+      "pair": 104,
+      "points": [
+        1119,
+        602
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        14
+      ],
+      "pair": 105,
+      "points": [
+        700,
+        1066
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        1
+      ],
+      "pair": 105,
+      "points": [
+        905,
+        898
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        13
+      ],
+      "pair": 106,
+      "points": [
+        794,
+        1061
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        2
+      ],
+      "pair": 106,
+      "points": [
+        701,
+        935
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        12
+      ],
+      "pair": 107,
+      "points": [
+        705,
+        927
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        3
+      ],
+      "pair": 107,
+      "points": [
+        794,
+        1059
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        11
+      ],
+      "pair": 108,
+      "points": [
+        897,
+        747
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        4
+      ],
+      "pair": 108,
+      "points": [
+        896,
+        806
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        10
+      ],
+      "pair": 109,
+      "points": [
+        901,
+        699
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        5
+      ],
+      "pair": 109,
+      "points": [
+        975,
+        670
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        9
+      ],
+      "pair": 110,
+      "points": [
+        868,
+        758
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        6
+      ],
+      "pair": 110,
+      "points": [
+        904,
+        769
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        8
+      ],
+      "pair": 111,
+      "points": [
+        713,
+        816
+      ],
+      "rounds": [
+        2,
+        2
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        7
+      ],
+      "pair": 111,
+      "points": [
+        772,
+        793
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        14
+      ],
+      "pair": 112,
+      "points": [
+        966,
+        901
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        0
+      ],
+      "pair": 112,
+      "points": [
+        996,
+        843
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        12
+      ],
+      "pair": 113,
+      "points": [
+        503,
+        957
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        1
+      ],
+      "pair": 113,
+      "points": [
+        635,
+        750
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        11
+      ],
+      "pair": 114,
+      "points": [
+        759,
+        908
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        2
+      ],
+      "pair": 114,
+      "points": [
+        736,
+        927
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        10
+      ],
+      "pair": 115,
+      "points": [
+        899,
+        954
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        3
+      ],
+      "pair": 115,
+      "points": [
+        820,
+        724
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        9
+      ],
+      "pair": 116,
+      "points": [
+        729,
+        892
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        4
+      ],
+      "pair": 116,
+      "points": [
+        799,
+        750
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        8
+      ],
+      "pair": 117,
+      "points": [
+        856,
+        730
+      ],
+      "rounds": [
+        3,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        5
+      ],
+      "pair": 117,
+      "points": [
+        946,
+        758
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        7
+      ],
+      "pair": 118,
+      "points": [
+        930,
+        737
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        6
+      ],
+      "pair": 118,
+      "points": [
+        701,
+        1069
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        13
+      ],
+      "pair": 119,
+      "points": [
+        954,
+        626
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        0
+      ],
+      "pair": 119,
+      "points": [
+        798,
+        808
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        12
+      ],
+      "pair": 120,
+      "points": [
+        745,
+        745
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        14
+      ],
+      "pair": 120,
+      "points": [
+        646,
+        863
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        10
+      ],
+      "pair": 121,
+      "points": [
+        981,
+        782
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        1
+      ],
+      "pair": 121,
+      "points": [
+        929,
+        770
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        9
+      ],
+      "pair": 122,
+      "points": [
+        766,
+        712
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        2
+      ],
+      "pair": 122,
+      "points": [
+        794,
+        983
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        8
+      ],
+      "pair": 123,
+      "points": [
+        1033,
+        699
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        3
+      ],
+      "pair": 123,
+      "points": [
+        744,
+        1071
+      ],
+      "rounds": [
+        0,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        7
+      ],
+      "pair": 124,
+      "points": [
+        922,
+        842
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        4
+      ],
+      "pair": 124,
+      "points": [
+        925,
+        867
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        6
+      ],
+      "pair": 125,
+      "points": [
+        620,
+        954
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        5
+      ],
+      "pair": 125,
+      "points": [
+        816,
+        792
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        12
+      ],
+      "pair": 126,
+      "points": [
+        907,
+        857
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        0
+      ],
+      "pair": 126,
+      "points": [
+        778,
+        1066
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        11
+      ],
+      "pair": 127,
+      "points": [
+        824,
+        851
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        13
+      ],
+      "pair": 127,
+      "points": [
+        1070,
+        583
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        10
+      ],
+      "pair": 128,
+      "points": [
+        839,
+        854
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        14
+      ],
+      "pair": 128,
+      "points": [
+        759,
+        942
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        8
+      ],
+      "pair": 129,
+      "points": [
+        730,
+        830
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        1
+      ],
+      "pair": 129,
+      "points": [
+        818,
+        807
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        7
+      ],
+      "pair": 130,
+      "points": [
+        745,
+        565
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        2
+      ],
+      "pair": 130,
+      "points": [
+        568,
+        764
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        6
+      ],
+      "pair": 131,
+      "points": [
+        880,
+        1042
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        3
+      ],
+      "pair": 131,
+      "points": [
+        729,
+        954
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        5
+      ],
+      "pair": 132,
+      "points": [
+        703,
+        819
+      ],
+      "rounds": [
+        1,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        4
+      ],
+      "pair": 132,
+      "points": [
+        796,
+        810
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        11
+      ],
+      "pair": 133,
+      "points": [
+        861,
+        941
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        0
+      ],
+      "pair": 133,
+      "points": [
+        824,
+        1034
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        10
+      ],
+      "pair": 134,
+      "points": [
+        775,
+        953
+      ],
+      "rounds": [
+        1,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        12
+      ],
+      "pair": 134,
+      "points": [
+        1113,
+        720
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        9
+      ],
+      "pair": 135,
+      "points": [
+        815,
+        869
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        13
+      ],
+      "pair": 135,
+      "points": [
+        791,
+        828
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        8
+      ],
+      "pair": 136,
+      "points": [
+        967,
+        550
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        14
+      ],
+      "pair": 136,
+      "points": [
+        791,
+        811
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        6
+      ],
+      "pair": 137,
+      "points": [
+        713,
+        845
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        1
+      ],
+      "pair": 137,
+      "points": [
+        816,
+        769
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        5
+      ],
+      "pair": 138,
+      "points": [
+        878,
+        619
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        2
+      ],
+      "pair": 138,
+      "points": [
+        740,
+        615
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        4
+      ],
+      "pair": 139,
+      "points": [
+        871,
+        786
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        3
+      ],
+      "pair": 139,
+      "points": [
+        870,
+        808
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        10
+      ],
+      "pair": 140,
+      "points": [
+        555,
+        775
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        0
+      ],
+      "pair": 140,
+      "points": [
+        651,
+        815
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        9
+      ],
+      "pair": 141,
+      "points": [
+        860,
+        780
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        11
+      ],
+      "pair": 141,
+      "points": [
+        741,
+        988
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        8
+      ],
+      "pair": 142,
+      "points": [
+        771,
+        775
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        12
+      ],
+      "pair": 142,
+      "points": [
+        606,
+        886
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        7
+      ],
+      "pair": 143,
+      "points": [
+        665,
+        877
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        13
+      ],
+      "pair": 143,
+      "points": [
+        625,
+        995
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        6
+      ],
+      "pair": 144,
+      "points": [
+        989,
+        978
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        14
+      ],
+      "pair": 144,
+      "points": [
+        985,
+        1046
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        4
+      ],
+      "pair": 145,
+      "points": [
+        540,
+        885
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        1
+      ],
+      "pair": 145,
+      "points": [
+        612,
+        850
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        3
+      ],
+      "pair": 146,
+      "points": [
+        727,
+        919
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        2
+      ],
+      "pair": 146,
+      "points": [
+        898,
+        953
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        9
+      ],
+      "pair": 147,
+      "points": [
+        923,
+        836
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        0
+      ],
+      "pair": 147,
+      "points": [
+        833,
+        1000
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        8
+      ],
+      "pair": 148,
+      "points": [
+        768,
+        712
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        10
+      ],
+      "pair": 148,
+      "points": [
+        699,
+        833
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        7
+      ],
+      "pair": 149,
+      "points": [
+        950,
+        742
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        11
+      ],
+      "pair": 149,
+      "points": [
+        663,
+        800
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        6
+      ],
+      "pair": 150,
+      "points": [
+        753,
+        952
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        12
+      ],
+      "pair": 150,
+      "points": [
+        943,
+        711
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        5
+      ],
+      "pair": 151,
+      "points": [
+        874,
+        755
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        13
+      ],
+      "pair": 151,
+      "points": [
+        749,
+        820
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        4
+      ],
+      "pair": 152,
+      "points": [
+        892,
+        908
+      ],
+      "rounds": [
+        2,
+        2
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        14
+      ],
+      "pair": 152,
+      "points": [
+        698,
+        1153
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        2
+      ],
+      "pair": 153,
+      "points": [
+        644,
+        983
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        1
+      ],
+      "pair": 153,
+      "points": [
+        722,
+        991
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        8
+      ],
+      "pair": 154,
+      "points": [
+        784,
+        635
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        0
+      ],
+      "pair": 154,
+      "points": [
+        653,
+        834
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        7
+      ],
+      "pair": 155,
+      "points": [
+        837,
+        693
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        9
+      ],
+      "pair": 155,
+      "points": [
+        555,
+        912
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        6
+      ],
+      "pair": 156,
+      "points": [
+        805,
+        1039
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        10
+      ],
+      "pair": 156,
+      "points": [
+        872,
+        865
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        5
+      ],
+      "pair": 157,
+      "points": [
+        1078,
+        688
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        11
+      ],
+      "pair": 157,
+      "points": [
+        784,
+        961
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        4
+      ],
+      "pair": 158,
+      "points": [
+        837,
+        870
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        12
+      ],
+      "pair": 158,
+      "points": [
+        957,
+        818
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        3
+      ],
+      "pair": 159,
+      "points": [
+        844,
+        916
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        13
+      ],
+      "pair": 159,
+      "points": [
+        716,
+        1088
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        2
+      ],
+      "pair": 160,
+      "points": [
+        937,
+        698
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        14
+      ],
+      "pair": 160,
+      "points": [
+        822,
+        827
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        7
+      ],
+      "pair": 161,
+      "points": [
+        873,
+        553
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        0
+      ],
+      "pair": 161,
+      "points": [
+        581,
+        786
+      ],
+      "rounds": [
+        1,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        6
+      ],
+      "pair": 162,
+      "points": [
+        763,
+        1209
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        8
+      ],
+      "pair": 162,
+      "points": [
+        860,
+        1058
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        5
+      ],
+      "pair": 163,
+      "points": [
+        867,
+        772
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        9
+      ],
+      "pair": 163,
+      "points": [
+        794,
+        935
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        4
+      ],
+      "pair": 164,
+      "points": [
+        821,
+        634
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        10
+      ],
+      "pair": 164,
+      "points": [
+        815,
+        665
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        3
+      ],
+      "pair": 165,
+      "points": [
+        985,
+        1025
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        11
+      ],
+      "pair": 165,
+      "points": [
+        1050,
+        743
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        2
+      ],
+      "pair": 166,
+      "points": [
+        628,
+        912
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        12
+      ],
+      "pair": 166,
+      "points": [
+        771,
+        829
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        1
+      ],
+      "pair": 167,
+      "points": [
+        915,
+        703
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        13
+      ],
+      "pair": 167,
+      "points": [
+        854,
+        775
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        6
+      ],
+      "pair": 168,
+      "points": [
+        984,
+        881
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        0
+      ],
+      "pair": 168,
+      "points": [
+        962,
+        847
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        5
+      ],
+      "pair": 169,
+      "points": [
+        801,
+        759
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        7
+      ],
+      "pair": 169,
+      "points": [
+        845,
+        707
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        4
+      ],
+      "pair": 170,
+      "points": [
+        820,
+        812
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        8
+      ],
+      "pair": 170,
+      "points": [
+        994,
+        684
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        3
+      ],
+      "pair": 171,
+      "points": [
+        983,
+        825
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        9
+      ],
+      "pair": 171,
+      "points": [
+        745,
+        819
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        2
+      ],
+      "pair": 172,
+      "points": [
+        1004,
+        712
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        10
+      ],
+      "pair": 172,
+      "points": [
+        858,
+        663
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        1
+      ],
+      "pair": 173,
+      "points": [
+        982,
+        634
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        11
+      ],
+      "pair": 173,
+      "points": [
+        715,
+        897
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        14
+      ],
+      "pair": 174,
+      "points": [
+        816,
+        986
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        13
+      ],
+      "pair": 174,
+      "points": [
+        972,
+        804
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        5
+      ],
+      "pair": 175,
+      "points": [
+        761,
+        725
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        0
+      ],
+      "pair": 175,
+      "points": [
+        527,
+        956
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        4
+      ],
+      "pair": 176,
+      "points": [
+        1031,
+        659
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        6
+      ],
+      "pair": 176,
+      "points": [
+        942,
+        657
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        3
+      ],
+      "pair": 177,
+      "points": [
+        560,
+        854
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        7
+      ],
+      "pair": 177,
+      "points": [
+        920,
+        635
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        2
+      ],
+      "pair": 178,
+      "points": [
+        824,
+        803
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        8
+      ],
+      "pair": 178,
+      "points": [
+        1045,
+        665
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        1
+      ],
+      "pair": 179,
+      "points": [
+        891,
+        661
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        9
+      ],
+      "pair": 179,
+      "points": [
+        1008,
+        712
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        14
+      ],
+      "pair": 180,
+      "points": [
+        1245,
+        861
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        11
+      ],
+      "pair": 180,
+      "points": [
+        1178,
+        858
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        13
+      ],
+      "pair": 181,
+      "points": [
+        805,
+        878
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        12
+      ],
+      "pair": 181,
+      "points": [
+        915,
+        770
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        4
+      ],
+      "pair": 182,
+      "points": [
+        854,
+        887
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        0
+      ],
+      "pair": 182,
+      "points": [
+        822,
+        944
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        3
+      ],
+      "pair": 183,
+      "points": [
+        714,
+        1005
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        5
+      ],
+      "pair": 183,
+      "points": [
+        841,
+        818
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        2
+      ],
+      "pair": 184,
+      "points": [
+        945,
+        834
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        6
+      ],
+      "pair": 184,
+      "points": [
+        955,
+        855
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        1
+      ],
+      "pair": 185,
+      "points": [
+        492,
+        1077
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        7
+      ],
+      "pair": 185,
+      "points": [
+        500,
+        989
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        14
+      ],
+      "pair": 186,
+      "points": [
+        720,
+        1046
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        9
+      ],
+      "pair": 186,
+      "points": [
+        909,
+        859
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        13
+      ],
+      "pair": 187,
+      "points": [
+        810,
+        707
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        10
+      ],
+      "pair": 187,
+      "points": [
+        780,
+        732
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        12
+      ],
+      "pair": 188,
+      "points": [
+        578,
+        848
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        11
+      ],
+      "pair": 188,
+      "points": [
+        669,
+        859
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        3
+      ],
+      "pair": 189,
+      "points": [
+        865,
+        879
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        0
+      ],
+      "pair": 189,
+      "points": [
+        763,
+        984
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        2
+      ],
+      "pair": 190,
+      "points": [
+        757,
+        980
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        4
+      ],
+      "pair": 190,
+      "points": [
+        681,
+        1005
+      ],
+      "rounds": [
+        0,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        1
+      ],
+      "pair": 191,
+      "points": [
+        707,
+        555
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        5
+      ],
+      "pair": 191,
+      "points": [
+        765,
+        620
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        14
+      ],
+      "pair": 192,
+      "points": [
+        870,
+        925
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        7
+      ],
+      "pair": 192,
+      "points": [
+        1089,
+        615
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        13
+      ],
+      "pair": 193,
+      "points": [
+        736,
+        795
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        8
+      ],
+      "pair": 193,
+      "points": [
+        718,
+        826
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        12
+      ],
+      "pair": 194,
+      "points": [
+        588,
+        897
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        9
+      ],
+      "pair": 194,
+      "points": [
+        554,
+        959
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        11
+      ],
+      "pair": 195,
+      "points": [
+        700,
+        837
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        10
+      ],
+      "pair": 195,
+      "points": [
+        689,
+        902
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        2
+      ],
+      "pair": 196,
+      "points": [
+        917,
+        675
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        2,
+        0
+      ],
+      "pair": 196,
+      "points": [
+        747,
+        811
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        1
+      ],
+      "pair": 197,
+      "points": [
+        849,
+        674
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        3
+      ],
+      "pair": 197,
+      "points": [
+        633,
+        860
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        14
+      ],
+      "pair": 198,
+      "points": [
+        733,
+        917
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        5
+      ],
+      "pair": 198,
+      "points": [
+        972,
+        748
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        13
+      ],
+      "pair": 199,
+      "points": [
+        848,
+        828
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        6
+      ],
+      "pair": 199,
+      "points": [
+        750,
+        948
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        12
+      ],
+      "pair": 200,
+      "points": [
+        633,
+        678
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        7
+      ],
+      "pair": 200,
+      "points": [
+        741,
+        615
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        11
+      ],
+      "pair": 201,
+      "points": [
+        616,
+        855
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        8
+      ],
+      "pair": 201,
+      "points": [
+        724,
+        742
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        10
+      ],
+      "pair": 202,
+      "points": [
+        807,
+        717
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        9
+      ],
+      "pair": 202,
+      "points": [
+        695,
+        756
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        1
+      ],
+      "pair": 203,
+      "points": [
+        956,
+        845
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        0
+      ],
+      "pair": 203,
+      "points": [
+        705,
+        1021
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        14
+      ],
+      "pair": 204,
+      "points": [
+        827,
+        1091
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        3
+      ],
+      "pair": 204,
+      "points": [
+        937,
+        851
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        13
+      ],
+      "pair": 205,
+      "points": [
+        884,
+        655
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        4
+      ],
+      "pair": 205,
+      "points": [
+        907,
+        644
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        12
+      ],
+      "pair": 206,
+      "points": [
+        674,
+        748
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        5
+      ],
+      "pair": 206,
+      "points": [
+        644,
+        666
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        11
+      ],
+      "pair": 207,
+      "points": [
+        766,
+        897
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        6
+      ],
+      "pair": 207,
+      "points": [
+        583,
+        810
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        10
+      ],
+      "pair": 208,
+      "points": [
+        717,
+        768
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        7
+      ],
+      "pair": 208,
+      "points": [
+        902,
+        610
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        9
+      ],
+      "pair": 209,
+      "points": [
+        649,
+        863
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        8
+      ],
+      "pair": 209,
+      "points": [
+        708,
+        805
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        14
+      ],
+      "pair": 210,
+      "points": [
+        594,
+        1193
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        1
+      ],
+      "pair": 210,
+      "points": [
+        865,
+        1125
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        13
+      ],
+      "pair": 211,
+      "points": [
+        882,
+        594
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        2
+      ],
+      "pair": 211,
+      "points": [
+        951,
+        610
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        12
+      ],
+      "pair": 212,
+      "points": [
+        937,
+        664
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        3
+      ],
+      "pair": 212,
+      "points": [
+        872,
+        788
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        4,
+        11
+      ],
+      "pair": 213,
+      "points": [
+        784,
+        944
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        4
+      ],
+      "pair": 213,
+      "points": [
+        739,
+        787
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        10
+      ],
+      "pair": 214,
+      "points": [
+        792,
+        904
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        5
+      ],
+      "pair": 214,
+      "points": [
+        927,
+        719
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        9
+      ],
+      "pair": 215,
+      "points": [
+        954,
+        796
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        6
+      ],
+      "pair": 215,
+      "points": [
+        747,
+        1032
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        8
+      ],
+      "pair": 216,
+      "points": [
+        657,
+        770
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        7
+      ],
+      "pair": 216,
+      "points": [
+        691,
+        656
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        14
+      ],
+      "pair": 217,
+      "points": [
+        822,
+        849
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        0
+      ],
+      "pair": 217,
+      "points": [
+        805,
+        918
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        12
+      ],
+      "pair": 218,
+      "points": [
+        736,
+        894
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        1
+      ],
+      "pair": 218,
+      "points": [
+        718,
+        803
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        11
+      ],
+      "pair": 219,
+      "points": [
+        833,
+        1235
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        2
+      ],
+      "pair": 219,
+      "points": [
+        1055,
+        899
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        3,
+        10
+      ],
+      "pair": 220,
+      "points": [
+        1080,
+        1063
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        3
+      ],
+      "pair": 220,
+      "points": [
+        605,
+        943
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        9
+      ],
+      "pair": 221,
+      "points": [
+        611,
+        986
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        9,
+        4
+      ],
+      "pair": 221,
+      "points": [
+        672,
+        862
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        8
+      ],
+      "pair": 222,
+      "points": [
+        882,
+        602
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        5
+      ],
+      "pair": 222,
+      "points": [
+        831,
+        643
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        6,
+        7
+      ],
+      "pair": 223,
+      "points": [
+        909,
+        643
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        6
+      ],
+      "pair": 223,
+      "points": [
+        796,
+        849
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        13
+      ],
+      "pair": 224,
+      "points": [
+        827,
+        817
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        0
+      ],
+      "pair": 224,
+      "points": [
+        627,
+        979
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        12
+      ],
+      "pair": 225,
+      "points": [
+        960,
+        643
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        14
+      ],
+      "pair": 225,
+      "points": [
+        811,
+        875
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        1,
+        10
+      ],
+      "pair": 226,
+      "points": [
+        655,
+        864
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        1
+      ],
+      "pair": 226,
+      "points": [
+        691,
+        776
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        9
+      ],
+      "pair": 227,
+      "points": [
+        700,
+        735
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        2
+      ],
+      "pair": 227,
+      "points": [
+        753,
+        740
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        8
+      ],
+      "pair": 228,
+      "points": [
+        1043,
+        746
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        3
+      ],
+      "pair": 228,
+      "points": [
+        663,
+        974
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        7
+      ],
+      "pair": 229,
+      "points": [
+        903,
+        655
+      ],
+      "rounds": [
+        3,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        4
+      ],
+      "pair": 229,
+      "points": [
+        800,
+        845
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        6
+      ],
+      "pair": 230,
+      "points": [
+        640,
+        862
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        5
+      ],
+      "pair": 230,
+      "points": [
+        768,
+        646
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        0,
+        12
+      ],
+      "pair": 231,
+      "points": [
+        886,
+        803
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        0
+      ],
+      "pair": 231,
+      "points": [
+        780,
+        949
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        11
+      ],
+      "pair": 232,
+      "points": [
+        1027,
+        761
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        13
+      ],
+      "pair": 232,
+      "points": [
+        1144,
+        731
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        14,
+        10
+      ],
+      "pair": 233,
+      "points": [
+        935,
+        960
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        10,
+        14
+      ],
+      "pair": 233,
+      "points": [
+        863,
+        1024
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        8
+      ],
+      "pair": 234,
+      "points": [
+        573,
+        955
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        8,
+        1
+      ],
+      "pair": 234,
+      "points": [
+        664,
+        763
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        7
+      ],
+      "pair": 235,
+      "points": [
+        652,
+        822
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        7,
+        2
+      ],
+      "pair": 235,
+      "points": [
+        548,
+        1001
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        6
+      ],
+      "pair": 236,
+      "points": [
+        786,
+        1044
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        3
+      ],
+      "pair": 236,
+      "points": [
+        702,
+        994
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        5
+      ],
+      "pair": 237,
+      "points": [
+        719,
+        725
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        5,
+        4
+      ],
+      "pair": 237,
+      "points": [
+        594,
+        726
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        11
+      ],
+      "pair": 238,
+      "points": [
+        1072,
+        1093
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        11,
+        0
+      ],
+      "pair": 238,
+      "points": [
+        1071,
+        968
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        12,
+        10
+      ],
+      "pair": 239,
+      "points": [
+        779,
+        835
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        12
+      ],
+      "pair": 239,
+      "points": [
+        692,
+        775
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        13,
+        9
+      ],
+      "pair": 240,
+      "points": [
+        846,
+        849
+      ],
+      "rounds": [
+        3,
+        2
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        13
+      ],
+      "pair": 240,
+      "points": [
+        785,
+        782
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        8
+      ],
+      "pair": 241,
+      "points": [
+        1068,
+        684
+      ],
+      "rounds": [
+        5,
+        0
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        14
+      ],
+      "pair": 241,
+      "points": [
+        820,
+        990
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        1,
+        6
+      ],
+      "pair": 242,
+      "points": [
+        482,
+        954
+      ],
+      "rounds": [
+        0,
+        5
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        1
+      ],
+      "pair": 242,
+      "points": [
+        620,
+        828
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        2,
+        5
+      ],
+      "pair": 243,
+      "points": [
+        691,
+        851
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        5,
+        2
+      ],
+      "pair": 243,
+      "points": [
+        716,
+        915
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        3,
+        4
+      ],
+      "pair": 244,
+      "points": [
+        913,
+        936
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        4,
+        3
+      ],
+      "pair": 244,
+      "points": [
+        823,
+        860
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        0,
+        10
+      ],
+      "pair": 245,
+      "points": [
+        847,
+        646
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        10,
+        0
+      ],
+      "pair": 245,
+      "points": [
+        705,
+        775
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        11,
+        9
+      ],
+      "pair": 246,
+      "points": [
+        922,
+        776
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        9,
+        11
+      ],
+      "pair": 246,
+      "points": [
+        736,
+        746
+      ],
+      "rounds": [
+        2,
+        3
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        12,
+        8
+      ],
+      "pair": 247,
+      "points": [
+        1014,
+        768
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        8,
+        12
+      ],
+      "pair": 247,
+      "points": [
+        868,
+        680
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 1,
+      "winner": 0
+    },
+    {
+      "builds": [
+        13,
+        7
+      ],
+      "pair": 248,
+      "points": [
+        783,
+        581
+      ],
+      "rounds": [
+        4,
+        1
+      ],
+      "swap": 0,
+      "winner": 0
+    },
+    {
+      "builds": [
+        7,
+        13
+      ],
+      "pair": 248,
+      "points": [
+        623,
+        721
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 1,
+      "winner": 1
+    },
+    {
+      "builds": [
+        14,
+        6
+      ],
+      "pair": 249,
+      "points": [
+        880,
+        959
+      ],
+      "rounds": [
+        1,
+        4
+      ],
+      "swap": 0,
+      "winner": 1
+    },
+    {
+      "builds": [
+        6,
+        14
+      ],
+      "pair": 249,
+      "points": [
+        828,
+        931
+      ],
+      "rounds": [
+        2,
+        2
+      ],
+      "swap": 1,
+      "winner": 1
+    }
+  ],
+  "method": "250 paired-seed matchups with swapped seats; fixed three-Joker builds; greedy best-score AI, draws only when stuck; upgrades chosen by most-played available family; no drafting.",
+  "rounds": 2500
+}

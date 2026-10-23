@@ -1,0 +1,9 @@
+Credit list:
+
+Most Front Sprites: [Source Wolfenstein 3D PC game - By Id-Software]
+Some Front Sprites: [Source Wolfenstein 3D SNES game - By Id-Software]
+Some Front Sprites: [Source Wolfenstein 3D SNES game - By UnTrustable]
+All other rotational Sprites: [By UnTrustable]
+Some other rotational Sprites: [Assist/discuss/Provide - By Gez, InsanityBringer, Kinsie]
+All Sounds: [Source Wolfenstein 3D PC game]
+Decorate Code: [By UnTrustable]
