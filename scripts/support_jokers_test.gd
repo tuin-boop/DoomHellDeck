@@ -15,7 +15,17 @@ func run() -> void:
 	var m = Meld.new()
 	m.next_round()
 	var j = m.support
-	assert(j.DATA.size()==39)
+	assert(j.DATA.size()==41)
+	j.slots = [[39,40],[]]
+	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false).bonus==4)
+	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false,true).bonus==4)
+	assert(j.score(m,0,[0],{"gain":20,"kind":"set"},true).bonus==10)
+	assert(j.score(m,0,[0],{"gain":20,"kind":"set"},true,true).bonus==10)
+	assert(j.score(m,0,[0],{"gain":20,"kind":"set"},true).bonus==0)
+	j.begin_round()
+	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false).bonus==4)
+	assert(j.stats[1].get("glitch_plays",0)==0)
+	j.reset()
 	j.slots = [[37],[]]
 	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false).bonus==6)
 	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false,true).bonus==6)
@@ -230,13 +240,22 @@ func run() -> void:
 	click.position = Vector2(375,350)
 	assert(j.handle(g,m,click))
 	assert(j.slots[0]==[0] and j.slots[1].size()==1)
-	j.slots[0] = [0,1,2]
-	j.offer(m)
-	for id in j.offers: assert(not j.slots[0].has(id))
-	j.chosen = j.offers[0]
-	var replacement: int = j.chosen
-	j.finish_pick(m,1)
-	assert(j.slots[0].size()==3 and j.slots[0][1]==replacement)
+	for round_id in range(2,6):
+		m.round_number = round_id
+		j.offer(m)
+		assert(j.pending and j.offers.size()==3)
+		for id in j.offers: assert(not j.slots[0].has(id))
+		j.chosen = j.offers[0]
+		j.finish_pick(m)
+		assert(j.slots[0].size()==round_id and j.slots[1].size()==round_id)
+		j.offer(m)
+		assert(not j.pending,"Only one pick per round")
+	assert(j.drawer_rect(0).encloses(j.slot_rect(0,4)))
+	j.drawer = [1.0,1.0]
+	await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://captures/five-joker-trays.png")
+	m.round_number = 1
 	j.slots = [[0,1,2],[3,8,11]]
 	j.library = true
 	await process_frame
@@ -265,6 +284,12 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/joker-new-five.png")
+	j.page = 4
+	await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://captures/glitch-jester.png")
+	assert(j.art[39]!=null and j.art[40]!=null)
+
 	assert(j.art[30]!=null and j.art[31]!=null and j.art[32]!=null and j.art[33]!=null and j.art[34]!=null)
 	assert(j.art[25]!=null,"Original ammo box sprite loads")
 	j.page = 0
@@ -298,7 +323,7 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/joker-sidebars.png")
-	print("PASS: 39 Jokers, scoring, growth, side isolation, RNG-safe previews, copying, combo triggers, draw, multiplier, draft, replacement and reset")
+	print("PASS: 41 Jokers, scoring, growth, side isolation, RNG-safe previews, copying, combo triggers, draw, multiplier, draft, one-to-five progression and reset")
 	j.drawer = [0.0,0.0]
 	j.drawer_grace = [0.0,0.0]
 	m.round_over = false

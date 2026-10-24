@@ -13,14 +13,18 @@ Provide your own **DOOM2.WAD** beside the EXE, or set `DOOM_WAD` to its location
 - Five rounds, ten turns each per round. Score more points to win rounds.
 - Play matching sets, armies, damage-type groups, Marches, Apocalypse combos, and named teams.
 - Extend the shared centre combination or draw/pass to clear it.
-- Draft from **39 support Jokers**, with three active slots per player. Hover cards for effects and progress.
+- Draft from **41 support Jokers**. Start with one and choose one more from three offers each round, reaching five in the final round. Both sides follow the same progression. Opening offers use a pool of standalone Jokers. Hover cards for effects and progress.
 - Each scoring Joker appears in sequence with the points it contributes.
 - Choose combo-family upgrades between rounds; inspect shared bonuses and enhanced monsters in Match Powers.
 - Animated combo lettering, illustrated guide, clickable Named Teams links, final-turn alerts, and animated result artwork.
 
 ![Hell Meld table](docs/screenshots/hell-meld.png)
 
+![Five-Joker trays](docs/screenshots/five-joker-trays.png)
+
 ![Joker collection](docs/screenshots/joker-collection.png)
+
+![Glitch Jester Imp](docs/screenshots/glitch-jester.png)
 
 | Field Guide | Match Powers |
 | --- | --- |
@@ -60,7 +64,13 @@ Create `captures` and `reports` directories before running tests from a clean cl
 godot --path . --script scripts/support_jokers_test.gd -- --balance-test
 ```
 
-The tests cover Joker scoring, preview purity, growth, resets, drafting, and presentation. `scripts/joker_balance_test.gd` simulates 500 five-round matches using fixed builds and greedy AI. The retained report covers an earlier **35-Joker** roster, not all 39 current Jokers. Balance remains provisional; simulated build win rates are not individual-card or human-play guarantees.
+The tests cover Joker scoring, preview purity, growth, resets, one-to-five drafting, and presentation. The latest simulation ran **500 full matches / 2,500 rounds / 50,000 turns**, using actual three-choice drafts with one additional Joker each round. Both sides used the same hand-aware draft policy and greedy scoring AI. All card-conservation and turn-limit checks passed.
+
+- Simulated side wins: **228–272**.
+- Average score per side by round: **120.7, 131.7, 144.7, 159.3, 173.6**.
+- Glitch Jester Imp appeared in winning teams in 65.9% of its 85 appearances. This is observational and does not isolate the Joker's strength from teammates or draft timing; no balance changes were made from that statistic alone.
+
+Run `godot --headless --path . --script scripts/joker_progression_balance_test.gd` to reproduce. See the [full report](reports/joker-progression-500.json). The older fixed-three-Joker simulator and reports remain for comparison. Simulation is not a guarantee of balance in human play.
 
 ## Credits
 

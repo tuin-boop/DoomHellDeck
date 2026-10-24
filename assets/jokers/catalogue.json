@@ -67,7 +67,7 @@
     "name": "KING CYBERDEMON",
     "effect": "+10 if a Cyberdemon remains in your hand after playing. Once per play.",
     "art": "king_cyberdemon.png",
-    "art_available": false
+    "art_available": true
   },
   {
     "id": "disco_revenant",
@@ -270,6 +270,21 @@
     "name": "DAIKATANA ROMERO",
     "effect": "Swordplay: +4 for each Melee monster you play. The Romero wild card does not count.",
     "art": "daikatana_romero.png",
+    "art_available": true
+  },
+  {
+    "id": "jester_imp",
+    "name": "JESTER IMP",
+    "effect": "Common: +4 when you start a new combination. No bonus for extensions.",
+    "art": "jester_imp.png",
+    "art_available": true,
+    "rarity": "common"
+  },
+  {
+    "id": "glitch_jester_imp",
+    "name": "GLITCH JESTER IMP",
+    "effect": "+10 every second scoring play while held. Progress resets each round.",
+    "art": "glitch_jester_imp.png",
     "art_available": true
   }
 ]

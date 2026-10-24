@@ -229,7 +229,7 @@ func run() -> void:
 				m.next_round()
 				m.support.offer(m)
 				m.support.chosen = m.support.offers[0]
-				m.support.finish_pick(m,round_index%3)
+				m.support.finish_pick(m)
 		assert(m.finished and m.round_number==5)
 	if "--visual-test" in OS.get_cmdline_user_args():
 		m.start(g)

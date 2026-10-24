@@ -39,7 +39,9 @@ const DATA := [
 	["bloody_smiley","BLOODY SMILEY","Keep smiling: +6 on a scoring play if you lead the round before playing."],
 	["the_two_johns","THE TWO JOHNS","Romero & Carmack: +10 when you play exactly two different monsters in a valid play. The Romero wild card does not count as a monster."],
 	["doom_guy_book","DOOM GUY: THE BOOK","New chapter: +6 the first time you score each combo family while holding this Joker each round."],
-	["daikatana_romero","DAIKATANA ROMERO","Swordplay: +4 for each Melee monster you play. The Romero wild card does not count."]
+	["daikatana_romero","DAIKATANA ROMERO","Swordplay: +4 for each Melee monster you play. The Romero wild card does not count."],
+	["jester_imp","JESTER IMP","Common: +4 when you start a new combination. No bonus for extensions."],
+	["glitch_jester_imp","GLITCH JESTER IMP","+10 every second scoring play while held. Progress resets each round."]
 ]
 # Decorative themes only; colours do not encode rarity or scoring rules.
 const THEMES := [
@@ -66,7 +68,7 @@ const THEMES := [
 	["3e2f25","e4c69b","waves"], ["142b51","73afff","grid"],
 	["293c20","afdf60","chevrons"], ["3d1720","ea9274","diamonds"],
 	["291738","ee70e0","grid"], ["293426","a9bc7c","checks"],
-	["432c16","f3b45e","rings"], ["481e34","f49abb","hearts"], ["442118","f5ad66","diamonds"], ["172d32","9abca6","stripes"], ["3b2318","e5b875","checks"], ["352045","e5a5ef","stars"], ["182b48","86bdf1","rings"], ["132b3e","68cbed","grid"], ["302043","f0d16f","stars"], ["493719","ffda52","rings"], ["252b34","ced9ee","grid"], ["472217","f2ad52","stripes"], ["252d32","b6d5df","chevrons"] # Rockstar stage
+	["432c16","f3b45e","rings"], ["481e34","f49abb","hearts"], ["442118","f5ad66","diamonds"], ["172d32","9abca6","stripes"], ["3b2318","e5b875","checks"], ["352045","e5a5ef","stars"], ["182b48","86bdf1","rings"], ["132b3e","68cbed","grid"], ["302043","f0d16f","stars"], ["493719","ffda52","rings"], ["252b34","ced9ee","grid"], ["472217","f2ad52","stripes"], ["252d32","b6d5df","chevrons"], ["183e36","cbdc66","diamonds"], ["271a3d","5ee8ed","grid"] # Rockstar stage
 ]
 
 func draw_card_background(g, m, id: int, bounds: Rect2, active: bool) -> void:
@@ -145,41 +147,44 @@ func begin_round() -> void:
 		s.glitch_used = false
 		s.contract_paid = false
 		s.book_families = []
+		s.glitch_plays = 0
 
-func offer(m) -> void:
+const MAX_SLOTS := 5
+const STARTER_POOL := [0,2,3,8,13,20,25,29,30,37,38,39]
+
+func draft_offers(m, owner: int) -> Array:
 	var candidates: Array = []
 	for id in DATA.size():
-		if not slots[0].has(id): candidates.append(id)
-	offers.clear()
+		if not slots[owner].has(id) and (not slots[owner].is_empty() or id in STARTER_POOL): candidates.append(id)
+	var choices: Array = []
 	for i in 3:
-		var index: int = m.random.randi_range(0,candidates.size()-1)
-		offers.append(candidates.pop_at(index))
+		choices.append(candidates.pop_at(m.random.randi_range(0,candidates.size()-1)))
+	return choices
+
+func auto_pick(m, owner: int, choices: Array) -> int:
+	var best: int = choices[0]
+	var value := -1.0
+	for id in choices:
+		var weight: float = m.random.randf()*4+5
+		if id in [2,11,38]:
+			for card in m.hands[owner]:
+				if m.card_data(card).type==({2:"BULLET",11:"FIRE",38:"MELEE"}[id]): weight += 2
+		if id==12 and slots[owner].is_empty(): weight = 0
+		if weight>value: best = id; value = weight
+	return best
+
+func offer(m) -> void:
+	if slots[0].size()>=mini(MAX_SLOTS,m.round_number): return
+	offers = draft_offers(m,0)
 	chosen = -1
 	pending = true
 	swap_slot = -1
 
-func finish_pick(m, replace := -1) -> void:
-	if chosen<0 and slots[0].size()<3: return
-	if chosen>=0:
-		if slots[0].size()<3: slots[0].append(chosen)
-		elif replace>=0: slots[0][replace] = chosen
-		else: return
-	# CPU gets its own three random offers; favour damage types it has drawn.
-	var candidates: Array = []
-	for id in DATA.size():
-		if not slots[1].has(id): candidates.append(id)
-	var best := -1
-	var value := -1.0
-	for i in 3:
-		var id: int = candidates.pop_at(m.random.randi_range(0,candidates.size()-1))
-		var weight: float = m.random.randf()*4+5
-		if id in [2,11]:
-			for card in m.hands[1]:
-				if m.card_data(card).type==("BULLET" if id==2 else "FIRE"): weight += 2
-		if id==12 and slots[1].is_empty(): weight = 0
-		if weight>value: best = id; value = weight
-	if slots[1].size()<3: slots[1].append(best)
-	else: slots[1][(m.round_number-1)%3] = best
+func finish_pick(m) -> void:
+	if not pending or not offers.has(chosen) or slots[0].size()>=mini(MAX_SLOTS,m.round_number): return
+	slots[0].append(chosen)
+	if slots[1].size()<mini(MAX_SLOTS,m.round_number):
+		slots[1].append(auto_pick(m,1,draft_offers(m,1)))
 	pending = false
 	chosen = -1
 	apply_contract(m)
@@ -211,6 +216,7 @@ func fixed_bonus(id: int, c: Dictionary) -> int:
 		19: return 10 if c.changed else 0
 		23: return 6
 		25: return c.count*2
+		39: return 0 if c.get("extension",false) else 4
 		38: return c.get("melee",0)*4
 		36: return 10 if c.count==2 and c.get("distinct",0)==2 else 0
 		35: return 6 if c.get("ahead",false) else 0
@@ -261,6 +267,7 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 	for slot in slots[owner].size():
 		var id: int = slots[owner][slot]
 		var bonus := fixed_bonus(id,context)
+		if id==40: bonus = 10 if (int(s.get("glitch_plays",0))+1)%2==0 else 0
 		if id==37: bonus = 0 if combo.kind in s.get("book_families",[]) else 6
 		if id==26: bonus = s.get("gluttonous",0)
 		if id==20: bonus = 0 if s.get("coffee_used",false) else 10
@@ -277,6 +284,7 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 		var before := total
 		total = int(floor(total*1.5)); events.append({"id":17,"text":"x1.5 / +%d" % (total-before),"amount":total-before,"total":total})
 	if commit:
+		if has(owner,40): s.glitch_plays = int(s.get("glitch_plays",0))+1
 		if has(owner,37):
 			if not s.has("book_families"): s.book_families = []
 			if not combo.kind in s.book_families: s.book_families.append(combo.kind)
@@ -312,6 +320,8 @@ func on_draw(owner: int) -> int:
 	return count
 
 func progress(owner: int, id: int) -> String:
+	if id==39: return "COMMON"
+	if id==40: return "%d / 2 PLAYS" % (int(stats[owner].get("glitch_plays",0))%2)
 	var s: Dictionary = stats[owner]
 	match id:
 		26: return "APPETITE +%d" % s.get("gluttonous",0)
@@ -396,6 +406,14 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		while font_size>9 and maxf(g.font.get_string_size(lines[0],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x,g.font.get_string_size(lines[1],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x)>rect.size.x-18: font_size -= 1
 	for row in lines.size():
 		g.label_at(bounds.position+Vector2(9,17+row*(font_size+2)),lines[row],font_size,g.INK)
+	if owner<0 and id==39: g.label_at(Vector2(-rect.size.x/2+6,rect.size.y/2-8),"COMMON",9,g.ORANGE)
+	if id==40:
+		for strip in 3:
+			var phase: float = g.clock*2.0+strip*1.7
+			var y: float = -rect.size.y*0.3+fposmod(phase*18.0,rect.size.y*0.6)
+			var x: float = sin(phase*3.0)*rect.size.x*0.22
+			g.draw_rect(Rect2(Vector2(x,y),Vector2(15,2)),Color(0.2,1.0,1.0,0.55))
+			g.draw_rect(Rect2(Vector2(x+8,y+3),Vector2(10,2)),Color(1.0,0.1,0.7,0.45))
 	if owner>=0: g.label_at(Vector2(-rect.size.x/2+6,rect.size.y/2-8),progress(owner,id),9,g.ORANGE)
 	var side_font := maxi(9,roundi(rect.size.x*0.075))
 	for opposite in 2:
@@ -448,17 +466,14 @@ func draw(g,m) -> void:
 	g.ui_help.reset()
 	g.menu_frame(Rect2(110,65,1220,820))
 	g.label_at(Vector2(155,120),"CHOOSE A SUPPORT JOKER" if pending else "JOKER COLLECTION / %d TYPES" % DATA.size(),28,g.ORANGE)
-	g.label_at(Vector2(155,160),"Three personal slots. Automatic effects last this match. Hover cards for rules.",17,g.INK)
+	g.label_at(Vector2(155,160),"One Joker each round. Build up to five. Effects last this match. Hover for rules.",17,g.INK)
 	if pending:
 		for i in offers.size():
 			card(g,m,offers[i],Rect2(260+i*335,200,230,335))
 			if chosen==offers[i]: g.draw_rect(Rect2(260+i*335,200,230,335),g.ORANGE,false,4)
-		g.label_at(Vector2(170,580),"Click one of the three Jokers to add it to your team." if slots[0].size()<3 else "Choose an offer, then click one of your Jokers below to replace it.",17,g.INK)
-		for i in slots[0].size(): card(g,m,slots[0][i],Rect2(390+i*250,610,105,150),0)
-		if slots[0].size()==3:
-			g.button(Rect2(550,800,340,50),"KEEP MY THREE JOKERS")
-			g.ui_help.offer(Rect2(550,800,340,50),"KEEP YOUR TEAM","Decline these offers and continue with your current three Jokers.")
-		else: g.label_at(Vector2(420,825),"CHOOSE A JOKER TO CONTINUE",20,g.ORANGE)
+		g.label_at(Vector2(170,580),"ROUND %d / CHOOSE JOKER %d OF 5" % [m.round_number,slots[0].size()+1],17,g.INK)
+		for i in slots[0].size(): card(g,m,slots[0][i],Rect2(270+i*180,610,105,150),0)
+		g.label_at(Vector2(420,825),"CHOOSE A JOKER TO CONTINUE",20,g.ORANGE)
 	else:
 		for i in 10:
 			var id := page*10+i
@@ -486,11 +501,9 @@ func handle(g,m,event: InputEvent) -> bool:
 				for i in offers.size():
 					if Rect2(260+i*335,200,230,335).has_point(p):
 						chosen = offers[i]
-						if slots[0].size()<3: finish_pick(m)
+						finish_pick(m)
 						return true
-				for i in slots[0].size():
-					if chosen>=0 and Rect2(390+i*250,610,105,150).has_point(p): finish_pick(m,i); return true
-				if slots[0].size()==3 and Rect2(550,800,340,50).has_point(p): chosen = -1; finish_pick(m)
+
 			else:
 				if Rect2(180,800,250,50).has_point(p): page = posmod(page-1,ceili(DATA.size()/10.0))
 				elif Rect2(1010,800,250,50).has_point(p): page = (page+1)%ceili(DATA.size()/10.0)
@@ -522,7 +535,7 @@ func update_drawers(mouse: Vector2, delta: float, enabled: bool) -> void:
 	if drawer[0]==0: swap_slot = -1
 
 func drawer_rect(owner: int) -> Rect2:
-	return Rect2(750 if owner==0 else 630,(385-20*(1-drawer[owner])) if owner==0 else (153+20*(1-drawer[owner])),500,255)
+	return Rect2(430 if owner==0 else 310,(385-20*(1-drawer[owner])) if owner==0 else (153+20*(1-drawer[owner])),820,255)
 
 func drawer_tab(owner: int) -> Rect2:
 	return Rect2(1000 if owner==0 else 800,640 if owner==0 else 115,250,38)
