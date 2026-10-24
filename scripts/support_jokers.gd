@@ -109,6 +109,7 @@ var last_table_family := ""
 var slots := [[],[]]
 var stats := [{},{}]
 var drained := [{},{}]
+var player_drawer_open := false
 var pending := false
 var offers: Array = []
 var chosen := -1
@@ -122,6 +123,7 @@ var drawer := [0.0,0.0]
 var drawer_grace := [0.0,0.0]
 
 func reset() -> void:
+	player_drawer_open = false
 	last_table_family = ""
 	slots = [[],[]]
 	stats = [{},{}]
@@ -189,6 +191,7 @@ func finish_pick(m) -> void:
 	chosen = -1
 	apply_contract(m)
 	m.hint_signature = ""
+	m.start_round_intro()
 
 func apply_contract(m) -> void:
 	for owner in 2:
@@ -451,8 +454,8 @@ func draw(g,m) -> void:
 			if drawer[owner]>0.01: g.draw_style_box(m.card_style(false),panel)
 			g.draw_style_box(m.card_style(drawer[owner]>0.1),tab)
 			var title := "YOUR" if owner==0 else "CPU"
-			g.label_at(tab.position+Vector2(12,25),title+" JOKERS / "+str(slots[owner].size()),17,g.ORANGE)
-			g.ui_help.offer(tab,title+" JOKERS","Hover to open. Joker effects stay active while tucked away.")
+			g.label_at(tab.position+Vector2(12,25),title+" JOKERS / "+str(slots[owner].size())+(" / SPACE" if owner==0 else ""),17,g.ORANGE)
+			g.ui_help.offer(tab,title+" JOKERS",("Press SPACE to show or hide your Jokers." if owner==0 else "Hover to inspect CPU Jokers."))
 			if drawer[owner]>0.01:
 				g.label_at(panel.position+Vector2(12,25),title+" / JOKERS",13,g.ORANGE)
 				for i in slots[owner].size(): card(g,m,slots[owner][i],slot_rect(owner,i),owner)
@@ -484,6 +487,9 @@ func draw(g,m) -> void:
 		g.button(Rect2(1010,800,250,50),"NEXT")
 
 func handle(g,m,event: InputEvent) -> bool:
+	if not pending and not library and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_SPACE:
+		player_drawer_open = not player_drawer_open
+		return true
 	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
 		for link in guide_links:
 			if link.has_point(event.position):
@@ -528,6 +534,7 @@ func handle(g,m,event: InputEvent) -> bool:
 func update_drawers(mouse: Vector2, delta: float, enabled: bool) -> void:
 	for owner in 2:
 		var inside: bool = enabled and (drawer_tab(owner).grow(5).has_point(mouse) or (drawer[owner]>0.01 and drawer_rect(owner).grow(5).has_point(mouse)))
+		if owner==0: inside = enabled and player_drawer_open
 		if inside: drawer_grace[owner] = 0.25
 		else: drawer_grace[owner] = maxf(0,drawer_grace[owner]-delta)
 		var target := 1.0 if enabled and drawer_grace[owner]>0 else 0.0
@@ -535,7 +542,7 @@ func update_drawers(mouse: Vector2, delta: float, enabled: bool) -> void:
 	if drawer[0]==0: swap_slot = -1
 
 func drawer_rect(owner: int) -> Rect2:
-	return Rect2(430 if owner==0 else 310,(385-20*(1-drawer[owner])) if owner==0 else (153+20*(1-drawer[owner])),820,255)
+	return Rect2(430 if owner==0 else 310,(385+555*pow(1-drawer[owner],3)) if owner==0 else (153+20*(1-drawer[owner])),820,255)
 
 func drawer_tab(owner: int) -> Rect2:
 	return Rect2(1000 if owner==0 else 800,640 if owner==0 else 115,250,38)

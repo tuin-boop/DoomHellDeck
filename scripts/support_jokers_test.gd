@@ -128,10 +128,12 @@ func run() -> void:
 	assert(j.score(m,0,[0,0],object_combo,false).bonus==30)
 	j.reset()
 	m.round_scores = [0,0]
+	j.player_drawer_open = true
 	j.update_drawers(j.drawer_tab(0).get_center(),0.3,true)
-	assert(j.drawer[0]==1 and j.drawer[1]==0,"Only hovered sidebar opens")
+	assert(j.drawer[0]==1 and j.drawer[1]==0,"Only requested sidebar opens")
 	j.update_drawers(j.slot_rect(0,1).get_center(),0.3,true)
 	assert(j.drawer[0]==1,"Sidebar stays open while inspecting cards")
+	j.player_drawer_open = false
 	j.update_drawers(Vector2(400,450),0.5,true)
 	assert(j.drawer[0]==0,"Sidebar closes away from cards")
 	j.update_drawers(j.drawer_tab(1).get_center(),0.3,true)
@@ -255,6 +257,7 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/five-joker-trays.png")
+	m.round_intro = false
 	m.round_number = 1
 	j.slots = [[0,1,2],[3,8,11]]
 	j.library = true

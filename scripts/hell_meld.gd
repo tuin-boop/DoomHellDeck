@@ -104,6 +104,10 @@ var age := 0.0
 var final_turn_seen := [false,false]
 var final_turn_owner := -1
 var final_turn_age := 99.0
+var round_intro := false
+var round_intro_age := 0.0
+var round_intro_beat := -1
+const ROUND_INTRO_TIME := 7.8
 var cpu_wait := 0.0
 var flights: Array = []
 var banner := ""
@@ -142,6 +146,7 @@ func start(g) -> void:
 	support.offer(self)
 
 func next_round() -> void:
+	round_intro = false
 	support.begin_round()
 	enhancements.clear()
 	if match_powers:
@@ -443,6 +448,14 @@ func tick(g, delta: float) -> void:
 	if support.pending or support.library: return
 	if g.modal!="hell_meld": return
 	if guide or power_panel: return
+	if round_intro:
+		round_intro_age += delta
+		var beat := mini(2,int(round_intro_age/2.2))
+		if beat!=round_intro_beat:
+			round_intro_beat = beat
+			g.audio.play("DSGETPOW",-18)
+		if round_intro_age>=ROUND_INTRO_TIME: round_intro = false
+		return
 	var signature := str([hands[0],melds,side,round_over,cheat_hints])
 	if signature!=hint_signature:
 		hint_signature = signature
@@ -667,6 +680,7 @@ func draw(g) -> void:
 
 	if power_panel: draw_powers(g)
 	if not power_panel and not guide: support.draw(g,self)
+	if round_intro and not support.pending: draw_round_intro(g)
 
 func draw_final_turn(g) -> void:
 	if final_turn_owner<0 or final_turn_owner!=side or turns[side]!=9: return
@@ -734,6 +748,10 @@ func draw_result_popup(g) -> void:
 	result_sprite.visible = true
 
 func handle(g, event: InputEvent) -> void:
+	if round_intro and not support.pending:
+		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_ENTER,KEY_ESCAPE]: round_intro = false
+		if event is InputEventMouseButton and event.pressed and Rect2(1120,810,180,45).has_point(event.position): round_intro = false
+		return
 	if not power_panel and not guide and support.handle(g,self,event): return
 	if event is InputEventKey and event.pressed and not event.echo and event.unicode>=32:
 		cheat_buffer = (cheat_buffer+String.chr(event.unicode).to_lower()).right(HINT_CHEAT.length())
@@ -1141,3 +1159,54 @@ func draw_powers(g) -> void:
 			upgrade_row += 1
 		g.label_at(Vector2(755,726),"Choose one upgrade after each round.",12,g.MUTED)
 	g.button(Rect2(600,790,240,50),"BACK TO TABLE")
+
+func start_round_intro() -> void:
+	round_intro = match_powers
+	round_intro_age = 0.0
+	round_intro_beat = -1
+	support.player_drawer_open = false
+
+func draw_round_intro(g) -> void:
+	g.ui_help.reset()
+	g.draw_rect(Rect2(0,0,1440,940),Color(0,0,0,0.92))
+	g.menu_frame(Rect2(100,75,1240,800))
+	centered_at(g,"ROUND %d / POWER REVEAL" % round_number,Vector2(720,145),32,g.ORANGE)
+	centered_at(g,"SHARED POWERS / BOTH PLAYERS",Vector2(720,184),16,g.MUTED)
+	var ids: Array = enhancements.keys()
+	for i in 3:
+		var elapsed := round_intro_age-i*2.2
+		var x := 310+i*410
+		if elapsed<0:
+			g.draw_rect(Rect2(x-180,245,360,500),Color("111f25"))
+			centered_at(g,"?",Vector2(x,495),64,g.MUTED)
+			continue
+		var enter := 1.0-pow(1.0-clampf(elapsed/0.65,0,1),3)
+		var y := 245+(1-enter)*75
+		var tint := Color("ffac58") if i==0 else (Color("ffdc78") if i==1 else Color("8de9fa"))
+		var box := Rect2(x-180,y,360,500)
+		g.draw_rect(box,Color("13232a"))
+		g.draw_rect(box,tint,false,2)
+		for ray in 12:
+			var angle := ray*TAU/12+elapsed*0.15
+			g.draw_line(Vector2(x,y+230)+Vector2.from_angle(angle)*80,Vector2(x,y+230)+Vector2.from_angle(angle)*150,Color(tint,0.18*enter),3)
+		if i==0:
+			var joker: int = passive_joker[0]
+			centered_at(g,"MATCH BONUS",Vector2(x,y+45),22,tint)
+			if joker>=0:
+				centered_at(g,["+4","+8","+10"][joker],Vector2(x,y+245),64,tint)
+				centered_at(g,PASSIVE_JOKERS[joker].name,Vector2(x,y+340),20,tint)
+				centered_at(g,["PER FIRE CARD PLAYED","WHEN EXTENDING","WHEN PLAYING A NAMED TEAM"][joker],Vector2(x,y+390),14,g.INK)
+			centered_at(g,"ACTIVE ALL MATCH",Vector2(x,y+455),14,g.MUTED)
+		elif ids.size()>=i:
+			var id: int = ids[i-1]
+			centered_at(g,enhancements[id],Vector2(x,y+45),22,tint)
+			draw_card(g,id,Vector2(x,y+225),Vector2(175,235)*maxf(0.1,enter))
+			centered_at(g,"+4 WHEN PLAYED" if i==1 else "+8 WHEN EXTENDING",Vector2(x,y+390),19,tint)
+			centered_at(g,"EVERY COPY / THIS ROUND",Vector2(x,y+455),14,g.MUTED)
+		var sweep := clampf(elapsed/0.85,0,1)
+		if sweep<1: g.draw_line(Vector2(x-175,y+500*sweep),Vector2(x+175,y+500*sweep),Color(tint,1-sweep),4)
+	g.button(Rect2(1120,810,180,45),"SKIP / ENTER")
+	centered_at(g,"REVEALING THIS ROUND'S POWERS",Vector2(650,820),16,g.MUTED)
+
+func centered_at(g, text: String, position: Vector2, size: int, color: Color) -> void:
+	g.label_at(position-Vector2(g.font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x/2,0),text,size,color)
