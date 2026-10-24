@@ -49,7 +49,7 @@ func _draw() -> void:
 func button_help(text: String) -> String:
 	var lookup := {
 	"HELL DECK":"Tactical battles with heroes, weapons and squads. Choose a built deck or random cards next.",
-	"HELL MELD":"Five rounds of monster combinations. Ten turns each; highest round score wins. Draft personal support Jokers, extend the centre or draw and pass.",
+	"HELLATRO":"Five rounds of monster combinations. Ten turns each. Highest total points after five rounds wins the match; equal totals draw. Each round win adds +30 points. Draft personal support Jokers, extend the centre or draw and pass.",
 	"JOKER COLLECTION":"Browse all support Jokers. Hover each card for its exact effect. Your personal Jokers stay active throughout the match.",
 	"MATCH POWERS":"Inspect the shared Match Bonus, enhanced cards, your hand upgrades, and your personal Joker effects.",
 	"COMBINATIONS":"Illustrated examples of every combination. This guide does not solve your hand.",

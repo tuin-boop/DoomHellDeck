@@ -66,7 +66,10 @@ func draw(g) -> void:
 		g.button(Rect2(580,387,65,52),"+")
 		g.button(Rect2(140,465,505,60),"BATTLE VIEW: "+("ON" if g.cinematic_enabled else "OFF"))
 		g.button(Rect2(140,545,505,60),"FULLSCREEN: "+("ON" if g.fullscreen else "OFF"))
-		g.label_at(Vector2(140,654),"Settings save automatically.",20,g.MUTED)
+		g.button(Rect2(140,625,505,55),"JOKER REMINDERS: "+("ON" if g.joker_reminders else "OFF"))
+		g.button(Rect2(700,465,505,60),"SCREEN SHAKE: "+("ON" if g.screen_shake else "OFF"))
+		g.button(Rect2(700,545,505,60),"FLYING GIBS: "+("ON" if g.gibs_enabled else "OFF"))
+		g.label_at(Vector2(140,699),"Settings save automatically.",16,g.MUTED)
 		g.button(Rect2(140,705,505,60),"BACK")
 	elif g.modal=="leave_match":
 		g.label_at(Vector2(140,370),"LEAVE THIS MATCH?",30,g.ORANGE)
@@ -92,7 +95,7 @@ func draw(g) -> void:
 		g.label_at(Vector2(170,570),"Heroes, weapons and monster squads.",18,g.INK)
 		g.label_at(Vector2(170,605),"Built decks or fully random decks.",18,g.MUTED)
 		g.label_at(Vector2(170,670),"Choose your deck and hero next.",17,g.MUTED)
-		g.button(Rect2(775,395,500,80),"HELL MELD")
+		g.button(Rect2(775,395,500,80),"HELLATRO")
 		g.label_at(Vector2(780,525),"MONSTER COMBINATIONS",23,g.ORANGE)
 		g.label_at(Vector2(780,570),"Spot patterns. Raise the centre combo.",18,g.INK)
 		g.label_at(Vector2(780,605),"Empty your hand first. Five rounds.",18,g.MUTED)
@@ -115,6 +118,9 @@ func click(g,pos: Vector2) -> void:
 		elif Rect2(580,387,65,52).has_point(pos): g.master_volume = minf(1,g.master_volume+0.1)
 		elif Rect2(140,465,505,60).has_point(pos): g.cinematic_enabled = not g.cinematic_enabled
 		elif Rect2(140,545,505,60).has_point(pos): g.fullscreen = not g.fullscreen
+		elif Rect2(140,625,505,55).has_point(pos): g.joker_reminders = not g.joker_reminders
+		elif Rect2(700,465,505,60).has_point(pos): g.screen_shake = not g.screen_shake
+		elif Rect2(700,545,505,60).has_point(pos): g.gibs_enabled = not g.gibs_enabled
 		elif Rect2(140,705,505,60).has_point(pos): g.modal = "home"
 		else: return
 		g.apply_options()

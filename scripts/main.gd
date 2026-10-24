@@ -13,6 +13,9 @@ var initial_commander_choice := false
 var frontend = preload("res://scripts/frontend.gd").new()
 var master_volume := 0.8
 var fullscreen := false
+var joker_reminders := true
+var screen_shake := true
+var gibs_enabled := true
 
 const Cards = preload("res://scripts/cards.gd")
 var match_flair = preload("res://scripts/match_flair.gd").new()
@@ -935,6 +938,7 @@ func cancel_drag() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		hell_meld.support.set_player_drawer(self,false)
 		cancel_drag()
 		selected = -1
 
@@ -1293,6 +1297,9 @@ func load_view_setting() -> void:
 		cinematic_enabled = bool(settings.get_value("presentation","cinematic_battles",true))
 		master_volume = clampf(float(settings.get_value("audio","master_volume",0.8)),0,1)
 		fullscreen = bool(settings.get_value("presentation","fullscreen",false))
+		joker_reminders = bool(settings.get_value("presentation","joker_reminders",true))
+		screen_shake = bool(settings.get_value("presentation","screen_shake",true))
+		gibs_enabled = bool(settings.get_value("presentation","gibs_enabled",true))
 	apply_options()
 
 func save_view_setting() -> void:
@@ -1303,6 +1310,9 @@ func save_view_setting() -> void:
 	settings.set_value("presentation","cinematic_battles",cinematic_enabled)
 	settings.set_value("audio","master_volume",master_volume)
 	settings.set_value("presentation","fullscreen",fullscreen)
+	settings.set_value("presentation","joker_reminders",joker_reminders)
+	settings.set_value("presentation","screen_shake",screen_shake)
+	settings.set_value("presentation","gibs_enabled",gibs_enabled)
 	settings.save("user://settings.cfg")
 
 func draw_duel() -> void:

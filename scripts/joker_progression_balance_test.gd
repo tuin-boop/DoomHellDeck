@@ -37,9 +37,7 @@ func run() -> void:
 					for candidate in m.upgrade_offers:
 						if m.family_plays[owner].get(candidate,0)>m.family_plays[owner].get(family,0): family = candidate
 					m.upgrades[owner][family] = m.upgrades[owner].get(family,0)+1
-		var winner := -1
-		if m.rounds[0]!=m.rounds[1]: winner = 0 if m.rounds[0]>m.rounds[1] else 1
-		elif m.scores[0]!=m.scores[1]: winner = 0 if m.scores[0]>m.scores[1] else 1
+		var winner: int = m.match_winner()
 		if winner>=0: wins[winner] += 1
 		for owner in 2:
 			for id in m.support.slots[owner]:
@@ -47,7 +45,7 @@ func run() -> void:
 				joker_stats[id].wins += int(winner==owner)
 		records.append({"seed":2026102500+match_id,"winner":winner,"points":m.scores,"rounds":m.rounds,"jokers":m.support.slots})
 		if match_id%50==49: print("Completed ",match_id+1," / 500")
-	var report := {"matches":500,"rounds":2500,"turns":50000,"wins":wins,"average_round_score_per_side":round_totals.map(func(x): return float(x)/1000),"method":"500 seeded games, both sides use the same hand-aware random draft policy and greedy best-score play; actual three offers, one new Joker each round, 1 to 5 slots; upgrades chosen by most-played available family. Joker win rates are observational, not isolated causal strength.","jokers":joker_stats,"records":records}
+	var report := {"matches":500,"rounds":2500,"turns":50000,"wins":wins,"average_round_score_per_side":round_totals.map(func(x): return float(x)/1000),"method":"500 seeded games, both sides use the same hand-aware random draft policy and greedy best-score play; weighted Common/Uncommon/Rare three offers (8:4:1 per card), one new Joker each round, 1 to 5 slots; upgrades chosen by most-played available family. Joker win rates are observational, not isolated causal strength.","jokers":joker_stats,"records":records}
 	var file := FileAccess.open("res://reports/joker-progression-500.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"  "))
 	file.close()

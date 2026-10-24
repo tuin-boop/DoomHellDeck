@@ -1,0 +1,20 @@
+OFFICIAL VOXEL PACK FOR NASHGORE NEXT
+
+VERSION 1.0
+
+READ THIS!!! DON'T COMPLAIN IF YOU GET ERRORS WITHOUT READING THIS FILE!!!
+
+- You MUST use GZDoom 4.11.3 or HIGHER.
+- You MUST have NashGore NEXT loaded.
+- You MUST place nashgore_voxels_official.pk3 AFTER nashgore.pk3
+
+If you get any errors, RE-READ the above, and try again!
+
+Voxels created by: Daniel "Cheello" Peterson
+https://twitter.com/DanielWienerson
+
+NashGore NEXT by Nash Muhandes
+https://twitter.com/NashMuhandes
+
+Six GIB*A KVX models decoded into voxel points for in-game projection. Original voxel models by Daniel "Cheello" Peterson; NashGore NEXT by Nash Muhandes.
+KVX format reference: https://www.advsys.net/ken/build.htm (SLAB6 documentation).

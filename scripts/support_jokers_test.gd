@@ -6,6 +6,24 @@ func _initialize() -> void:
 
 func run() -> void:
 	assert("--balance-test" in OS.get_cmdline_user_args())
+	var scream = Meld.new()
+	scream.support.slots = [[41],[]]
+	scream.turns = [8,9]
+	assert(scream.support.score(scream,0,[0,0],{"gain":10,"kind":"set"},false).bonus==0)
+	scream.turns[0] = 9
+	assert(scream.support.score(scream,0,[0,0],{"gain":10,"kind":"set"},false).bonus==20)
+	assert(scream.support.score(scream,1,[0,0],{"gain":10,"kind":"set"},false).bonus==0)
+	var bj = Meld.new()
+	bj.support.slots = [[42],[]]
+	bj.melds = [{"starter":1}]
+	assert(bj.support.score(bj,0,[1],{"gain":10,"kind":"set"},true).bonus==15)
+	assert(bj.support.score(bj,0,[2],{"gain":10,"kind":"set"},true).bonus==15)
+	assert(bj.support.score(bj,0,[0],{"gain":10,"kind":"set"},true).bonus==0)
+	assert(bj.support.score(bj,0,[1,1],{"gain":10,"kind":"set"},false).bonus==0)
+	bj.melds[0].starter = 0
+	assert(bj.support.score(bj,0,[1],{"gain":10,"kind":"set"},true).bonus==0)
+	assert(bj.support.score(bj,1,[1],{"gain":10,"kind":"set"},true).bonus==0)
+	assert(bj.support.THEMES.size()==bj.support.DATA.size())
 	var tilt = preload("res://scripts/card_tilt.gd")
 	var left: Transform2D = tilt.pose(Vector2.ZERO,-0.4,true)
 	var right: Transform2D = tilt.pose(Vector2.ZERO,0.4,true)
@@ -15,7 +33,7 @@ func run() -> void:
 	var m = Meld.new()
 	m.next_round()
 	var j = m.support
-	assert(j.DATA.size()==41)
+	assert(j.DATA.size()==43)
 	j.slots = [[39,40],[]]
 	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false).bonus==4)
 	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false,true).bonus==4)
@@ -233,6 +251,7 @@ func run() -> void:
 	j.finish_pick(m)
 	assert(j.pending and j.slots[0].is_empty(),"Cannot skip an empty Joker slot")
 	j.offers = [0,1,2]
+	j.draft_age = 3.0
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/joker-draft.png")
@@ -326,7 +345,7 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/joker-sidebars.png")
-	print("PASS: 41 Jokers, scoring, growth, side isolation, RNG-safe previews, copying, combo triggers, draw, multiplier, draft, one-to-five progression and reset")
+	print("PASS: 43 Jokers, scoring, growth, side isolation, RNG-safe previews, copying, combo triggers, draw, multiplier, draft, one-to-five progression and reset")
 	j.drawer = [0.0,0.0]
 	j.drawer_grace = [0.0,0.0]
 	m.round_over = false
@@ -344,6 +363,7 @@ func run() -> void:
 	assert(m.final_turn_seen[1] and m.final_turn_owner==1 and m.cpu_wait>2.0)
 	m.round_number = 5
 	m.rounds = [3,1]
+	m.scores = [899,778]
 	m.round_over = false
 	m.finish_round(1,"test")
 	assert(m.result_winner==0,"Match winner overrides last round winner")
@@ -358,6 +378,7 @@ func run() -> void:
 	root.get_texture().get_image().save_png("res://captures/result-player-win.png")
 	m.round_over = false
 	m.rounds = [1,3]
+	m.scores = [778,899]
 	m.finish_round(0,"test")
 	assert(m.result_winner==1)
 	m.result_age = 1.0

@@ -1,6 +1,6 @@
 # DOOM: Hell Deck
 
-A fan-made Godot 4 card game with two modes: **Hell Deck**, a four-lane tactical battler, and **Hell Meld**, a competitive monster-combination game.
+A fan-made Godot 4 card game with two modes: **Hell Deck**, a four-lane tactical battler, and **Hellatro**, a competitive monster-combination game.
 
 ## Download
 
@@ -8,18 +8,23 @@ Get the Windows ZIP from [Releases](https://github.com/tuin-boop/DoomHellDeck/re
 
 Provide your own **DOOM2.WAD** beside the EXE, or set `DOOM_WAD` to its location. The commercial IWAD is not included. The game also checks supported Steam installation paths.
 
-## Hell Meld
+## Hellatro
 
-- Five rounds, ten turns each per round. Score more points to win rounds.
+- Five rounds, ten turns each per round. **Highest total points wins the match; equal totals draw.** Each round win adds +30 points.
 - Play matching sets, armies, damage-type groups, Marches, Apocalypse combos, and named teams.
 - Extend the shared centre combination or draw/pass to clear it.
-- Draft from **41 support Jokers**. Start with one and choose one more from three offers each round, reaching five in the final round. Both sides follow the same progression. Opening offers use a pool of standalone Jokers. Hover cards for effects and progress.
-- Each scoring Joker appears in sequence with the points it contributes.
+- Draft from **43 support Jokers**. Start with one and choose one more from three offers each round, reaching five in the final round. Both sides follow the same progression. Opening offers use a pool of standalone Jokers. Hover cards for effects and progress.
+- Each scoring Joker appears in sequence with the points it contributes. Common, Uncommon, and Rare Jokers have weighted draft odds.
+- B.J. Blazkowicz: Castle Breakout grants +15 when extending an opponent-started combo with a Bullet or Melee monster. Screaming Doomguy grants +20 on your tenth-turn scoring play and has a constantly shaking portrait.
+- Adaptive side bars show current-round scores. The finale counts every round into total-score bars, with gib bursts, confetti, a large win/loss announcement, and an overlapping collage of all Jokers.
+- Screen shake, flying gibs, and Joker reminders can be toggled in Options.
 - Each round opens with a staged reveal of the shared bonus, Gilded monster, and Charged monster. Enter skips the reveal.
 - Choose combo-family upgrades between rounds; inspect shared bonuses and enhanced monsters in Match Powers.
 - Animated combo lettering, illustrated guide, clickable Named Teams links, final-turn alerts, and animated result artwork.
 
-![Hell Meld table](docs/screenshots/hell-meld.png)
+![Final score count](docs/screenshots/hellatro-final-count.png)
+
+![Victory announcement](docs/screenshots/hellatro-final-winner.png)
 
 ![Round power reveal](docs/screenshots/round-reveal.png)
 
@@ -49,11 +54,11 @@ Build decks, choose a commander, and fight across four lanes. Monsters have dama
 
 ## Controls
 
-- **Hell Meld:** select and drag cards to the centre, or use Play Selection. Draw / Pass ends your action and clears the centre.
-- **Space:** show/hide your Joker tray, sliding up from below. Hover the CPU tab to inspect its Jokers. Click two owned Joker slots to rearrange them.
+- **Hellatro:** select and drag cards to the centre, or use Play Selection. Draw / Pass ends your action and clears the centre.
+- **Hold Space:** show your Joker tray; release to close it, with fast Doom door sounds. An animated reminder appears each round and can be disabled in Options. Hover the CPU tab to inspect its Jokers. Click two owned Joker slots to rearrange them.
 - **Hell Deck:** drag cards into lanes, right-click a hand card for a squad, Space ends your turn.
 - **F8:** Hell Radio. **Escape:** close a panel or open the menu.
-- Optional Hell Meld hints: type `johnromerogod`, then hover highlighted cards to see legal combinations.
+- Optional Hellatro hints: type `johnromerogod`, then hover highlighted cards to see legal combinations.
 
 ## Run from source
 
@@ -67,16 +72,14 @@ Create `captures` and `reports` directories before running tests from a clean cl
 godot --path . --script scripts/support_jokers_test.gd -- --balance-test
 ```
 
-The tests cover Joker scoring, preview purity, growth, resets, one-to-five drafting, and presentation. The latest simulation ran **500 full matches / 2,500 rounds / 50,000 turns**, using actual three-choice drafts with one additional Joker each round. Both sides used the same hand-aware draft policy and greedy scoring AI. All card-conservation and turn-limit checks passed.
+The current 43-Joker regression suite passed, covering scoring, preview purity, growth, resets, one-to-five drafting, B.J.'s conditional bonus, and presentation. Finale tests verify cumulative totals and that total points decide the winner, including the 899–808 example where round wins differ.
 
-- Simulated side wins: **228–272**.
-- Average score per side by round: **120.7, 131.7, 144.7, 159.3, 173.6**.
-- Glitch Jester Imp appeared in winning teams in 65.9% of its 85 appearances. This is observational and does not isolate the Joker's strength from teammates or draft timing; no balance changes were made from that statistic alone.
-
-Run `godot --headless --path . --script scripts/joker_progression_balance_test.gd` to reproduce. See the [full report](reports/joker-progression-500.json). The older fixed-three-Joker simulator and reports remain for comparison. Simulation is not a guarantee of balance in human play.
+The included 500-match progression report is historical (41 Jokers, before weighted rarity and total-points victory). It is not a balance claim for this release. Run `godot --headless --path . --script scripts/joker_progression_balance_test.gd` for a new simulation of the current rules.
 
 ## Credits
 
 This is an unofficial fan project, not affiliated with id Software, Bethesda, Nintendo, or people depicted on cards. Third-party names, characters, sprites, music, and illustrations belong to their respective owners. No blanket open-source license is asserted for those assets.
 
 Asset-specific source notes are retained under `assets/`. Joker and result illustrations were supplied for this project. Hell Radio includes synthesized Doom scores and selected Donkey Kong Country music. Commercial WAD files, local caches, and build tools are not included.
+
+Voxel gib source and attribution: [NashGore voxel notes](assets/gibs/SOURCE.txt).

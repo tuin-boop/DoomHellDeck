@@ -51,9 +51,7 @@ func run() -> void:
 						for candidate in m.upgrade_offers:
 							if m.family_plays[owner].get(candidate,0)>m.family_plays[owner].get(family,0): family = candidate
 						m.upgrades[owner][family] = m.upgrades[owner].get(family,0)+1
-			var winner := -1
-			if m.rounds[0]!=m.rounds[1]: winner = 0 if m.rounds[0]>m.rounds[1] else 1
-			elif m.scores[0]!=m.scores[1]: winner = 0 if m.scores[0]>m.scores[1] else 1
+			var winner: int = m.match_winner()
 			for owner in 2:
 				var entry: Dictionary = results[seats[owner]]
 				entry.games += 1

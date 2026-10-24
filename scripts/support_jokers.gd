@@ -41,7 +41,9 @@ const DATA := [
 	["doom_guy_book","DOOM GUY: THE BOOK","New chapter: +6 the first time you score each combo family while holding this Joker each round."],
 	["daikatana_romero","DAIKATANA ROMERO","Swordplay: +4 for each Melee monster you play. The Romero wild card does not count."],
 	["jester_imp","JESTER IMP","Common: +4 when you start a new combination. No bonus for extensions."],
-	["glitch_jester_imp","GLITCH JESTER IMP","+10 every second scoring play while held. Progress resets each round."]
+	["glitch_jester_imp","GLITCH JESTER IMP","+10 every second scoring play while held. Progress resets each round."],
+	["screaming_doomguy","SCREAMING DOOMGUY","Last scream: +20 on your tenth-turn scoring play each round. Draw/pass gets no bonus."],
+	["bj_blazkowicz","B.J. BLAZKOWICZ","Castle Breakout: +15 when you extend a combo started by your opponent with at least one Bullet or Melee monster."]
 ]
 # Decorative themes only; colours do not encode rarity or scoring rules.
 const THEMES := [
@@ -68,7 +70,9 @@ const THEMES := [
 	["3e2f25","e4c69b","waves"], ["142b51","73afff","grid"],
 	["293c20","afdf60","chevrons"], ["3d1720","ea9274","diamonds"],
 	["291738","ee70e0","grid"], ["293426","a9bc7c","checks"],
-	["432c16","f3b45e","rings"], ["481e34","f49abb","hearts"], ["442118","f5ad66","diamonds"], ["172d32","9abca6","stripes"], ["3b2318","e5b875","checks"], ["352045","e5a5ef","stars"], ["182b48","86bdf1","rings"], ["132b3e","68cbed","grid"], ["302043","f0d16f","stars"], ["493719","ffda52","rings"], ["252b34","ced9ee","grid"], ["472217","f2ad52","stripes"], ["252d32","b6d5df","chevrons"], ["183e36","cbdc66","diamonds"], ["271a3d","5ee8ed","grid"] # Rockstar stage
+	["432c16","f3b45e","rings"], ["481e34","f49abb","hearts"], ["442118","f5ad66","diamonds"], ["172d32","9abca6","stripes"], ["3b2318","e5b875","checks"], ["352045","e5a5ef","stars"], ["182b48","86bdf1","rings"], ["132b3e","68cbed","grid"], ["302043","f0d16f","stars"], ["493719","ffda52","rings"], ["252b34","ced9ee","grid"], ["472217","f2ad52","stripes"], ["252d32","b6d5df","chevrons"], ["183e36","cbdc66","diamonds"], ["271a3d","5ee8ed","grid"], # Glitch circuitry
+	["421b18","ff8263","rays"],
+	["44241c","e8c18c","chevrons"]
 ]
 
 func draw_card_background(g, m, id: int, bounds: Rect2, active: bool) -> void:
@@ -109,6 +113,8 @@ var last_table_family := ""
 var slots := [[],[]]
 var stats := [{},{}]
 var drained := [{},{}]
+var reminder_age := 0.0
+const REMINDER_TIME := 4.5
 var player_drawer_open := false
 var pending := false
 var offers: Array = []
@@ -139,6 +145,7 @@ func has(owner: int, id: int) -> bool:
 	return slots[owner].has(id)
 
 func begin_round() -> void:
+	reminder_age = 0.0
 	last_table_family = ""
 	drained = [{},{}]
 	for s in stats:
@@ -151,6 +158,15 @@ func begin_round() -> void:
 		s.book_families = []
 		s.glitch_plays = 0
 
+var draft_age := 0.0
+const RARE := [6,12,15,17,18,24,36,40]
+const UNCOMMON := [1,5,7,9,10,11,14,16,19,21,22,23,26,27,28,31,32,33,41,42]
+func rarity(id: int) -> String:
+	return "RARE" if id in RARE else ("UNCOMMON" if id in UNCOMMON else "COMMON")
+func rarity_weight(id: int) -> int:
+	return 1 if id in RARE else (4 if id in UNCOMMON else 8)
+func rarity_color(id: int) -> Color:
+	return Color("e99aff") if id in RARE else (Color("72d8ff") if id in UNCOMMON else Color("d0c5a8"))
 const MAX_SLOTS := 5
 const STARTER_POOL := [0,2,3,8,13,20,25,29,30,37,38,39]
 
@@ -160,7 +176,14 @@ func draft_offers(m, owner: int) -> Array:
 		if not slots[owner].has(id) and (not slots[owner].is_empty() or id in STARTER_POOL): candidates.append(id)
 	var choices: Array = []
 	for i in 3:
-		choices.append(candidates.pop_at(m.random.randi_range(0,candidates.size()-1)))
+		var total := 0
+		for id in candidates: total += rarity_weight(id)
+		var roll: int = m.random.randi_range(1,total)
+		for index in candidates.size():
+			roll -= rarity_weight(candidates[index])
+			if roll<=0:
+				choices.append(candidates.pop_at(index))
+				break
 	return choices
 
 func auto_pick(m, owner: int, choices: Array) -> int:
@@ -177,6 +200,7 @@ func auto_pick(m, owner: int, choices: Array) -> int:
 
 func offer(m) -> void:
 	if slots[0].size()>=mini(MAX_SLOTS,m.round_number): return
+	draft_age = 0.0
 	offers = draft_offers(m,0)
 	chosen = -1
 	pending = true
@@ -204,6 +228,8 @@ func enhancement(m, owner: int, id: int) -> String:
 
 func fixed_bonus(id: int, c: Dictionary) -> int:
 	match id:
+		42: return 15 if c.get("rival",false) and (c.get("bullet",0)>0 or c.get("melee",0)>0) else 0
+		41: return 20 if c.get("final_turn",false) else 0
 		0: return 5
 		6: return 15 if c.get("romero",false) else 0
 		21: return 10 if c.get("extension",false) and c.count==1 else 0
@@ -236,6 +262,7 @@ func fixed_bonus(id: int, c: Dictionary) -> int:
 func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit := false) -> Dictionary:
 	var s: Dictionary = stats[owner]
 	var context := {"bullet":0,"fire":0,"gilded":0,"charged":0,"echo":0,"count":ids.size(),"kind":combo.kind,"rival":extension and not m.melds.is_empty() and m.melds[0].get("starter",owner)!=owner,"king":m.hands[owner].count(8)>ids.count(8),"changed":s.get("last","")!="" and s.get("last","")!=combo.kind}
+	context.final_turn = m.turns[owner]==9
 	context.ahead = m.round_scores[owner]>m.round_scores[1-owner]
 	context.behind = m.round_scores[owner]<m.round_scores[1-owner]
 	context.repeated = last_table_family!="" and last_table_family==combo.kind
@@ -338,6 +365,11 @@ func progress(owner: int, id: int) -> String:
 		18: return "DRAW USED" if s.get("drawn",false) else "DOUBLE DRAW"
 	return "PASSIVE"
 
+func portrait_pose(id: int, time: float, width: float) -> Transform2D:
+	if id!=41: return Transform2D.IDENTITY
+	var offset := Vector2(sin(time*57.0)+sin(time*83.0)*0.45,cos(time*67.0)*0.65)*width*0.018
+	return Transform2D(sin(time*49.0)*0.045,offset)
+
 func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 	var mouse: Vector2 = g.get_global_mouse_position()
 	var local: Vector2 = (mouse-rect.get_center())/rect.size
@@ -375,7 +407,9 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		var tex: Texture2D = art[id]
 		var size := tex.get_size()
 		size *= minf((rect.size.x*0.76)/size.x,(rect.size.y-48)/size.y)
+		g.draw_set_transform_matrix(card_transform*portrait_pose(id,time,rect.size.x))
 		g.draw_texture_rect(tex,Rect2(-size/2,size),false)
+		g.draw_set_transform_matrix(card_transform)
 	else:
 		g.draw_circle(Vector2.ZERO,rect.size.x*0.22,Color.from_hsv(id/20.0,0.5,0.45))
 		g.label_at(Vector2(-16,8),"%02d" % (id+1),20,g.INK)
@@ -409,7 +443,7 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		while font_size>9 and maxf(g.font.get_string_size(lines[0],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x,g.font.get_string_size(lines[1],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x)>rect.size.x-18: font_size -= 1
 	for row in lines.size():
 		g.label_at(bounds.position+Vector2(9,17+row*(font_size+2)),lines[row],font_size,g.INK)
-	if owner<0 and id==39: g.label_at(Vector2(-rect.size.x/2+6,rect.size.y/2-8),"COMMON",9,g.ORANGE)
+	if owner<0: g.label_at(Vector2(-rect.size.x/2+6,rect.size.y/2-8),rarity(id),9,rarity_color(id))
 	if id==40:
 		for strip in 3:
 			var phase: float = g.clock*2.0+strip*1.7
@@ -452,14 +486,16 @@ func draw(g,m) -> void:
 			var panel := drawer_rect(owner)
 			var tab := drawer_tab(owner)
 			if drawer[owner]>0.01: g.draw_style_box(m.card_style(false),panel)
-			g.draw_style_box(m.card_style(drawer[owner]>0.1),tab)
 			var title := "YOUR" if owner==0 else "CPU"
-			g.label_at(tab.position+Vector2(12,25),title+" JOKERS / "+str(slots[owner].size())+(" / SPACE" if owner==0 else ""),17,g.ORANGE)
-			g.ui_help.offer(tab,title+" JOKERS",("Press SPACE to show or hide your Jokers." if owner==0 else "Hover to inspect CPU Jokers."))
+			if owner==1:
+				g.draw_style_box(m.card_style(drawer[owner]>0.1),tab)
+				g.label_at(tab.position+Vector2(12,25),title+" JOKERS / "+str(slots[owner].size()),17,g.ORANGE)
+				g.ui_help.offer(tab,"CPU JOKERS","Hover to inspect CPU Jokers.")
 			if drawer[owner]>0.01:
 				g.label_at(panel.position+Vector2(12,25),title+" / JOKERS",13,g.ORANGE)
 				for i in slots[owner].size(): card(g,m,slots[owner][i],slot_rect(owner,i),owner)
 				if slots[owner].is_empty(): g.label_at(panel.position+Vector2(12,70),"NO JOKERS",12,g.MUTED)
+		if g.joker_reminders and m.banner_age>=m.reveal_duration() and not m.round_intro and not m.round_over and m.draw_flights.is_empty() and reminder_age<REMINDER_TIME: draw_reminder(g,m)
 		if swap_slot>=0 and drawer[0]>0.01:
 			g.draw_rect(slot_rect(0,swap_slot),g.ORANGE,false,3)
 			g.ui_help.offer(slot_rect(0,swap_slot),"SWAP JOKERS","Click another of your Joker slots to swap positions. Mime copies its previous slot (to its left).")
@@ -472,7 +508,17 @@ func draw(g,m) -> void:
 	g.label_at(Vector2(155,160),"One Joker each round. Build up to five. Effects last this match. Hover for rules.",17,g.INK)
 	if pending:
 		for i in offers.size():
-			card(g,m,offers[i],Rect2(260+i*335,200,230,335))
+			if draft_age<i*0.65+1.0:
+				var box := Rect2(260+i*335,200,230,335)
+				g.draw_rect(box,Color("202c30"))
+				g.draw_rect(box,rarity_color(offers[i]),false,3)
+				for stripe in 6: g.draw_line(box.position+Vector2(10,30+stripe*52),box.position+Vector2(220,30+stripe*52),Color("586261"),4)
+				g.label_at(box.position+Vector2(55,160),"UAC",40,g.INK)
+				g.label_at(box.position+Vector2(38,215),rarity(offers[i]),18,rarity_color(offers[i]))
+			else:
+				card(g,m,offers[i],Rect2(260+i*335,200,230,335))
+				var burst := clampf(1-(draft_age-i*0.65-1)/0.6,0,1)
+				g.draw_rect(Rect2(260+i*335,200,230,335),Color(rarity_color(offers[i]),burst*0.35))
 			if chosen==offers[i]: g.draw_rect(Rect2(260+i*335,200,230,335),g.ORANGE,false,4)
 		g.label_at(Vector2(170,580),"ROUND %d / CHOOSE JOKER %d OF 5" % [m.round_number,slots[0].size()+1],17,g.INK)
 		for i in slots[0].size(): card(g,m,slots[0][i],Rect2(270+i*180,610,105,150),0)
@@ -486,9 +532,15 @@ func draw(g,m) -> void:
 		g.button(Rect2(595,800,250,50),"CLOSE")
 		g.button(Rect2(1010,800,250,50),"NEXT")
 
+func set_player_drawer(g, opened: bool) -> void:
+	if player_drawer_open==opened: return
+	player_drawer_open = opened
+	if opened: reminder_age = REMINDER_TIME
+	g.audio.play("DSBDOPN" if opened else "DSBDCLS",-16)
+
 func handle(g,m,event: InputEvent) -> bool:
-	if not pending and not library and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_SPACE:
-		player_drawer_open = not player_drawer_open
+	if not pending and not library and event is InputEventKey and not event.echo and event.keycode==KEY_SPACE:
+		set_player_drawer(g,event.pressed)
 		return true
 	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
 		for link in guide_links:
@@ -505,7 +557,7 @@ func handle(g,m,event: InputEvent) -> bool:
 			var p: Vector2 = event.position
 			if pending:
 				for i in offers.size():
-					if Rect2(260+i*335,200,230,335).has_point(p):
+					if draft_age>=i*0.65+1.0 and Rect2(260+i*335,200,230,335).has_point(p):
 						chosen = offers[i]
 						finish_pick(m)
 						return true
@@ -527,7 +579,7 @@ func handle(g,m,event: InputEvent) -> bool:
 				return true
 	if event is InputEventMouse and not m.dragging:
 		for owner in 2:
-			if drawer_tab(owner).has_point(event.position) or (drawer[owner]>0.01 and drawer_rect(owner).has_point(event.position)):
+			if (owner==1 and drawer_tab(owner).has_point(event.position)) or (drawer[owner]>0.01 and drawer_rect(owner).has_point(event.position)):
 				return true
 	return false
 
@@ -538,16 +590,39 @@ func update_drawers(mouse: Vector2, delta: float, enabled: bool) -> void:
 		if inside: drawer_grace[owner] = 0.25
 		else: drawer_grace[owner] = maxf(0,drawer_grace[owner]-delta)
 		var target := 1.0 if enabled and drawer_grace[owner]>0 else 0.0
+		if owner==0: target = 1.0 if inside else 0.0
 		drawer[owner] = move_toward(drawer[owner],target,delta*5)
 	if drawer[0]==0: swap_slot = -1
 
 func drawer_rect(owner: int) -> Rect2:
-	return Rect2(430 if owner==0 else 310,(385+555*pow(1-drawer[owner],3)) if owner==0 else (153+20*(1-drawer[owner])),820,255)
+	if owner==0:
+		var width := maxf(230,slots[0].size()*163+12)
+		return Rect2(720-width/2,530+410*pow(1-drawer[0],3),width,255)
+	return Rect2(310,153+20*(1-drawer[1]),820,255)
 
 func drawer_tab(owner: int) -> Rect2:
-	return Rect2(1000 if owner==0 else 800,640 if owner==0 else 115,250,38)
+	return Rect2(555,805,330,38) if owner==0 else Rect2(800,115,250,38)
 
 func slot_rect(owner: int, slot: int) -> Rect2:
-	return Rect2(drawer_rect(owner).position+Vector2(15+slot*163,40),Vector2(145,200))
+	var panel := drawer_rect(owner)
+	var offset: float = (panel.size.x-(slots[owner].size()*163-18))/2 if owner==0 else 15.0
+	return Rect2(panel.position+Vector2(offset+slot*163,40),Vector2(145,200))
 
 
+
+func draw_reminder(g,m) -> void:
+	var enter := smoothstep(0,1,clampf(reminder_age/0.35,0,1))
+	var leave := smoothstep(0,1,clampf((reminder_age-3.8)/0.7,0,1))
+	var alpha := enter*(1-leave)
+	var rect := Rect2(465,603+22*(1-enter)+18*leave,510,62)
+	var style = m.card_style(false)
+	style.bg_color = Color(0.05,0.10,0.12,alpha)
+	style.border_color = Color(1,0.69,0.28,alpha)
+	g.draw_style_box(style,rect)
+	var key := Rect2(rect.position+Vector2(16,12),Vector2(105,38))
+	g.draw_rect(key,Color(0.25,0.19,0.10,alpha))
+	g.draw_rect(key,Color(1,0.78,0.40,alpha*(0.7+0.3*sin(reminder_age*5))),false,2)
+	g.label_at(key.position+Vector2(17,26),"SPACE",19,Color(1,0.87,0.62,alpha))
+	g.label_at(rect.position+Vector2(138,29),"HOLD TO VIEW YOUR JOKERS",18,Color(1,0.76,0.40,alpha))
+	g.label_at(rect.position+Vector2(138,49),"RELEASE TO CLOSE",12,Color(0.73,0.79,0.77,alpha))
+	g.draw_line(rect.position+Vector2(12,59),rect.position+Vector2(12+486*(1-reminder_age/REMINDER_TIME),59),Color(1,0.65,0.25,alpha),2)

@@ -1,7 +1,13 @@
 extends RefCounted
 const Cards = preload("res://scripts/cards.gd")
+var effects = preload("res://scripts/meld_effects.gd").new()
+var round_award_owner := -1
+var round_history: Array = []
+var round_start_scores := [0,0]
+var finale_sound_step := -1
+var finale = preload("res://scripts/match_finale.gd").new()
 var support = preload("res://scripts/support_jokers.gd").new()
-const CARD_BACK = preload("res://assets/cards/inferno-back.png")
+const CARD_BACK = preload("res://assets/cards/hellatro-back.png")
 # One identity per classic monster. No rarity variants, weapons or hero cards.
 const POOL := [0,1,2,3,4,5,6,7,8,14,15,16,17,18,19,20,21]
 const JOKER := -1
@@ -116,6 +122,7 @@ var round_scores := [0,0]
 var lifts: Array = []
 
 func start(g) -> void:
+	round_history.clear()
 	support.reset()
 	cheat_hints = false
 	cheat_buffer = ""
@@ -146,7 +153,9 @@ func start(g) -> void:
 	support.offer(self)
 
 func next_round() -> void:
+	round_start_scores = scores.duplicate()
 	round_intro = false
+	round_award_owner = -1
 	support.begin_round()
 	enhancements.clear()
 	if match_powers:
@@ -355,17 +364,20 @@ func play(owner: int, indices: Array, destination: int) -> bool:
 	family_plays[owner][combo.kind] = family_plays[owner].get(combo.kind,0)+1
 	if combo.relic_bonus>0: relic_used[owner] = true
 	# Existing centre cards slide apart to make room for the new arrivals.
+	var overtake: bool = round_scores[owner]<=round_scores[1-owner] and round_scores[owner]+combo.gain>round_scores[1-owner]
 	scores[owner] += combo.gain
 	round_scores[owner] += combo.gain
 	banner = combo.name
 	announcement = {"kind":combo.kind,"joker":ids.has(JOKER),"ids":combo.ids.duplicate(),"owner":owner,"gain":combo.gain,"upgrade":previous_count>0,"before":previous_name,"old_points":previous_points,"points":combo.points,"new":not discovered.has(combo.name),"base":combo.base_gain,"round_bonus":combo.round_bonus,"relic_bonus":combo.relic_bonus,"power_bonus":combo.power_bonus}
+	announcement.overtake = overtake
+	announcement.gibs = (combo.gain>=65 or combo.kind=="team") and (turns[owner]+round_number)%3==0
 	announcement.support_events = combo.support_events
 	announcement.support_bonus = combo.support_bonus
 	discovered[combo.name] = true
 	banner_age = 0
 	cue("DSSGCOCK",0.12,-18)
 	if combo.kind in ["rainbow","team","type"]: cue("DSPLASMA" if combo.kind=="rainbow" else "DSFIRSHT",1.05,-20)
-	cue("DSBAREXP" if previous_count>0 else "DSPUNCH",0.72,-13)
+	cue("DSBAREXP" if previous_count>0 or combo.gain>=65 else "DSPUNCH",0.72,-10 if combo.gain>=65 else -17)
 	cue("DSGETPOW" if previous_count>0 else "DSITEMUP",1.45,-17)
 	message = ("YOU" if owner==0 else "CPU")+" played "+combo.name+"."
 	selected.clear()
@@ -411,9 +423,14 @@ func end_action(owner: int) -> void:
 	if turns[side]>=10: side = owner
 	cpu_wait = 1.35
 
+func match_winner() -> int:
+	if scores[0]==scores[1]: return -1
+	return 0 if scores[0]>scores[1] else 1
+
 func finish_round(winner: int, reason: String) -> void:
 	if round_over: return
 	round_over = true
+	round_award_owner = winner
 	result_winner = winner
 	result_age = 0.0
 	if winner>=0:
@@ -422,6 +439,8 @@ func finish_round(winner: int, reason: String) -> void:
 		scores[winner] += 30
 		round_message = ("YOU" if winner==0 else "CPU")+" "+reason+". +30 round-win points!"
 	else: round_message = "Tied round. No round bonus."
+	round_history.append({"points":[scores[0]-round_start_scores[0],scores[1]-round_start_scores[1]],"winner":winner})
+	finale_sound_step = -1
 	finished = round_number==5
 	upgrade_pending = not finished
 	upgrade_offers = FAMILIES.duplicate()
@@ -432,10 +451,8 @@ func finish_round(winner: int, reason: String) -> void:
 		upgrade_offers[j] = temp
 	upgrade_offers = upgrade_offers.slice(0,3)
 	if finished:
-		var winner_name := "DRAW"
-		if rounds[0]!=rounds[1]: winner_name = "YOU WIN" if rounds[0]>rounds[1] else "CPU WINS"
-		elif scores[0]!=scores[1]: winner_name = "YOU WIN" if scores[0]>scores[1] else "CPU WINS"
-		result_winner = 0 if winner_name=="YOU WIN" else (1 if winner_name=="CPU WINS" else -1)
+		result_winner = match_winner()
+		var winner_name := "YOU WIN" if result_winner==0 else ("CPU WINS" if result_winner==1 else "DRAW")
 		round_message = winner_name+" / ROUNDS %d : %d / POINTS %d : %d" % [rounds[0],rounds[1],scores[0],scores[1]]
 
 	if result_winner>=0:
@@ -444,8 +461,16 @@ func finish_round(winner: int, reason: String) -> void:
 
 func tick(g, delta: float) -> void:
 	if is_instance_valid(result_sprite): result_sprite.visible = false
+	if g.modal!="hell_meld" or guide or power_panel or support.pending or support.library or round_intro:
+		support.set_player_drawer(g,false)
 	support.update_drawers(g.get_global_mouse_position(),delta,g.modal=="hell_meld" and not support.pending and not support.library and not guide and not power_panel and not dragging)
-	if support.pending or support.library: return
+	if support.pending:
+		var before: float = support.draft_age
+		support.draft_age += delta
+		for i in support.offers.size():
+			if before<i*0.65+1 and support.draft_age>=i*0.65+1: g.audio.play("DSBDOPN" if support.offers[i] not in support.RARE else "DSGETPOW",-18)
+		return
+	if support.library: return
 	if g.modal!="hell_meld": return
 	if guide or power_panel: return
 	if round_intro:
@@ -465,6 +490,8 @@ func tick(g, delta: float) -> void:
 			var moves := best_move(0)
 			hint_cards = moves.legal
 			hint_combos = moves.hints
+	if draw_flights.is_empty() and not round_over:
+		support.reminder_age = minf(support.REMINDER_TIME,support.reminder_age+delta)
 	age += delta
 	for sound in sound_cues:
 		sound.delay -= delta
@@ -477,7 +504,13 @@ func tick(g, delta: float) -> void:
 	while lifts.size()<hands[0].size(): lifts.append(0.0)
 	for i in hands[0].size(): lifts[i] = lerpf(float(lifts[i]),32.0 if selected.has(i) else 0.0,1-exp(-delta*15))
 	banner_age += delta
-	if round_over and banner_age>=reveal_duration(): result_age += delta
+	if round_over and banner_age>=reveal_duration():
+		result_age += delta
+		if finished:
+			var step := mini(round_history.size(),int(maxf(0,result_age-0.5)/2.0))
+			if step!=finale_sound_step:
+				finale_sound_step = step
+				g.audio.play("DSBAREXP" if step<round_history.size() else "DSGETPOW",-18)
 	final_turn_age += delta
 	if not round_over and turns[side]==9 and not final_turn_seen[side] and banner_age>=reveal_duration() and draw_flights.is_empty():
 		final_turn_seen[side] = true
@@ -579,9 +612,8 @@ func card_style(chosen: bool) -> StyleBoxFlat:
 
 func draw(g) -> void:
 	g.draw_rect(Rect2(0,0,1440,940),Color(0.015,0.07,0.055,0.89))
-	g.label_at(Vector2(65,65),"HELL MELD",36,g.ORANGE)
+	g.label_at(Vector2(65,65),"HELLATRO",36,g.ORANGE)
 	g.label_at(Vector2(65,102),"ROUND %d / 5   ROUNDS WON %d : %d" % [round_number,rounds[0],rounds[1]],19,g.INK)
-	g.label_at(Vector2(65,139),"YOU %d PTS   /   CPU %d PTS" % [scores[0],scores[1]],18,g.INK)
 	g.button(Rect2(1140,30,230,45),"MAIN MENU")
 	g.button(Rect2(1140,85,230,45),"COMBINATIONS")
 	g.button(Rect2(1140,140,230,40),"MATCH POWERS")
@@ -609,7 +641,7 @@ func draw(g) -> void:
 		for i in meld.ids.size():
 			if flights.any(func(f): return f.slot==i and f.age<0.7): continue
 			var impact := clampf((banner_age-0.72)/0.38,0,1)
-			var shake := Vector2(sin(banner_age*85),cos(banner_age*69))*(1-impact)*9 if banner_age>=0.72 else Vector2.ZERO
+			var shake := Vector2(sin(banner_age*85),cos(banner_age*69))*(1-impact)*9*float(g.screen_shake) if banner_age>=0.72 else Vector2.ZERO
 			var pose := celebration_pose(i,meld.ids.size())
 			draw_card(g,meld.ids[i],pose.center+shake,Vector2(145,205)*pose.scale*(1+sin(impact*PI)*0.12),pose.tilt)
 	if not melds.is_empty() and melds[0].ids.has(JOKER):
@@ -665,16 +697,21 @@ func draw(g) -> void:
 			size.x *= maxf(0.08,(progress-0.55)/0.45)
 			draw_card(g,card.id,center,size,-sin(progress*PI)*0.18,true)
 		else: draw_back(g,center,size,sin(progress*PI)*0.18)
+	effects.draw(g,self)
 	if banner_age<reveal_duration():
 		draw_combo_projectiles(g)
 		draw_announcement(g)
 	if not guide and not power_panel and not round_over: draw_final_turn(g)
 	if guide: draw_guide(g)
+	if finished and round_over and banner_age>=reveal_duration():
+		finale.draw(g,self)
+		return
 	if round_over and banner_age>=reveal_duration() and not guide:
 		if not power_panel: draw_result_popup(g)
 		draw_result_frame(g,Rect2(550,310,850,270))
 		g.label_at(Vector2(585,370),"MATCH COMPLETE" if finished else "ROUND COMPLETE",32,g.ORANGE)
 		g.label_at(Vector2(585,420),round_message,16,g.INK)
+		effects.draw_tally(g,self)
 		g.button(Rect2(590,480,350,60),"PLAY AGAIN" if finished else "CHOOSE UPGRADE")
 		g.button(Rect2(980,480,350,60),"MAIN MENU")
 
@@ -748,6 +785,9 @@ func draw_result_popup(g) -> void:
 	result_sprite.visible = true
 
 func handle(g, event: InputEvent) -> void:
+	if event is InputEventKey and event.keycode==KEY_SPACE and not event.pressed:
+		support.set_player_drawer(g,false)
+		return
 	if round_intro and not support.pending:
 		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_ENTER,KEY_ESCAPE]: round_intro = false
 		if event is InputEventMouseButton and event.pressed and Rect2(1120,810,180,45).has_point(event.position): round_intro = false
@@ -800,6 +840,13 @@ func handle(g, event: InputEvent) -> void:
 		return
 	if round_over:
 		if banner_age<reveal_duration(): return
+		if finished:
+			if not finale.done(self):
+				if Rect2(1120,820,220,40).has_point(pos): result_age = finale.duration(self)
+				return
+			if Rect2(550,800,340,55).has_point(pos): start(g)
+			elif Rect2(960,800,340,55).has_point(pos): g.frontend.open(g)
+			return
 		if Rect2(590,480,350,60).has_point(pos):
 			if finished: start(g)
 			else:
@@ -864,7 +911,7 @@ func draw_announcement(g) -> void:
 		var pos := Vector2(720,390)+Vector2(cos(angle)*1.7,sin(angle))*distance
 		var alpha := clampf(1-t/1.1,0,1)
 		g.draw_rect(Rect2(pos,Vector2(5+i%4,5+i%4)),Color(tint,alpha))
-	g.draw_set_transform(Vector2(720+sin(t*74)*maxf(0,1-t/0.3)*9,220),0,Vector2.ONE*punch)
+	g.draw_set_transform(Vector2(720+sin(t*74)*maxf(0,1-t/0.3)*minf(14,announcement.gain/7.0)*float(g.screen_shake),220),0,Vector2.ONE*punch)
 	g.draw_rect(Rect2(-540,-10,1080,155),Color(0.025,0.045,0.04,0.96*fade))
 	g.draw_line(Vector2(-540,-10),Vector2(540,-10),Color(tint,fade),4 if upgraded else 2)
 	for i in 16 if upgraded else 8:

@@ -26,11 +26,25 @@ func run() -> void:
 	m.handle(g,key)
 	assert(not m.round_intro)
 	m.side = 0
+	m.draw_flights.clear()
+	g.joker_reminders = true
+	m.support.reminder_age = 0.8
+	await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://captures/joker-reminder.png")
 	key.keycode = KEY_SPACE
 	m.handle(g,key)
 	assert(m.support.player_drawer_open)
+	assert(m.support.reminder_age==m.support.REMINDER_TIME)
 	m.support.update_drawers(Vector2.ZERO,0.3,true)
 	assert(m.support.drawer[0]==1)
+	m.handle(g,key)
+	assert(m.support.player_drawer_open,"Repeated keydown must not close the tray")
+	assert(is_equal_approx(m.support.slot_rect(0,0).get_center().x,720))
+	await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://captures/hold-joker-tray.png")
+	key.pressed = false
 	m.handle(g,key)
 	assert(not m.support.player_drawer_open)
 	m.support.update_drawers(Vector2.ZERO,0.5,true)
@@ -41,7 +55,8 @@ func run() -> void:
 	m.support.chosen = m.support.offers[0]
 	m.support.finish_pick(m)
 	assert(m.round_intro and m.round_intro_age==0)
+	assert(m.support.reminder_age==0)
 	m.tick(g,8.0)
 	assert(not m.round_intro and m.turns==[0,0])
-	print("PASS: round reveal, CPU waits, skip, automatic completion, next-round restart, Space tray toggle")
+	print("PASS: round reveal, CPU waits, skip, automatic completion, next-round restart, hold/release Space tray")
 	quit()
