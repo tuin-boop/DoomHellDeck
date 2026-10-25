@@ -14,6 +14,7 @@ var frontend = preload("res://scripts/frontend.gd").new()
 var master_volume := 0.8
 var fullscreen := false
 var joker_reminders := true
+var mode_tutorials := true
 var screen_shake := true
 var gibs_enabled := true
 
@@ -395,9 +396,9 @@ func _draw() -> void:
 	if modal=="hell_meld":
 		hell_meld.draw(self)
 		return
-	if frontend.at_home or modal in ["home","options","new_match","leave_match"]:
+	if frontend.at_home or modal in ["home","options","new_match","leave_match","mode_tutorial"]:
 		frontend.draw(self)
-		if modal not in ["home","options","new_match","leave_match"]: draw_modal()
+		if modal not in ["home","options","new_match","leave_match","mode_tutorial"]: draw_modal()
 		return
 	button(MENU_BUTTON,"MENU",not busy)
 	label_at(Vector2(34,66),"DOOM",42,Color("bb5843"))
@@ -1297,6 +1298,7 @@ func load_view_setting() -> void:
 		cinematic_enabled = bool(settings.get_value("presentation","cinematic_battles",true))
 		master_volume = clampf(float(settings.get_value("audio","master_volume",0.8)),0,1)
 		fullscreen = bool(settings.get_value("presentation","fullscreen",false))
+		mode_tutorials = bool(settings.get_value("presentation","mode_tutorials",true))
 		joker_reminders = bool(settings.get_value("presentation","joker_reminders",true))
 		screen_shake = bool(settings.get_value("presentation","screen_shake",true))
 		gibs_enabled = bool(settings.get_value("presentation","gibs_enabled",true))
@@ -1310,6 +1312,7 @@ func save_view_setting() -> void:
 	settings.set_value("presentation","cinematic_battles",cinematic_enabled)
 	settings.set_value("audio","master_volume",master_volume)
 	settings.set_value("presentation","fullscreen",fullscreen)
+	settings.set_value("presentation","mode_tutorials",mode_tutorials)
 	settings.set_value("presentation","joker_reminders",joker_reminders)
 	settings.set_value("presentation","screen_shake",screen_shake)
 	settings.set_value("presentation","gibs_enabled",gibs_enabled)
@@ -1987,7 +1990,7 @@ func modal_click(pos: Vector2) -> void:
 	if modal=="deck_guide" and guide_tutorial:
 		deck_guide_click(pos)
 		return
-	if modal in ["home","options","new_match","leave_match"]:
+	if modal in ["home","options","new_match","leave_match","mode_tutorial"]:
 		frontend.click(self,pos)
 		return
 	if modal in ["mulligan","history","energy_curve"]:

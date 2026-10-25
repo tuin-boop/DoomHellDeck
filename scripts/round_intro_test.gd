@@ -13,7 +13,7 @@ func run() -> void:
 	assert(m.round_intro)
 	m.side = 1
 	m.cpu_wait = 0
-	for t in [1.2,3.4,5.6]:
+	for t in [1.2,3.4,5.6,7.8,10.0]:
 		m.round_intro_age = t
 		m.tick(g,0.01)
 		assert(m.turns==[0,0],"CPU must wait during reveal")
@@ -56,7 +56,17 @@ func run() -> void:
 	m.support.finish_pick(m)
 	assert(m.round_intro and m.round_intro_age==0)
 	assert(m.support.reminder_age==0)
-	m.tick(g,8.0)
+	m.tick(g,m.ROUND_INTRO_TIME+0.1)
 	assert(not m.round_intro and m.turns==[0,0])
+	m.relic = 2
+	m.relic_used = [false,true]
+	m.drew_this_round = [false,false]
+	assert(m.relic_status(0)=="DRAW TO READY" and m.relic_status(1)=="USED")
+	m.drew_this_round[0] = true
+	assert(m.relic_status(0)=="READY")
+	m.power_panel = true
+	await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://captures/all-match-powers.png")
 	print("PASS: round reveal, CPU waits, skip, automatic completion, next-round restart, hold/release Space tray")
 	quit()

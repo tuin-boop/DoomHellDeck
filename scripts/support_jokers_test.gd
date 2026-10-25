@@ -24,6 +24,22 @@ func run() -> void:
 	assert(bj.support.score(bj,0,[1],{"gain":10,"kind":"set"},true).bonus==0)
 	assert(bj.support.score(bj,1,[1],{"gain":10,"kind":"set"},true).bonus==0)
 	assert(bj.support.THEMES.size()==bj.support.DATA.size())
+	var extras = Meld.new()
+	extras.support.slots = [[43],[44]]
+	assert(extras.support.score(extras,0,[0,0,0],{"gain":10,"kind":"set"},false).bonus==10)
+	assert(extras.support.score(extras,0,[0,0],{"gain":10,"kind":"set"},false).bonus==0)
+	assert(extras.support.score(extras,0,[0],{"gain":10,"kind":"set"},true).bonus==0)
+	assert(extras.support.score(extras,1,[0,0],{"gain":10,"kind":"set"},false).bonus==0)
+	extras.support.on_draw(1)
+	extras.support.on_draw(1)
+	assert(extras.support.score(extras,1,[1,1],{"gain":10,"kind":"set"},false,true).bonus==0)
+	assert(extras.support.score(extras,1,[0],{"gain":10,"kind":"set"},true).bonus==10)
+	assert(extras.support.score(extras,1,[0],{"gain":10,"kind":"set"},true,true).bonus==10)
+	assert(extras.support.score(extras,1,[0],{"gain":10,"kind":"set"},true).bonus==0)
+	extras.support.on_draw(1)
+	extras.support.begin_round()
+	assert(extras.support.score(extras,1,[0,0],{"gain":10,"kind":"set"},false).bonus==0)
+	assert(extras.support.fixed_bonus(44,{})==0,"Mime cannot copy stored fire bonus")
 	var tilt = preload("res://scripts/card_tilt.gd")
 	var left: Transform2D = tilt.pose(Vector2.ZERO,-0.4,true)
 	var right: Transform2D = tilt.pose(Vector2.ZERO,0.4,true)
@@ -33,7 +49,7 @@ func run() -> void:
 	var m = Meld.new()
 	m.next_round()
 	var j = m.support
-	assert(j.DATA.size()==43)
+	assert(j.DATA.size()==45)
 	j.slots = [[39,40],[]]
 	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false).bonus==4)
 	assert(j.score(m,0,[0,0],{"gain":10,"kind":"set"},false,true).bonus==4)
@@ -345,7 +361,7 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/joker-sidebars.png")
-	print("PASS: 43 Jokers, scoring, growth, side isolation, RNG-safe previews, copying, combo triggers, draw, multiplier, draft, one-to-five progression and reset")
+	print("PASS: 45 Jokers, scoring, growth, side isolation, RNG-safe previews, copying, combo triggers, draw, multiplier, draft, one-to-five progression and reset")
 	j.drawer = [0.0,0.0]
 	j.drawer_grace = [0.0,0.0]
 	m.round_over = false

@@ -113,7 +113,7 @@ var final_turn_age := 99.0
 var round_intro := false
 var round_intro_age := 0.0
 var round_intro_beat := -1
-const ROUND_INTRO_TIME := 7.8
+const ROUND_INTRO_TIME := 11.8
 var cpu_wait := 0.0
 var flights: Array = []
 var banner := ""
@@ -452,6 +452,7 @@ func finish_round(winner: int, reason: String) -> void:
 	upgrade_offers = upgrade_offers.slice(0,3)
 	if finished:
 		result_winner = match_winner()
+		finale.choose_picture(result_winner)
 		var winner_name := "YOU WIN" if result_winner==0 else ("CPU WINS" if result_winner==1 else "DRAW")
 		round_message = winner_name+" / ROUNDS %d : %d / POINTS %d : %d" % [rounds[0],rounds[1],scores[0],scores[1]]
 
@@ -475,7 +476,7 @@ func tick(g, delta: float) -> void:
 	if guide or power_panel: return
 	if round_intro:
 		round_intro_age += delta
-		var beat := mini(2,int(round_intro_age/2.2))
+		var beat := mini(4,int(round_intro_age/2.2))
 		if beat!=round_intro_beat:
 			round_intro_beat = beat
 			g.audio.play("DSGETPOW",-18)
@@ -627,9 +628,12 @@ func draw(g) -> void:
 	g.label_at(Vector2(22,535),"DRAW / PASS",12,g.ORANGE)
 	g.label_at(Vector2(535,170),"CPU: %d CARDS / TURN %d OF 10" % [hands[1].size(),mini(10,turns[1]+1)],16,g.MUTED)
 	if modifier>=0:
+		g.draw_rect(Rect2(174,177,870,24),Color(1.0,0.48,0.16,0.05+sin(age*2)*0.02))
+		g.draw_line(Vector2(174,200),Vector2(1044,200),Color(1.0,0.48,0.16,0.25+sin(age*2)*0.1),1)
 		g.label_at(Vector2(180,195),"ROUND: "+MODIFIERS[modifier].name+" / "+MODIFIERS[modifier].rule,15,g.ORANGE)
 	if relic>=0:
-		g.label_at(Vector2(180,220),RELICS[relic].name+" / "+RELICS[relic].rule+" / YOU: "+("USED" if relic_used[0] else "READY")+" / CPU: "+("USED" if relic_used[1] else "READY"),14,g.INK)
+		g.label_at(Vector2(180,220),RELICS[relic].name+" / "+RELICS[relic].rule,14,g.INK)
+		for owner in 2: draw_relic_status(g,owner,Rect2(740+owner*155,202,145,26))
 	g.draw_rect(CENTER,Color(0.06,0.14,0.11,0.45))
 	g.draw_rect(CENTER,Color("b9a777") if dragging else Color("40574b"),false,3 if dragging else 1)
 	if melds.is_empty():
@@ -1193,18 +1197,24 @@ func draw_powers(g) -> void:
 			g.ui_help.offer(Rect2(x-105,395,210,300),card_data(id).name,enhancements[id]+(": +4 whenever you play this monster." if gilded else ": +8 when you add this monster to the centre combo.")+" Applies to both players. Enhanced species change next round.")
 			row += 1
 		g.label_at(Vector2(180,726),"New enhanced monsters are chosen next round.",12,g.MUTED)
-		g.label_at(Vector2(755,342),"YOUR COMBO UPGRADES",20,Color("d6b3f2"))
-		g.label_at(Vector2(755,367),"Permanent bonuses for the rest of this match",12,g.MUTED)
+		g.label_at(Vector2(755,342),"ROUND POWERS",20,Color("d6b3f2"))
+		if modifier>=0:
+			g.label_at(Vector2(755,380),MODIFIERS[modifier].name+" / ACTIVE",18,g.ORANGE)
+			g.label_at(Vector2(755,407),MODIFIERS[modifier].rule,14,g.INK)
+		if relic>=0:
+			g.label_at(Vector2(755,451),RELICS[relic].name,18,Color("9de5ed"))
+			g.label_at(Vector2(755,478),RELICS[relic].rule+" / ONCE EACH PER ROUND",12,g.INK)
+			for owner in 2: draw_relic_status(g,owner,Rect2(755+owner*250,492,230,32))
+		g.label_at(Vector2(755,560),"YOUR COMBO UPGRADES / ALL MATCH",17,Color("d6b3f2"))
 		var upgrade_row := 0
 		for family in FAMILY_NAMES:
-			var box := Rect2(755,390+upgrade_row*53,505,45)
+			var box := Rect2(755,576+upgrade_row*25,505,23)
 			var amount := int(upgrades[0].get(family,0))*5
 			g.draw_rect(box,Color("39304b") if amount>0 else Color("1c1d2b"))
-			g.label_at(box.position+Vector2(12,28),FAMILY_NAMES[family],15,g.INK if amount>0 else g.MUTED)
-			g.label_at(box.position+Vector2(425,29),"+%d" % amount,22,Color("ffdb79") if amount>0 else g.MUTED)
-			g.ui_help.offer(box,FAMILY_NAMES[family],FAMILY_HELP[family]+" Your upgrade adds %d points each time you play or extend this family. Choose upgrades between rounds." % amount)
+			g.label_at(box.position+Vector2(10,17),FAMILY_NAMES[family],12,g.INK if amount>0 else g.MUTED)
+			g.label_at(box.position+Vector2(440,17),"+%d" % amount,14,g.INK if amount>0 else g.MUTED)
+			g.ui_help.offer(box,FAMILY_NAMES[family],FAMILY_HELP[family]+" Upgrade: +%d points." % amount)
 			upgrade_row += 1
-		g.label_at(Vector2(755,726),"Choose one upgrade after each round.",12,g.MUTED)
 	g.button(Rect2(600,790,240,50),"BACK TO TABLE")
 
 func start_round_intro() -> void:
@@ -1219,6 +1229,9 @@ func draw_round_intro(g) -> void:
 	g.menu_frame(Rect2(100,75,1240,800))
 	centered_at(g,"ROUND %d / POWER REVEAL" % round_number,Vector2(720,145),32,g.ORANGE)
 	centered_at(g,"SHARED POWERS / BOTH PLAYERS",Vector2(720,184),16,g.MUTED)
+	if round_intro_age>=6.6:
+		draw_round_power_reveal(g)
+		return
 	var ids: Array = enhancements.keys()
 	for i in 3:
 		var elapsed := round_intro_age-i*2.2
@@ -1257,3 +1270,43 @@ func draw_round_intro(g) -> void:
 
 func centered_at(g, text: String, position: Vector2, size: int, color: Color) -> void:
 	g.label_at(position-Vector2(g.font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x/2,0),text,size,color)
+
+func relic_status(owner: int) -> String:
+	if relic_used[owner]: return "USED"
+	if relic==2 and not drew_this_round[owner]: return "DRAW TO READY"
+	return "READY"
+
+func draw_relic_status(g, owner: int, rect: Rect2) -> void:
+	var status := relic_status(owner)
+	var tint := Color("63706c") if status=="USED" else (Color("ffd482") if status=="DRAW TO READY" else Color("76e9d8"))
+	var glow: float = 0.1 if status=="USED" else 0.3+sin(age*3)*0.12
+	for ring in 3: g.draw_rect(rect.grow(ring*2),Color(tint,glow/(ring+2)),false,2)
+	g.draw_rect(rect,Color("13232a"))
+	g.label_at(rect.position+Vector2(7,rect.size.y*0.68),("YOU: " if owner==0 else "CPU: ")+status,11,tint)
+	g.ui_help.offer(rect,RELICS[relic].name,RELICS[relic].rule+". Once per player each round. "+status)
+
+func draw_round_power_reveal(g) -> void:
+	for i in 2:
+		var elapsed: float = round_intro_age-6.6-i*2.2
+		var x: float = 410+i*620
+		var box := Rect2(x-270,245,540,500)
+		var tint := Color("ffb15d") if i==0 else Color("76e9d8")
+		g.draw_rect(box,Color("13232a"))
+		if elapsed<0:
+			centered_at(g,"?",Vector2(x,500),64,g.MUTED)
+			continue
+		var enter := smoothstep(0,0.65,elapsed)
+		g.draw_rect(box,Color(tint,enter),false,3)
+		for ring in 4: g.draw_arc(Vector2(x,440),60+ring*18+sin(age*2)*5,age*0.4,age*0.4+TAU*0.8,48,Color(tint,0.15),2)
+		centered_at(g,"ROUND MODIFIER" if i==0 else "ROUND RELIC",Vector2(x,295),23,tint)
+		var index: int = modifier if i==0 else relic
+		if index>=0:
+			var data: Dictionary = MODIFIERS[index] if i==0 else RELICS[index]
+			centered_at(g,["+5","+8","+10"][index] if i==0 else ["+15","+12","+10"][index],Vector2(x,465),60,tint)
+			centered_at(g,data.name,Vector2(x,570),25,tint)
+			centered_at(g,data.rule,Vector2(x,610),16,g.INK)
+			if i==1:
+				for owner in 2: draw_relic_status(g,owner,Rect2(x-245+owner*250,635,235,35))
+		centered_at(g,"ACTIVE ALL ROUND" if i==0 else "ONCE PER PLAYER / RESETS NEXT ROUND",Vector2(x,710),14,g.MUTED)
+	g.button(Rect2(1120,810,180,45),"SKIP / ENTER")
+	centered_at(g,"ROUND BONUS + RELIC / BOTH PLAYERS",Vector2(650,820),16,g.MUTED)

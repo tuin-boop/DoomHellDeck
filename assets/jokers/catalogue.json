@@ -342,5 +342,21 @@
     "art": "bj_blazkowicz.png",
     "art_available": true,
     "rarity": "uncommon"
+  },
+  {
+    "id": "baseball_baron",
+    "name": "BASEBALL BARON",
+    "effect": "Triple: +10 when you play exactly three cards in a valid combination.",
+    "art": "baseball_baron.png",
+    "art_available": true,
+    "rarity": "common"
+  },
+  {
+    "id": "campfire_imps",
+    "name": "CAMPFIRE IMPS",
+    "effect": "Rest by the fire: draw/pass to ready +10 for your next scoring play containing a Fire monster. Does not stack. Resets each round.",
+    "art": "campfire_imps.png",
+    "art_available": true,
+    "rarity": "common"
   }
 ]

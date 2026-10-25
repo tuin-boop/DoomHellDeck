@@ -8,25 +8,35 @@ Get the Windows ZIP from [Releases](https://github.com/tuin-boop/DoomHellDeck/re
 
 Provide your own **DOOM2.WAD** beside the EXE, or set `DOOM_WAD` to its location. The commercial IWAD is not included. The game also checks supported Steam installation paths.
 
+## Quick start
+
+Both modes offer short tutorials with looping visual examples. Skip them, disable automatic tutorials in Options or with “Don’t show again,” and reopen them with How to Play.
+
+![Mode selection](docs/screenshots/home.png)
+
+![Animated tutorial example](docs/screenshots/tutorial.png)
+
 ## Hellatro
 
 - Five rounds, ten turns each per round. **Highest total points wins the match; equal totals draw.** Each round win adds +30 points.
 - Play matching sets, armies, damage-type groups, Marches, Apocalypse combos, and named teams.
 - Extend the shared centre combination or draw/pass to clear it.
-- Draft from **43 support Jokers**. Start with one and choose one more from three offers each round, reaching five in the final round. Both sides follow the same progression. Opening offers use a pool of standalone Jokers. Hover cards for effects and progress.
+- Draft from **45 support Jokers**. Start with one and choose one more from three offers each round, reaching five in the final round. Both sides follow the same progression. Opening offers use a pool of standalone Jokers. Hover cards for effects and progress.
 - Each scoring Joker appears in sequence with the points it contributes. Common, Uncommon, and Rare Jokers have weighted draft odds.
 - B.J. Blazkowicz: Castle Breakout grants +15 when extending an opponent-started combo with a Bullet or Melee monster. Screaming Doomguy grants +20 on your tenth-turn scoring play and has a constantly shaking portrait.
 - Adaptive side bars show current-round scores. The finale counts every round into total-score bars, with gib bursts, confetti, a large win/loss announcement, and an overlapping collage of all Jokers.
 - Screen shake, flying gibs, and Joker reminders can be toggled in Options.
-- Each round opens with a staged reveal of the shared bonus, Gilded monster, and Charged monster. Enter skips the reveal.
+- Each round reveals the shared match bonus, Gilded and Charged monsters, round modifier, and once-per-player relic. Enter skips the reveal. Match Powers includes all of these; glowing indicators show READY, USED, or DRAW TO READY separately for you and CPU.
 - Choose combo-family upgrades between rounds; inspect shared bonuses and enhanced monsters in Match Powers.
-- Animated combo lettering, illustrated guide, clickable Named Teams links, final-turn alerts, and animated result artwork.
+- Baseball Baron grants +10 for exactly three cards; Campfire Imps stores +10 after drawing/passing for your next Fire scoring play. Both are Common.
+- Six random victory pictures and two CPU-victory pictures slide into the left of the Hellatro finale after counting.
+- Animated combo lettering, illustrated guide, clickable Named Teams links, and final-turn alerts.
 
 ![Final score count](docs/screenshots/hellatro-final-count.png)
 
 ![Victory announcement](docs/screenshots/hellatro-final-winner.png)
 
-![Round power reveal](docs/screenshots/round-reveal.png)
+![Round relic reveal](docs/screenshots/round-relic-reveal.png)
 
 ![Five-Joker trays](docs/screenshots/five-joker-trays.png)
 
@@ -72,7 +82,7 @@ Create `captures` and `reports` directories before running tests from a clean cl
 godot --path . --script scripts/support_jokers_test.gd -- --balance-test
 ```
 
-The current 43-Joker regression suite passed, covering scoring, preview purity, growth, resets, one-to-five drafting, B.J.'s conditional bonus, and presentation. Finale tests verify cumulative totals and that total points decide the winner, including the 899–808 example where round wins differ.
+The current 45-Joker regression suite passed, covering scoring, preview purity, growth, resets, one-to-five drafting, B.J.'s conditional bonus, and presentation. Finale tests verify cumulative totals and that total points decide the winner, including the 899–808 example where round wins differ.
 
 The included 500-match progression report is historical (41 Jokers, before weighted rarity and total-points victory). It is not a balance claim for this release. Run `godot --headless --path . --script scripts/joker_progression_balance_test.gd` for a new simulation of the current rules.
 

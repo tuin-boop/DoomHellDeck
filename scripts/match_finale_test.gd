@@ -2,6 +2,14 @@ extends SceneTree
 const Game = preload("res://scripts/main.gd")
 func _initialize() -> void: run.call_deferred()
 func run() -> void:
+	var picker = preload("res://scripts/match_finale.gd").new()
+	for i in 30:
+		picker.choose_picture(0)
+		assert(picker.picture in picker.WIN_PICTURES)
+		picker.choose_picture(1)
+		assert(picker.picture in picker.LOSS_PICTURES)
+	picker.choose_picture(-1)
+	assert(picker.picture=="")
 	var example = preload("res://scripts/hell_meld.gd").new()
 	example.round_number = 5
 	example.rounds = [1,3]
@@ -42,12 +50,14 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/hellatro-final-count.png")
-	m.result_age = m.finale.duration(m)+1
+	m.finale.picture = "player-win-imp"
+	m.result_age = m.finale.duration(m)+3
 	assert(m.finale.done(m))
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png("res://captures/hellatro-final-winner.png")
 	m.result_winner = 1
+	m.finale.choose_picture(1)
 	m.result_age = m.finale.duration(m)+0.5
 	await process_frame
 	await RenderingServer.frame_post_draw

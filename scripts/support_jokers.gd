@@ -43,7 +43,9 @@ const DATA := [
 	["jester_imp","JESTER IMP","Common: +4 when you start a new combination. No bonus for extensions."],
 	["glitch_jester_imp","GLITCH JESTER IMP","+10 every second scoring play while held. Progress resets each round."],
 	["screaming_doomguy","SCREAMING DOOMGUY","Last scream: +20 on your tenth-turn scoring play each round. Draw/pass gets no bonus."],
-	["bj_blazkowicz","B.J. BLAZKOWICZ","Castle Breakout: +15 when you extend a combo started by your opponent with at least one Bullet or Melee monster."]
+	["bj_blazkowicz","B.J. BLAZKOWICZ","Castle Breakout: +15 when you extend a combo started by your opponent with at least one Bullet or Melee monster."],
+	["baseball_baron","BASEBALL BARON","Triple: +10 when you play exactly three cards in a valid combination."],
+	["campfire_imps","CAMPFIRE IMPS","Rest by the fire: draw/pass to ready +10 for your next scoring play containing a Fire monster. Does not stack. Resets each round."]
 ]
 # Decorative themes only; colours do not encode rarity or scoring rules.
 const THEMES := [
@@ -72,7 +74,9 @@ const THEMES := [
 	["291738","ee70e0","grid"], ["293426","a9bc7c","checks"],
 	["432c16","f3b45e","rings"], ["481e34","f49abb","hearts"], ["442118","f5ad66","diamonds"], ["172d32","9abca6","stripes"], ["3b2318","e5b875","checks"], ["352045","e5a5ef","stars"], ["182b48","86bdf1","rings"], ["132b3e","68cbed","grid"], ["302043","f0d16f","stars"], ["493719","ffda52","rings"], ["252b34","ced9ee","grid"], ["472217","f2ad52","stripes"], ["252d32","b6d5df","chevrons"], ["183e36","cbdc66","diamonds"], ["271a3d","5ee8ed","grid"], # Glitch circuitry
 	["421b18","ff8263","rays"],
-	["44241c","e8c18c","chevrons"]
+	["44241c","e8c18c","chevrons"],
+	["402326","efb9aa","stripes"],
+	["352718","ffb853","stars"]
 ]
 
 func draw_card_background(g, m, id: int, bounds: Rect2, active: bool) -> void:
@@ -157,6 +161,7 @@ func begin_round() -> void:
 		s.contract_paid = false
 		s.book_families = []
 		s.glitch_plays = 0
+		s.campfire_ready = false
 
 var draft_age := 0.0
 const RARE := [6,12,15,17,18,24,36,40]
@@ -168,7 +173,7 @@ func rarity_weight(id: int) -> int:
 func rarity_color(id: int) -> Color:
 	return Color("e99aff") if id in RARE else (Color("72d8ff") if id in UNCOMMON else Color("d0c5a8"))
 const MAX_SLOTS := 5
-const STARTER_POOL := [0,2,3,8,13,20,25,29,30,37,38,39]
+const STARTER_POOL := [0,2,3,8,13,20,25,29,30,37,38,39,43,44]
 
 func draft_offers(m, owner: int) -> Array:
 	var candidates: Array = []
@@ -228,6 +233,7 @@ func enhancement(m, owner: int, id: int) -> String:
 
 func fixed_bonus(id: int, c: Dictionary) -> int:
 	match id:
+		43: return 10 if c.count==3 else 0
 		42: return 15 if c.get("rival",false) and (c.get("bullet",0)>0 or c.get("melee",0)>0) else 0
 		41: return 20 if c.get("final_turn",false) else 0
 		0: return 5
@@ -297,6 +303,7 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 	for slot in slots[owner].size():
 		var id: int = slots[owner][slot]
 		var bonus := fixed_bonus(id,context)
+		if id==44: bonus = 10 if s.get("campfire_ready",false) and context.fire>0 else 0
 		if id==40: bonus = 10 if (int(s.get("glitch_plays",0))+1)%2==0 else 0
 		if id==37: bonus = 0 if combo.kind in s.get("book_families",[]) else 6
 		if id==26: bonus = s.get("gluttonous",0)
@@ -314,6 +321,7 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 		var before := total
 		total = int(floor(total*1.5)); events.append({"id":17,"text":"x1.5 / +%d" % (total-before),"amount":total-before,"total":total})
 	if commit:
+		if has(owner,44) and context.fire>0: s.campfire_ready = false
 		if has(owner,40): s.glitch_plays = int(s.get("glitch_plays",0))+1
 		if has(owner,37):
 			if not s.has("book_families"): s.book_families = []
@@ -346,6 +354,7 @@ func on_draw(owner: int) -> int:
 	var s: Dictionary = stats[owner]
 	var count := 2 if has(owner,18) and not s.get("drawn",false) else 1
 	s.drawn = true
+	if has(owner,44): s.campfire_ready = true
 	if has(owner,8): s.sleep = mini(16,s.get("sleep",0)+4)
 	return count
 
@@ -354,6 +363,7 @@ func progress(owner: int, id: int) -> String:
 	if id==40: return "%d / 2 PLAYS" % (int(stats[owner].get("glitch_plays",0))%2)
 	var s: Dictionary = stats[owner]
 	match id:
+		44: return "FIRE +10 READY" if s.get("campfire_ready",false) else "DRAW TO REST"
 		26: return "APPETITE +%d" % s.get("gluttonous",0)
 		20: return "USED" if s.get("coffee_used",false) else "FIRST +10"
 		22: return "CHARGE %d/3" % (int(s.get("barrel",0))%3)

@@ -1,4 +1,27 @@
 extends RefCounted
+const WIN_PICTURES := ["player-win-1", "player-win-2", "player-win-imp", "player-win-imp-red", "player-win-soldier", "player-win-baron"]
+const LOSS_PICTURES := ["cpu-win-1", "cpu-win-2"]
+var picture := ""
+var picture_cache := {}
+var visual_rng := RandomNumberGenerator.new()
+func choose_picture(winner: int) -> void:
+	picture = ""
+	if winner<0: return
+	visual_rng.randomize()
+	var pool: Array = WIN_PICTURES if winner==0 else LOSS_PICTURES
+	picture = pool[visual_rng.randi_range(0,pool.size()-1)]
+
+func draw_picture(g,m) -> void:
+	if picture=="" or m.result_winner<0: return
+	if not picture_cache.has(picture): picture_cache[picture] = load("res://assets/results/"+picture+".png")
+	var texture: Texture2D = picture_cache[picture]
+	if texture==null: return
+	var size := texture.get_size()
+	size *= minf(420.0/size.x,780.0/size.y)
+	var rise := 1.0-pow(1.0-clampf((m.result_age-duration(m))/0.85,0,1),3)
+	var pos := Vector2(230-size.x/2,lerpf(950,870-size.y,rise))
+	g.draw_texture_rect(texture,Rect2(pos,size),false)
+
 func duration(m) -> float: return 0.5+m.round_history.size()*2.0+0.8
 func done(m) -> bool: return m.result_age>=duration(m)
 func totals_at(m, time: float) -> Array:
@@ -45,7 +68,9 @@ func draw(g,m) -> void:
 					var px: float = point[0]*cos(angle)-point[1]*sin(angle)
 					var py: float = point[2]+0.3*(point[0]*sin(angle)+point[1]*cos(angle))
 					g.draw_rect(Rect2(pos+Vector2(px,py)*2,Vector2(3,3)),Color(point[3]/255.0,point[4]/255.0,point[5]/255.0,clampf((1.7-t)/0.4,0,1)))
-	if ready: draw_celebration(g,m,title)
+	if ready:
+		draw_picture(g,m)
+		draw_celebration(g,m,title)
 	draw_collage(g,m)
 	if ready:
 		m.centered_at(g,"ROUNDS WON  %d : %d" % m.rounds,Vector2(925,770),21,g.INK)
