@@ -8,6 +8,7 @@ func run() -> void:
 	AudioServer.set_bus_mute(0,true)
 	var m = g.hell_meld
 	m.start(g)
+	m.progression.enabled = false
 	m.support.chosen = m.support.offers[0]
 	m.support.finish_pick(m)
 	assert(m.round_intro)

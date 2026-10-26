@@ -178,7 +178,7 @@
   {
     "id": "explosive_barrel",
     "name": "EXPLOSIVE BARREL",
-    "effect": "Every third scoring play while held adds +25. Progress lasts this match.",
+    "effect": "Every third scoring play while held adds +20. Progress lasts this match.",
     "art": "explosive_barrel.png",
     "art_available": true,
     "rarity": "uncommon"
@@ -358,5 +358,45 @@
     "art": "campfire_imps.png",
     "art_available": true,
     "rarity": "common"
+  },
+  {
+    "id": "doomguy_lisa",
+    "name": "DOOMGUY LISA",
+    "effect": "Masterpiece: +15 when you play at least three different monsters with no duplicates or Romero wild card in a valid play.",
+    "art": "doomguy_lisa.png",
+    "art_available": true,
+    "rarity": "uncommon"
+  },
+  {
+    "id": "deathmatch",
+    "name": "DEATHMATCH",
+    "effect": "Lead change: +12 when your play takes you from behind to ahead in round points, before Joker bonuses. Tying does not count.",
+    "art": "deathmatch.png",
+    "art_available": true,
+    "rarity": "uncommon"
+  },
+  {
+    "id": "rift_walker",
+    "name": "RIFT WALKER",
+    "effect": "Marches may skip exactly one rank. At least three different monsters.",
+    "art": "magician_arch_vile.png",
+    "art_available": true,
+    "rarity": "rare"
+  },
+  {
+    "id": "hell_recruiter",
+    "name": "HELL RECRUITER",
+    "effect": "Imp can replace one member of a named team that does not normally contain Imp.",
+    "art": "general_baron.png",
+    "art_available": true,
+    "rarity": "rare"
+  },
+  {
+    "id": "prism_core",
+    "name": "PRISM CORE",
+    "effect": "Type Gatherings may include one monster of a different damage type.",
+    "art": "electric_arachnotron.png",
+    "art_available": true,
+    "rarity": "rare"
   }
 ]

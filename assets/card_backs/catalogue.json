@@ -1,0 +1,101 @@
+[
+  {
+    "id": "hellatro",
+    "name": "HELLATRO",
+    "texture": "res://assets/cards/hellatro-back.png",
+    "tint": "ffffff",
+    "accent": "e65a39",
+    "unlock": "default",
+    "description": "Original Hellatro artwork."
+  },
+  {
+    "id": "obsidian",
+    "name": "OBSIDIAN",
+    "texture": "res://assets/cards/hellatro-back.png",
+    "tint": "8997b9",
+    "accent": "9eb7f3",
+    "unlock": "default",
+    "description": "Available from the start."
+  },
+  {
+    "id": "scream_king",
+    "name": "SCREAM KING",
+    "texture": "res://assets/card_backs/scream-king.png",
+    "tint": "ffffff",
+    "accent": "ff394d",
+    "unlock": "win",
+    "description": "Win a Hellatro match."
+  },
+  {
+    "id": "gold",
+    "name": "GOLDEN SLAYER",
+    "texture": "res://assets/cards/hellatro-back.png",
+    "tint": "ffe3a0",
+    "accent": "ffdd69",
+    "unlock": "score",
+    "description": "Score 1,000 points in one match."
+  },
+  {
+    "id": "prism",
+    "name": "PRISM",
+    "texture": "res://assets/cards/hellatro-back.png",
+    "tint": "b6dfff",
+    "accent": "c89aff",
+    "unlock": "families",
+    "description": "Score five different combo families in one match."
+  },
+  {
+    "id": "sleepy_mancubus",
+    "name": "SLEEPY MANCUBUS",
+    "texture": "res://assets/card_backs/sleepy-mancubus.png",
+    "tint": "ffffff",
+    "accent": "97b5ff",
+    "unlock": "rest",
+    "description": "Finish a match with at least five draw/pass turns."
+  },
+  {
+    "id": "pirate_cacodemon",
+    "name": "PIRATE CACODEMON",
+    "texture": "res://assets/card_backs/pirate-cacodemon.png",
+    "tint": "ffffff",
+    "accent": "ffd569",
+    "unlock": "extensions",
+    "description": "Finish a match with at least ten extensions."
+  },
+  {
+    "id": "clown_carnival",
+    "name": "CLOWN CARNIVAL",
+    "texture": "res://assets/card_backs/clown-carnival.png",
+    "tint": "ffffff",
+    "accent": "ffd24b",
+    "unlock": "families",
+    "description": "Score five different combo families in one match."
+  },
+  {
+    "id": "lucky_imp",
+    "name": "LUCKY IMP",
+    "texture": "res://assets/card_backs/lucky-imp.png",
+    "tint": "ffffff",
+    "accent": "69ed65",
+    "unlock": "default",
+    "description": "Available from the start. A little luck from Hell."
+  },
+  {
+    "id": "abyssal_pirate",
+    "name": "ABYSSAL PIRATE",
+    "texture": "res://assets/card_backs/pirate-cacodemon.png",
+    "tint": "b7a0ff",
+    "accent": "bd85ff",
+    "unlock": "stage2",
+    "description": "Clear stage 1 and reach stage 2."
+  },
+  {
+    "id": "sovereign",
+    "name": "HELL SOVEREIGN",
+    "texture": "res://assets/card_backs/scream-king.png",
+    "tint": "fff1a3",
+    "accent": "ffdf6a",
+    "unlock": "stage4",
+    "description": "Clear stage 3 and reach stage 4."
+  }
+]

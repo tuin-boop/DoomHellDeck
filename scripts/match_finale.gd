@@ -36,11 +36,16 @@ func draw(g,m) -> void:
 	var ready := done(m)
 	m.draw_result_frame(g,Rect2(460,65,930,820))
 	var title := "HELLATRO / FINAL RECKONING"
-	if ready: title = "YOU WON!" if m.result_winner==0 else ("YOU LOST!" if m.result_winner==1 else "DRAW")
+	if ready: title = ("STAGE CLEARED!" if m.result_winner==0 else ("RUN OVER!" if m.result_winner==1 else "STAGE DRAW")) if m.run.enabled else ("YOU WON!" if m.result_winner==0 else ("YOU LOST!" if m.result_winner==1 else "DRAW"))
 	m.centered_at(g,title,Vector2(925,130),52 if ready else 30,g.ORANGE)
-	m.centered_at(g,"HIGHEST TOTAL POINTS WINS / EQUAL TOTALS DRAW",Vector2(925,160),14,g.MUTED)
+	m.centered_at(g,"ROUND WINS DECIDE THE STAGE / POINTS BREAK TIES" if m.run.enabled else "HIGHEST TOTAL POINTS WINS / EQUAL TOTALS DRAW",Vector2(925,160),14,g.MUTED)
 	var totals := totals_at(m,m.result_age)
-	var ceiling := maxf(1,maxf(m.scores[0],m.scores[1]))
+	var ceiling := 3.0 if m.run.enabled else maxf(1,maxf(m.scores[0],m.scores[1]))
+	if m.run.enabled:
+		totals = [0.0,0.0]
+		for i in m.round_history.size():
+			var winner: int = m.round_history[i].winner
+			if winner>=0: totals[winner] += smoothstep(0,1,clampf((m.result_age-0.5-i*2.0)/1.25,0,1))
 	for owner in 2:
 		var x := 650+owner*410
 		m.centered_at(g,"YOU" if owner==0 else "CPU",Vector2(x,210),24,g.INK)
@@ -48,12 +53,12 @@ func draw(g,m) -> void:
 		var h := 240*clampf(totals[owner]/ceiling,0,1)
 		g.draw_rect(Rect2(x-75,490-h,150,h),Color("cf2528"))
 		g.draw_line(Vector2(x-75,490-h),Vector2(x+75,490-h),Color("ffae82"),4)
-		m.centered_at(g,str(roundi(totals[owner])),Vector2(x,535),36,g.ORANGE)
+		m.centered_at(g,str(roundi(totals[owner]))+(" WINS" if m.run.enabled else ""),Vector2(x,535),36,g.ORANGE)
 	for i in m.round_history.size():
 		var t: float = m.result_age-0.5-i*2.0
 		if t<0: continue
 		var row: Dictionary = m.round_history[i]
-		var y: int = 577+i*34
+		var y: int = 565+i*27
 		g.label_at(Vector2(505,y),"ROUND %d" % (i+1),15,g.MUTED)
 		for owner in 2:
 			m.centered_at(g,"+%d%s" % [row.points[owner],"  WIN" if row.winner==owner else ""],Vector2(760+owner*410,y),17,Color("ffdb79") if row.winner==owner else g.INK)
@@ -74,7 +79,9 @@ func draw(g,m) -> void:
 	draw_collage(g,m)
 	if ready:
 		m.centered_at(g,"ROUNDS WON  %d : %d" % m.rounds,Vector2(925,770),21,g.INK)
-		g.button(Rect2(550,800,340,55),"PLAY AGAIN")
+		if m.run.enabled: g.label_at(Vector2(505,735),"RUN %d / BEST %d" % [m.run.score(m),m.profile.best_run],18,g.ORANGE)
+		g.button(Rect2(1040,705,280,48),"RUN RECAP")
+		g.button(Rect2(550,800,340,55),("CONTINUE RUN" if m.result_winner==0 else ("REPLAY STAGE" if m.result_winner<0 else "NEW RUN")) if m.run.enabled else "PLAY AGAIN")
 		g.button(Rect2(960,800,340,55),"MAIN MENU")
 	else:
 		m.centered_at(g,"ROUND POINTS INCLUDE THE +30 WIN BONUS",Vector2(925,770),14,g.MUTED)
@@ -87,7 +94,8 @@ func draw_collage(g,m) -> void:
 		var col: int = id%columns
 		var row := int(id/columns)
 		var arrival := smoothstep(0,1,clampf((m.result_age-id*0.025)/0.5,0,1))
-		var path: String = "res://assets/jokers/"+m.support.DATA[id][0]+".png"
+		var art_id: int = {47:6,48:14,49:16}.get(id,id)
+		var path: String = "res://assets/jokers/"+m.support.DATA[art_id][0]+".png"
 		if id==25 and (not m.support.art.has(id) or m.support.art[id]==null) and not g.art.textures.get("AMMO",[]).is_empty():
 			m.support.art[id] = g.art.textures["AMMO"][0]
 		if not m.support.art.has(id): m.support.art[id] = load(path) if ResourceLoader.exists(path) else null

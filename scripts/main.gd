@@ -357,6 +357,7 @@ func _process(delta: float) -> void:
 	radio.update_context(self)
 	match_flair.tick(self,delta)
 	hell_meld.tick(self,delta)
+	hell_meld.run.autosave(self,hell_meld,delta)
 	scenery_animation.update_effects(match_flair)
 	if battle_tools.pending and modal=="": modal = "mulligan"
 	battle_voice.visible = modal in ["","reward","defeat","draw"] and not hero_power.armed and not targeting_weapon()
@@ -938,6 +939,8 @@ func cancel_drag() -> void:
 	drag_index = -1
 
 func _notification(what: int) -> void:
+	if what==NOTIFICATION_WM_CLOSE_REQUEST:
+		hell_meld.run.save_run(hell_meld)
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		hell_meld.support.set_player_drawer(self,false)
 		cancel_drag()

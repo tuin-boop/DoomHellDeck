@@ -37,10 +37,10 @@ func run() -> void:
 	assert(Meld.pattern([0,2,5]).kind=="run")
 	assert(Meld.pattern([0,0,2,2]).kind=="pairs")
 	assert(Meld.pattern([0,2]).is_empty())
-	assert(Meld.pattern([0,0,2,2,2]).name=="HELL HOUSE")
+	assert(Meld.pattern([0,0,2,2,2]).name=="FULL HOUSE")
 	assert(Meld.pattern([0,0,0,2,2,2]).name=="TWIN LEGIONS")
 	assert(Meld.pattern([0,7,18,20]).name=="HELLFIRE UPRISING")
-	assert(Meld.pattern([0,2,5,17]).name=="HELL PARADE")
+	assert(Meld.pattern([0,2,5,17]).name=="HELL'S LADDER")
 	assert(Meld.pattern([0,1,2,5,8]).name=="APOCALYPSE")
 	for team in Meld.TEAMS:
 		assert(Meld.pattern(team.ids).kind=="team")
@@ -84,7 +84,7 @@ func run() -> void:
 	var apocalypse := [17,0,1,19,2]
 	assert(Meld.pattern(apocalypse+[3,8,14,16,7]).name=="DOUBLE APOCALYPSE")
 	assert(Meld.pattern(apocalypse+[0]).is_empty())
-	assert(Meld.pattern([0,0,2,2,5,5]).name=="TRIPLE THREAT")
+	assert(Meld.pattern([0,0,2,2,5,5]).name=="DOUBLE MARCH")
 	assert(Meld.pattern([0,1,2,3,5,16]).name=="DOUBLE MARCH")
 	assert(Meld.pattern([0,Meld.JOKER]).name=="IMP MISCHIEF")
 	assert(Meld.pattern([8,21,Meld.JOKER]).kind=="team")
@@ -131,7 +131,8 @@ func run() -> void:
 	AudioServer.set_bus_mute(0,true)
 	var m = g.hell_meld
 	g.frontend.finish_leaving(g)
-	g.frontend.click(g,Vector2(900,430))
+	g.mode_tutorials = false
+	g.frontend.select_mode(g,1)
 	assert(g.modal=="hell_meld" and not g.frontend.at_home)
 	m.support.reset()
 	m.passive_joker = [-1,-1]
@@ -269,7 +270,7 @@ func run() -> void:
 		root.get_texture().get_image().save_png("res://captures/hell-meld-flight.png")
 		m.banner_age = 0.8
 		m.banner = "TWIN LEGIONS"
-		m.announcement = {"owner":1,"gain":20,"upgrade":true,"before":"HELL HOUSE","old_points":45,"points":65,"new":true}
+		m.announcement = {"owner":1,"gain":20,"upgrade":true,"before":"FULL HOUSE","old_points":45,"points":65,"new":true}
 		await process_frame
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png("res://captures/hell-meld-upgrade.png")

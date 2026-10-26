@@ -16,41 +16,39 @@ Both modes offer short tutorials with looping visual examples. Skip them, disabl
 
 ![Animated tutorial example](docs/screenshots/tutorial.png)
 
-## Hellatro
+## Hellatro: Endless Run
 
-- Five rounds, ten turns each per round. **Highest total points wins the match; equal totals draw.** Each round win adds +30 points.
-- Play matching sets, armies, damage-type groups, Marches, Apocalypse combos, and named teams.
-- Extend the shared centre combination or draw/pass to clear it.
-- Draft from **45 support Jokers**. Start with one and choose one more from three offers each round, reaching five in the final round. Both sides follow the same progression. Opening offers use a pool of standalone Jokers. Hover cards for effects and progress.
-- Each scoring Joker appears in sequence with the points it contributes. Common, Uncommon, and Rare Jokers have weighted draft odds.
-- B.J. Blazkowicz: Castle Breakout grants +15 when extending an opponent-started combo with a Bullet or Melee monster. Screaming Doomguy grants +20 on your tenth-turn scoring play and has a constantly shaking portrait.
-- Adaptive side bars show current-round scores. The finale counts every round into total-score bars, with gib bursts, confetti, a large win/loss announcement, and an overlapping collage of all Jokers.
-- Screen shake, flying gibs, and Joker reminders can be toggled in Options.
-- Each round reveals the shared match bonus, Gilded and Charged monsters, round modifier, and once-per-player relic. Enter skips the reveal. Match Powers includes all of these; glowing indicators show READY, USED, or DRAW TO READY separately for you and CPU.
-- Choose combo-family upgrades between rounds; inspect shared bonuses and enhanced monsters in Match Powers.
-- Baseball Baron grants +10 for exactly three cards; Campfire Imps stores +10 after drawing/passing for your next Fire scoring play. Both are Common.
-- Six random victory pictures and two CPU-victory pictures slide into the left of the Hellatro finale after counting.
-- Animated combo lettering, illustrated guide, clickable Named Teams links, and final-turn alerts.
+Win best-of-five stages and continue with your build. **Round wins decide each stage**, with stage points breaking ties after five rounds. First to three wins ends a stage early; an exact tie replays it. Losing a stage ends the run. Points accumulate toward your run high score.
 
-![Final score count](docs/screenshots/hellatro-final-count.png)
+- **Save and resume:** quitting preserves hands, Jokers, credits, shop offers, paid pack choices and RNG state. Resume from the main menu.
+- **50 Jokers:** draft up to five slots, combine animated editions and family upgrades, and watch scoring effects resolve one by one. Hover portraits to make them dance and read their exact rules.
+- **Demon Shop:** both sides receive 8 credits each round. Buy and sell Jokers, reroll offers, or open booster packs. Credits and your build carry across stages.
+- **Clear pack previews:** inspect cost, requirements and guarantees before purchase. Sealed packs shake, split and burst into staggered reward reveals.
+- **Progression:** reach stage 2 for Rare packs and stage 4 for Legendary packs. These unlocks persist between runs.
+- **Escalation:** CPU gains +3 per scoring play per extra stage. Both sides gain +2 per extra stage on extensions or plays of four or more cards. Boss rules apply every round from stage 3.
+- **New combinations:** Crossfire at stage 2 (four distinct monsters, two of each of two damage types); Twin Trinity at stage 3 (two triples); Chaos March at stage 4 (four or more distinct ranks with one skipped rank).
+- **Routes, mutations and relics:** choose a route between rounds to upgrade a combo family and preview upcoming conditions. The illustrated Field Guide explains patterns and rule-changing Jokers.
+- **Run recap and records:** see strongest plays, Joker contributions, new unlocks, run score and personal best. Stage results show round-win bars so the display matches the winner.
+- **11 cosmetic card backs:** select your back in Options, with an animated equipped notification. Includes supplied Scream King, Sleepy Mancubus, Pirate Cacodemon, Clown Carnival and Lucky Imp art, plus stage-earned colour variants.
+- **Presentation:** sequential Joker scoring, animated round intros, gib bursts, confetti, win/loss art, Joker collage, final-turn alerts and configurable screen shake/gibs/reminders.
 
-![Victory announcement](docs/screenshots/hellatro-final-winner.png)
+| Pack | Standard | Rare | Legendary |
+| --- | --- | --- | --- |
+| Joker | 4 CR: pick 1 of 3 weighted offers | 7 CR: 3 Uncommon/Rare offers | 10 CR: 3 Rare offers |
+| Edition | 3 CR: pick 1 of 3 editions | 5 CR: pick 1 of 5 | 7 CR: pick 1 of all 8 |
+| Upgrade | 3 CR: +5 to a family | 5 CR: +10 | 8 CR: +15 |
 
-![Round relic reveal](docs/screenshots/round-relic-reveal.png)
+Legendary is the **pack tier**; the Joker rarity guarantee is Rare. Each pack type can be bought once per shop across tiers. Edition packs replace one owned Joker's edition while keeping its normal ability. Upgrade packs offer three families. Skipping an opened pack does not refund credits.
 
-![Five-Joker trays](docs/screenshots/five-joker-trays.png)
+![Pack explanation before buying](docs/screenshots/pack-preview.png)
 
-![Joker collection](docs/screenshots/joker-collection.png)
-
-![Glitch Jester Imp](docs/screenshots/glitch-jester.png)
-
-| Field Guide | Match Powers |
+| Pack opening | Eight edition choices |
 | --- | --- |
-| ![Guide](docs/screenshots/field-guide.png) | ![Powers](docs/screenshots/match-powers.png) |
+| ![Opening](docs/screenshots/pack-opening.png) | ![Editions](docs/screenshots/edition-rewards.png) |
 
-| Final-turn alert | Match result |
-| --- | --- |
-| ![Final turn](docs/screenshots/final-turn.png) | ![Result](docs/screenshots/match-result.png) |
+![Stage cleared and continue run](docs/screenshots/hellatro-final-winner.png)
+
+![Card back selection](docs/screenshots/card-back-selection.png)
 
 Screenshots show staged in-game examples. Result artwork includes stylized swimsuit illustrations.
 
@@ -82,9 +80,15 @@ Create `captures` and `reports` directories before running tests from a clean cl
 godot --path . --script scripts/support_jokers_test.gd -- --balance-test
 ```
 
-The current 45-Joker regression suite passed, covering scoring, preview purity, growth, resets, one-to-five drafting, B.J.'s conditional bonus, and presentation. Finale tests verify cumulative totals and that total points decide the winner, including the 899–808 example where round wins differ.
+The 50-Joker regression suite and 100-round legacy gameplay checks passed. New tests cover best-of-five stages, retained builds, game over, pack tiers, permanent unlocks, atomic save/resume and preserving paid pack choices. UI tests render pack previews, opening effects, eight-edition selections, run HUD, stage results and the resume menu.
 
-The included 500-match progression report is historical (41 Jokers, before weighted rarity and total-points victory). It is not a balance claim for this release. Run `godot --headless --path . --script scripts/joker_progression_balance_test.gd` for a new simulation of the current rules.
+Thirty seeded automated endless runs covered **188 rounds**, cleared 19 stages and reached stage 6 at best. Both bots used the same greedy move and standard-shop policy, with random player route choices and CPU pressure enabled. See [the current run report](reports/endless-simulation.json). This is a functional check, not a human difficulty estimate. Older balance reports describe historical rules.
+
+```powershell
+godot --headless --path . --script scripts/endless_run_test.gd -- --balance-test
+godot --headless --path . --script scripts/endless_simulation_test.gd -- --balance-test
+godot --path . --script scripts/endless_ui_test.gd -- --balance-test
+```
 
 ## Credits
 

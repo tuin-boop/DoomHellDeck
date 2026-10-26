@@ -1,4 +1,10 @@
 extends RefCounted
+const Editions = preload("res://scripts/joker_editions.gd")
+var editions := [{},{}]
+var offer_editions := {}
+func edition_of(owner: int, id: int) -> int:
+	return int(editions[owner].get(id,0)) if owner>=0 else 0
+
 # Stable IDs also name optional assets/jokers/<id>.png illustrations.
 const DATA := [
 	["joker_imp","JOKER IMP","+5 points on every scoring play."],
@@ -23,7 +29,7 @@ const DATA := [
 	["rockstar_imp","ROCKSTAR IMP","+10 when your combo family differs from your previous scoring play this round. No bonus on your first play."],
 	["uac_coffee", "UAC COFFEE", "Your first scoring play each round gains +10."],
 	["blue_keycard", "BLUE KEYCARD", "+10 when you extend the centre combo by playing exactly one card."],
-	["explosive_barrel", "EXPLOSIVE BARREL", "Every third scoring play while held adds +25. Progress lasts this match."],
+	["explosive_barrel", "EXPLOSIVE BARREL", "Every third scoring play while held adds +20. Progress lasts this match."],
 	["demon_contract", "DEMON CONTRACT", "Pay 20 points each round while held, including the round acquired. Gain +6 per scoring play."],
 	["glitch_disk", "GLITCH DISK", "Your first new matching-monster pair each round gains +20: the base-score difference to three of a kind. Does not add a card."],
 	["ammo_box", "AMMO BOX", "+2 points for each card you add to a valid combo."],
@@ -45,7 +51,12 @@ const DATA := [
 	["screaming_doomguy","SCREAMING DOOMGUY","Last scream: +20 on your tenth-turn scoring play each round. Draw/pass gets no bonus."],
 	["bj_blazkowicz","B.J. BLAZKOWICZ","Castle Breakout: +15 when you extend a combo started by your opponent with at least one Bullet or Melee monster."],
 	["baseball_baron","BASEBALL BARON","Triple: +10 when you play exactly three cards in a valid combination."],
-	["campfire_imps","CAMPFIRE IMPS","Rest by the fire: draw/pass to ready +10 for your next scoring play containing a Fire monster. Does not stack. Resets each round."]
+	["campfire_imps","CAMPFIRE IMPS","Rest by the fire: draw/pass to ready +10 for your next scoring play containing a Fire monster. Does not stack. Resets each round."],
+	["doomguy_lisa","DOOMGUY LISA","Masterpiece: +15 when you play at least three different monsters with no duplicates or Romero wild card in a valid play."],
+	["deathmatch","DEATHMATCH","Lead change: +12 when your play takes you from behind to ahead in round points, before Joker bonuses. Tying does not count."],
+	["rift_walker","RIFT WALKER","Rule breaker: your Marches may skip exactly one rank. At least three different monsters. Normal March points; no extra Joker points."],
+	["hell_recruiter","HELL RECRUITER","Rule breaker: Imp can replace one missing member of a named team that does not normally contain Imp. Normal team points; no extra Joker points."],
+	["prism_core","PRISM CORE","Rule breaker: your Type Gatherings may include one monster of a different damage type. At least three different monsters. Normal Gathering points."]
 ]
 # Decorative themes only; colours do not encode rarity or scoring rules.
 const THEMES := [
@@ -76,7 +87,12 @@ const THEMES := [
 	["421b18","ff8263","rays"],
 	["44241c","e8c18c","chevrons"],
 	["402326","efb9aa","stripes"],
-	["352718","ffb853","stars"]
+	["352718","ffb853","stars"],
+	["342c19","f0cf79","rings"],
+	["351b22","ef756c","grid"],
+	["251638","cb8fff","rings"],
+	["26391e","aad786","chevrons"],
+	["16333c","79e5ec","grid"]
 ]
 
 func draw_card_background(g, m, id: int, bounds: Rect2, active: bool) -> void:
@@ -133,6 +149,8 @@ var drawer := [0.0,0.0]
 var drawer_grace := [0.0,0.0]
 
 func reset() -> void:
+	editions = [{},{}]
+	offer_editions.clear()
 	player_drawer_open = false
 	last_table_family = ""
 	slots = [[],[]]
@@ -164,8 +182,8 @@ func begin_round() -> void:
 		s.campfire_ready = false
 
 var draft_age := 0.0
-const RARE := [6,12,15,17,18,24,36,40]
-const UNCOMMON := [1,5,7,9,10,11,14,16,19,21,22,23,26,27,28,31,32,33,41,42]
+const RARE := [6,12,15,17,18,24,36,40,47,48,49]
+const UNCOMMON := [1,5,7,9,10,11,14,16,19,21,22,23,26,27,28,31,32,33,41,42,45,46]
 func rarity(id: int) -> String:
 	return "RARE" if id in RARE else ("UNCOMMON" if id in UNCOMMON else "COMMON")
 func rarity_weight(id: int) -> int:
@@ -178,7 +196,7 @@ const STARTER_POOL := [0,2,3,8,13,20,25,29,30,37,38,39,43,44]
 func draft_offers(m, owner: int) -> Array:
 	var candidates: Array = []
 	for id in DATA.size():
-		if not slots[owner].has(id) and (not slots[owner].is_empty() or id in STARTER_POOL): candidates.append(id)
+		if not slots[owner].has(id) and (m.round_number>1 or not slots[owner].is_empty() or id in STARTER_POOL): candidates.append(id)
 	var choices: Array = []
 	for i in 3:
 		var total := 0
@@ -204,23 +222,30 @@ func auto_pick(m, owner: int, choices: Array) -> int:
 	return best
 
 func offer(m) -> void:
-	if slots[0].size()>=mini(MAX_SLOTS,m.round_number): return
+	if slots[0].size()>=m.slot_limit():
+		m.progression.open_shop(m)
+		return
 	draft_age = 0.0
 	offers = draft_offers(m,0)
+	offer_editions.clear()
+	if m.progression.enabled:
+		for id in offers: offer_editions[id] = Editions.roll(m.random)
 	chosen = -1
 	pending = true
 	swap_slot = -1
 
 func finish_pick(m) -> void:
-	if not pending or not offers.has(chosen) or slots[0].size()>=mini(MAX_SLOTS,m.round_number): return
+	if not pending or not offers.has(chosen) or slots[0].size()>=m.slot_limit(): return
 	slots[0].append(chosen)
-	if slots[1].size()<mini(MAX_SLOTS,m.round_number):
+	editions[0][chosen] = int(offer_editions.get(chosen,0))
+	if slots[1].size()<m.slot_limit():
 		slots[1].append(auto_pick(m,1,draft_offers(m,1)))
+		if m.progression.enabled: editions[1][slots[1][-1]] = Editions.roll(m.random)
 	pending = false
 	chosen = -1
 	apply_contract(m)
 	m.hint_signature = ""
-	m.start_round_intro()
+	m.progression.open_shop(m)
 
 func apply_contract(m) -> void:
 	for owner in 2:
@@ -233,6 +258,8 @@ func enhancement(m, owner: int, id: int) -> String:
 
 func fixed_bonus(id: int, c: Dictionary) -> int:
 	match id:
+		46: return 12 if c.get("overtake",false) else 0
+		45: return 15 if c.count>=3 and c.get("distinct",0)==c.count else 0
 		43: return 10 if c.count==3 else 0
 		42: return 15 if c.get("rival",false) and (c.get("bullet",0)>0 or c.get("melee",0)>0) else 0
 		41: return 20 if c.get("final_turn",false) else 0
@@ -271,6 +298,7 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 	context.final_turn = m.turns[owner]==9
 	context.ahead = m.round_scores[owner]>m.round_scores[1-owner]
 	context.behind = m.round_scores[owner]<m.round_scores[1-owner]
+	context.overtake = context.behind and m.round_scores[owner]+int(combo.gain)>m.round_scores[1-owner]
 	context.repeated = last_table_family!="" and last_table_family==combo.kind
 	context.remaining = maxi(0,m.hands[owner].size()-ids.size())
 	context.romero = ids.has(-1)
@@ -300,6 +328,8 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 		if i==0: context.echo = 4 if e=="GILDED" else (8 if e=="CHARGED" and extension else 0)
 	var total: int = combo.gain
 	var events: Array = []
+	if combo.get("rule_joker",-1)>=0:
+		events.append({"id":combo.rule_joker,"text":"RULE BREAK / "+combo.name,"amount":0,"total":total})
 	for slot in slots[owner].size():
 		var id: int = slots[owner][slot]
 		var bonus := fixed_bonus(id,context)
@@ -308,7 +338,7 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 		if id==37: bonus = 0 if combo.kind in s.get("book_families",[]) else 6
 		if id==26: bonus = s.get("gluttonous",0)
 		if id==20: bonus = 0 if s.get("coffee_used",false) else 10
-		if id==22: bonus = 25 if (int(s.get("barrel",0))+1)%3==0 else 0
+		if id==22: bonus = 20 if (int(s.get("barrel",0))+1)%3==0 else 0
 		if id==24: bonus = 20 if not s.get("glitch_used",false) and not extension and combo.kind=="set" and ids.size()==2 else 0
 		if id==1: bonus = s.get("vampire",0)
 		if id==3: bonus = (20 if m.random.randf()<0.25 else 0) if commit else 5
@@ -316,6 +346,13 @@ func score(m, owner: int, ids: Array, combo: Dictionary, extension: bool, commit
 		if id==11 and context.fire>0: bonus = s.get("chef",0)
 		if id==12 and slot>0: bonus = fixed_bonus(slots[owner][slot-1],context)
 		if bonus>0: total += bonus; events.append({"id":id,"text":"+%d" % bonus,"amount":bonus,"total":total})
+	# Edition bonuses are separate scoring beats and cannot be copied by Mime.
+	for id in slots[owner]:
+		var edition := edition_of(owner,id)
+		var extra := Editions.bonus(edition,context)
+		if extra>0:
+			total += extra
+			events.append({"id":id,"text":Editions.DATA[edition][0]+" +%d" % extra,"amount":extra,"total":total})
 	# Multipliers resolve after all additions, independent of slot order.
 	if has(owner,17) and m.turns[owner]==9:
 		var before := total
@@ -380,7 +417,8 @@ func portrait_pose(id: int, time: float, width: float) -> Transform2D:
 	var offset := Vector2(sin(time*57.0)+sin(time*83.0)*0.45,cos(time*67.0)*0.65)*width*0.018
 	return Transform2D(sin(time*49.0)*0.045,offset)
 
-func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
+func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true, edition_override := -1) -> void:
+	var edition: int = edition_override if edition_override>=0 else (edition_of(owner,id) if owner>=0 else int(offer_editions.get(id,0)) if pending else 0)
 	var mouse: Vector2 = g.get_global_mouse_position()
 	var local: Vector2 = (mouse-rect.get_center())/rect.size
 	var hover := interactive and rect.has_point(mouse)
@@ -410,14 +448,16 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		var point := Vector2(cos(angle)*rect.size.x*0.34,sin(angle)*rect.size.y*0.28)
 		var brightness: float = 0.2+0.3*maxf(0,sin(time*2.5+spark))
 		g.draw_rect(Rect2(point,Vector2.ONE*(2 if rect.size.x<100 else 3)),Color(tint,brightness))
-	var path: String = "res://assets/jokers/"+DATA[id][0]+".png"
+	var art_id: int = {47:6,48:14,49:16}.get(id,id)
+	var path: String = "res://assets/jokers/"+DATA[art_id][0]+".png"
 	if id==25 and not art.has(id) and not g.art.textures.get("AMMO",[]).is_empty(): art[id] = g.art.textures["AMMO"][0]
 	if not art.has(id): art[id] = load(path) if ResourceLoader.exists(path) else null
 	if art[id]!=null:
 		var tex: Texture2D = art[id]
 		var size := tex.get_size()
 		size *= minf((rect.size.x*0.76)/size.x,(rect.size.y-48)/size.y)
-		g.draw_set_transform_matrix(card_transform*portrait_pose(id,time,rect.size.x))
+		var dance := Transform2D(sin(time*7)*0.07,Vector2(sin(time*5)*3,-absf(sin(time*7))*7)) if hover else Transform2D.IDENTITY
+		g.draw_set_transform_matrix(card_transform*dance*portrait_pose(id,time,rect.size.x))
 		g.draw_texture_rect(tex,Rect2(-size/2,size),false)
 		g.draw_set_transform_matrix(card_transform)
 	else:
@@ -452,7 +492,7 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		lines = [words[0]," ".join(words.slice(1))]
 		while font_size>9 and maxf(g.font.get_string_size(lines[0],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x,g.font.get_string_size(lines[1],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x)>rect.size.x-18: font_size -= 1
 	for row in lines.size():
-		g.label_at(bounds.position+Vector2(9,17+row*(font_size+2)),lines[row],font_size,g.INK)
+		g.label_at(bounds.position+Vector2(9,17+row*(font_size+2)),lines[row],font_size,(Color(Editions.DATA[edition][2]) if edition>0 else g.INK))
 	if owner<0: g.label_at(Vector2(-rect.size.x/2+6,rect.size.y/2-8),rarity(id),9,rarity_color(id))
 	if id==40:
 		for strip in 3:
@@ -480,6 +520,7 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		var sheen_x := local.x*rect.size.x*0.7
 		g.draw_rect(Rect2(sheen_x-rect.size.x*0.07,-rect.size.y/2+23,rect.size.x*0.14,rect.size.y-46),Color(1,1,1,0.06))
 		g.draw_line(bounds.position+Vector2(5,3),bounds.position+Vector2(rect.size.x-5,3),Color(1,1,1,0.8),3)
+	Editions.draw(g,bounds,edition,time)
 	g.draw_set_transform(Vector2.ZERO)
 	if interactive and "named team" in DATA[id][2].to_lower():
 		var link := Rect2(rect.position+Vector2(7,rect.size.y-25),Vector2(rect.size.x-14,22))
@@ -487,7 +528,7 @@ func card(g, m, id: int, rect: Rect2, owner := -1, interactive := true) -> void:
 		g.label_at(link.position+Vector2(4,15),"NAMED TEAMS >",10,Color("ffd482"))
 		g.draw_line(link.position+Vector2(4,18),link.position+Vector2(link.size.x-4,18),Color("dca850"),1)
 		guide_links.append(link)
-	if interactive: g.ui_help.offer(rect,DATA[id][1],DATA[id][2]+(" Current: "+progress(owner,id) if owner>=0 and progress(owner,id)!="PASSIVE" else ""))
+	if interactive: g.ui_help.offer(rect,DATA[id][1],DATA[id][2]+(" Current: "+progress(owner,id) if owner>=0 and progress(owner,id)!="PASSIVE" else "")+(" Edition: "+Editions.DATA[edition][0]+" / "+Editions.DATA[edition][1] if edition>0 else ""))
 
 func draw(g,m) -> void:
 	guide_links.clear()

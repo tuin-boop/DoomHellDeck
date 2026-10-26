@@ -1,0 +1,18 @@
+{
+  "boss_rounds": 200,
+  "edition_triggers": 5032,
+  "matches": 100,
+  "points": [
+    95170,
+    95637
+  ],
+  "policy": "Same greedy scoring and shop policy for both sides; random player route choice; no profile writes",
+  "rounds": 500,
+  "rule_joker_plays": 24,
+  "turns": 10000,
+  "wins": [
+    44,
+    56,
+    0
+  ]
+}

@@ -21,6 +21,7 @@ func open(g) -> void:
 	finish_leaving(g)
 
 func finish_leaving(g) -> void:
+	g.hell_meld.run.save_run(g.hell_meld)
 	g.ended = true
 	g.battle_tools.pending = false
 	started = false
@@ -41,6 +42,9 @@ func start(g) -> void:
 		g.new_battle()
 
 func handle(g,event: InputEvent) -> bool:
+	if g.hell_meld.profile.open:
+		g.hell_meld.profile.handle(event)
+		return true
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_ESCAPE:
 		if g.modal=="mode_tutorial":
 			g.modal = "home"
@@ -62,6 +66,9 @@ func handle(g,event: InputEvent) -> bool:
 	return false
 
 func draw(g) -> void:
+	if g.hell_meld.profile.open:
+		g.hell_meld.profile.draw(g)
+		return
 	g.draw_rect(Rect2(0,0,1440,940),Color(0.01,0.005,0.008,0.62))
 	g.button(Rect2(1140,30,230,45),"RADIO / F8")
 	g.label_at(Vector2(130,180),"DOOM",92,g.ORANGE)
@@ -83,10 +90,11 @@ func draw(g) -> void:
 		g.button(Rect2(700,625,505,55),"MODE TUTORIALS: "+("ON" if g.mode_tutorials else "OFF"))
 		g.label_at(Vector2(140,699),"Settings save automatically.",16,g.MUTED)
 		g.button(Rect2(140,705,505,60),"BACK")
+		g.button(Rect2(700,705,505,60),"HELLATRO CARD BACKS")
 	elif g.modal=="leave_match":
 		g.label_at(Vector2(140,370),"LEAVE THIS MATCH?",30,g.ORANGE)
-		g.label_at(Vector2(140,425),"Leaving ends this match. You cannot resume it.",20,g.INK)
-		g.label_at(Vector2(140,455),"No victory reward is awarded for leaving.",18,g.MUTED)
+		g.label_at(Vector2(140,425),"Your Hellatro run will be saved. Resume it from the menu." if return_modal=="hell_meld" and g.hell_meld.run.enabled else "Leaving ends this match. You cannot resume it.",20,g.INK)
+		g.label_at(Vector2(140,455),"Your cards, credits, shop choices and current turn are kept." if return_modal=="hell_meld" and g.hell_meld.run.enabled else "No victory reward is awarded for leaving.",18,g.MUTED)
 		g.button(Rect2(140,500,505,60),"LEAVE / MAIN MENU")
 		g.button(Rect2(140,580,505,60),"KEEP PLAYING")
 	elif g.modal=="new_match":
@@ -117,8 +125,11 @@ func draw(g) -> void:
 		g.button(Rect2(165,680,320,60),"PLAY HELL DECK")
 		g.button(Rect2(500,680,165,60),"HOW TO PLAY")
 		g.label_at(Vector2(780,615),"HELLATRO / COMBO CHAOS",23,g.ORANGE)
-		g.label_at(Vector2(780,649),"Five rounds. Highest total points wins.",18,g.INK)
-		g.button(Rect2(775,680,320,60),"PLAY HELLATRO")
+		g.label_at(Vector2(780,649),"Win best-of-five stages. Keep going until defeated.",18,g.INK)
+		g.button(Rect2(775,680,320,60),"RESUME HELLATRO" if g.hell_meld.run.available() else "PLAY HELLATRO")
+		g.hell_meld.profile.ensure_loaded()
+		g.label_at(Vector2(780,765),"BEST RUN %d / FURTHEST STAGE %d" % [g.hell_meld.profile.best_run,g.hell_meld.profile.highest_stage],15,g.ORANGE)
+		g.label_at(Vector2(780,800),"LAST RUN: %d POINTS / STAGE %d" % [g.hell_meld.profile.last_run_score,g.hell_meld.profile.last_run_stage],15,g.INK)
 		g.button(Rect2(1110,680,165,60),"HOW TO PLAY")
 		g.button(Rect2(140,800,260,55),"OPTIONS")
 		g.button(Rect2(430,800,260,55),"QUIT")
@@ -127,9 +138,10 @@ func draw(g) -> void:
 		g.label_at(Vector2(870,675),g.Commanders.entry(g.chosen_commander).name,26,g.INK)
 		g.label_at(Vector2(870,725),"BUILT DECK",18,g.ORANGE)
 		g.label_at(Vector2(870,760),str(g.deck_book.entries[g.deck_book.active].name).left(24) if g.deck_book.active>=0 else "UAC Starter",24,g.INK)
-	g.label_at(Vector2(140,875),"TWO WAYS TO CLAIM THE TABLE. NO CAMPAIGN. JUST PLAY.",18,g.MUTED)
+	g.label_at(Vector2(140,875),"TACTICAL BATTLES OR AN ENDLESS DESCENT. CLAIM THE TABLE.",18,g.MUTED)
 
 func click(g,pos: Vector2) -> void:
+	if g.hell_meld.profile.open: return
 	if g.modal=="mode_tutorial":
 		tutorial_click(g,pos)
 		return
@@ -145,6 +157,7 @@ func click(g,pos: Vector2) -> void:
 		elif Rect2(700,465,505,60).has_point(pos): g.screen_shake = not g.screen_shake
 		elif Rect2(700,545,505,60).has_point(pos): g.gibs_enabled = not g.gibs_enabled
 		elif Rect2(700,625,505,55).has_point(pos): g.mode_tutorials = not g.mode_tutorials
+		elif Rect2(700,705,505,60).has_point(pos): g.hell_meld.profile.open = true
 		elif Rect2(140,705,505,60).has_point(pos): g.modal = "home"
 		else: return
 		g.apply_options()
@@ -174,9 +187,12 @@ func click(g,pos: Vector2) -> void:
 	elif Rect2(500,680,165,60).has_point(pos): open_tutorial(g,0,false)
 	elif Rect2(1110,680,165,60).has_point(pos): open_tutorial(g,1,false)
 	elif Rect2(140,800,260,55).has_point(pos): g.modal = "options"
-	elif Rect2(430,800,260,55).has_point(pos): g.get_tree().quit()
+	elif Rect2(430,800,260,55).has_point(pos):
+		g.hell_meld.run.save_run(g.hell_meld)
+		g.get_tree().quit()
 
 func select_mode(g, mode: int) -> void:
+	if mode==1 and g.hell_meld.run.available() and g.hell_meld.run.resume(g,g.hell_meld): return
 	if g.mode_tutorials: open_tutorial(g,mode,true)
 	elif mode==0: choose_match(g)
 	else: g.hell_meld.start(g)
@@ -198,7 +214,7 @@ const LESSONS := [
 	[
 		["MAKE A COMBINATION", "Select matching monsters, a March, or a named team.", "Drag your selection into the centre to score points.", "The Field Guide shows every legal combination."],
 		["EXTEND OR DRAW", "Add compatible cards to the centre combo to score again.", "Draw / Pass takes a card, clears the centre and ends your turn.", "Each player has ten turns per round. Plan your last play!"],
-		["BUILD YOUR JOKER CREW", "Choose one Joker each round, building from one to five.", "Hold Space to inspect your Jokers. Their bonuses trigger automatically.", "Highest total points after five rounds wins; each round win adds +30."]
+		["BUILD YOUR JOKER CREW", "Pick a free Joker each round. Spend 8 credits in the Demon Shop.", "Hold Space for Jokers. Choose routes; face bosses in rounds 3 and 5.", "Win best-of-five stages to continue. Losing ends your saved run."]
 	]
 ]
 
