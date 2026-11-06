@@ -18,7 +18,7 @@ const CARD_BACK = preload("res://assets/cards/hellatro-back.png")
 # One identity per classic monster. No rarity variants, weapons or hero cards.
 const POOL := [0,1,2,3,4,5,6,7,8,14,15,16,17,18,19,20,21]
 const JOKER := -1
-const GUIDE_PAGES := 29
+const GUIDE_PAGES := 36
 const TEAMS := [
 	{"name":"BOSS ALLIANCE","ids":[8,21,6]},
 	{"name":"HELL ROYALTY","ids":[6,16,7]},
@@ -33,7 +33,7 @@ const TEAMS := [
 ]
 const MODIFIERS := [
 	{"name":"FIRESTORM","rule":"+5 per FIRE card you play"},
-	{"name":"ESCALATION","rule":"+8 when you extend the centre"},
+	{"name":"ESCALATION","rule":"+8 when you extend the combo on the table"},
 	{"name":"WAR BANDS","rule":"+10 when you play a named team"},
 	{"name":"HOT STREAK","rule":"+10 for changing your last combo family"},
 	{"name":"ARMS RACE","rule":"Extensions: +4, +8, +12... capped at +20"},
@@ -51,7 +51,7 @@ const FAMILY_NAMES := {"set":"IDENTICAL MONSTERS","pairs":"PAIRS / ARMIES","type
 const FAMILY_HELP := {
 	"set":"2 or more copies of the same monster, such as two Imps.",
 	"pairs":"Two or more different monster pairs, including larger armies.",
-	"type":"3 or more different monsters sharing a damage type, such as Imp, Arch-Vile and Mancubus (Fire).",
+	"type":"Flush: 3 or more cards sharing a damage type. Duplicate monsters count. Scores 20 / 40 / 60 for 3 / 4 / 5 cards, then +20 per card.",
 	"run":"3 or more consecutive ranks, such as ranks 1, 2 and 3.",
 	"rainbow":"Equal numbers of all five damage types: Bullet, Fire, Energy, Rocket and Melee.",
 	"team":"A named team from the field guide, such as Hell Royalty."
@@ -72,6 +72,8 @@ var upgrade_pending := false
 const ROUTE_NAMES := ["INFERNO GATE","CHAIN FOUNDRY","WAR CAMP","CHAOS PORTAL","ARMS DEPOT","BLOOD SHRINE","SNIPER NEST","DEMON HIVE"]
 var route_offers: Array = []
 var next_route := {}
+var route_turn := 0
+var cpu_route := -1
 var extension_chain := 0
 var mutation_last := ["",""]
 var modifier := -1
@@ -94,6 +96,8 @@ var cheat_hints := false
 var hint_signature := ""
 var hint_cards: Array = []
 var hint_combos: Dictionary = {}
+var hint_all: Array = []
+var hint_best_gain := -1
 var target := -1
 var discarded: Array = []
 var clearing: Array = []
@@ -141,12 +145,25 @@ var banner_age := 99.0
 var round_scores := [0,0]
 var lifts: Array = []
 
-func start(g) -> void:
+var cpu_card_back := "hellatro"
+func choose_cpu_back() -> void:
 	profile.ensure_loaded()
+	var choices: Array = []
+	for entry in profile.entries:
+		if entry.id!=profile.selected: choices.append(entry.id)
+	cpu_card_back = choices.pick_random() if not choices.is_empty() else "hellatro"
+func start(g) -> void:
+	tools_pinned = false
+	tools_hover = 0.0
+	tools_reveal = 0.0
+	profile.ensure_loaded()
+	choose_cpu_back()
 	progression.reset()
 	progression.enabled = not "--balance-test" in OS.get_cmdline_user_args()
 	run.begin(progression.enabled)
 	previous_boss = -1
+	route_turn = 0
+	cpu_route = -1
 	round_history.clear()
 	support.reset()
 	cheat_hints = false
@@ -180,6 +197,7 @@ func start(g) -> void:
 	support.offer(self)
 
 func next_round() -> void:
+	break_used = [false,false]
 	round_start_scores = scores.duplicate()
 	round_intro = false
 	round_award_owner = -1
@@ -194,7 +212,7 @@ func next_round() -> void:
 	modifier = int(next_route.get("modifier",random.randi_range(0,MODIFIERS.size()-1)))
 	relic = int(next_route.get("relic",random.randi_range(0,RELICS.size()-1)))
 	boss = -1
-	if round_number in [3,5] or (run.enabled and run.stage>=3):
+	if round_number in [3,5]:
 		boss = int(next_route.get("boss",random.randi_range(0,Rules.BOSSES.size()-1)))
 		if boss<0: boss = random.randi_range(0,Rules.BOSSES.size()-1)
 		if boss==previous_boss: boss = (boss+1)%Rules.BOSSES.size()
@@ -243,7 +261,7 @@ func next_round() -> void:
 	final_turn_age = 99.0
 	result_winner = -1
 	result_age = 0.0
-	message = "Drag a combination into the centre, or draw a card to pass."
+	message = "Drag a combination into the table, or draw a card to pass."
 
 static func card_data(id: int) -> Dictionary:
 	if id==JOKER: return {"name":"JOHN ROMERO", "art":"ROMERO", "cost":0,"type":"WILD"}
@@ -274,6 +292,16 @@ static func plain_pattern(ids: Array, required_kind := "") -> Dictionary:
 		counts[id] = counts.get(id,0)+1
 		types[Cards.DATA[id].type] = types.get(Cards.DATA[id].type,0)+1
 		costs.append(Cards.DATA[id].cost)
+	if ids.size()==2 and counts.has(19) and counts.has(21):
+		candidates.append({"kind":"team","name":"SPIDER NEST","points":16})
+	if ids.size()==2 and types.has("BULLET") and types.has("MELEE"):
+		candidates.append({"kind":"team","name":"COVERING FIRE","points":10})
+	if ids.size()==4 and types.size()==4:
+		candidates.append({"kind":"rainbow","name":"WALKING ARSENAL","points":35})
+	if ids.size()==3 and costs.filter(func(n): return n>=6).size()==1 and costs.filter(func(n): return n<=2).size()==2:
+		candidates.append({"kind":"team","name":"HEAVY ESCORT","points":24})
+	if ids.size()==3 and types.get("BULLET",0)==2 and types.get("FIRE",0)==1:
+		candidates.append({"kind":"type","name":"CROSSFIRE","points":25})
 	for team in TEAMS:
 		if counts.size()==3 and team.ids.all(func(id): return counts.has(id)):
 			candidates.append({"kind":"team","name":team.name+(" REINFORCED" if ids.size()>3 else ""),"points":35+15*(ids.size()-3)})
@@ -297,7 +325,7 @@ static func plain_pattern(ids: Array, required_kind := "") -> Dictionary:
 	if counts.size()>=3 and counts.values().all(func(n): return n>=2):
 		candidates.append({"kind":"pairs","name":"TRIPLE THREAT" if counts.size()==3 else "LEGION COUNCIL","points":25+20*(ids.size()-4)})
 	if ids.size()==4 and counts.size()==4 and types.size()==2 and types.values().all(func(n): return n==2):
-		candidates.append({"kind":"type","name":"CROSSFIRE","points":40})
+		candidates.append({"kind":"type","name":"BALANCED CROSSFIRE","points":40})
 	var ranks := {}
 	for cost in costs: ranks[cost] = ranks.get(cost,0)+1
 	var ordered: Array = ranks.keys()
@@ -307,10 +335,12 @@ static func plain_pattern(ids: Array, required_kind := "") -> Dictionary:
 		for i in range(1,ordered.size()):
 			if ordered[i]!=ordered[i-1]+1: sequence = false
 		if sequence: candidates.append({"kind":"run","name":"DOUBLE MARCH","points":70+30*(ordered.size()-3)})
+	# Flushes count cards, including duplicate monsters; marches still need distinct identities.
+	if ids.size()>=3 and types.size()==1:
+		var title: String = {"FIRE":"HELLFIRE","ENERGY":"PLASMA","BULLET":"GUNNER","ROCKET":"ROCKET","MELEE":"FANG"}[types.keys()[0]]
+		var tier := " SMALL FLUSH" if ids.size()==3 else (" FLUSH" if ids.size()==4 else " FULL FLUSH")
+		candidates.append({"kind":"type","name":title+tier,"points":20+20*(ids.size()-3)})
 	if ids.size()>=3 and counts.size()==ids.size():
-		if types.size()==1:
-			var title: String = {"FIRE":"HELLFIRE","ENERGY":"PLASMA","BULLET":"GUNNER","ROCKET":"ROCKET","MELEE":"FANG"}[types.keys()[0]]
-			candidates.append({"kind":"type","name":title+(" GATHERING" if ids.size()==3 else (" UPRISING" if ids.size()==4 else " DOMINION")),"points":20+20*(ids.size()-3)})
 		costs.sort()
 		var consecutive := true
 		for i in range(1,costs.size()):
@@ -345,7 +375,7 @@ func evaluate(owner: int, indices: Array, destination := -1) -> Dictionary:
 	return score_play(owner,ids,result,false) if not result.is_empty() else {}
 
 func best_move(owner: int) -> Dictionary:
-	var best := {"indices":[],"target":-1,"value":-1.0,"legal":[],"hints":{}}
+	var best := {"indices":[],"target":-1,"value":-1.0,"legal":[],"hints":{},"all":[]}
 	# Search up to six cards, including Double March.
 	search(owner,[],0,best)
 	return best
@@ -355,14 +385,22 @@ func search(owner: int, indices: Array, first: int, best: Dictionary) -> void:
 		for destination in ([-1] if melds.is_empty() else [0]):
 			var combo := evaluate(owner,indices,destination)
 			if combo.is_empty(): continue
+			var option := {"text":combo.name+" / +%d POINTS / " % combo.gain+("EXTEND" if destination>=0 else "NEW"),"gain":combo.gain,"names":"", "indices":indices.duplicate()}
+			if cheat_hints and owner==0:
+				var card_names: Array[String] = []
+				for member in indices:
+					var label: String = card_data(hands[owner][member]).name
+					if hands[owner][member]==JOKER and combo.has("resolved_ids"):
+						var resolved_index: int = combo.resolved_ids.size()-indices.size()+indices.find(member)
+						label += " AS "+card_data(combo.resolved_ids[resolved_index]).name
+					card_names.append(label)
+				option.names = ", ".join(card_names)
+				best.all.append(option)
 			for index in indices:
 				if not best.legal.has(index): best.legal.append(index)
 				if cheat_hints and owner==0:
-					var names: Array[String] = []
-					for member in indices: names.append(card_data(hands[owner][member]).name)
-					var explanation: String = combo.name+" / "+("EXTEND" if destination>=0 else "NEW")+" / "+", ".join(names)
 					if not best.hints.has(index): best.hints[index] = []
-					if not best.hints[index].has(explanation): best.hints[index].append(explanation)
+					best.hints[index].append(option)
 			# Score comes first; preserve cards when two plays earn the same points.
 			var value: float = combo.gain*100-indices.size()
 			if value>best.value:
@@ -440,7 +478,7 @@ func draw_one(owner: int) -> bool:
 	if progression.active or support.pending or round_over or side!=owner: return false
 	extension_chain = 0
 	progression.recap.draws[owner] += 1
-	var draw_count: int = support.on_draw(owner)
+	var draw_count: int = support.on_draw(owner,stock.size())
 	drew_this_round[owner] = true
 	if draw_count==2 and stock.size()>1:
 		hands[owner].append(stock.pop_back())
@@ -459,7 +497,7 @@ func draw_one(owner: int) -> bool:
 		discarded.append_array(ids)
 		melds.clear()
 		flights.clear()
-		message += " Centre cleared. Opponent leads a new combination."
+		message += " Table cleared. Opponent leads a new combination."
 		target = -1
 	selected.clear()
 	end_action(owner)
@@ -517,7 +555,111 @@ func finish_round(winner: int, reason: String) -> void:
 		result_variant = result_counts[result_winner]%2
 		result_counts[result_winner] += 1
 
+var break_used := [false,false]
+var break_age := 99.0
+const BREAK_BUTTON := Rect2(1140,290,230,45)
+const TOOLS_TAB := Rect2(1140,30,230,45)
+const TOOLS_AREA := Rect2(1128,25,254,322)
+var tools_pinned := false
+var tools_hover := 0.0
+var tools_reveal := 0.0
+func tools_item(index: int) -> Rect2:
+	var boxes := [Rect2(1140,85,230,45),Rect2(1140,140,230,40),Rect2(1140,190,230,40),Rect2(1140,240,230,40),BREAK_BUTTON]
+	var rect: Rect2 = boxes[index]
+	var enter := clampf((tools_reveal-index*0.08)/0.68,0,1)
+	rect.position.x += 30*pow(1-enter,3)
+	return rect
+func tools_item_shown(index: int) -> bool: return tools_reveal>index*0.08+0.05
+func tools_visible() -> bool: return tools_pinned or tools_hover>0
+func boss_advice() -> Array:
+	if boss==0:
+		if mutation_last[0]=="": return ["BEAT THE TAX", "ANY VALID COMBO", "First play is safe"]
+		var previous: String = {"set":"IDENTICAL MONSTERS","pairs":"PAIRS / ARMIES","type":"TYPE GATHERINGS","run":"MARCHES","rainbow":"APOCALYPSE FAMILY","team":"NAMED TEAMS"}.get(mutation_last[0],mutation_last[0])
+		return ["SWITCH COMBO TYPE", "AVOID REPEATING", previous]
+	if boss==1:
+		if melds.is_empty(): return ["EXTEND TO AVOID TAX", "Table is empty", "New combos lose 6"]
+		return ["EXTEND THE TABLE", "ADD TO THIS COMBO", "Avoid the -6 penalty"]
+	if boss==2: return ["PLAY 3+ NEW CARDS", "IN ONE VALID PLAY", "Table cards don't count"]
+	return []
+func draw_boss_advice(g) -> void:
+	var lines := boss_advice()
+	if lines.is_empty() or tools_reveal>0.05: return
+	var center := Vector2(1250,112)
+	g.draw_set_transform(center,-0.055)
+	for heading in [{"text":"BOSS ROUND","y":0,"size":20,"color":Color("ffd177")},{"text":"AVOID THE PENALTY","y":24,"size":13,"color":Color("e5ebdf")}]:
+		var width: float = g.font.get_string_size(heading.text,HORIZONTAL_ALIGNMENT_LEFT,-1,heading.size).x
+		var origin := Vector2(-width/2,heading.y)
+		g.draw_string_outline(g.font,origin,heading.text,HORIZONTAL_ALIGNMENT_LEFT,-1,heading.size,4,Color("081113"))
+		g.draw_string(g.font,origin,heading.text,HORIZONTAL_ALIGNMENT_LEFT,-1,heading.size,heading.color)
+	for row in lines.size():
+		var text: String = lines[row]
+		var size := 16 if row<2 else 14
+		var x: float = -g.font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x/2
+		for i in text.length():
+			var letter := text.substr(i,1)
+			var point := Vector2(x,55+row*27)
+			var tint := Color.from_hsv(fposmod(g.clock*0.12+i*0.035+row*0.12,1.0),0.55,1)
+			g.draw_string_outline(g.font,point,letter,HORIZONTAL_ALIGNMENT_LEFT,-1,size,4,Color("081113"))
+			g.draw_string(g.font,point,letter,HORIZONTAL_ALIGNMENT_LEFT,-1,size,tint)
+			x += g.font.get_string_size(letter,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x
+	g.draw_set_transform(Vector2.ZERO)
+	g.ui_help.offer(Rect2(1130,90,250,145),"AVOID THE BOSS PENALTY",Rules.BOSSES[boss].rule+" You still need a legal combo. This hint follows your own plays.")
+func draw_tools(g) -> void:
+	draw_boss_advice(g)
+	g.button(TOOLS_TAB,"TOOLS / PINNED" if tools_pinned else "TOOLS / HOVER")
+	g.ui_help.offer(TOOLS_TAB,"TABLE TOOLS","Hover to see all controls. Click to pin open; click again to unpin.")
+	if tools_reveal<=0.01: return
+	var height := 269*(1-pow(1-tools_reveal,3))
+	g.draw_rect(Rect2(1128,78,254,height),Color("091619"))
+	g.draw_rect(Rect2(1128,78,254,height),Color("b78038"),false,2)
+	g.draw_line(Vector2(1128,78+height),Vector2(1382,78+height),Color("ffc66a"),3)
+	var labels := ["MAIN MENU","COMBINATIONS","MATCH POWERS","JOKER COLLECTION","BREAK USED" if break_used[0] else "BREAK THE TABLE"]
+	for i in 5:
+		if not tools_item_shown(i): continue
+		var rect := tools_item(i)
+		var ready := can_break(0)
+		if i==4 and ready:
+			var pulse := 0.5+0.5*sin(g.clock*4.5)
+			for ring in range(4,0,-1):
+				g.draw_rect(rect.grow(ring*2),Color(1,0.25,0.035,(0.035+0.025*pulse)),false,3)
+		g.button(rect,labels[i],i!=4 or ready)
+		if i==4 and ready:
+			g.draw_rect(rect.grow(-2),Color(1,0.48,0.12,0.65+0.25*sin(g.clock*4.5)),false,2)
+			for spark in 9:
+				var phase := fposmod(g.clock*0.7+spark*0.137,1.0)
+				var x := rect.position.x+8+fposmod(spark*37.0,rect.size.x-16)
+				g.draw_rect(Rect2(x+sin(phase*8+spark)*3,rect.position.y-phase*18,2,3),Color(1,0.45+phase*0.3,0.1,1-phase))
+		if i==4: g.ui_help.offer(rect,"BREAK THE TABLE","Once per round for each player. Clear the table for up to 10 round points. Keep your turn and start a fresh combo. CPU can use it too.")
+
+func can_break(owner: int) -> bool:
+	return side==owner and not round_over and not melds.is_empty() and not break_used[owner] and draw_flights.is_empty() and banner_age>=reveal_duration() and break_age>=0.65
+func break_table(owner: int) -> bool:
+	if not can_break(owner): return false
+	break_used[owner] = true
+	var penalty: int = mini(10,maxi(0,round_scores[owner]))
+	round_scores[owner] -= penalty
+	scores[owner] -= penalty
+	for meld in melds:
+		for i in meld.ids.size(): clearing.append({"id":meld.ids[i],"from":center_card(i,meld.ids.size()),"age":0.0})
+		discarded.append_array(meld.ids)
+	melds.clear()
+	flights.clear()
+	selected.clear()
+	cancel_drag()
+	target = -1
+	extension_chain = 0
+	break_age = 0.0
+	cue("DSBAREXP",0.0,-8)
+	message = ("You broke" if owner==0 else "CPU broke")+" the table! -%d points. Start a new combo; same turn." % penalty
+	cpu_wait = 1.0
+	return true
 func tick(g, delta: float) -> void:
+	var pointer: Vector2 = g.get_global_mouse_position()
+	if not dragging and (TOOLS_TAB.has_point(pointer) or (tools_visible() and TOOLS_AREA.has_point(pointer))): tools_hover = 0.25
+	else: tools_hover = maxf(0,tools_hover-delta)
+	tools_reveal = move_toward(tools_reveal,1.0 if tools_visible() else 0.0,delta*5.5)
+	break_age += delta
+	g.position = Vector2(sin(break_age*105),cos(break_age*87))*26*pow(maxf(0,1-break_age/0.65),2) if g.screen_shake and g.modal=="hell_meld" else Vector2.ZERO
 	if is_instance_valid(result_sprite): result_sprite.visible = false
 	if progression.active or progression.recap_open or profile.open:
 		support.set_player_drawer(g,false)
@@ -542,17 +684,21 @@ func tick(g, delta: float) -> void:
 		if beat!=round_intro_beat:
 			round_intro_beat = beat
 			g.audio.play("DSGETPOW",-18)
-		if round_intro_age>=ROUND_INTRO_TIME+(3.0 if boss>=0 else 0.0): round_intro = false
+		if round_intro_age>=ROUND_INTRO_TIME: round_intro = false
 		return
-	var signature := str([hands[0],melds,side,round_over,cheat_hints])
+	var signature := str([hands[0],melds,side,round_over,cheat_hints,support.slots,support.stats,support.editions,support.drained,upgrades,modifier,relic,relic_used,drew_this_round,enhancements,mutation_last,round_scores,run.stage,boss])
 	if signature!=hint_signature:
 		hint_signature = signature
 		hint_cards = []
 		hint_combos = {}
+		hint_all = []
+		hint_best_gain = -1
 		if cheat_hints and side==0 and not round_over:
 			var moves := best_move(0)
 			hint_cards = moves.legal
 			hint_combos = moves.hints
+			hint_all = moves.all
+			for option in hint_all: hint_best_gain = maxi(hint_best_gain,option.gain)
 	if draw_flights.is_empty() and not round_over:
 		support.reminder_age = minf(support.REMINDER_TIME,support.reminder_age+delta)
 	age += delta
@@ -582,12 +728,21 @@ func tick(g, delta: float) -> void:
 		g.audio.play("DSGETPOW",-16)
 		if side==1: cpu_wait = maxf(cpu_wait,2.5)
 	for flight in flights: flight.age += delta
-	flights = flights.filter(func(f): return f.age<0.8)
+	flights = flights.filter(func(f): return f.age<0.7)
 	if side==1 and not round_over and not guide and banner_age>=reveal_duration() and draw_flights.is_empty():
 		cpu_wait -= delta
 		if cpu_wait<=0:
 			var move := best_move(1)
-			if move.indices.is_empty(): draw_one(1)
+			if move.indices.is_empty():
+				if can_break(1):
+					var old_table := melds
+					melds = []
+					var fresh := best_move(1)
+					melds = old_table
+					if not fresh.indices.is_empty():
+						break_table(1)
+						return
+				draw_one(1)
 			else: play(1,move.indices,move.target)
 	if finished: g.ended = true
 
@@ -619,7 +774,7 @@ func draw_card(g, id: int, center: Vector2, size: Vector2, tilt := 0.0, chosen :
 	var d: Dictionary = card_data(id)
 	var explanation: String = "Rank %d, %s damage type. Combine matching monsters, damage types or consecutive ranks; see the field guide for teams." % [d.cost,d.type]
 	if id==JOKER: explanation = "Romero is a WILD monster card: replaces one missing monster, then keeps that identity while on the table. Support Jokers occupy separate slots."
-	if enhancements.has(id): explanation += " "+enhancements[id]+(": +4 points when played." if enhancements[id]=="GILDED" else ": +8 points when extending the centre.")
+	if enhancements.has(id): explanation += " "+enhancements[id]+(": +4 points when played." if enhancements[id]=="GILDED" else ": +8 points when extending the combo on the table.")
 	if support.drained[0].has(id): explanation += " Your copies are drained this round: their enhancement is inactive. CPU copies are unaffected."
 	g.ui_help.offer(Rect2(center-size/2,size),d.name,explanation)
 	var frames: Array = g.art.textures.get(d.art,[])
@@ -685,20 +840,20 @@ func draw(g) -> void:
 		else: progression.draw(g,self)
 		return
 	g.draw_rect(Rect2(0,0,1440,940),Color(0.015,0.07,0.055,0.89))
-	g.label_at(Vector2(65,65),"HELLATRO",36,g.ORANGE)
+	g.label_at(Vector2(65,55),"HELLATRO",36,g.ORANGE)
 	if run.enabled:
-		g.label_at(Vector2(65,76),"RUN %d / BEST %d / CPU PRESSURE +%d PER PLAY" % [run.score(self),maxi(profile.best_run,run.score(self)),run.pressure()],15,Color("ffda68"))
-	g.label_at(Vector2(65,102),("STAGE %d / " % run.stage if run.enabled else "")+"ROUND %d / 5   WINS %d : %d" % [round_number,rounds[0],rounds[1]],19,g.INK)
-	g.button(Rect2(1140,30,230,45),"MAIN MENU")
+		g.label_at(Vector2(65,82),"RUN %d / BEST %d / CPU PRESSURE +%d PER PLAY" % [run.score(self),maxi(profile.best_run,run.score(self)),run.pressure()],15,Color("ffda68"))
+	g.label_at(Vector2(65,110),("STAGE %d / " % run.stage if run.enabled else "")+"ROUND %d / 5   WINS %d : %d" % [round_number,rounds[0],rounds[1]],19,g.INK)
 	if boss>=0:
-		g.label_at(Vector2(175,118),"BOSS / "+Rules.BOSSES[boss].name,17,Color("ff7979"))
-		g.ui_help.offer(Rect2(170,95,350,45),Rules.BOSSES[boss].name,Rules.BOSSES[boss].rule+" Both players; before Joker bonuses.")
-	g.button(Rect2(1140,85,230,45),"COMBINATIONS")
-	g.button(Rect2(1140,140,230,40),"MATCH POWERS")
+		var tint := Color.from_hsv(fmod(g.clock*0.12,1.0),0.55,1.0)
+		g.draw_rect(Rect2(65,123,450,32),Color(tint,0.14+sin(g.clock*3)*0.04))
+		g.draw_rect(Rect2(65,123,450,32),tint,false,2)
+		g.label_at(Vector2(75,146),"BOSS / "+Rules.BOSSES[boss].name,19,tint)
+		g.ui_help.offer(Rect2(65,123,450,32),Rules.BOSSES[boss].name,Rules.BOSSES[boss].rule+" Both players; before Joker bonuses.")
 	g.button(Rect2(1375,895,55,30),"F8")
 	for i in hands[1].size():
 		if draw_flights.any(func(c): return c.owner==1 and c.slot==i): continue
-		draw_back(g,cpu_card(i),Vector2(56,82))
+		draw_back(g,cpu_card(i),Vector2(56,82),0.0,cpu_card_back)
 	for i in 4 if not stock.is_empty() else 0:
 		draw_back(g,DRAW_PILE+Vector2(i*3,-i*4),Vector2(100,144))
 	g.label_at(Vector2(27,510),"%d LEFT" % stock.size(),16,g.INK)
@@ -742,23 +897,26 @@ func draw(g) -> void:
 		var wiggle := sin(age*11+i*0.7) if hint else 0.0
 		center.y += wiggle*5
 		draw_card(g,hands[0][i],center,Vector2(155,210),(i-(hands[0].size()-1)/2.0)*0.018+sin(age*2+i)*0.003+wiggle*0.035,selected.has(i) or hint)
+		if hint and hands[0][i]==JOKER:
+			var badge := Rect2(center+Vector2(-76,78),Vector2(152,27))
+			g.draw_rect(badge,Color("102824"))
+			g.draw_rect(badge,Color("80f5bf"),false,2)
+			g.label_at(badge.position+Vector2(8,19),"CAN EXTEND" if not melds.is_empty() else "CAN COMBINE",14,Color("80f5bf"))
 	if cheat_hints and side==0 and not round_over and banner_age>=reveal_duration():
 		var hovered := hand_hit(g.get_global_mouse_position())
 		if hint_combos.has(hovered):
-			var descriptions: Array = hint_combos[hovered]
-			var text := "These are alternative plays, not one combined selection.\n"
-			for option in descriptions.slice(0,8): text += str(option)+"\n"
-			if descriptions.size()>8: text += "+%d more combinations" % (descriptions.size()-8)
-			g.ui_help.offer(Rect2(hand_center(hovered,hands[0].size())-Vector2(85,135),Vector2(170,250)),"AVAILABLE COMBOS",text)
+			offer_combo_hints(g,Rect2(hand_center(hovered,hands[0].size())-Vector2(85,135),Vector2(170,250)),hint_combos[hovered])
 	g.button(Rect2(65,890,225,40),"PLAY SELECTION",side==0 and not selected.is_empty() and not round_over and banner_age>=reveal_duration())
 	g.button(Rect2(310,890,190,40),"DRAW / PASS",side==0 and not round_over and draw_flights.is_empty() and banner_age>=reveal_duration())
 	g.button(Rect2(520,890,175,40),"SORT HAND")
 	g.button(Rect2(715,890,175,40),"FIELD GUIDE")
 	g.button(Rect2(910,890,175,40),"CLEAR SELECTION")
-	if cheat_hints: g.label_at(Vector2(1135,610),"GOD HINTS ON",14,Color("ffe594"))
+	if cheat_hints:
+		g.label_at(Vector2(1135,610),"GOD HINTS / HOVER",14,Color("ffe594"))
+		offer_combo_hints(g,Rect2(1125,585,250,35),hint_all)
 	g.label_at(Vector2(1120,918),"STOCK: "+str(stock.size()),16,g.MUTED)
 	for flight in flights:
-		if flight.age<0: continue
+		if flight.age<0 or flight.age>=0.7: continue
 		var t := smoothstep(0,1,clampf(flight.age/0.7,0,1))
 		var center: Vector2 = flight.from.lerp(flight.to,t)+Vector2(0,-sin(t*PI)*100)
 		draw_card(g,flight.id,center,Vector2(155,210).lerp(Vector2(145,205),t),sin(t*PI)*0.2,true)
@@ -777,7 +935,7 @@ func draw(g) -> void:
 		if card.owner==0 and progress>0.55:
 			size.x *= maxf(0.08,(progress-0.55)/0.45)
 			draw_card(g,card.id,center,size,-sin(progress*PI)*0.18,true)
-		else: draw_back(g,center,size,sin(progress*PI)*0.18)
+		else: draw_back(g,center,size,sin(progress*PI)*0.18,cpu_card_back if card.owner==1 else "")
 	effects.draw(g,self)
 	if banner_age<reveal_duration():
 		draw_combo_projectiles(g)
@@ -788,7 +946,9 @@ func draw(g) -> void:
 		finale.draw(g,self)
 		return
 	if round_over and banner_age>=reveal_duration() and not guide:
-		if not power_panel: draw_result_popup(g)
+		if not power_panel:
+			if boss>=0: draw_boss_reaction(g)
+			else: draw_result_popup(g)
 		draw_result_frame(g,Rect2(550,310,850,270))
 		g.label_at(Vector2(585,370),"MATCH COMPLETE" if finished else "ROUND COMPLETE",32,g.ORANGE)
 		g.label_at(Vector2(585,420),round_message,16,g.INK)
@@ -798,6 +958,7 @@ func draw(g) -> void:
 
 	if power_panel: draw_powers(g)
 	if not power_panel and not guide: support.draw(g,self)
+	if not power_panel and not guide and not support.pending and not support.library and not round_intro and not round_over: draw_tools(g)
 	if round_intro and not support.pending: draw_round_intro(g)
 
 func draw_final_turn(g) -> void:
@@ -840,6 +1001,34 @@ func draw_result_frame(g, rect: Rect2) -> void:
 	g.draw_line(start,start+Vector2(55,0),Color("ffe3a0"),3)
 	g.draw_line(rect.position+Vector2(30,95),rect.position+Vector2(rect.size.x-30,95),Color("3c4942"),1)
 
+func boss_remark() -> String:
+	if round_award_owner<0: return "A draw? Hell demands a rematch!"
+	var defeated := round_award_owner==0
+	match boss:
+		0: return "Keep your points. I'll collect next time!" if defeated else "Your debt to Hell keeps growing!"
+		1: return "You broke my gate. Enjoy the next one!" if defeated else "Nobody leaves through MY gate!"
+		_: return "That combo was too much to swallow!" if defeated else "Small combos. Such a tasty snack!"
+
+func draw_boss_reaction(g) -> void:
+	# Fit the entire monster inside the left column, with room for its horns/feet.
+	var arrival := 1.0-pow(1.0-clampf(result_age/0.9,0,1),3)
+	var top := lerpf(960.0,320.0,arrival)
+	g.frontend.draw_monster(g,["BOSS","CYBR","FATT"][boss],Rect2(30,top,390,560))
+	if result_age<0.65: return
+	var box := Rect2(30,150,400,145)
+	g.draw_rect(box,Color("101e22"))
+	g.draw_rect(box,Color("ffb35f"),false,2)
+	g.label_at(box.position+Vector2(15,28),Rules.BOSSES[boss].name,19,g.ORANGE)
+	var line := ""
+	var y := 60
+	for word in boss_remark().split(" "):
+		if g.font.get_string_size(line+word,HORIZONTAL_ALIGNMENT_LEFT,-1,18).x>365:
+			g.label_at(box.position+Vector2(15,y),line,18,g.INK)
+			y += 25
+			line = ""
+		line += word+" "
+	g.label_at(box.position+Vector2(15,y),line,18,g.INK)
+
 func draw_result_popup(g) -> void:
 	if result_winner<0: return
 	var key := "%s-win-%d" % ["player" if result_winner==0 else "cpu",result_variant+1]
@@ -852,6 +1041,9 @@ func draw_result_popup(g) -> void:
 	var eased := 1.0-pow(1.0-progress,3.0)
 	var size := texture.get_size()*(880.0/texture.get_height())
 	var top := lerpf(960.0,80.0,eased)
+	draw_outlined_result(g,texture,Vector2(20,top),880.0/texture.get_height())
+
+func draw_outlined_result(g, texture: Texture2D, pos: Vector2, art_scale: float) -> void:
 	if not is_instance_valid(result_sprite):
 		result_sprite = Sprite2D.new()
 		result_sprite.centered = false
@@ -860,9 +1052,9 @@ func draw_result_popup(g) -> void:
 		result_sprite.material = outline
 		g.add_child(result_sprite)
 	result_sprite.texture = texture
-	result_sprite.position = Vector2(20,top)
-	result_sprite.scale = Vector2.ONE*(880.0/texture.get_height())
-	result_sprite.material.set_shader_parameter("source_pixels_per_screen_pixel",texture.get_height()/880.0)
+	result_sprite.position = pos
+	result_sprite.scale = Vector2.ONE*art_scale
+	result_sprite.material.set_shader_parameter("source_pixels_per_screen_pixel",1.0/art_scale)
 	result_sprite.visible = true
 
 func handle(g, event: InputEvent) -> void:
@@ -921,7 +1113,7 @@ func handle(g, event: InputEvent) -> void:
 		if pressed_card>=0:
 			if dragging:
 				if CENTER.has_point(pos):
-					if not play(0,drag_cards.duplicate(),-1): message = "That pattern does not fit the centre. Check the field guide and try again."
+					if not play(0,drag_cards.duplicate(),-1): message = "That pattern does not fit the table. Check the field guide and try again."
 			elif selected.has(pressed_card): selected.erase(pressed_card)
 			else: selected.append(pressed_card)
 			cancel_drag()
@@ -931,7 +1123,7 @@ func handle(g, event: InputEvent) -> void:
 			power_panel = false
 		elif round_over and upgrade_pending:
 			for i in upgrade_offers.size():
-				if Rect2(175+i*365,275,350,420).has_point(pos): choose_upgrade(i)
+				if route_choice_rect(i).has_point(pos): choose_upgrade(i)
 		return
 	if guide:
 		if Rect2(190,760,210,50).has_point(pos): guide_page = posmod(guide_page-1,GUIDE_PAGES)
@@ -943,6 +1135,9 @@ func handle(g, event: InputEvent) -> void:
 		if finished:
 			if not finale.done(self):
 				if Rect2(1120,820,220,40).has_point(pos): result_age = finale.duration(self)
+				return
+			if not profile.pending_score.is_empty() and (Rect2(550,800,340,55).has_point(pos) or Rect2(960,800,340,55).has_point(pos)):
+				g.frontend.show_scores(g)
 				return
 			if Rect2(1040,705,280,48).has_point(pos): progression.recap_open = true
 			elif Rect2(550,800,340,55).has_point(pos):
@@ -956,12 +1151,20 @@ func handle(g, event: InputEvent) -> void:
 				power_panel = true
 		elif Rect2(980,480,350,60).has_point(pos): g.frontend.open(g)
 		return
-	if Rect2(1140,30,230,45).has_point(pos):
-		cancel_drag()
-		g.frontend.open(g)
-	elif Rect2(1140,85,230,45).has_point(pos): guide = true
-	elif Rect2(1140,140,230,40).has_point(pos): power_panel = true
-	elif Rect2(1375,895,55,30).has_point(pos): g.radio.open(g)
+	if TOOLS_TAB.has_point(pos):
+		tools_pinned = not tools_pinned
+		tools_hover = 0.25
+		return
+	if tools_visible() and TOOLS_AREA.has_point(pos):
+		if tools_item_shown(4) and tools_item(4).has_point(pos): break_table(0)
+		elif tools_item_shown(0) and tools_item(0).has_point(pos):
+			cancel_drag()
+			g.frontend.open(g)
+		elif tools_item_shown(1) and tools_item(1).has_point(pos): guide = true
+		elif tools_item_shown(2) and tools_item(2).has_point(pos): power_panel = true
+		elif tools_item_shown(3) and tools_item(3).has_point(pos): support.library = true
+		return
+	if Rect2(1375,895,55,30).has_point(pos): g.radio.open(g)
 	elif side==0 and banner_age>=reveal_duration() and draw_flights.is_empty():
 		if Rect2(65,890,225,40).has_point(pos):
 			if not play(0,selected.duplicate(),-1): message = "No matching pattern. Check the field guide and try again."
@@ -1067,26 +1270,34 @@ func draw_guide(g) -> void:
 	var pages := [
 		{"title":"IDENTICAL MONSTERS", "ids":[0,0,0], "rule":"2+ copies of ONE monster. Add another copy to upgrade.", "path":"IMP MISCHIEF 10 > IMP PACK 30 > IMP INFERNO 60", "tip":"A pair invites your opponent to claim +20 with just one Imp."},
 		{"title":"TWO ARMIES", "ids":[0,0,2,2,2], "rule":"Two monster identities, at least TWO copies of each.", "path":"DOUBLE TROUBLE 25 > FULL HOUSE 45 > TWIN LEGIONS 65", "tip":"A pair can become two pairs. Four copies in either army: WAR COUNCIL."},
-		{"title":"DAMAGE TYPE GATHERINGS", "ids":[0,7,18], "rule":"3+ DIFFERENT monsters with the SAME damage type.", "path":"GATHERING 20 > UPRISING 40 > DOMINION 60 (+20 per card)", "tip":"Fire, energy, bullet, rocket or melee. Duplicate monsters do not count."},
+		{"title":"DAMAGE TYPE FLUSHES", "ids":[0,0,18], "rule":"3+ cards with the SAME damage type. Duplicate monsters count.", "path":"SMALL FLUSH 20 > FLUSH 40 > FULL FLUSH 60 / then +20 per card", "tip":"Uses Type upgrades. Highest base score wins a new play; extensions keep the table family."},
 		{"title":"THE DEMON MARCH", "ids":[0,2,5,17], "rule":"3+ DIFFERENT monsters with consecutive printed costs.", "path":"DEMON MARCH 20 > HELL PARADE 40 > DOOM PROCESSION 60", "tip":"Add a cost at either end. Costs are ranks here, not energy payments."},
 		{"title":"APOCALYPSE", "ids":[0,1,2,5,8], "rule":"FIVE cards: one FIRE, BULLET, MELEE, ENERGY and ROCKET.", "path":"APOCALYPSE / 65 POINTS / A COMPLETE FIVE-CARD FINISH", "tip":"Extend with another complete set of five types for DOUBLE APOCALYPSE."},
-		{"title":"READ THE TABLE", "ids":[0,0,0,0], "rule":"Lead or extend a pattern, or draw and pass. Score only the increase.", "path":"SELECT > DRAG > REVEAL / NO AUTOMATIC HAND SOLVER", "tip":"Draw whenever you want: take one, clear the centre and pass the turn."}
+		{"title":"READ THE TABLE", "ids":[0,0,0,0], "rule":"Lead or extend a pattern, or draw and pass. Score only the increase.", "path":"SELECT > DRAG > REVEAL / NO AUTOMATIC HAND SOLVER", "tip":"Draw whenever you want: take one, clear the table and pass the turn."}
 	]
 	for team in TEAMS:
 		pages.append({"title":team.name,"ids":team.ids,"rule":"Play all THREE named monsters together: 35 points.","path":"Add copies of these members: +15 base points per extra card.","tip":"Only these three identities belong to this team. No substitutes."})
-	pages.append({"title":"ROUND MODIFIERS","ids":[0,7,18],"rule":"One random rule per round, shared by BOTH players.","path":"FIRESTORM: +5 per new Fire card / ESCALATION: +8 per extension", "tip":"WAR BANDS: +10 per named-team play. Bonuses do not inflate centre value."})
+	pages.append({"title":"ROUND MODIFIERS","ids":[0,7,18],"rule":"One random rule per round, shared by BOTH players.","path":"FIRESTORM: +5 per new Fire card / ESCALATION: +8 per extension", "tip":"WAR BANDS: +10 per named-team play. Bonuses do not inflate table combo value."})
 	pages.append({"title":"TEMPORARY DOOM RELICS","ids":[],"rule":"Both sides receive the same relic, with ONE use each per round.","path":"BERSERK: first extension +15 / SOUL SPHERE: first 3+ card play +12", "tip":"LUCKY SHELL: draw, then play for +10. Automatic trigger; resets next round."})
 	pages.append({"title":"DOUBLE APOCALYPSE","ids":[1,8,14,16,7],"rule":"Add a SECOND complete set: one card of EACH damage type.","path":"APOCALYPSE 65 > DOUBLE APOCALYPSE 150 > x3 235", "tip":"Play all five together. Each complete added set scores +85 base points."})
 	pages.append({"title":"TRIPLE THREAT / DOUBLE MARCH","ids":[0,0,2,2,5,5],"rule":"Three pairs: TRIPLE THREAT 65. More pairs: LEGION COUNCIL.","path":"DOUBLE MARCH: two of each consecutive rank, at least three ranks = 70", "tip":"You can double an existing run by adding its missing ranks together."})
 	pages.append({"title":"JOHN ROMERO / THE JOKER","ids":[0,JOKER],"rule":"One Romero in the 69-card deck. Wild: fills ONE missing monster.","path":"The highest-scoring legal identity is chosen automatically when played.","tip":"His identity then locks for this pile. Wild cards earn no Firestorm bonus."})
-	pages.append({"title":"ROUTES & MUTATIONS","ids":[],"rule":"Between rounds, choose one of three routes: a permanent family upgrade and a shared battlefield.","path":"HOT STREAK: change your own family / ARMS RACE: extend for +4 up to +20", "tip":"Draw/pass resets the Arms Race chain. Mutations and relics apply equally to both players."})
+	pages.append({"title":"ROUTES & MUTATIONS","ids":[],"rule":"Route control alternates between you and CPU. Each picks a personal +5 family upgrade for the rest of the run.","path":"HOT STREAK: change your own family / ARMS RACE: extend for +4 up to +20", "tip":"Battlefields last next round only, for both players. Upgrades reward future matching plays; past scores never change."})
 	pages.append({"title":"DEMON SHOP & PACKS","ids":[],"rule":"Both players get 8 credits per round. Credits and builds carry between stages; scores never buy items.","path":"Standard / Rare / Legendary packs. Rare unlocks at stage 2; Legendary at stage 4. Preview every pack before buying.","tip":"Joker: 4/7/10 CR, higher rarities. Edition: 3/5/7 CR, choose from 3/5/8. Upgrade: 3/5/8 CR, +5/+10/+15."})
-	pages.append({"title":"JOKER EDITIONS","ids":[],"rule":"Eight animated editions add small bonuses to an owned Joker. Hover for its exact rule.","path":"Bloodstained / Golden / Plasma / Holographic / Haunted / Infernal / Frozen / Void", "tip":"One edition per Joker. Applying another replaces it. Editions score separately and Mime does not copy them."})
-	pages.append({"title":"ENDLESS RUNS","ids":[],"rule":"Win best-of-five stages to keep your build. First to 3 round wins advances. At round 5: round wins decide, then points; exact draws replay the stage.","path":"Stage 2: Crossfire + Rare packs / Stage 3: Twin Trinity + bosses every round / Stage 4: Chaos March + Legendary packs.","tip":"CPU gains +3 per scoring play per stage after the first. Both sides gain +2 per extra stage on extensions or 4+ cards. Saves automatically. Run score is cumulative; losing ends the run."})
-	pages.append({"title":"BOSSES & RULE BREAKERS","ids":[],"rule":"Boss rules affect BOTH players. Rounds 3 and 5; every round from stage 3. Routes preview the boss penalty.","path":"Rift Walker: skip a rank / Hell Recruiter: Imp substitutes / Prism Core: one off-type", "tip":"Rule Jokers affect their owner. Crossfire (stage 2): 4 distinct, 2 of each type. Twin Trinity (3): two triples. Chaos March (4): 4+ distinct ranks, one missing rank."})
-	pages.append({"title":"FULL HOUSE","ids":[0,0,0,2,2],"rule":"Exactly three of one monster and two of another. Uses Army upgrades.","path":"FULL HOUSE 45 > TWIN LEGIONS 65 / add to either group", "tip":"Counts as the Pairs / Armies family for Jokers and upgrades."})
-	pages.append({"title":"CROSSFIRE","ids":[1,3,0,7],"rule":"Four DIFFERENT monsters: two of one damage type and two of another.","path":"CROSSFIRE / 40 BASE POINTS / uses Type Gathering upgrades", "tip":"This exact four-card pattern cannot extend. Draw/pass clears the centre."})
+	pages.append({"title":"JOKER EDITIONS","ids":[],"rule":"Editions activate only when their own Joker scores, grows or changes the rules. Golden adds 30% of its bonus (round up, max +6); utility triggers give +6.","path":"Bloodstained / Golden / Plasma / Holographic / Haunted / Infernal / Frozen / Void", "tip":"Plasma: +2 per NEW card (max +6) when its Joker activates. Draw effects ready the next scoring play that round. One edition per Joker; Mime never copies editions."})
+	pages.append({"title":"NAMED JOKER VARIANTS","ids":[],"rule":"Every base Joker has four hidden variants. Find them in run offers and packs; the collection shows only base Jokers.","path":"Rare / Epic / Legendary / Mythic unlock at stages 2 / 3 / 4 / 6. Discovery odds rise with stage depth.","tip":"Variants keep their own ability and can also receive an edition. One Joker from each base family may be held at a time."})
+	pages.append({"title":"ENDLESS RUNS","ids":[],"rule":"Win best-of-five stages to keep your build. First to 3 round wins advances. At round 5: round wins decide, then points; exact draws replay the stage.","path":"Stage 2: Crossfire + Rare packs / Stage 3: Twin Trinity / Stage 4: Chaos March + Legendary packs.","tip":"CPU gains +3 per scoring play per stage after the first. Both sides gain +2 per extra stage on extensions or 4+ cards. Saves automatically. Run score is cumulative; losing ends the run."})
+	pages.append({"title":"BOSSES & RULE BREAKERS","ids":[],"rule":"Boss rules affect BOTH players. Rounds 3 and 5 at every stage. Routes preview the boss penalty.","path":"Rift Walker: skip a rank / Hell Recruiter: Imp substitutes / Prism Core: one off-type", "tip":"Rule Jokers affect their owner. Crossfire (stage 2): 4 distinct, 2 of each type. Twin Trinity (3): two triples. Chaos March (4): 4+ distinct ranks, one missing rank."})
+	pages.append({"title":"FULL HOUSE","ids":[0,0,0,2,2],"rule":"Exactly three of one monster and two of another. Uses Army upgrades.","path":"FULL HOUSE 45 > TWIN LEGIONS 65 (3+3) / WAR COUNCIL 65 (4+2)", "tip":"Counts as the Pairs / Armies family for Jokers and upgrades."})
+	pages.append({"title":"BALANCED CROSSFIRE","ids":[1,3,0,7],"rule":"Four DIFFERENT monsters: two of one damage type and two of another.","path":"BALANCED CROSSFIRE / 40 BASE POINTS / uses Type Gathering upgrades", "tip":"This exact four-card pattern cannot extend. Draw/pass clears the table."})
 	pages.append({"title":"HELL'S LADDER","ids":[1,2,5,7],"rule":"A March of 4+ cards with no repeated damage type.","path":"HELL'S LADDER 55 / +25 per added rank / uses March upgrades", "tip":"An ordinary March can become a Ladder. Highest base score wins overlaps."})
+	pages.append({"title":"SPIDER NEST","ids":[21,19],"rule":"Spider Mastermind + Arachnotron. Exactly two cards.","path":"16 BASE POINTS / Named Teams upgrades","tip":"A compact team. Use a break to lead it when the table is blocked."})
+	pages.append({"title":"COVERING FIRE","ids":[15,2],"rule":"One Bullet monster + one Melee monster. Exactly two cards.","path":"10 BASE POINTS / Named Teams upgrades","tip":"A modest scoring escape for a mixed hand."})
+	pages.append({"title":"WALKING ARSENAL","ids":[0,8,2,19],"rule":"Exactly four cards with four different damage types.","path":"35 BASE POINTS / Apocalypse upgrades","tip":"Add the missing fifth damage type to extend into Apocalypse."})
+	pages.append({"title":"HEAVY ESCORT","ids":[8,0,15],"rule":"One strength 6+ monster and two strength 1-2 monsters.","path":"24 BASE POINTS / Named Teams upgrades","tip":"Exactly three cards. Check the number at the bottom of each card."})
+	pages.append({"title":"CROSSFIRE","ids":[21,15,0],"rule":"Exactly two Bullet monsters + one Fire monster.","path":"25 BASE POINTS / Type Gathering upgrades","tip":"Different from Balanced Crossfire: four distinct monsters, two of each type."})
+	pages.append({"title":"BREAK THE TABLE","ids":[],"rule":"Once per round, each side can clear the table without spending a turn.","path":"Costs 10 round points, or your remaining round points if fewer.","tip":"Then play a fresh combo. No cards are drawn. The CPU has the same ability."})
+	pages.append({"title":"BUNNY HOP / MARINE DAISY","ids":[],"rule":"With Marine Daisy: 3+ monsters whose values jump by TWO each step.","path":"1 / 3 / 5 or 2 / 4 / 6 / 20 points, then +20 per extra card", "tip":"Uses March upgrades. Extend at either end by two. Only the player holding Daisy can use this rule."})
 	var page: Dictionary = pages[guide_page]
 	g.draw_rect(Rect2(0,0,1440,940),Color(0,0,0,0.7))
 	g.ui_help.reset()
@@ -1122,13 +1333,13 @@ func cue(key: String, delay: float, volume: float) -> void:
 func cpu_card(index: int) -> Vector2:
 	return Vector2(563+index*minf(38,480.0/maxi(1,hands[1].size())),96)
 
-func draw_back(g, center: Vector2, size: Vector2, tilt := 0.0) -> void:
+func draw_back(g, center: Vector2, size: Vector2, tilt := 0.0, back_id := "") -> void:
 	var local: Vector2 = (g.get_global_mouse_position()-center)/size
 	var hover := Rect2(center-size/2,size).has_point(g.get_global_mouse_position())
 	g.draw_set_transform_matrix(preload("res://scripts/card_tilt.gd").pose(center,local.x,hover,tilt))
 	g.draw_style_box(card_style(false),Rect2(-size/2,size))
 	# Preserve the complete supplied artwork, fitting it inside the card border.
-	profile.draw_back(g,Rect2(-size/2+Vector2(2,2),size-Vector2(4,4)))
+	profile.draw_back(g,Rect2(-size/2+Vector2(2,2),size-Vector2(4,4)),back_id)
 	g.draw_set_transform(Vector2.ZERO)
 
 func score_play(owner: int, ids: Array, combo: Dictionary, extension: bool) -> Dictionary:
@@ -1254,6 +1465,7 @@ func draw_combo_projectiles(g) -> void:
 
 
 func make_routes() -> void:
+	cpu_route = -1
 	route_offers.clear()
 	var available: Array = range(MODIFIERS.size())
 	available.erase(modifier)
@@ -1261,15 +1473,35 @@ func make_routes() -> void:
 		var pick := random.randi_range(0,available.size()-1)
 		var mutation: int = available.pop_at(pick)
 		var route_boss := -1
-		if round_number+1 in [3,5] or (run.enabled and run.stage>=3):
+		if round_number+1 in [3,5]:
 			var bosses: Array = range(Rules.BOSSES.size())
 			bosses.erase(previous_boss)
 			route_boss = bosses[random.randi_range(0,bosses.size()-1)]
 		route_offers.append({"modifier":mutation,"relic":random.randi_range(0,RELICS.size()-1),"boss":route_boss})
 
+	# CPU commits before the player's upgrade choice and before the next deal.
+	if route_turn%2==1 and not route_offers.is_empty():
+		cpu_route = random.randi_range(0,route_offers.size()-1)
+
+func route_choice_rect(index: int) -> Rect2:
+	return Rect2(175+index*365,490,350,205) if route_turn%2==1 else Rect2(175+index*365,275,350,420)
+
+func route_help(index: int) -> String:
+	var route: Dictionary = route_offers[cpu_route if route_turn%2==1 and cpu_route>=0 else index]
+	var family: String = upgrade_offers[index]
+	var text: String = FAMILY_NAMES[family]+": +5 on future plays or extensions of this family. Stacks for the rest of the run; past scores never change. " + FAMILY_HELP[family]
+	if route_turn%2==1:
+		text += " CPU controls the battlefield: clicking here chooses ONLY your upgrade. The marked CPU route applies to both players."
+	else: text += " Click to take this upgrade and choose this battlefield for BOTH players."
+	text += " NEXT ROUND ONLY: "+MODIFIERS[route.modifier].name+" - "+MODIFIERS[route.modifier].rule+". Relic: "+RELICS[route.relic].name+" - "+RELICS[route.relic].rule+" (once per player)."
+	if route.get("boss",-1)>=0: text += " Boss: "+Rules.BOSSES[route.boss].rule+" Both players, before Joker bonuses; minimum 1 point."
+	return text
+
 func choose_upgrade(index: int) -> void:
 	if not round_over or finished or not upgrade_pending or index<0 or index>=upgrade_offers.size(): return
-	if index<route_offers.size(): next_route = route_offers[index].duplicate()
+	var route_index := cpu_route if route_turn%2==1 and cpu_route>=0 else index
+	if route_index<route_offers.size(): next_route = route_offers[route_index].duplicate()
+	route_turn += 1
 	progression.recap.routes.append(next_route.duplicate())
 	var family: String = upgrade_offers[index]
 	upgrades[0][family] = upgrades[0].get(family,0)+1
@@ -1290,20 +1522,42 @@ func draw_powers(g) -> void:
 	g.label_at(Vector2(160,137),"MATCH POWERS",32,g.ORANGE)
 	g.label_at(Vector2(930,132),("STAGE %d / " % run.stage if run.enabled else "")+"ROUND %d / 5" % round_number,18,g.MUTED)
 	if round_over and upgrade_pending:
-		g.label_at(Vector2(175,205),"CHOOSE YOUR ROUTE",28,g.INK)
-		g.label_at(Vector2(175,240),"Your upgrade + the next battlefield. Mutation and relic affect BOTH players.",17,g.MUTED)
+		g.label_at(Vector2(175,205),("CHOOSE YOUR ROUTE" if route_turn%2==0 else "CPU CHOSE THE ROUTE / PICK YOUR UPGRADE"),24,g.INK)
+		g.label_at(Vector2(175,240),"Route control alternates. Upgrade: rest of run. Battlefield: next round, both players.",14,g.MUTED)
+		if route_turn%2==1 and cpu_route>=0:
+			var chosen: Dictionary = route_offers[cpu_route]
+			var locked := Rect2(175,270,1080,195)
+			g.draw_rect(locked,Color("172b30"))
+			g.draw_rect(locked,Color("9de5ed"),false,2)
+			g.label_at(Vector2(195,302),"CPU BATTLEFIELD / LOCKED",20,Color("9de5ed"))
+			g.label_at(Vector2(195,333),ROUTE_NAMES[chosen.modifier]+" / NEXT ROUND / BOTH PLAYERS",16,g.INK)
+			g.label_at(Vector2(195,365),MODIFIERS[chosen.modifier].name+": "+MODIFIERS[chosen.modifier].rule,15,g.ORANGE)
+			g.label_at(Vector2(195,397),RELICS[chosen.relic].name+": "+RELICS[chosen.relic].rule,15,Color("9de5ed"))
+			if chosen.get("boss",-1)>=0:
+				g.label_at(Vector2(195,433),"BOSS: "+Rules.BOSSES[chosen.boss].name,15,Color("ff7777"))
 		for i in upgrade_offers.size():
-			var box := Rect2(175+i*365,275,350,420)
+			var box := route_choice_rect(i)
+			if route_turn%2==1:
+				g.button(box,"")
+				g.label_at(box.position+Vector2(20,38),"YOUR COMBO UPGRADE",16,g.ORANGE)
+				g.label_at(box.position+Vector2(20,83),FAMILY_NAMES[upgrade_offers[i]],19,g.INK)
+				g.label_at(box.position+Vector2(20,125),"+5 PER MATCHING PLAY",16,Color("ffdb78"))
+				g.label_at(box.position+Vector2(20,166),"REST OF RUN / YOUR BONUS ONLY",12,g.MUTED)
+				g.ui_help.offer(box,"UPGRADE / "+FAMILY_NAMES[upgrade_offers[i]],route_help(i))
+				continue
 			var route: Dictionary = route_offers[i]
 			var mutation: int = route.modifier
 			var tint := Color.from_hsv(float(mutation)/MODIFIERS.size(),0.5,0.95)
 			g.button(box,"")
+			if i==cpu_route:
+				g.draw_rect(box.grow(3),Color("ffdb78"),false,3)
+				g.label_at(box.position+Vector2(20,29),"CPU ROUTE / BOTH PLAYERS",14,Color("ffdb78"))
 			var x: float = box.position.x+20
 			var center := Vector2(box.get_center().x,355)
 			for ring in 3:
 				g.draw_arc(center,30+ring*13,g.clock*0.5+ring,g.clock*0.5+ring+TAU*0.8,40,Color(tint,0.35),2)
 			g.label_at(Vector2(x,425),ROUTE_NAMES[mutation],21,tint)
-			g.label_at(Vector2(x,465),"UPGRADE / +5 EACH PLAY",15,g.ORANGE)
+			g.label_at(Vector2(x,465),"UPGRADE / +5 MATCHING PLAY",15,g.ORANGE)
 			g.label_at(Vector2(x,493),FAMILY_NAMES[upgrade_offers[i]],16,g.INK)
 			g.label_at(Vector2(x,537),MODIFIERS[mutation].name,18,tint)
 			g.label_at(Vector2(x,564),MODIFIERS[mutation].rule,12,g.INK)
@@ -1312,7 +1566,9 @@ func draw_powers(g) -> void:
 			if route.get("boss",-1)>=0:
 				g.label_at(Vector2(x,675),"BOSS: "+Rules.BOSSES[route.boss].name,13,Color("ff7777"))
 				g.ui_help.offer(box,Rules.BOSSES[route.boss].name,Rules.BOSSES[route.boss].rule+" Both players. Before Joker bonuses.")
-		g.label_at(Vector2(175,745),"Upgrade lasts all match. Battlefield lasts one round. CPU picks its own upgrade.",16,g.MUTED)
+			g.ui_help.offer(box,ROUTE_NAMES[mutation],route_help(i))
+		g.label_at(Vector2(175,735),"+5 is earned on future matching plays. Past scores never change.",15,g.INK)
+		g.label_at(Vector2(175,760),"Both keep their own upgrades until run over. CPU picks its upgrade independently.",14,g.MUTED)
 	else:
 		var bonus_rect := Rect2(160,165,1120,115)
 		var bonus_style := card_style(false)
@@ -1344,7 +1600,7 @@ func draw_powers(g) -> void:
 			draw_card(g,id,Vector2(x,507),Vector2(160,220))
 			g.label_at(Vector2(x-90,650),enhancements[id]+(" / +4" if gilded else " / +8"),18,tint)
 			g.label_at(Vector2(x-90,676),"WHEN PLAYED" if gilded else "WHEN EXTENDING",13,g.INK)
-			g.ui_help.offer(Rect2(x-105,395,210,300),card_data(id).name,enhancements[id]+(": +4 whenever you play this monster." if gilded else ": +8 when you add this monster to the centre combo.")+" Applies to both players. Enhanced species change next round.")
+			g.ui_help.offer(Rect2(x-105,395,210,300),card_data(id).name,enhancements[id]+(": +4 whenever you play this monster." if gilded else ": +8 when you add this monster to the combo on the table.")+" Applies to both players. Enhanced species change next round.")
 			row += 1
 		g.label_at(Vector2(180,726),"New enhanced monsters are chosen next round.",12,g.MUTED)
 		g.label_at(Vector2(755,342),"ROUND POWERS",20,Color("d6b3f2"))
@@ -1355,7 +1611,7 @@ func draw_powers(g) -> void:
 			g.label_at(Vector2(755,451),RELICS[relic].name,18,Color("9de5ed"))
 			g.label_at(Vector2(755,478),RELICS[relic].rule+" / ONCE EACH PER ROUND",12,g.INK)
 			for owner in 2: draw_relic_status(g,owner,Rect2(755+owner*250,492,230,32))
-		g.label_at(Vector2(755,560),"YOUR COMBO UPGRADES / ALL MATCH",17,Color("d6b3f2"))
+		g.label_at(Vector2(755,560),"YOUR COMBO UPGRADES / REST OF RUN",17,Color("d6b3f2"))
 		if boss>=0:
 			g.label_at(Vector2(755,549),"BOSS / "+Rules.BOSSES[boss].name,14,Color("ff7979"))
 			g.ui_help.offer(Rect2(755,530,505,30),Rules.BOSSES[boss].name,Rules.BOSSES[boss].rule)
@@ -1371,19 +1627,21 @@ func draw_powers(g) -> void:
 	g.button(Rect2(600,790,240,50),"BACK TO TABLE")
 
 func start_round_intro() -> void:
-	round_intro = match_powers
-	round_intro_age = 0.0
+	round_intro = match_powers or boss>=0
+	round_intro_age = -4.5 if boss>=0 else 0.0
 	round_intro_beat = -1
 	support.player_drawer_open = false
 
 func draw_round_intro(g) -> void:
-	if boss>=0 and round_intro_age>=ROUND_INTRO_TIME-0.2:
+	if boss>=0 and round_intro_age<0.0:
 		g.draw_rect(Rect2(0,0,1440,940),Color("150a0b"))
 		g.menu_frame(Rect2(180,170,1080,590))
-		for ring in 6: g.draw_arc(Vector2(720,360),65+ring*18,g.clock+ring,g.clock+ring+TAU*0.85,48,Color(1,0.15,0.1,0.25),3)
+		for ring in 9:
+			var tint := Color.from_hsv(fmod(g.clock*0.12+ring*0.07,1.0),0.65,1.0)
+			g.draw_arc(Vector2(720,360),65+ring*22,g.clock+ring,g.clock+ring+TAU*0.85,48,Color(tint,0.45),3)
 		g.frontend.draw_monster(g,["BOSS","CYBR","FATT"][boss],Rect2(635,265+sin(g.clock*2)*5,170,190))
 		centered_at(g,"BOSS ROUND %d" % round_number,Vector2(720,240),32,Color("ff7777"))
-		centered_at(g,Rules.BOSSES[boss].name,Vector2(720,485),38,g.ORANGE)
+		centered_at(g,Rules.BOSSES[boss].name,Vector2(720,485+sin(g.clock*5)*3),42,Color.from_hsv(fmod(g.clock*0.12,1.0),0.55,1.0))
 		centered_at(g,Rules.BOSSES[boss].rule,Vector2(720,550),22,g.INK)
 		centered_at(g,"BOTH PLAYERS / BEFORE JOKER BONUSES / MINIMUM 1 POINT",Vector2(720,620),16,g.MUTED)
 		g.button(Rect2(1120,810,180,45),"SKIP / ENTER")
@@ -1476,3 +1734,12 @@ func draw_round_power_reveal(g) -> void:
 		centered_at(g,"ACTIVE ALL ROUND" if i==0 else "ONCE PER PLAYER / RESETS NEXT ROUND",Vector2(x,710),14,g.MUTED)
 	g.button(Rect2(1120,810,180,45),"SKIP / ENTER")
 	centered_at(g,"ROUND BONUS + RELIC / BOTH PLAYERS",Vector2(650,820),16,g.MUTED)
+
+func offer_combo_hints(g, rect: Rect2, options: Array) -> void:
+	var ordered := options.duplicate()
+	ordered.sort_custom(func(a,b): return a.gain>b.gain)
+	var content: Array = [{"text":"Separate plays / highest score first. Scroll with mouse wheel. Rainbow = best score in your hand.","color":Color("a9b8bd")}]
+	for option in ordered:
+		content.append({"text":("BEST / " if option.gain==hint_best_gain else "")+option.text+"\n"+option.names,"color":Color("e5ebdf"),"rainbow":option.gain==hint_best_gain})
+	if ordered.is_empty(): content.append({"text":"No legal play on the current table. Try Break the Table or draw/pass.","color":Color("ffc078")})
+	g.ui_help.offer_sections(rect,"AVAILABLE COMBOS / %d" % ordered.size(),content)

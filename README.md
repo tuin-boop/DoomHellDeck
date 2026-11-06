@@ -8,6 +8,16 @@ Get the Windows ZIP from [Releases](https://github.com/tuin-boop/DoomHellDeck/re
 
 Provide your own **DOOM2.WAD** beside the EXE, or set `DOOM_WAD` to its location. The commercial IWAD is not included. The game also checks supported Steam installation paths.
 
+## Latest update: v0.8.0
+
+- Baby Doomguy rewards plays of two or more monsters all valued 1 or 2.
+- Marine Daisy unlocks Bunny Hop combinations: values 1, 3, 5 or 2, 4, 6.
+- Farmer Cacodemon rewards playing low-value monsters.
+- Named local high scores, randomized Joker portraits, and a New Run option.
+- Damage-type flushes now allow duplicate monsters.
+- New Joker variants, card backs, cursors, pack artwork, clearer tooltips and boss reminders.
+- Soundtrack volume controls and the Roblox soundtrack selection.
+
 ## Quick start
 
 Both modes offer short tutorials with looping visual examples. Skip them, disable automatic tutorials in Options or with “Don’t show again,” and reopen them with How to Play.
@@ -21,11 +31,11 @@ Both modes offer short tutorials with looping visual examples. Skip them, disabl
 Win best-of-five stages and continue with your build. **Round wins decide each stage**, with stage points breaking ties after five rounds. First to three wins ends a stage early; an exact tie replays it. Losing a stage ends the run. Points accumulate toward your run high score.
 
 - **Save and resume:** quitting preserves hands, Jokers, credits, shop offers, paid pack choices and RNG state. Resume from the main menu.
-- **50 Jokers:** draft up to five slots, combine animated editions and family upgrades, and watch scoring effects resolve one by one. Hover portraits to make them dance and read their exact rules.
+- **58 base Jokers, each with four discoverable variants:** draft up to five slots, combine animated editions and family upgrades, and watch scoring effects resolve one by one. Hover portraits to make them dance and read their exact rules.
 - **Demon Shop:** both sides receive 8 credits each round. Buy and sell Jokers, reroll offers, or open booster packs. Credits and your build carry across stages.
 - **Clear pack previews:** inspect cost, requirements and guarantees before purchase. Sealed packs shake, split and burst into staggered reward reveals.
 - **Progression:** reach stage 2 for Rare packs and stage 4 for Legendary packs. These unlocks persist between runs.
-- **Escalation:** CPU gains +3 per scoring play per extra stage. Both sides gain +2 per extra stage on extensions or plays of four or more cards. Boss rules apply every round from stage 3.
+- **Escalation:** CPU gains +3 per scoring play per extra stage. Both sides gain +2 per extra stage on extensions or plays of four or more cards. Boss rounds occur in rounds 3 and 5.
 - **New combinations:** Crossfire at stage 2 (four distinct monsters, two of each of two damage types); Twin Trinity at stage 3 (two triples); Chaos March at stage 4 (four or more distinct ranks with one skipped rank).
 - **Routes, mutations and relics:** choose a route between rounds to upgrade a combo family and preview upcoming conditions. The illustrated Field Guide explains patterns and rule-changing Jokers.
 - **Run recap and records:** see strongest plays, Joker contributions, new unlocks, run score and personal best. Stage results show round-win bars so the display matches the winner.
@@ -35,10 +45,10 @@ Win best-of-five stages and continue with your build. **Round wins decide each s
 | Pack | Standard | Rare | Legendary |
 | --- | --- | --- | --- |
 | Joker | 4 CR: pick 1 of 3 weighted offers | 7 CR: 3 Uncommon/Rare offers | 10 CR: 3 Rare offers |
-| Edition | 3 CR: pick 1 of 3 editions | 5 CR: pick 1 of 5 | 7 CR: pick 1 of all 8 |
+| Joker Upgrade | 3 CR: pick 1 of 3 editions | 5 CR: pick 1 of 5 | 7 CR: pick 1 of all 8 |
 | Upgrade | 3 CR: +5 to a family | 5 CR: +10 | 8 CR: +15 |
 
-Legendary is the **pack tier**; the Joker rarity guarantee is Rare. Each pack type can be bought once per shop across tiers. Edition packs replace one owned Joker's edition while keeping its normal ability. Upgrade packs offer three families. Skipping an opened pack does not refund credits.
+Legendary is the **pack tier**; the Joker rarity guarantee is Rare. Each pack type can be bought once per shop across tiers. Joker Upgrade packs replace one owned Joker's edition while keeping its normal ability. Upgrade packs offer three families. Skipping an opened pack does not refund credits.
 
 ![Pack explanation before buying](docs/screenshots/pack-preview.png)
 
@@ -97,3 +107,8 @@ This is an unofficial fan project, not affiliated with id Software, Bethesda, Ni
 Asset-specific source notes are retained under `assets/`. Joker and result illustrations were supplied for this project. Hell Radio includes synthesized Doom scores and selected Donkey Kong Country music. Commercial WAD files, local caches, and build tools are not included.
 
 Voxel gib source and attribution: [NashGore voxel notes](assets/gibs/SOURCE.txt).
+
+## High scores
+
+![High-score screen with example entries](docs/screenshots/high-scores.png)
+

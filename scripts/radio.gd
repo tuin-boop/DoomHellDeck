@@ -4,7 +4,7 @@ var tracks: Array = []
 var albums: Array = []
 var album := ""
 var mode := 2
-var volume := 0.35
+var volume := 0.5
 var enabled := true
 var current := -1
 var album_page := 0
@@ -36,13 +36,24 @@ func _ready() -> void:
 		var config := ConfigFile.new()
 		if config.load(SETTINGS)==OK:
 			mode = clampi(int(config.get_value("radio","mode",2)),0,2)
-			volume = clampf(float(config.get_value("radio","volume",0.35)),0,1)
+			volume = clampf(float(config.get_value("radio","volume",0.5)),0,1)
 			enabled = bool(config.get_value("radio","enabled",true))
 			var saved: String = config.get_value("radio","album",album)
 			if albums.has(saved): album = saved
 		if enabled: next_track()
-	player.volume_db = linear_to_db(maxf(volume,0.001))
-	player.volume_db = -80 if volume==0 else player.volume_db
+	apply_volume()
+
+func apply_volume() -> void:
+	# Album trim stacks with the user's soundtrack volume setting.
+	var gain := volume
+	if current>=0 and current<tracks.size() and tracks[current].album=="Roblox Soundtrack":
+		gain *= 0.5
+	player.volume_db = -80 if gain<=0 else linear_to_db(gain)
+
+func set_volume(value: float) -> void:
+	volume = clampf(value,0,1)
+	apply_volume()
+	save_settings()
 
 func save_settings() -> void:
 	if "--balance-test" in OS.get_cmdline_user_args(): return
@@ -103,7 +114,7 @@ func play_track(index: int) -> void:
 	current = index
 	player.stream = stream
 	player.stream_paused = false
-	player.volume_db = -80 if volume==0 else linear_to_db(volume)
+	apply_volume()
 	player.play()
 	enabled = true
 	status = ""
@@ -191,9 +202,7 @@ func handle(g,event: InputEvent) -> void:
 		enabled = false
 		save_settings()
 	elif Rect2(650,185,60,48).has_point(pos) or Rect2(925,185,60,48).has_point(pos):
-		volume = clampf(volume+(-0.05 if pos.x<710 else 0.05),0,1)
-		player.volume_db = -80 if volume==0 else linear_to_db(volume)
-		save_settings()
+		set_volume(volume+(-0.05 if pos.x<710 else 0.05))
 	elif Rect2(80,810,215,45).has_point(pos): album_page = maxi(0,album_page-1)
 	elif Rect2(325,810,215,45).has_point(pos): album_page += 1
 	elif Rect2(570,810,375,45).has_point(pos): track_page = maxi(0,track_page-1)

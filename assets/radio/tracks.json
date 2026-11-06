@@ -646,5 +646,203 @@
     "file": "res://assets/radio/audio/SONG803.ogg",
     "source": "music/SONG803.spc",
     "menu_only": false
+  },
+  {
+    "id": "ROBLOX_001",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Captain Cool",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_001.mp3",
+    "source": "001 - Bossfight - Captain Cool.mp3",
+    "seconds": 198.948583
+  },
+  {
+    "id": "ROBLOX_002",
+    "album": "Roblox Soundtrack",
+    "title": "chiptunes - desert war",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_002.mp3",
+    "source": "002 - chiptunes - desert war.mp3",
+    "seconds": 99.578792
+  },
+  {
+    "id": "ROBLOX_004",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Milky Ways",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_004.mp3",
+    "source": "004 - Bossfight - Milky Ways.mp3",
+    "seconds": 187.559188
+  },
+  {
+    "id": "ROBLOX_007",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Commando Steve",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_007.mp3",
+    "source": "007 - Bossfight - Commando Steve.mp3",
+    "seconds": 206.913021
+  },
+  {
+    "id": "ROBLOX_008",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Flirt Flirt Oh It Hurts [ Geometry Dash Music ]",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_008.mp3",
+    "source": "008 - Bossfight - Flirt Flirt Oh It Hurts [ Geometry Dash Music ].mp3",
+    "seconds": 212.880979
+  },
+  {
+    "id": "ROBLOX_009",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Milky Ways [ Geometry Dash Music ]",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_009.mp3",
+    "source": "009 - Bossfight - Milky Ways [ Geometry Dash Music ].mp3",
+    "seconds": 189.149771
+  },
+  {
+    "id": "ROBLOX_011",
+    "album": "Roblox Soundtrack",
+    "title": "X-Ray - Zizibum",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_011.mp3",
+    "source": "011 - X-Ray - Zizibum.mp3",
+    "seconds": 390.002375
+  },
+  {
+    "id": "ROBLOX_013",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Starship Showdown",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_013.mp3",
+    "source": "013 - Bossfight - Starship Showdown.mp3",
+    "seconds": 248.1865
+  },
+  {
+    "id": "ROBLOX_014",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Leaving Leafwood Forest",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_014.mp3",
+    "source": "014 - Bossfight - Leaving Leafwood Forest.mp3",
+    "seconds": 204.498146
+  },
+  {
+    "id": "ROBLOX_016",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Flirt Flirt Oh It hurts",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_016.mp3",
+    "source": "016 - Bossfight - Flirt Flirt Oh It hurts.mp3",
+    "seconds": 211.417688
+  },
+  {
+    "id": "ROBLOX_017",
+    "album": "Roblox Soundtrack",
+    "title": "Treasure Master Music (NES) - Worlds 3 & 5 [Microchip]",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_017.mp3",
+    "source": "017 - Treasure Master Music (NES) - Worlds 3 & 5 [Microchip].mp3",
+    "seconds": 109.563375
+  },
+  {
+    "id": "ROBLOX_018",
+    "album": "Roblox Soundtrack",
+    "title": "Plug-In Trance (Sabrepulse Remix)",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_018.mp3",
+    "source": "018 - Plug-In Trance (Sabrepulse Remix).mp3",
+    "seconds": 230.5045
+  },
+  {
+    "id": "ROBLOX_019",
+    "album": "Roblox Soundtrack",
+    "title": "DANCE WITH THE DEAD - Andromeda",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_019.mp3",
+    "source": "019 - DANCE WITH THE DEAD - Andromeda.mp3",
+    "seconds": 300.303688
+  },
+  {
+    "id": "ROBLOX_020",
+    "album": "Roblox Soundtrack",
+    "title": "chiptunes - Lvl.1",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_020.mp3",
+    "source": "020 - chiptunes - Lvl.1.mp3",
+    "seconds": 256.383146
+  },
+  {
+    "id": "ROBLOX_021",
+    "album": "Roblox Soundtrack",
+    "title": "2 Tone Disco – Superstar (Original Mix)",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_021.mp3",
+    "source": "021 - 2 Tone Disco – Superstar (Original Mix).mp3",
+    "seconds": 250.334331
+  },
+  {
+    "id": "ROBLOX_023",
+    "album": "Roblox Soundtrack",
+    "title": "Leaving leafwood forest",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_023.mp3",
+    "source": "023 - Leaving leafwood forest.mp3",
+    "seconds": 201.456979
+  },
+  {
+    "id": "ROBLOX_024",
+    "album": "Roblox Soundtrack",
+    "title": "Inner Sanctum",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_024.mp3",
+    "source": "024 - Inner Sanctum.mp3",
+    "seconds": 226.6
+  },
+  {
+    "id": "ROBLOX_026",
+    "album": "Roblox Soundtrack",
+    "title": "Anamanaguchi - Helix Nebula",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_026.mp3",
+    "source": "026 - Anamanaguchi - Helix Nebula.mp3",
+    "seconds": 175.612521
+  },
+  {
+    "id": "ROBLOX_027",
+    "album": "Roblox Soundtrack",
+    "title": "Bossfight - Farbror Melker Fixar Fiskdamm (Fastbom Cover)",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_027.mp3",
+    "source": "027 - Bossfight - Farbror Melker Fixar Fiskdamm (Fastbom Cover).mp3",
+    "seconds": 203.313938
+  },
+  {
+    "id": "ROBLOX_031",
+    "album": "Roblox Soundtrack",
+    "title": "RAINBOW LEVEL ｜ SPEEDRUN 4 ｜ ROBLOX OST",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_031.mp3",
+    "source": "031 - RAINBOW LEVEL ｜ SPEEDRUN 4 ｜ ROBLOX OST.mp3",
+    "seconds": 118.143146
+  },
+  {
+    "id": "ROBLOX_032",
+    "album": "Roblox Soundtrack",
+    "title": "Prima Bossa Nova",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_032.mp3",
+    "source": "032 - Prima Bossa Nova.mp3",
+    "seconds": 168.299604
+  },
+  {
+    "id": "ROBLOX_033",
+    "album": "Roblox Soundtrack",
+    "title": "Roselita",
+    "composer": "Roblox Speed Run 4 Music OST",
+    "file": "res://assets/radio/audio/ROBLOX_033.mp3",
+    "source": "033 - Roselita.mp3",
+    "seconds": 169.110938
   }
 ]

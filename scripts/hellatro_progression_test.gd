@@ -28,8 +28,8 @@ func run() -> void:
 	assert(preview.gain==25,"Joker +5, Mime +5, Golden +2, Bloodstained +3")
 	assert(preview==m.support.score(m,0,[0],{"gain":10,"kind":"set"},true,true))
 	assert(m.support.score(m,1,[0],{"gain":10,"kind":"set"},true).bonus==0)
-	var context := {"extension":true,"count":4,"changed":true,"behind":true,"fire":4}
-	var bonuses := [0,3,2,4,4,4,6,0,6]
+	var context := {"extension":true,"count":4,"changed":true,"behind":true,"fire":4,"activated":true,"host_bonus":5}
+	var bonuses := [0,3,2,6,4,4,6,0,6]
 	for edition in 9: assert(Editions.bonus(edition,context)==bonuses[edition])
 	m = Meld.new()
 	m.progression.enabled = true

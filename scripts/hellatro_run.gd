@@ -1,8 +1,8 @@
 extends RefCounted
 # Explicit Variant-only snapshots; no scenes, resources or executable objects in saves.
-const MELD_KEYS := ["boss","previous_boss","round_award_owner","round_history","round_start_scores","match_powers","upgrades","family_plays","passive_joker","enhancements","power_panel","upgrade_offers","upgrade_pending","route_offers","next_route","extension_chain","mutation_last","modifier","relic","relic_used","drew_this_round","hands","stock","melds","scores","rounds","turns","round_number","side","discarded","discovered","round_over","result_winner","finished","message","round_message","round_scores","round_intro","round_intro_age"]
+const MELD_KEYS := ["break_used","cpu_card_back","boss","previous_boss","round_award_owner","round_history","round_start_scores","match_powers","upgrades","family_plays","passive_joker","enhancements","power_panel","upgrade_offers","upgrade_pending","route_offers","next_route","route_turn","cpu_route","extension_chain","mutation_last","modifier","relic","relic_used","drew_this_round","hands","stock","melds","scores","rounds","turns","round_number","side","discarded","discovered","round_over","result_winner","finished","message","round_message","round_scores","round_intro","round_intro_age"]
 const SUPPORT_KEYS := ["slots","stats","drained","pending","offers","chosen","swap_slot","editions","offer_editions","last_table_family"]
-const SHOP_KEYS := ["enabled","active","credits","funded_round","offers","rerolls","packs_bought","pack_kind","pack_choices","pack_tier","apply_edition","message","recorded","earned_backs","new_record","recap"]
+const SHOP_KEYS := ["enabled","active","credits","funded_round","offers","rerolls","packs_bought","pack_kind","pack_choices","pack_tier","apply_edition","upgrade_target","message","recorded","earned_backs","new_record","recap"]
 var path := "user://hellatro_run.cfg"
 var enabled := false
 var stage := 1
@@ -87,6 +87,7 @@ func stage_end(m) -> void:
 	if m.result_winner==0:
 		m.profile.highest_stage = maxi(m.profile.highest_stage,stage+1)
 	elif m.result_winner==1:
+		m.profile.pending_score = {"score":score(m),"stage":stage,"date":Time.get_date_string_from_system()}
 		alive = false
 		if FileAccess.file_exists(path): DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 	m.profile.save()

@@ -1,6 +1,6 @@
 extends RefCounted
 const BOSSES := [
-	{"name":"THE TAX COLLECTOR","rule":"Repeat your last scoring family: -8 points (minimum 1)."},
+	{"name":"THE TAX COLLECTOR","rule":"Play the same combo type as your previous scoring play: -8 points (minimum 1)."},
 	{"name":"THE GATEKEEPER","rule":"New combinations lose 6 points. Extensions are untouched."},
 	{"name":"THE GLUTTON","rule":"Plays of only one or two cards lose 7 points (minimum 1)."}
 ]
@@ -13,7 +13,7 @@ static func boss_loss(boss: int, gain: int, count: int, extension: bool, repeate
 
 static func special_pattern(m, owner: int, ids: Array, required_kind: String) -> Dictionary:
 	var best: Dictionary = m.pattern(ids,required_kind)
-	if not (m.support.has(owner,47) or m.support.has(owner,48) or m.support.has(owner,49) or (m.run.enabled and m.run.stage>=2)): return best
+	if not (m.support.has(owner,47) or m.support.has(owner,48) or m.support.has(owner,49) or m.support.has(owner,280) or (m.run.enabled and m.run.stage>=2)): return best
 	# Resolve Romero once and retain the choice, just like normal combinations.
 	if ids.has(-1):
 		for replacement in m.POOL:
@@ -36,9 +36,16 @@ static func special_pattern(m, owner: int, ids: Array, required_kind: String) ->
 		types[card.type] = int(types.get(card.type,0))+1
 		ranks.append(card.cost)
 	var candidates: Array = []
+	if m.support.has(owner,280) and counts.size()==ids.size():
+		var hop_ranks := ranks.duplicate()
+		hop_ranks.sort()
+		var hopping := true
+		for i in range(1,hop_ranks.size()):
+			if hop_ranks[i]-hop_ranks[i-1]!=2: hopping = false
+		if hopping: candidates.append({"rule_joker":280,"name":"BUNNY HOP","kind":"run","points":20+20*(ids.size()-3)})
 	if m.run.enabled:
 		if m.run.stage>=2 and ids.size()==4 and counts.size()==4 and types.size()==2 and types.values().min()==2:
-			candidates.append({"name":"CROSSFIRE","kind":"type","points":45})
+			candidates.append({"name":"BALANCED CROSSFIRE","kind":"type","points":45})
 		if m.run.stage>=3 and ids.size()==6 and copies.size()==2 and copies.values().min()==3:
 			candidates.append({"name":"TWIN TRINITY","kind":"pairs","points":90})
 		if m.run.stage>=4 and ids.size()>=4 and counts.size()==ids.size():

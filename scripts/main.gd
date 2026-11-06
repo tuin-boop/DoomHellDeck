@@ -3311,6 +3311,7 @@ func draw_commanders() -> void:
 		label_at(Vector2(80,840),"The current match keeps its characters. Your selection applies when the next match starts.",18,MUTED)
 
 func apply_options() -> void:
+	hell_meld.profile.apply_cursor()
 	AudioServer.set_bus_volume_db(0,linear_to_db(maxf(master_volume,0.001)))
 	AudioServer.set_bus_mute(0,master_volume<=0)
 	if DisplayServer.get_name()!="headless":

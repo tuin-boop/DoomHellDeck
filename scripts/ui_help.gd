@@ -2,42 +2,64 @@ extends Node2D
 var game
 var title := ""
 var body := ""
+var sections: Array = []
 var key := ""
 var age := 0.0
 var last_key := ""
+var scroll_line := 0
+var scroll_max := 0
+func _input(event: InputEvent) -> void:
+	if body=="" or age<0.4 or scroll_max==0: return
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index==MOUSE_BUTTON_WHEEL_DOWN: scroll_line = mini(scroll_max,scroll_line+3)
+		elif event.button_index==MOUSE_BUTTON_WHEEL_UP: scroll_line = maxi(0,scroll_line-3)
+		else: return
+		get_viewport().set_input_as_handled()
 func _ready() -> void:
 	z_index = 100
 func reset() -> void:
+	sections.clear()
 	title = ""
 	body = ""
 	key = ""
 func offer(rect: Rect2, heading: String, explanation: String) -> void:
 	if rect.has_point(game.get_global_mouse_position()):
+		sections.clear()
 		title = heading
 		body = explanation
+		key = str(rect)+heading
+func offer_sections(rect: Rect2, heading: String, content: Array) -> void:
+	if rect.has_point(game.get_global_mouse_position()):
+		title = heading
+		body = "rich"
+		sections = content
 		key = str(rect)+heading
 func _process(delta: float) -> void:
 	if key!=last_key:
 		age = 0
+		scroll_line = 0
 		last_key = key
 	else: age += delta
 	queue_redraw()
 func _draw() -> void:
 	if body=="" or age<0.4: return
-	var lines: Array[String] = []
-	var line := ""
-	for paragraph in body.split("\n"):
-		line = ""
-		for word in paragraph.split(" "):
-			if game.font.get_string_size(line+word,HORIZONTAL_ALIGNMENT_LEFT,-1,16).x>365:
-				lines.append(line)
-				line = ""
-			line += word+" "
-		if line!="": lines.append(line)
-	if lines.size()>32:
-		lines.resize(32)
-		lines[31] = "More combinations available with these cards."
-	var height := 62+lines.size()*23
+	var lines: Array = []
+	var content: Array = sections if not sections.is_empty() else [{"text":body,"color":Color("e5ebdf")}]
+	for section in content:
+		if not lines.is_empty() and not sections.is_empty(): lines.append({"text":"","color":Color.WHITE})
+		for paragraph in str(section.text).split("\n"):
+			var line := ""
+			for word in paragraph.split(" "):
+				var candidate := word if line=="" else line+" "+word
+				if line!="" and game.font.get_string_size(candidate,HORIZONTAL_ALIGNMENT_LEFT,-1,16).x>365:
+					lines.append({"text":line,"color":section.color,"rainbow":section.get("rainbow",false)})
+					line = word
+				else: line = candidate
+			if line!="": lines.append({"text":line,"color":section.color,"rainbow":section.get("rainbow",false)})
+	scroll_max = maxi(0,lines.size()-27)
+	scroll_line = mini(scroll_line,scroll_max)
+	var visible_lines: Array = lines.slice(scroll_line,scroll_line+27)
+	var height := 62+visible_lines.size()*23+(25 if scroll_max>0 else 0)
 	var mouse: Vector2 = game.get_global_mouse_position()
 	var pos := Vector2(clampf(mouse.x+20,10,1035),clampf(mouse.y+24,10,930-height))
 	draw_rect(Rect2(pos+Vector2(4,5),Vector2(395,height)),Color(0,0,0,0.6))
@@ -45,7 +67,16 @@ func _draw() -> void:
 	draw_rect(Rect2(pos,Vector2(395,height)),Color("edb665"),false,2)
 	var heading: String = title.left(34)
 	draw_string(game.font,pos+Vector2(15,28),heading,HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffd482"))
-	for i in lines.size(): draw_string(game.font,pos+Vector2(15,55+i*23),lines[i],HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("e5ebdf"))
+	for i in visible_lines.size():
+		var line: Dictionary = visible_lines[i]
+		var origin := pos+Vector2(15,55+i*23)
+		if line.get("rainbow",false):
+			for letter in str(line.text).length():
+				var character: String = str(line.text).substr(letter,1)
+				draw_string(game.font,origin,character,HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color.from_hsv(fposmod(game.clock*0.18+letter*0.035,1.0),0.65,1))
+				origin.x += game.font.get_string_size(character,HORIZONTAL_ALIGNMENT_LEFT,-1,16).x
+		else: draw_string(game.font,origin,line.text,HORIZONTAL_ALIGNMENT_LEFT,-1,16,line.color)
+	if scroll_max>0: draw_string(game.font,pos+Vector2(15,height-12),"SCROLL / %d-%d OF %d" % [scroll_line+1,mini(scroll_line+27,lines.size()),lines.size()],HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("ffd482"))
 func button_help(text: String) -> String:
 	var lookup := {
 	"HELL DECK":"Tactical battles with heroes, weapons and squads. Choose a built deck or random cards next.",
@@ -54,11 +85,12 @@ func button_help(text: String) -> String:
 	"MATCH POWERS":"Inspect the shared Match Bonus, enhanced cards, your hand upgrades, and your personal Joker effects.",
 	"COMBINATIONS":"Illustrated examples of every combination. This guide does not solve your hand.",
 	"FIELD GUIDE":"Illustrated examples of every combination. This guide does not solve your hand.",
-	"PLAY SELECTION":"Commit your selected cards. They must form a new combination or extend the centre. Invalid attempts keep your cards.",
-	"DRAW / PASS":"Take one card, clear the centre and end your turn. You may do this even if you have a legal play.",
+	"PLAY SELECTION":"Commit your selected cards. They must form a new combination or extend the combo on the table. Invalid attempts keep your cards.",
+	"DRAW / PASS":"Take one card, clear the table and end your turn. You may do this even if you have a legal play.",
 	"SORT HAND":"Reorder your hand by monster identity and clear your selection.",
 	"CLEAR SELECTION":"Deselect all cards without playing them.",
-	"CHOOSE UPGRADE":"Choose one of three combo families to earn +5 extra points per play for the rest of this match.",
+	"CHOOSE ROUTE":"Open the next-round choices. You and CPU alternate route control; each chooses their own +5 combo-family upgrade. Upgrades last the run. The shared mutation, relic and boss last only the next round. Past points never change.",
+	"CHOOSE UPGRADE":"Choose a personal +5 family upgrade for the rest of the run. You and CPU alternate choosing the next battlefield. Past scores do not change.",
 	"OPTIONS":"Change master volume, fullscreen and battle presentation.",
 	"BUILT DECK":"Start a battle using your selected saved deck.",
 	"RANDOM CARDS":"Start a battle with freshly randomized decks for both sides.",

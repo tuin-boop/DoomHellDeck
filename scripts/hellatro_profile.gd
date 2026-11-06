@@ -2,7 +2,11 @@ extends RefCounted
 var path := "user://hellatro_profile.cfg"
 var loaded := false
 var selected := "hellatro"
-var unlocked: Array = ["hellatro","obsidian"]
+var cursor_selected := "default"
+var unlocked: Array = ["hellatro"]
+var high_scores: Array = []
+var score_name := ""
+var pending_score: Dictionary = {}
 var best_run := 0
 var highest_stage := 1
 var last_run_score := 0
@@ -27,7 +31,11 @@ func ensure_loaded() -> void:
 	var cfg := ConfigFile.new()
 	if cfg.load(path)==OK:
 		selected = str(cfg.get_value("profile","selected","hellatro"))
+		cursor_selected = str(cfg.get_value("profile","cursor_selected","default"))
 		unlocked = cfg.get_value("profile","unlocked",["hellatro","obsidian"])
+		high_scores = cfg.get_value("profile","high_scores",[])
+		score_name = str(cfg.get_value("profile","score_name",""))
+		pending_score = cfg.get_value("profile","pending_score",{})
 		best_run = int(cfg.get_value("profile","best_run",0))
 		highest_stage = int(cfg.get_value("profile","highest_stage",1))
 		last_run_score = int(cfg.get_value("profile","last_run_score",0))
@@ -37,12 +45,18 @@ func ensure_loaded() -> void:
 		matches = int(cfg.get_value("profile","matches",0))
 		wins = int(cfg.get_value("profile","wins",0))
 		last_run = cfg.get_value("profile","last_run",{})
+	var aliases := {"obsidian":"hellatro","gold":"hellatro","prism":"hellatro","abyssal_pirate":"pirate_cacodemon","sovereign":"scream_king"}
+	selected = aliases.get(selected,selected)
+	for old in aliases:
+		if old in unlocked:
+			if not aliases[old] in unlocked: unlocked.append(aliases[old])
+			unlocked.erase(old)
 	for entry in entries:
 		if entry.unlock=="default" and not entry.id in unlocked: unlocked.append(entry.id)
 	if not selected in unlocked: selected = "hellatro"
 func save() -> void:
 	var cfg := ConfigFile.new()
-	for key in ["best_run","highest_stage","last_run_score","last_run_stage","selected","unlocked","best_total","best_play","matches","wins","last_run"]: cfg.set_value("profile",key,get(key))
+	for key in ["high_scores","score_name","pending_score","cursor_selected","best_run","highest_stage","last_run_score","last_run_stage","selected","unlocked","best_total","best_play","matches","wins","last_run"]: cfg.set_value("profile",key,get(key))
 	cfg.save(path)
 func entry_for(id: String) -> Dictionary:
 	ensure_loaded()
@@ -133,3 +147,50 @@ func handle(event: InputEvent) -> void:
 			selected = entries[page*5+i].id
 			selection_started = Time.get_ticks_msec()/1000.0
 			save()
+
+func cursor_unlocked(id: String) -> bool:
+	ensure_loaded()
+	return id in ["default","doomguy"] or (id=="baron" and wins>=1) or (id=="imp" and highest_stage>=3)
+func equip_cursor(id: String) -> bool:
+	if not cursor_unlocked(id): return false
+	cursor_selected = id
+	save()
+	apply_cursor()
+	return true
+var cursor_cache := {}
+func cursor_texture(id: String) -> Texture2D:
+	if cursor_cache.has(id): return cursor_cache[id]
+	var source: Texture2D = load("res://assets/cursors/"+id+".png")
+	var src := source.get_image()
+	if src.is_compressed(): src.decompress()
+	var rotated := Image.create(80,80,false,Image.FORMAT_RGBA8)
+	for y in 80:
+		for x in 80:
+			var sample := (Vector2(x,y)-Vector2(40,40)).rotated(deg_to_rad(15))+Vector2(32,32)
+			var sx := roundi(sample.x)
+			var sy := roundi(sample.y)
+			if sx>=0 and sy>=0 and sx<src.get_width() and sy<src.get_height(): rotated.set_pixel(x,y,src.get_pixel(sx,sy))
+	cursor_cache[id] = ImageTexture.create_from_image(rotated)
+	return cursor_cache[id]
+func apply_cursor() -> void:
+	ensure_loaded()
+	if not cursor_unlocked(cursor_selected): cursor_selected = "default"
+	if DisplayServer.get_name()=="headless": return
+	var cursor: Texture2D = null
+	if cursor_selected!="default": cursor = cursor_texture(cursor_selected)
+	# Native 64px sprite; the raised fingertip is the actual click point.
+	Input.set_custom_mouse_cursor(cursor,Input.CURSOR_ARROW,Vector2(27,16) if cursor!=null else Vector2.ZERO)
+	Input.set_custom_mouse_cursor(cursor,Input.CURSOR_POINTING_HAND,Vector2(27,16) if cursor!=null else Vector2.ZERO)
+
+func submit_score(player_name: String) -> void:
+	ensure_loaded()
+	if pending_score.is_empty(): return
+	score_name = player_name.strip_edges().left(16)
+	if score_name.is_empty(): score_name = "DOOMGUY"
+	var row := pending_score.duplicate(true)
+	row["name"] = score_name
+	high_scores.append(row)
+	high_scores.sort_custom(func(a,b): return a.score>b.score if a.score!=b.score else a.stage>b.stage)
+	if high_scores.size()>10: high_scores.resize(10)
+	pending_score.clear()
+	save()

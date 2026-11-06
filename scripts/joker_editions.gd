@@ -1,23 +1,25 @@
 extends RefCounted
-# Editions are independent, small additive bonuses. No gameplay RNG during drawing.
+# Editions enhance the host Joker activation. No gameplay RNG during drawing.
+# Every edition requires its host Joker to activate on this scoring action.
 const DATA := [
 	["STANDARD","", "87998d"],
-	["BLOODSTAINED","+3 on every extension.","e6454e"],
-	["GOLDEN","+2 on every scoring play.","ffda68"],
-	["PLASMA","+1 per card played, capped at +5.","6ce8ff"],
-	["HOLOGRAPHIC","+4 when changing your previous scoring family.","ce8fff"],
-	["HAUNTED","+4 while behind in round points before playing.","a6efce"],
-	["INFERNAL","+2 per Fire monster played, capped at +6.","ff934f"],
-	["FROZEN","+4 when playing exactly two cards.","bbebff"],
-	["VOID","+6 when playing four or more cards.","ba79ff"]
+	["BLOODSTAINED","When this Joker activates on an extension: +3.","e6454e"],
+	["GOLDEN","When this Joker activates: +30% of its bonus, rounded up (max +6). Utility triggers: +6.","ffda68"],
+	["PLASMA","When this Joker activates: +2 per NEW card played (max +6). Centre cards do not count.","6ce8ff"],
+	["HOLOGRAPHIC","When this Joker activates after changing your scoring family: +4.","ce8fff"],
+	["HAUNTED","When this Joker activates while behind in round points: +4.","a6efce"],
+	["INFERNAL","When this Joker activates: +2 per NEW Fire card (max +6).","ff934f"],
+	["FROZEN","When this Joker activates with exactly two new cards: +4.","bbebff"],
+	["VOID","When this Joker activates with four or more new cards: +6.","ba79ff"]
 ]
 static func roll(rng: RandomNumberGenerator) -> int:
 	return rng.randi_range(1,DATA.size()-1) if rng.randf()<0.3 else 0
 static func bonus(edition: int, c: Dictionary) -> int:
+	if not c.get("activated",false): return 0
 	match edition:
 		1: return 3 if c.extension else 0
-		2: return 2
-		3: return mini(5,c.count)
+		2: return mini(6,maxi(1,int(ceil(float(c.get("host_bonus",20))*0.3))))
+		3: return mini(6,c.count*2)
 		4: return 4 if c.changed else 0
 		5: return 4 if c.behind else 0
 		6: return mini(6,c.fire*2)

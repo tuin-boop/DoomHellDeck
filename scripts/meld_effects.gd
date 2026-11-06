@@ -64,7 +64,9 @@ func draw(g,m) -> void:
 			if not types.has("FIRE") and not types.has("ENERGY"): g.draw_rect(Rect2(pos,Vector2(4,4)),Color(1,0.7,0.2,fade))
 		if types.has("ROCKET"): g.draw_arc(Vector2(720,430),40+t*230,0,TAU,64,Color(1,0.5,0.1,fade),5*fade)
 		if a.kind=="team":
-			for i in mini(3,a.get("ids",[]).size()): m.draw_card(g,a.ids[i],Vector2(540+i*180,470-15*sin(t*3)),Vector2(100,140))
+			for i in a.get("ids",[]).size():
+				var pose: Dictionary = m.celebration_pose(i,a.ids.size())
+				g.draw_arc(pose.center,95+sin(t*5)*8,0,TAU,40,Color(1,0.8,0.3,fade*0.5),2)
 		if a.get("overtake",false):
 			g.draw_arc(Vector2(720,430),60+t*160,0,TAU,48,Color(1,0.85,0.25,fade),4)
 			m.centered_at(g,"LEAD TAKEN!",Vector2(720,705),24,Color(1,0.85,0.25,fade))

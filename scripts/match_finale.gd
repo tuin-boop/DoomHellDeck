@@ -1,5 +1,6 @@
 extends RefCounted
 const WIN_PICTURES := ["player-win-1", "player-win-2", "player-win-imp", "player-win-imp-red", "player-win-soldier", "player-win-baron"]
+const OUTLINED_PICTURES := ["player-win-1", "player-win-2", "cpu-win-1", "cpu-win-2"]
 const LOSS_PICTURES := ["cpu-win-1", "cpu-win-2"]
 var picture := ""
 var picture_cache := {}
@@ -20,7 +21,10 @@ func draw_picture(g,m) -> void:
 	size *= minf(420.0/size.x,780.0/size.y)
 	var rise := 1.0-pow(1.0-clampf((m.result_age-duration(m))/0.85,0,1),3)
 	var pos := Vector2(230-size.x/2,lerpf(950,870-size.y,rise))
-	g.draw_texture_rect(texture,Rect2(pos,size),false)
+	if picture in OUTLINED_PICTURES:
+		m.draw_outlined_result(g,texture,pos,size.y/texture.get_height())
+	else:
+		g.draw_texture_rect(texture,Rect2(pos,size),false)
 
 func duration(m) -> float: return 0.5+m.round_history.size()*2.0+0.8
 func done(m) -> bool: return m.result_age>=duration(m)
@@ -31,9 +35,13 @@ func totals_at(m, time: float) -> Array:
 		for owner in 2: totals[owner] += m.round_history[i].points[owner]*progress
 	return totals
 func draw(g,m) -> void:
+	if m.result_age>duration(m)+3.0 and not m.profile.pending_score.is_empty():
+		g.frontend.show_scores(g)
+		return
 	g.ui_help.reset()
 	g.draw_rect(Rect2(0,0,1440,940),Color(0.015,0.02,0.025,0.98))
 	var ready := done(m)
+	if m.boss>=0 and not ready: m.draw_boss_reaction(g)
 	m.draw_result_frame(g,Rect2(460,65,930,820))
 	var title := "HELLATRO / FINAL RECKONING"
 	if ready: title = ("STAGE CLEARED!" if m.result_winner==0 else ("RUN OVER!" if m.result_winner==1 else "STAGE DRAW")) if m.run.enabled else ("YOU WON!" if m.result_winner==0 else ("YOU LOST!" if m.result_winner==1 else "DRAW"))
@@ -89,11 +97,13 @@ func draw(g,m) -> void:
 
 func draw_collage(g,m) -> void:
 	# Two overlapping rows of cutout portraits rising from the bottom edge.
-	for id in m.support.DATA.size():
-		var columns: int = ceili(m.support.DATA.size()/2.0)
-		var col: int = id%columns
-		var row := int(id/columns)
-		var arrival := smoothstep(0,1,clampf((m.result_age-id*0.025)/0.5,0,1))
+	# Hidden variants share their base portrait; don't multiply the collage.
+	for index in m.support.BASE_IDS.size():
+		var id: int = m.support.BASE_IDS[index]
+		var columns: int = ceili(m.support.BASE_IDS.size()/2.0)
+		var col: int = index%columns
+		var row := int(index/columns)
+		var arrival := smoothstep(0,1,clampf((m.result_age-index*0.025)/0.5,0,1))
 		var art_id: int = {47:6,48:14,49:16}.get(id,id)
 		var path: String = "res://assets/jokers/"+m.support.DATA[art_id][0]+".png"
 		if id==25 and (not m.support.art.has(id) or m.support.art[id]==null) and not g.art.textures.get("AMMO",[]).is_empty():
